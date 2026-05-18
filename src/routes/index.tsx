@@ -438,8 +438,8 @@ function HomePage() {
             <div>
               <div className="spec-label !text-[var(--brand-ink)]/70">Precisa hoje?</div>
               <h2 className="mt-1 font-display text-3xl leading-[0.95] tracking-tight text-[var(--brand-ink)] md:text-5xl">
-                Chame agora e entregamos<br />
-                <span className="font-editorial">no mesmo dia.</span>
+                Aluguel de betoneira em Osasco<br />
+                <span className="font-editorial">com entrega no mesmo dia.</span>
               </h2>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
