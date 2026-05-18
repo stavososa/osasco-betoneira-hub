@@ -453,7 +453,7 @@ function HomePage() {
                 <span className="font-editorial">de ponta a ponta.</span>
               </h2>
               <p className="reveal mt-5 max-w-md text-muted-foreground leading-relaxed">
-                Atendemos toda Osasco — Centro, Zona Norte, Zona Sul, Bussocaba, Quitaúna e Presidente Altino — além de cidades vizinhas da Grande São Paulo sob consulta. Entrega e retirada no mesmo dia.
+                Atendemos toda Osasco — Centro, Zona Norte, Zona Sul, Bussocaba, Quitaúna e Presidente Altino — além de cidades vizinhas como Carapicuíba, Cotia, Barueri, Jandira, Itapevi e a zona oeste de São Paulo. Entrega e retirada no mesmo dia.
               </p>
               <ul className="reveal mt-6 flex flex-wrap gap-2">
                 {DESTAQUES.map((b) => (
