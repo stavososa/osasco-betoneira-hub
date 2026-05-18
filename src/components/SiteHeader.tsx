@@ -27,6 +27,7 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-7 text-sm font-medium uppercase tracking-wider md:flex">
           <Link to="/" className="nav-link" activeProps={{ "data-active": "true" }}>Início</Link>
           <Link to="/servicos" className="nav-link" activeProps={{ "data-active": "true" }}>Serviços</Link>
+          <Link to="/comprar-betoneira" className="nav-link" activeProps={{ "data-active": "true" }}>Comprar</Link>
           <Link to="/sobre" className="nav-link" activeProps={{ "data-active": "true" }}>Sobre</Link>
           <Link to="/contato" className="nav-link" activeProps={{ "data-active": "true" }}>Contato</Link>
         </nav>

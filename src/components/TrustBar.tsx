@@ -5,8 +5,9 @@ const MARQUEE = [
   "Misturador de concreto e argamassa",
   "150L · 250L · 400L",
   "Diária · Semanal · Mensal",
+  "Locadora local · Frota própria",
+  "Também vendemos betoneira",
   "Equipamento revisado",
-  "Sem burocracia",
 ];
 
 export function TrustBar() {

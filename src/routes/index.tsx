@@ -5,7 +5,8 @@ import { MapEmbed } from "@/components/MapEmbed";
 import { HazardStripe } from "@/components/HazardStripe";
 import { TrustBar } from "@/components/TrustBar";
 import { Steps } from "@/components/Steps";
-import { ModelCard, type Modelo } from "@/components/ModelCard";
+import { ModelCard } from "@/components/ModelCard";
+import { MODELOS } from "@/lib/modelos";
 import { useReveal } from "@/lib/useReveal";
 import { BAIRROS } from "@/lib/bairros";
 import { ArrowIcon, PhoneIcon, TruckIcon, CheckIcon, MixerIcon, HelmetIcon, ClockIcon } from "@/components/icons/Icons";
@@ -65,12 +66,6 @@ export const Route = createFileRoute("/")({
   }),
   component: HomePage,
 });
-
-const MODELOS: Modelo[] = [
-  { volume: "250L", motor: "2 cv elétrica", voltagem: "220V mono", uso: "Lajes e contrapiso", destaque: true },
-  { volume: "150L", motor: "1/2 cv elétrica", voltagem: "110/220V", uso: "Reformas e reboco" },
-  { volume: "400L", motor: "5,5 hp gasolina", voltagem: "Gasolina", uso: "Muro e calçada" },
-];
 
 const SERVICOS = [
   {
