@@ -21,7 +21,7 @@ export const Route = createFileRoute("/servicos")({
 });
 
 const SERVICOS = [
-  { n: "01", titulo: "Locação de Betoneiras", desc: "150L, 250L e 400L para diária, semanal ou mensal. Equipamentos revisados.", itens: ["Diária a partir de R$ 80", "Descontos semanal/mensal", "Elétricas e a gasolina"] },
+  { n: "01", titulo: "Locação de Betoneiras", desc: "120L, 150L, 250L e 400L para diária, semanal ou mensal. Equipamentos revisados.", itens: ["Diária a partir de R$ 80", "Descontos semanal/mensal", "Elétricas e a gasolina"] },
   { n: "02", titulo: "Venda de Betoneiras", desc: "Novos e seminovos com garantia. Ideal para construtoras e profissionais.", itens: ["Novas e seminovas", "Garantia de fábrica", "Assistência em Osasco"] },
   { n: "03", titulo: "Entrega & Retirada", desc: "Logística rápida em toda Osasco. Entregamos onde sua obra estiver.", itens: ["Entrega no mesmo dia", "Retirada agendada", "Todos os bairros"] },
 ];
