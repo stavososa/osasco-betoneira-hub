@@ -36,12 +36,12 @@ export function ModelCard({ m, size = "sm" }: { m: Modelo; size?: "lg" | "sm" })
         </div>
       )}
       <div
-        className={`mt-4 numeric leading-none text-[var(--brand-ink)] break-words ${
+        className={`mt-4 numeric leading-none break-words ${
           isLarge
-            ? "text-7xl md:text-[7.5rem]"
+            ? "text-[var(--brand-ink)] text-7xl md:text-[7.5rem]"
             : m.volume.length > 4
-              ? "text-3xl md:text-4xl"
-              : "text-5xl"
+              ? "text-2xl"
+              : "text-[var(--brand-ink)] text-5xl"
         }`}
       >
         {m.volume}
