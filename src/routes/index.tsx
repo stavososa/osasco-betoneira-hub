@@ -10,7 +10,7 @@ import { MODELOS } from "@/lib/modelos";
 import { useReveal } from "@/lib/useReveal";
 import { BAIRROS } from "@/lib/bairros";
 import { ArrowIcon, PhoneIcon, TruckIcon, CheckIcon, MixerIcon, HelmetIcon, ClockIcon } from "@/components/icons/Icons";
-import betoneiraHero from "@/assets/betoneira-hero.png";
+import betoneiraHero from "@/assets/betoneira-hero.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
