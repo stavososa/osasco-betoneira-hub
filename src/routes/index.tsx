@@ -478,6 +478,24 @@ function HomePage() {
           </div>
         </section>
 
+        {/* TAMBÉM VENDE */}
+        <section className="mx-auto max-w-6xl px-4 pb-10">
+          <div className="reveal flex flex-col items-start justify-between gap-4 rounded-2xl bg-white p-6 ring-1 ring-black/5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.2)] md:flex-row md:items-center md:p-8">
+            <div>
+              <div className="spec-label text-[var(--brand-navy)]">Venda de betoneira em Osasco</div>
+              <p className="mt-1 font-display text-xl text-[var(--brand-ink)] md:text-2xl">
+                Quer comprar em vez de alugar? Trabalhamos com betoneiras novas e seminovas.
+              </p>
+            </div>
+            <Link
+              to="/comprar-betoneira"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[var(--brand-ink)] px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-yellow)] transition-transform hover:-translate-y-0.5"
+            >
+              Ver opções de venda <ArrowIcon size={14} />
+            </Link>
+          </div>
+        </section>
+
         {/* DEPOIMENTOS, fundo navy, cards arredondados */}
         <section className="relative noise-overlay bg-[var(--brand-navy)] py-24 text-white">
           <div className="mx-auto max-w-6xl px-4">
