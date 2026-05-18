@@ -24,6 +24,13 @@ export const MODELOS: Modelo[] = [
     tag: "Betoneira 150 litros para reforma",
   },
   {
+    volume: "120L",
+    motor: "1/3 cv elétrica",
+    voltagem: "110/220V",
+    uso: "Reparos e acabamentos",
+    tag: "Betoneira 120 litros compacta em Osasco",
+  },
+  {
     volume: "400L",
     motor: "5,5 hp gasolina",
     voltagem: "Gasolina",

@@ -54,6 +54,16 @@ const FAQ_VENDA = [
 
 const PRECOS_VENDA = [
   {
+    nome: "Betoneira 120L elétrica compacta",
+    preco: "R$ 1.000 a R$ 2.100",
+    categoria: "Entrada · Reparos e acabamentos",
+  },
+  {
+    nome: "Betoneira 120L elétrica profissional",
+    preco: "R$ 1.500 a R$ 2.600",
+    categoria: "Profissional leve · Pedreiro autônomo",
+  },
+  {
     nome: "Betoneira 150L elétrica compacta",
     preco: "R$ 1.200 a R$ 2.300",
     categoria: "Compacta · Uso hobby/pequeno",

@@ -107,6 +107,15 @@ export const Route = createFileRoute("/")({
 
 const PRECOS_LOCACAO = [
   {
+    modelo: "Betoneira 120L",
+    tag: "Reparos e Acabamentos",
+    motor: "Motor 1/3 cv · 110/220V bivolt · ~60 kg",
+    diaria: "R$ 70–110",
+    semanal: "R$ 180–320",
+    quinzenal: "R$ 320–500",
+    mensal: "R$ 400–650",
+  },
+  {
     modelo: "Betoneira 150L",
     tag: "Reformas Pequenas",
     motor: "Motor ½ cv · 110/220V bivolt · ~70 kg",

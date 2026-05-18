@@ -1,116 +1,54 @@
-## Escopo final
+## Objetivo
+Incluir o modelo **Betoneira 120L** em todo o site (home, página de venda, serviços, sobre, páginas de bairro e referência pública), com preços de aluguel e compra **ligeiramente abaixo** dos da 150L.
 
-1. Fechar gaps de SEO de **aluguel** já listados.
-2. Adicionar menções de **venda** distribuídas pela home (sem inflar o hero).
-3. Criar página dedicada **`/comprar-betoneira`** com todo o conteúdo de venda.
-4. Linkar a nova página no header, footer e em pontos estratégicos da home.
+## Preços propostos para 120L
 
----
+| Período | 150L (atual) | 120L (novo) |
+|---------|-------------|-------------|
+| Diária | R$ 80–120 | R$ 70–110 |
+| Semanal | R$ 200–350 | R$ 180–320 |
+| Quinzenal | R$ 350–550 | R$ 320–500 |
+| Mensal | R$ 450–700 | R$ 400–650 |
 
-## 1. Home (`src/routes/index.tsx`) — ajustes de SEO
+| Venda | 150L (atual) | 120L (novo) |
+|-------|-------------|-------------|
+| Compacta | R$ 1.200–2.300 | R$ 1.000–2.100 |
+| Profissional | R$ 1.700–2.800 | R$ 1.500–2.600 |
 
-### Hero
-- Mantém o foco em aluguel. Sem badge de "Aluguel e Venda".
-- Apenas um link discreto abaixo dos CTAs: `Procurando comprar? → Ver opções de venda`.
-- Alt da imagem: "Betoneira 400L amarela e azul para aluguel em Osasco SP".
+## Arquivos a alterar
 
-### Marquee (TrustBar)
-Adicionar: "Locadora local · Frota própria · Também vendemos betoneira".
+1. **`src/lib/modelos.ts`**
+   - Adicionar objeto 120L ao array `MODELOS` (motor ½ cv, 110/220V, uso "Reparos e pequenos acabamentos", tag SEO).
 
-### Modelos
-Subtítulo curto em cada card com keyword combinada (campo opcional novo no `Modelo`):
-- 250L → "Betoneira 250 litros elétrica em Osasco"
-- 150L → "Betoneira 150 litros para reforma"
-- 400L → "Betoneira 400 litros a gasolina em Osasco"
+2. **`src/routes/index.tsx`**
+   - Incluir 120L no array `PRECOS_LOCACAO` (posicionado como entrada mais leve).
+   - Atualizar descrição do hero: "Modelos de 120L, 150L, 250L e 400L".
+   - Atualizar meta title, description, og e JSON-LD (`LocalBusiness`, `Service`, `FAQPage`).
+   - Ajustar FAQ que cita "150L, 250L e 400L" para incluir 120L onde fizer sentido.
+   - Ajustar serviços (`SERVICOS`) e diferenciais se mencionarem volumes.
 
-### Nova seção "Preços e prazos" (aluguel)
-Logo após Modelos. 3 cards arredondados com sombra leve: *Diária*, *Semanal*, *Mensal*. Copy com "preço de aluguel de betoneira em Osasco", "valor da diária", "betoneira barata Osasco". Sem números fixos — "consulte pelo WhatsApp".
+3. **`src/routes/comprar-betoneira.tsx`**
+   - Incluir 120L nos preços de venda (`PRECOS_VENDA`).
+   - Atualizar hero e metadados: "120L, 150L, 250L e 400L".
+   - Ajustar `FAQ_VENDA` e JSON-LD (`Service`, `BreadcrumbList`, `FAQPage`).
 
-### Aplicações
-Expandir chips com: *Concretagem · Fundação · Baldrame · Chapisco · Emboço · Piso · Escada · Puxadinho* (mantém estilo).
+4. **`src/routes/servicos.tsx`**
+   - Atualizar texto do card de locação e meta description para "120L–400L".
 
-### Cobertura
-Reescrever parágrafo: "Atendemos Osasco e região — bairros de Osasco e cidades vizinhas: Carapicuíba, Cotia, Barueri, Jandira, Itapevi e zona oeste de São Paulo."
+5. **`src/routes/sobre.tsx`**
+   - Atualizar parágrafo que cita "150L, 250L e 400L" para incluir 120L.
 
-### Faixa discreta "Também vende?" (entre cobertura e depoimentos)
-Bloco fino, fundo claro, 1 linha + 1 botão:
-> **Quer comprar em vez de alugar?** Trabalhamos com betoneiras novas e seminovas em Osasco. → **Ver opções de venda** (link para `/comprar-betoneira`).
+6. **`src/routes/alugar-betoneira-em-$bairro.tsx`**
+   - Incluir 120L no `PRECOS_LOCACAO` local.
+   - Atualizar hero, meta description, JSON-LD e FAQ de modelo.
 
-### FAQ — +5 perguntas
-Aluguel:
-- "Quanto custa alugar uma betoneira em Osasco?"
-- "Como funciona o aluguel de betoneira em Osasco?"
-- "Quanto rende uma betoneira de 250 litros por hora?"
-- "Qual tamanho de betoneira usar para reforma residencial?"
+7. **`src/components/TrustBar.tsx`**
+   - Alterar item de marquee de "150L · 250L · 400L" para "120L · 150L · 250L · 400L".
 
-Venda (link para a página dedicada na resposta):
-- "Vocês também vendem betoneira em Osasco?" — resposta curta + link para `/comprar-betoneira`.
+8. **`public/llms.txt`**
+   - Adicionar seção Betoneira 120L com descrição, preços de locação e venda.
 
-### JSON-LD
-Manter `LocalBusiness` + `FAQPage`. Adicionar `@type: "Service"` para *Aluguel de Betoneira em Osasco* com `areaServed` e `provider`.
-
----
-
-## 2. Nova página `/comprar-betoneira` — `src/routes/comprar-betoneira.tsx`
-
-### Head
-- **title**: "Comprar Betoneira em Osasco | Venda de Betoneira Nova e Seminova"
-- **description**: "Venda de betoneira em Osasco SP: novas e seminovas de 150, 250 e 400 litros, elétricas 110V/220V e a gasolina, com garantia, nota fiscal e parcelamento. WhatsApp (11) 97546-5766."
-- **og:title / og:description**: variações com "comprar betoneira Osasco SP".
-- **canonical** e **og:url**: `/comprar-betoneira`.
-- **JSON-LD**: `@type: "Service"` (*Venda de Betoneira em Osasco*, `serviceType: "Construction equipment sales"`) + `BreadcrumbList` (Home → Comprar Betoneira).
-
-### Estrutura (mesmo design system da home)
-1. **Header reutilizado** (SiteHeader).
-2. **Hero compacto** (fundo navy, mesma identidade): H1 "Comprar Betoneira em Osasco", subtítulo cobrindo "venda de betoneira nova e seminova", "150L · 250L · 400L", "elétrica e a gasolina", "garantia e nota fiscal". CTAs WhatsApp + telefone, com texto "Pedir cotação de venda".
-3. **Por que comprar com a gente** — 3 cards arredondados com sombra leve:
-   - **Nova com garantia** — "Betoneira nova com garantia de fábrica, nota fiscal e assistência técnica."
-   - **Seminova revisada** — "Equipamento usado, revisado e testado, com preço acessível para começar agora."
-   - **Pagamento facilitado** — "PIX, cartão de débito/crédito e parcelamento. Atende pedreiro, empreiteiro e construtora."
-4. **Modelos à venda** — reaproveita `ModelCard` com os 3 modelos (150L, 250L, 400L). Texto acima cita "preço de betoneira 250 litros", "betoneira 400 litros gasolina à venda em Osasco".
-5. **Para quem é** — chips arredondados: *Pedreiro · Empreiteiro · Construtora · Reformista · Investidor de obra*.
-6. **Aluguel x Compra** — bloco comparativo curto (2 colunas) ligando ao tema "vale a pena alugar ou comprar betoneira"; CTA secundário "Prefere alugar? → Ver aluguel" linka para `/`.
-7. **FAQ de venda** (4 perguntas):
-   - "Quanto custa uma betoneira nova em Osasco?"
-   - "Vocês vendem betoneira seminova com garantia?"
-   - "Qual betoneira comprar para começar a trabalhar como pedreiro?"
-   - "A venda inclui nota fiscal e assistência técnica?"
-8. **CTA final** amarelo: "Peça uma cotação de venda em Osasco".
-9. **Footer reutilizado**.
-
-### Componente compartilhado
-Não vou extrair componente novo — reuso `ModelCard`, `SiteHeader`, `SiteFooter`, `HazardStripe` e o padrão visual da home (cards `rounded-2xl` + sombra leve).
-
----
-
-## 3. Navegação
-
-- **SiteHeader** (`src/components/SiteHeader.tsx`): adicionar item de menu **"Comprar"** entre "Serviços" e "Sobre" apontando para `/comprar-betoneira`.
-- **SiteFooter**: adicionar link "Comprar betoneira" na lista.
-- **Sitemap** (`src/routes/sitemap[.]xml.ts`): incluir a nova URL.
-
----
-
-## 4. Modelos compartilhados
-
-Criar `src/lib/modelos.ts` exportando o array `MODELOS` (hoje duplicado na home). A home e `/comprar-betoneira` consomem a mesma fonte, com textos contextuais diferentes.
-
----
-
-## Arquivos a alterar / criar
-
-- **Criar** `src/routes/comprar-betoneira.tsx`
-- **Criar** `src/lib/modelos.ts`
-- **Editar** `src/routes/index.tsx` (link discreto no hero, faixa "também vende", FAQ, preços, aplicações, cobertura, JSON-LD)
-- **Editar** `src/components/SiteHeader.tsx` (item "Comprar")
-- **Editar** `src/components/SiteFooter.tsx` (link no footer)
-- **Editar** `src/components/TrustBar.tsx` (itens novos)
-- **Editar** `src/components/ModelCard.tsx` (campo opcional `tag` para subtítulo SEO)
-- **Editar** `src/routes/sitemap[.]xml.ts` (nova URL)
-
-## Decisões assumidas
-
-- **Preços** ficam "consulte pelo WhatsApp" — sem números fixos.
-- **Sem marcas específicas** (sem citar Menegotti, CSM, etc.) — você pode me passar depois.
-- **Tipos vendidos**: novas E seminovas (cobertura ampla; se for só um, ajusto depois).
-- **Sem caução** continua fora — mantém o tom honesto da FAQ.
+## O que NÃO muda
+- O layout visual dos cards (`ModelCard`, grid, destaque) permanece o mesmo.
+- O sitemap não precisa de nova URL (apenas conteúdo existente é atualizado).
+- Nenhuma nova rota será criada.
