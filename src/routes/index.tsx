@@ -76,19 +76,19 @@ const SERVICOS = [
   {
     n: "01",
     t: "Locação",
-    d: "Diária, semanal ou mensal. Frota de 150L a 400L, sempre revisada antes da saída. Sem letras miúdas, você paga só pelos dias que usar.",
+    d: "Aluguel de betoneira em Osasco por diária, semana ou mês. Frota de 150L, 250L e 400L sempre revisada. Atende pedreiro, empreiteiro e construtora, sem letras miúdas.",
     Icon: MixerIcon,
   },
   {
     n: "02",
     t: "Venda",
-    d: "Novas e seminovas com garantia. Indicamos o modelo certo para o porte da sua obra antes de fechar negócio.",
+    d: "Betoneiras novas e seminovas com garantia. Indicamos entre elétrica monofásica (110V/220V) e a gasolina conforme o porte da sua obra residencial ou de médio porte.",
     Icon: CheckIcon,
   },
   {
     n: "03",
     t: "Entrega e Retirada",
-    d: "Logística própria em Osasco. Confirmou até o início da tarde, entregamos no mesmo dia. Retirada agendada sem dor de cabeça.",
+    d: "Logística própria em toda Osasco e região, do Centro à Zona Norte e Zona Sul. Confirmou até o início da tarde, entregamos no mesmo dia. Retirada agendada sem dor de cabeça.",
     Icon: TruckIcon,
   },
 ];
