@@ -257,7 +257,7 @@ function HomePage() {
                 alt="Betoneira 400L amarela e azul para aluguel em Osasco SP"
                 width={720}
                 height={780}
-                className="relative z-10 mx-auto w-full max-w-3xl md:max-w-none lg:scale-[1.4] rounded-3xl border-0 shadow-2xl shadow-black/50 object-fill"
+                className="relative z-10 mx-auto w-full max-w-3xl md:max-w-none lg:scale-[1.4] object-fill"
                 loading="eager"
               />
             </aside>
