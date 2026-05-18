@@ -13,6 +13,7 @@ import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlugarBetoneiraEmOsascoBairroRouteImport } from './routes/alugar-betoneira-em-osasco.$bairro'
 
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
@@ -34,18 +35,26 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlugarBetoneiraEmOsascoBairroRoute =
+  AlugarBetoneiraEmOsascoBairroRouteImport.update({
+    id: '/alugar-betoneira-em-osasco/$bairro',
+    path: '/alugar-betoneira-em-osasco/$bairro',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
+  '/alugar-betoneira-em-osasco/$bairro': typeof AlugarBetoneiraEmOsascoBairroRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
+  '/alugar-betoneira-em-osasco/$bairro': typeof AlugarBetoneiraEmOsascoBairroRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +62,30 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
+  '/alugar-betoneira-em-osasco/$bairro': typeof AlugarBetoneiraEmOsascoBairroRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contato' | '/servicos' | '/sobre'
+  fullPaths:
+    | '/'
+    | '/contato'
+    | '/servicos'
+    | '/sobre'
+    | '/alugar-betoneira-em-osasco/$bairro'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contato' | '/servicos' | '/sobre'
-  id: '__root__' | '/' | '/contato' | '/servicos' | '/sobre'
+  to:
+    | '/'
+    | '/contato'
+    | '/servicos'
+    | '/sobre'
+    | '/alugar-betoneira-em-osasco/$bairro'
+  id:
+    | '__root__'
+    | '/'
+    | '/contato'
+    | '/servicos'
+    | '/sobre'
+    | '/alugar-betoneira-em-osasco/$bairro'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +93,7 @@ export interface RootRouteChildren {
   ContatoRoute: typeof ContatoRoute
   ServicosRoute: typeof ServicosRoute
   SobreRoute: typeof SobreRoute
+  AlugarBetoneiraEmOsascoBairroRoute: typeof AlugarBetoneiraEmOsascoBairroRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +126,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/alugar-betoneira-em-osasco/$bairro': {
+      id: '/alugar-betoneira-em-osasco/$bairro'
+      path: '/alugar-betoneira-em-osasco/$bairro'
+      fullPath: '/alugar-betoneira-em-osasco/$bairro'
+      preLoaderRoute: typeof AlugarBetoneiraEmOsascoBairroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +141,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContatoRoute: ContatoRoute,
   ServicosRoute: ServicosRoute,
   SobreRoute: SobreRoute,
+  AlugarBetoneiraEmOsascoBairroRoute: AlugarBetoneiraEmOsascoBairroRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
