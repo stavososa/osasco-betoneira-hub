@@ -37,7 +37,11 @@ export function ModelCard({ m, size = "sm" }: { m: Modelo; size?: "lg" | "sm" })
       )}
       <div
         className={`mt-4 numeric leading-none text-[var(--brand-ink)] break-words ${
-          isLarge ? "text-7xl md:text-[7.5rem]" : "text-4xl md:text-5xl"
+          isLarge
+            ? "text-7xl md:text-[7.5rem]"
+            : m.volume.length > 4
+              ? "text-3xl md:text-4xl"
+              : "text-5xl"
         }`}
       >
         {m.volume}
