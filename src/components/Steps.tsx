@@ -2,7 +2,6 @@ const STEPS = [
   { n: "01", t: "Você chama", d: "WhatsApp ou telefone. Conta o modelo e o endereço." },
   { n: "02", t: "Confirmamos", d: "Orçamento na hora e janela de entrega no mesmo dia." },
   { n: "03", t: "Usa na obra", d: "Diária, semanal ou mensal , sem burocracia." },
-  { n: "04", t: "Buscamos", d: "Você termina, a gente passa para retirar." },
 ];
 
 export function Steps({ bairro }: { bairro?: string }) {
@@ -17,7 +16,7 @@ export function Steps({ bairro }: { bairro?: string }) {
           Como funciona{bairro ? ` em ${bairro}` : ""}
         </h2>
 
-        <ol className="mt-10 grid gap-6 md:grid-cols-4">
+        <ol className="mt-10 grid gap-6 md:grid-cols-3">
           {STEPS.map((s, i) => (
             <li key={s.n} className={`reveal reveal-delay-${i + 1} relative`}>
               <div className="cut-corner border-2 border-[var(--brand-ink)] bg-white p-5 hard-shadow">
