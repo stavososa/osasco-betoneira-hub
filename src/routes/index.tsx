@@ -302,6 +302,41 @@ function HomePage() {
           </div>
         </section>
 
+        {/* APLICAÇÕES */}
+        <section className="mx-auto max-w-6xl px-4 py-24">
+          <div className="reveal flex items-center gap-3">
+            <span className="h-px w-10 bg-[var(--brand-ink)]" />
+            <span className="spec-label">Aplicações</span>
+          </div>
+          <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
+            Para que serve <span className="font-editorial text-[var(--brand-navy)]">a betoneira</span>
+          </h2>
+          <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
+            Misturador de concreto, argamassa e cimento para construção civil e reforma em Osasco e Grande São Paulo. Mistura uniforme de areia, brita e cimento no traço certo para cada etapa da obra.
+          </p>
+          <ul className="reveal mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
+            {[
+              "Laje",
+              "Contrapiso",
+              "Calçada de concreto",
+              "Muro",
+              "Piscina",
+              "Quintal",
+              "Reboco",
+              "Alvenaria",
+              "Reforma residencial",
+              "Construção civil",
+            ].map((a) => (
+              <li
+                key={a}
+                className="rounded-2xl bg-white p-4 text-center text-sm font-bold uppercase tracking-wider text-[var(--brand-ink)] ring-1 ring-black/5 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.2)] transition-transform duration-300 hover:-translate-y-1"
+              >
+                {a}
+              </li>
+            ))}
+          </ul>
+        </section>
+
         {/* MAPA */}
         <section className="mx-auto max-w-6xl px-4 py-24">
           <div className="grid gap-10 md:grid-cols-[1fr_1.2fr]">
@@ -315,7 +350,7 @@ function HomePage() {
                 <span className="font-editorial">de ponta a ponta.</span>
               </h2>
               <p className="reveal mt-5 max-w-md text-muted-foreground leading-relaxed">
-                Da Zona Norte à Zona Sul, do Centro aos jardins. Entrega e retirada no mesmo dia.
+                Atendemos toda Osasco — Centro, Zona Norte, Zona Sul, Bussocaba, Quitaúna e Presidente Altino — além de cidades vizinhas da Grande São Paulo sob consulta. Entrega e retirada no mesmo dia.
               </p>
               <ul className="reveal mt-6 flex flex-wrap gap-2">
                 {DESTAQUES.map((b) => (
