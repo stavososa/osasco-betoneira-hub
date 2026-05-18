@@ -14,14 +14,27 @@ export function ModelCard({ m, size = "sm" }: { m: Modelo; size?: "lg" | "sm" })
       }`}
     >
       {m.destaque && (
-        <span className="absolute -top-3 left-4 rounded-full bg-[var(--brand-ink)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[var(--brand-yellow)] shadow-sm">
+        <span className="absolute -top-3 left-4 z-10 rounded-full bg-[var(--brand-ink)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[var(--brand-yellow)] shadow-sm">
           Mais alugada
         </span>
       )}
-      <div className="flex items-start justify-between">
-        <MixerIcon size={isLarge ? 72 : 48} className="text-[var(--brand-navy)]" />
-        <span className="spec-label">Ref. {m.volume}</span>
-      </div>
+      {m.imagem ? (
+        <div className={`relative -mx-6 -mt-6 mb-4 overflow-hidden rounded-t-2xl bg-[var(--brand-ink)]/5 ${isLarge ? "aspect-[4/3]" : "aspect-square"}`}>
+          <img
+            src={m.imagem}
+            alt={m.alt ?? `Betoneira ${m.volume} em Osasco`}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <span className="absolute right-3 top-3 rounded-full bg-white/90 px-2 py-1 spec-label backdrop-blur">Ref. {m.volume}</span>
+        </div>
+      ) : (
+        <div className="flex items-start justify-between">
+          <MixerIcon size={isLarge ? 72 : 48} className="text-[var(--brand-navy)]" />
+          <span className="spec-label">Ref. {m.volume}</span>
+        </div>
+      )}
       <div
         className={`mt-4 numeric leading-none text-[var(--brand-ink)] ${
           isLarge ? "text-7xl md:text-[7.5rem]" : "text-5xl"
