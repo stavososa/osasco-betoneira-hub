@@ -183,36 +183,6 @@ function HomePage() {
         {/* STEPS */}
         <Steps />
 
-        {/* DIFERENCIAIS, fundo navy */}
-        <section className="relative noise-overlay bg-[var(--brand-navy)] py-24 text-white">
-          <div className="mx-auto max-w-6xl px-4">
-            <div className="reveal flex items-center gap-3">
-              <span className="h-px w-10 bg-[var(--brand-yellow)]" />
-              <span className="spec-label !text-white/70">Por que a gente</span>
-            </div>
-            <h2 className="reveal mt-2 font-display text-3xl tracking-tight md:text-5xl">
-              Atendimento de obra, <span className="text-[var(--brand-yellow)]">na hora da obra.</span>
-            </h2>
-            <p className="reveal mt-4 max-w-2xl text-white/75 leading-relaxed">
-              A gente trabalha como você trabalha: combinou, cumpriu. Sem promessa que não entrega, sem máquina parada na sua obra.
-            </p>
-
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {DIFERENCIAIS.map((d, i) => (
-                <div
-                  key={d.t}
-                  className="reveal border-l-2 border-[var(--brand-yellow)] bg-white/[0.04] p-6"
-                  style={{ ["--i" as never]: i }}
-                >
-                  <d.Icon size={32} className="text-[var(--brand-yellow)]" />
-                  <h3 className="mt-4 font-display text-lg">{d.t}</h3>
-                  <p className="mt-2 text-sm text-white/75 leading-relaxed">{d.d}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* MODELOS, bento */}
         <section className="mx-auto max-w-6xl px-4 py-24">
           <div className="reveal flex items-center gap-3">
@@ -327,35 +297,35 @@ function HomePage() {
           </div>
         </section>
 
-        {/* DEPOIMENTOS, com 5 estrelas */}
-        <section className="bg-[var(--brand-concrete)] py-24">
-          <div className="mx-auto max-w-4xl px-4">
+        {/* DEPOIMENTOS, fundo navy, cards arredondados */}
+        <section className="relative noise-overlay bg-[var(--brand-navy)] py-24 text-white">
+          <div className="mx-auto max-w-6xl px-4">
             <div className="reveal flex items-center gap-3">
-              <span className="h-px w-10 bg-[var(--brand-ink)]" />
-              <span className="spec-label">Quem já usou</span>
+              <span className="h-px w-10 bg-[var(--brand-yellow)]" />
+              <span className="spec-label !text-white/70">Quem já usou</span>
             </div>
-            <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
-              Obras <span className="font-editorial text-[var(--brand-navy)]">atendidas</span> em Osasco
+            <h2 className="reveal mt-2 font-display text-3xl tracking-tight md:text-5xl">
+              Obras <span className="text-[var(--brand-yellow)]">atendidas</span> em Osasco
             </h2>
 
-            <div className="mt-12 divide-y-2 divide-[var(--brand-ink)]/15 border-y-2 border-[var(--brand-ink)]/15">
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
               {DEPOIMENTOS.map((d, i) => (
                 <figure
                   key={d.n}
-                  className="reveal grid gap-6 py-10 md:grid-cols-[auto_1fr]"
+                  className="reveal rounded-2xl bg-white p-7 text-[var(--brand-ink)] shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)] ring-1 ring-black/5"
                   style={{ ["--i" as never]: i }}
                 >
-                  <div className="md:w-44">
-                    <div className="flex gap-0.5 text-[var(--brand-yellow)]">
-                      {Array.from({ length: 5 }).map((_, j) => <Star key={j} />)}
-                    </div>
-                    <div className="mt-3 font-display text-base text-[var(--brand-ink)]">{d.n}</div>
-                    <div className="spec-label mt-1">{d.b}</div>
-                    <div className="mt-1 font-mono text-xs text-[var(--brand-ink)]/70">{d.o}</div>
+                  <div className="flex gap-0.5 text-[var(--brand-yellow)]">
+                    {Array.from({ length: 5 }).map((_, j) => <Star key={j} />)}
                   </div>
-                  <blockquote className="font-sans text-lg leading-relaxed text-[var(--brand-ink)] md:text-xl">
+                  <blockquote className="mt-4 font-sans text-base leading-relaxed text-[var(--brand-ink)]">
                     “{d.t}”
                   </blockquote>
+                  <figcaption className="mt-6 border-t border-[var(--brand-ink)]/10 pt-4">
+                    <div className="font-display text-base text-[var(--brand-ink)]">{d.n}</div>
+                    <div className="spec-label mt-1">{d.b}</div>
+                    <div className="mt-1 font-mono text-xs text-[var(--brand-ink)]/70">{d.o}</div>
+                  </figcaption>
                 </figure>
               ))}
             </div>
