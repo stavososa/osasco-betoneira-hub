@@ -305,6 +305,58 @@ function HomePage() {
           </div>
         </section>
 
+        {/* PREÇOS E PRAZOS */}
+        <section className="bg-[var(--brand-concrete)] py-20">
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="reveal flex items-center gap-3">
+              <span className="h-px w-10 bg-[var(--brand-ink)]" />
+              <span className="spec-label">Preços e prazos</span>
+            </div>
+            <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
+              Preço do aluguel de <span className="font-editorial text-[var(--brand-navy)]">betoneira em Osasco</span>
+            </h2>
+            <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
+              Cobramos por uso real: diária, semanal ou mensal. Sem letras miúdas e com a betoneira mais barata de Osasco para reformas pequenas. Manda o modelo e o prazo no WhatsApp que a gente passa o valor na hora.
+            </p>
+
+            <div className="reveal mt-10 grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  prazo: "Diária",
+                  desc: "Ideal para reformas pontuais, contrapiso e reboco que terminam no mesmo dia.",
+                  tag: "Valor da diária",
+                },
+                {
+                  prazo: "Semanal",
+                  desc: "Para lajes residenciais, calçadas e muros. Desconto progressivo a partir de 3 diárias.",
+                  tag: "Pacote semanal",
+                },
+                {
+                  prazo: "Mensal",
+                  desc: "Para construtoras, empreiteiros e obras de médio porte. Melhor custo por dia.",
+                  tag: "Longo prazo",
+                },
+              ].map((p) => (
+                <article
+                  key={p.prazo}
+                  className="rounded-2xl bg-white p-6 ring-1 ring-black/5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.2)] transition-transform duration-300 hover:-translate-y-1"
+                >
+                  <div className="spec-label text-[var(--brand-navy)]">{p.tag}</div>
+                  <div className="mt-2 font-display text-3xl text-[var(--brand-ink)]">{p.prazo}</div>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                  <a
+                    href="https://wa.me/5511975465766"
+                    target="_blank" rel="noopener"
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[var(--brand-navy)] hover:underline"
+                  >
+                    Consultar valor <ArrowIcon size={14} />
+                  </a>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* SERVIÇOS, zig-zag */}
         <section className="border-y-2 border-[var(--brand-ink)] bg-[var(--brand-concrete)] py-20">
           <div className="mx-auto max-w-6xl px-4">
