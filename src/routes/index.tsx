@@ -27,10 +27,10 @@ export const Route = createFileRoute("/")({
         content:
           "Locação de betoneira em Osasco com entrega no mesmo dia. Misturador de concreto e argamassa para obras residenciais e de médio porte.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -38,6 +38,8 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           name: "Betoneira Osasco",
+          image: "https://betoneiraosasco.com.br/assets/betoneira-hero.webp",
+          logo: "https://betoneiraosasco.com.br/assets/logo-betoneira-osasco.webp",
           description:
             "Aluguel e venda de betoneiras em Osasco e região: locação diária, semanal e mensal de misturadores de concreto e argamassa de 150, 250 e 400 litros.",
           telephone: "+55 11 97546-5766",
@@ -46,8 +48,23 @@ export const Route = createFileRoute("/")({
             { "@type": "AdministrativeArea", name: "Grande São Paulo" },
           ],
           priceRange: "$$",
-          address: { "@type": "PostalAddress", addressLocality: "Osasco", addressRegion: "SP", addressCountry: "BR" },
-          url: "/",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Centro de Osasco",
+            addressLocality: "Osasco",
+            addressRegion: "SP",
+            postalCode: "06010-000",
+            addressCountry: "BR",
+          },
+          url: "https://betoneiraosasco.com.br",
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              opens: "07:00",
+              closes": "19:00",
+            },
+          ],
         }),
       },
       {
@@ -87,6 +104,46 @@ export const Route = createFileRoute("/")({
   }),
   component: HomePage,
 });
+
+const PRECOS_LOCACAO = [
+  {
+    modelo: "Betoneira 150L",
+    tag: "Reformas Pequenas",
+    motor: "Motor ½ cv · 110/220V bivolt · ~70 kg",
+    diaria: "R$ 80–120",
+    semanal: "R$ 200–350",
+    quinzenal: "R$ 350–550",
+    mensal: "R$ 450–700",
+  },
+  {
+    modelo: "Betoneira 250L",
+    tag: "Obras Residenciais · Mais Alugada",
+    motor: "Motor 1–2 cv · 220V mono · ~120 kg",
+    diaria: "R$ 120–180",
+    semanal: "R$ 350–550",
+    quinzenal: "R$ 550–850",
+    mensal: "R$ 700–1.100",
+    destaque: true,
+  },
+  {
+    modelo: "Betoneira 400L Elétrica",
+    tag: "Obras de Médio Porte",
+    motor: "Motor 2 cv · 220V mono · ~155 kg",
+    diaria: "R$ 160–220",
+    semanal: "R$ 500–750",
+    quinzenal: "R$ 800–1.200",
+    mensal: "R$ 1.000–1.600",
+  },
+  {
+    modelo: "Betoneira 400L Gasolina",
+    tag: "Sem Energia Elétrica / Obras Externas",
+    motor: "Motor 5,5 hp gasolina · Alta mobilidade",
+    diaria: "R$ 200–280",
+    semanal: "R$ 650–950",
+    quinzenal: "R$ 1.000–1.500",
+    mensal: "R$ 1.400–2.000",
+  },
+];
 
 const SERVICOS = [
   {
@@ -298,46 +355,52 @@ function HomePage() {
           <div className="mx-auto max-w-6xl px-4">
             <div className="reveal flex items-center gap-3">
               <span className="h-px w-10 bg-[var(--brand-ink)]" />
-              <span className="spec-label">Preços e prazos</span>
+              <span className="spec-label">Valores Transparentes</span>
             </div>
             <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
               Preço do aluguel de <span className="font-editorial text-[var(--brand-navy)]">betoneira em Osasco</span>
             </h2>
             <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-              Cobramos por uso real: diária, semanal ou mensal. Sem letras miúdas e com a betoneira mais barata de Osasco para reformas pequenas. Manda o modelo e o prazo no WhatsApp que a gente passa o valor na hora.
+              Tabela de preços médios por período de locação em Osasco SP. Cobramos por uso real e entregamos no mesmo dia sem burocracias. Pagamento flexível na entrega.
             </p>
 
-            <div className="reveal mt-10 grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  prazo: "Diária",
-                  desc: "Ideal para reformas pontuais, contrapiso e reboco que terminam no mesmo dia.",
-                  tag: "Valor da diária",
-                },
-                {
-                  prazo: "Semanal",
-                  desc: "Para lajes residenciais, calçadas e muros. Desconto progressivo a partir de 3 diárias.",
-                  tag: "Pacote semanal",
-                },
-                {
-                  prazo: "Mensal",
-                  desc: "Para construtoras, empreiteiros e obras de médio porte. Melhor custo por dia.",
-                  tag: "Longo prazo",
-                },
-              ].map((p) => (
+            <div className="reveal mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {PRECOS_LOCACAO.map((p) => (
                 <article
-                  key={p.prazo}
-                  className="rounded-2xl bg-white p-6 ring-1 ring-black/5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.2)] transition-transform duration-300 hover:-translate-y-1"
+                  key={p.modelo}
+                  className={`rounded-2xl bg-white p-6 ring-1 ring-black/5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.2)] transition-transform duration-300 hover:-translate-y-1 ${
+                    p.destaque ? "ring-2 ring-[var(--brand-yellow)]" : ""
+                  }`}
                 >
-                  <div className="spec-label text-[var(--brand-navy)]">{p.tag}</div>
-                  <div className="mt-2 font-display text-3xl text-[var(--brand-ink)]">{p.prazo}</div>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                  <span className="spec-label text-[var(--brand-navy)]">{p.tag}</span>
+                  <div className="mt-2 font-display text-xl text-[var(--brand-ink)]">{p.modelo}</div>
+                  <p className="mt-1 font-mono text-[10px] text-muted-foreground">{p.motor}</p>
+                  
+                  <div className="mt-5 space-y-2 border-t border-dashed border-[var(--brand-ink)]/10 pt-4">
+                    <div className="flex justify-between text-xs">
+                      <span className="text-muted-foreground">Diária:</span>
+                      <strong className="text-[var(--brand-ink)] font-mono">{p.diaria}</strong>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-muted-foreground">Semanal:</span>
+                      <strong className="text-[var(--brand-ink)] font-mono">{p.semanal}</strong>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-muted-foreground">Quinzenal:</span>
+                      <strong className="text-[var(--brand-ink)] font-mono">{p.quinzenal}</strong>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-muted-foreground">Mensal:</span>
+                      <strong className="text-[var(--brand-navy)] font-mono font-bold">{p.mensal}</strong>
+                    </div>
+                  </div>
+
                   <a
                     href="https://wa.me/5511975465766"
                     target="_blank" rel="noopener"
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[var(--brand-navy)] hover:underline"
+                    className="mt-6 inline-flex w-full justify-center items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] py-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-ink)]"
                   >
-                    Consultar valor <ArrowIcon size={14} />
+                    Orçamento WhatsApp <ArrowIcon size={12} />
                   </a>
                 </article>
               ))}
@@ -447,7 +510,7 @@ function HomePage() {
                 {DESTAQUES.map((b) => (
                   <li key={b.slug}>
                     <Link
-                      to="/alugar-betoneira-em-osasco/$bairro"
+                      to="/alugar-betoneira-em-$bairro"
                       params={{ bairro: b.slug }}
                       className="inline-block border border-[var(--brand-ink)] bg-white px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--brand-ink)] transition-colors hover:bg-[var(--brand-yellow)]"
                     >

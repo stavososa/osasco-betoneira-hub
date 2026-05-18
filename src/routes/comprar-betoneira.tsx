@@ -52,6 +52,59 @@ const FAQ_VENDA = [
   },
 ];
 
+const PRECOS_VENDA = [
+  {
+    nome: "Betoneira 150L elétrica compacta",
+    preco: "R$ 1.200 a R$ 2.300",
+    categoria: "Compacta · Uso hobby/pequeno",
+  },
+  {
+    nome: "Betoneira 150L elétrica profissional",
+    preco: "R$ 1.700 a R$ 2.800",
+    categoria: "Profissional · Reformas",
+  },
+  {
+    nome: "Betoneira 250L elétrica monofásica",
+    preco: "R$ 2.500 a R$ 4.800",
+    categoria: "Residencial · Mais procurada",
+  },
+  {
+    nome: "Betoneira 400L elétrica monofásica",
+    preco: "R$ 3.500 a R$ 6.000",
+    categoria: "Rental padrão · Obras de médio porte",
+  },
+  {
+    nome: "Betoneira 400L elétrica trifásica",
+    preco: "R$ 4.500 a R$ 7.000",
+    categoria: "Industrial · Alta capacidade",
+  },
+  {
+    nome: "Betoneira 400L tipo rental (reforçada)",
+    preco: "R$ 4.750 a R$ 8.000",
+    categoria: "Rental reforçada · Longa durabilidade",
+  },
+  {
+    nome: "Betoneira 400L a gasolina 5,5 cv",
+    preco: "R$ 5.500 a R$ 8.500",
+    categoria: "Sem energia · Motor estacionário",
+  },
+  {
+    nome: "Betoneira 400L a gasolina 7–12 cv",
+    preco: "R$ 8.000 a R$ 14.000",
+    categoria: "Heavy Duty · Alta potência",
+  },
+  {
+    nome: "Betoneira 400L sem motor (tambor)",
+    preco: "R$ 1.800 a R$ 3.200",
+    categoria: "Apenas estrutura / tambor completo",
+  },
+  {
+    nome: "Betoneira seminova / usada",
+    preco: "R$ 600 a R$ 5.000",
+    categoria: "Custo-benefício (depende do modelo)",
+  },
+];
+
 export const Route = createFileRoute("/comprar-betoneira")({
   head: () => ({
     meta: [
@@ -67,10 +120,10 @@ export const Route = createFileRoute("/comprar-betoneira")({
         content:
           "Compre betoneira em Osasco: 150L, 250L e 400L, elétrica ou a gasolina, com garantia e nota fiscal.",
       },
-      { property: "og:url", content: "/comprar-betoneira" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/comprar-betoneira" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/comprar-betoneira" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/comprar-betoneira" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -84,6 +137,7 @@ export const Route = createFileRoute("/comprar-betoneira")({
             name: "Betoneira Osasco",
             telephone: "+55 11 97546-5766",
             address: { "@type": "PostalAddress", addressLocality: "Osasco", addressRegion: "SP", addressCountry: "BR" },
+            url: "https://betoneiraosasco.com.br/comprar-betoneira",
           },
           areaServed: [
             { "@type": "City", name: "Osasco" },
@@ -102,8 +156,8 @@ export const Route = createFileRoute("/comprar-betoneira")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Comprar Betoneira", item: "/comprar-betoneira" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
+            { "@type": "ListItem", position: 2, name: "Comprar Betoneira", item: "https://betoneiraosasco.com.br/comprar-betoneira" },
           ],
         }),
       },
@@ -217,7 +271,7 @@ function ComprarPage() {
               Betoneiras <span className="font-editorial text-[var(--brand-navy)]">à venda</span> em Osasco
             </h2>
             <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-              Preço de betoneira 150, 250 e 400 litros — elétrica monofásica (110V/220V) ou a gasolina. A 250L elétrica é a mais vendida para pedreiro autônomo; a 400L a gasolina é a preferida de construtora e empreiteiro.
+              Preço de betoneira 150, 250 e 400 litros — elétrica monofásica (110V/220V) ou a gasolina. Confira abaixo as faixas de preço de equipamentos novos e seminovos com garantia.
             </p>
 
             <div className="reveal mt-10 grid gap-6 md:grid-cols-3">
@@ -225,6 +279,45 @@ function ComprarPage() {
                 <ModelCard key={m.volume} m={{ ...m, destaque: false }} />
               ))}
             </div>
+
+            {/* TABELA DE PREÇOS DE VENDA */}
+            <div className="reveal mt-16 rounded-2xl bg-white p-6 ring-1 ring-black/5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.2)]">
+              <h3 className="font-display text-2xl text-[var(--brand-ink)] mb-6 text-center md:text-left">
+                Tabela Completa de Preços de <span className="font-editorial text-[var(--brand-navy)]">Venda (Novas e Seminovas)</span>
+              </h3>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="border-b-2 border-[var(--brand-ink)] pb-4 text-xs font-bold uppercase tracking-wider text-[var(--brand-navy)]">
+                      <th className="py-3 px-4">Modelo / Especificação</th>
+                      <th className="py-3 px-4">Categoria / Indicação</th>
+                      <th className="py-3 px-4 text-right">Faixa de Preço (Venda)</th>
+                      <th className="py-3 px-4 text-right">Ação</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[var(--brand-ink)]/10 text-sm">
+                    {PRECOS_VENDA.map((item) => (
+                      <tr key={item.nome} className="hover:bg-[var(--brand-concrete)]/50 transition-colors">
+                        <td className="py-4 px-4 font-bold text-[var(--brand-ink)]">{item.nome}</td>
+                        <td className="py-4 px-4 text-muted-foreground">{item.categoria}</td>
+                        <td className="py-4 px-4 text-right font-mono font-bold text-[var(--brand-navy)]">{item.preco}</td>
+                        <td className="py-4 px-4 text-right">
+                          <a
+                            href={`https://wa.me/5511975465766?text=${encodeURIComponent(`Olá! Quero solicitar orçamento para compra de: ${item.nome}`)}`}
+                            target="_blank" rel="noopener"
+                            className="inline-flex border border-[var(--brand-ink)] bg-[var(--brand-yellow)] px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[var(--brand-ink)] transition-colors hover:bg-[var(--brand-ink)] hover:text-white"
+                          >
+                            Orçamento
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
           </div>
         </section>
 

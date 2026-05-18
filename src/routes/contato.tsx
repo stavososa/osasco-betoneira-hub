@@ -14,9 +14,9 @@ export const Route = createFileRoute("/contato")({
       { name: "description", content: "Fale com a Betoneira Osasco: WhatsApp (11) 97546-5766. Atendimento em toda Osasco, entrega e retirada no mesmo dia." },
       { property: "og:title", content: "Contato | Betoneira Osasco" },
       { property: "og:description", content: "Telefone e WhatsApp (11) 97546-5766." },
-      { property: "og:url", content: "/contato" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/contato" },
     ],
-    links: [{ rel: "canonical", href: "/contato" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/contato" }],
   }),
   component: ContatoPage,
 });

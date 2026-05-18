@@ -13,9 +13,9 @@ export const Route = createFileRoute("/servicos")({
       { name: "description", content: "Locação diária/semanal/mensal, venda de betoneiras 150L–400L e entrega/retirada em Osasco. Solicite um orçamento." },
       { property: "og:title", content: "Serviços | Betoneira Osasco" },
       { property: "og:description", content: "Locação, venda e logística de betoneiras em Osasco." },
-      { property: "og:url", content: "/servicos" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/servicos" },
     ],
-    links: [{ rel: "canonical", href: "/servicos" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/servicos" }],
   }),
   component: ServicosPage,
 });

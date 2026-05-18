@@ -12,9 +12,9 @@ export const Route = createFileRoute("/sobre")({
       { name: "description", content: "Empresa local de Osasco especializada em locação e venda de betoneiras. Atendimento ágil, equipamentos revisados e preço justo." },
       { property: "og:title", content: "Sobre a Betoneira Osasco" },
       { property: "og:description", content: "Locação e venda de betoneiras em Osasco com atendimento ágil." },
-      { property: "og:url", content: "/sobre" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/sobre" },
     ],
-    links: [{ rel: "canonical", href: "/sobre" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/sobre" }],
   }),
   component: SobrePage,
 });

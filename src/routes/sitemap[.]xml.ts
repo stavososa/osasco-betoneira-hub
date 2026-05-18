@@ -3,7 +3,7 @@ import type {} from "@tanstack/react-start";
 import { BAIRROS } from "@/lib/bairros";
 
 // TODO: replace with your project URL once a project name or custom domain is set.
-const BASE_URL = "";
+const BASE_URL = "https://betoneiraosasco.com.br";
 
 interface SitemapEntry {
   path: string;
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/sobre", changefreq: "monthly", priority: "0.6" },
           { path: "/contato", changefreq: "monthly", priority: "0.7" },
           ...BAIRROS.map((b) => ({
-            path: `/alugar-betoneira-em-osasco/${b.slug}`,
+            path: `/alugar-betoneira-em-${b.slug}`,
             changefreq: "monthly" as const,
             priority: "0.8",
           })),
