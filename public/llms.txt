@@ -33,6 +33,9 @@ Serviço profissional de aluguel (locação) e venda de betoneiras na cidade de 
    - Semanal: R$ 650–950
    - Quinzenal: R$ 1.000–1.500
    - Mensal: R$ 1.400–2.000
+5. **Caminhão Betoneira (mixer truck)**: Para obras de grande porte e concretagem em grande volume. Operador incluso, varia conforme região.
+   - Diária: R$ 1.500–6.000 (varia conforme região)
+   - Mensal: R$ 20.000–80.000+
 
 ## Modelos Disponíveis para Venda (Preços e Modelos)
 - Betoneira 120L elétrica compacta: R$ 1.000 a R$ 2.100
@@ -47,6 +50,7 @@ Serviço profissional de aluguel (locação) e venda de betoneiras na cidade de 
 - Betoneira 400L a gasolina 7–12 cv: R$ 8.000 a R$ 14.000
 - Betoneira 400L sem motor (tambor): R$ 1.800 a R$ 3.200
 - Betoneira seminova / usada: R$ 600 a R$ 5.000 (depende do modelo)
+- Caminhão Betoneira (mixer truck): R$ 300.000 a R$ 1.800.000
 
 ## Diferenciais Competitivos
 - Entrega e retirada no mesmo dia para pedidos agendados até o meio-dia.
