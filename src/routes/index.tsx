@@ -439,7 +439,64 @@ function HomePage() {
           </div>
         </section>
 
-        {/* SERVIÇOS, zig-zag */}
+        {/* PREÇOS DE VENDA */}
+        <section className="bg-white py-20">
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="reveal flex items-center gap-3">
+              <span className="h-px w-10 bg-[var(--brand-ink)]" />
+              <span className="spec-label">Venda · Faixas de Preço</span>
+            </div>
+            <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
+              Preço para <span className="font-editorial text-[var(--brand-navy)]">comprar betoneira</span> em Osasco
+            </h2>
+            <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
+              Faixas de preço de referência para venda de betoneira nova em Osasco SP. Trabalhamos também com seminovas a partir de R$ 600. Parcelamos no cartão, com nota fiscal e garantia.
+            </p>
+
+            <div className="reveal mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {PRECOS_VENDA.map((p) => (
+                <article
+                  key={p.modelo}
+                  className={`rounded-2xl bg-[var(--brand-concrete)] p-6 ring-1 ring-black/5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.2)] transition-transform duration-300 hover:-translate-y-1 ${
+                    p.destaque ? "ring-2 ring-[var(--brand-yellow)]" : ""
+                  }`}
+                >
+                  <span className="spec-label text-[var(--brand-navy)]">{p.tag}</span>
+                  <div className="mt-2 font-display text-xl text-[var(--brand-ink)]">{p.modelo}</div>
+                  <p className="mt-1 font-mono text-[10px] text-muted-foreground">{p.motor}</p>
+
+                  <div className="mt-5 border-t border-dashed border-[var(--brand-ink)]/10 pt-4">
+                    <div className="spec-label text-muted-foreground">À vista a partir de</div>
+                    <div className="mt-1 font-mono text-lg font-bold text-[var(--brand-navy)]">{p.faixa}</div>
+                    <p className="mt-2 text-[11px] text-muted-foreground">Nota fiscal · Garantia · Parcelamos</p>
+                  </div>
+
+                  <a
+                    href="https://wa.me/5511975465766"
+                    target="_blank" rel="noopener"
+                    className="mt-6 inline-flex w-full justify-center items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] py-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-ink)]"
+                  >
+                    Cotação de venda <ArrowIcon size={12} />
+                  </a>
+                </article>
+              ))}
+            </div>
+
+            <div className="reveal mt-8 flex flex-wrap items-center justify-between gap-4 rounded-xl bg-[var(--brand-concrete)] p-5">
+              <p className="text-sm text-[var(--brand-ink)]">
+                <strong>Betoneira seminova revisada</strong> · R$ 600 a R$ 5.000 conforme modelo e estado.
+              </p>
+              <Link
+                to="/comprar-betoneira"
+                className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[var(--brand-navy)] hover:underline"
+              >
+                Ver página de venda completa <ArrowIcon size={14} />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+
         <section className="border-y-2 border-[var(--brand-ink)] bg-[var(--brand-concrete)] py-20">
           <div className="mx-auto max-w-6xl px-4">
             <div className="reveal flex items-center gap-3">
