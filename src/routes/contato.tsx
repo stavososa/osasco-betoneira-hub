@@ -10,9 +10,9 @@ import { PhoneIcon, ArrowIcon } from "@/components/icons/Icons";
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
-      { title: "Contato — Betoneira Osasco" },
+      { title: "Contato , Betoneira Osasco" },
       { name: "description", content: "Fale com a Betoneira Osasco: WhatsApp (11) 97546-5766. Atendimento em toda Osasco, entrega e retirada no mesmo dia." },
-      { property: "og:title", content: "Contato — Betoneira Osasco" },
+      { property: "og:title", content: "Contato , Betoneira Osasco" },
       { property: "og:description", content: "Telefone e WhatsApp (11) 97546-5766." },
       { property: "og:url", content: "/contato" },
     ],
@@ -116,9 +116,9 @@ function ContatoPage() {
             <span className="spec-label">Localização</span>
           </div>
           <h2 className="reveal mt-2 font-display text-2xl text-[var(--brand-ink)] md:text-3xl">Onde estamos</h2>
-          <p className="reveal mt-2 text-sm text-muted-foreground">Sede em Osasco — atendemos toda a cidade.</p>
+          <p className="reveal mt-2 text-sm text-muted-foreground">Sede em Osasco , atendemos toda a cidade.</p>
           <div className="reveal mt-6">
-            <MapEmbed query="Osasco, SP, Brasil" title="Localização — Osasco" />
+            <MapEmbed query="Osasco, SP, Brasil" title="Localização , Osasco" />
           </div>
         </section>
       </main>

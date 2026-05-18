@@ -19,7 +19,7 @@ export const Route = createFileRoute("/alugar-betoneira-em-osasco/$bairro")({
   head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [{ title: "Bairro não encontrado" }] };
     const { bairro } = loaderData;
-    const title = `Alugar Betoneira em ${bairro.nome}, Osasco — Entrega no mesmo dia`;
+    const title = `Alugar Betoneira em ${bairro.nome}, Osasco , Entrega no mesmo dia`;
     const desc = `Locação de betoneiras em ${bairro.nome}, Osasco. Entrega e retirada no mesmo dia. Modelos 150L a 400L. WhatsApp (11) 97546-5766.`;
     const url = `/alugar-betoneira-em-osasco/${params.bairro}`;
     return {
@@ -110,7 +110,7 @@ function BairroPage() {
             </h2>
             <div className="mt-4 space-y-3 text-sm text-foreground/85">
               <p>
-                A <strong>Betoneira Osasco</strong> atende o bairro <strong>{bairro.nome}</strong> com locação e venda. Entregamos o equipamento direto na sua obra e cuidamos da retirada — você foca na construção, nós cuidamos da logística.
+                A <strong>Betoneira Osasco</strong> atende o bairro <strong>{bairro.nome}</strong> com locação e venda. Entregamos o equipamento direto na sua obra e cuidamos da retirada , você foca na construção, nós cuidamos da logística.
               </p>
               <p>
                 Trabalhamos com modelos <strong>elétricos e a gasolina</strong> de <strong>150L, 250L e 400L</strong>, atendendo de pequenas reformas a obras de médio porte em {bairro.nome} e bairros vizinhos.
@@ -122,7 +122,7 @@ function BairroPage() {
                 `Entrega no mesmo dia em ${bairro.nome}`,
                 "Equipamentos revisados e prontos para uso",
                 "Diária, semanal e mensal com preço justo",
-                "Somos de Osasco — atendimento próximo",
+                "Somos de Osasco , atendimento próximo",
               ].map((i) => (
                 <li key={i} className="flex items-start gap-2"><CheckIcon size={18} className="mt-0.5 shrink-0 text-[var(--brand-yellow)]" /><span>{i}</span></li>
               ))}

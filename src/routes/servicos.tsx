@@ -9,9 +9,9 @@ import { CheckIcon, ArrowIcon } from "@/components/icons/Icons";
 export const Route = createFileRoute("/servicos")({
   head: () => ({
     meta: [
-      { title: "Serviços — Locação, Venda e Entrega de Betoneiras" },
+      { title: "Serviços , Locação, Venda e Entrega de Betoneiras" },
       { name: "description", content: "Locação diária/semanal/mensal, venda de betoneiras 150L–400L e entrega/retirada em Osasco. Solicite um orçamento." },
-      { property: "og:title", content: "Serviços — Betoneira Osasco" },
+      { property: "og:title", content: "Serviços , Betoneira Osasco" },
       { property: "og:description", content: "Locação, venda e logística de betoneiras em Osasco." },
       { property: "og:url", content: "/servicos" },
     ],

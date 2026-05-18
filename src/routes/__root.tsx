@@ -64,7 +64,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Betoneira Osasco — Locação e Venda de Betoneiras" },
+      { title: "Betoneira Osasco , Locação e Venda de Betoneiras" },
       { name: "description", content: "Locação e venda de betoneiras em Osasco. Entrega e retirada no mesmo dia em todos os bairros. Fale no WhatsApp: (11) 97546-5766." },
       { name: "theme-color", content: "#1B2A5E" },
       { property: "og:site_name", content: "Betoneira Osasco" },
