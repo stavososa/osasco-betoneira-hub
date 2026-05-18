@@ -350,64 +350,6 @@ function HomePage() {
           </div>
         </section>
 
-        {/* PREÇOS E PRAZOS */}
-        <section className="bg-[var(--brand-concrete)] py-20">
-          <div className="mx-auto max-w-6xl px-4">
-            <div className="reveal flex items-center gap-3">
-              <span className="h-px w-10 bg-[var(--brand-ink)]" />
-              <span className="spec-label">Valores Transparentes</span>
-            </div>
-            <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
-              Preço do aluguel de <span className="font-editorial text-[var(--brand-navy)]">betoneira em Osasco</span>
-            </h2>
-            <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-              Tabela de preços médios por período de locação em Osasco SP. Cobramos por uso real e entregamos no mesmo dia sem burocracias. Pagamento flexível na entrega.
-            </p>
-
-            <div className="reveal mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {PRECOS_LOCACAO.map((p) => (
-                <article
-                  key={p.modelo}
-                  className={`rounded-2xl bg-white p-6 ring-1 ring-black/5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.2)] transition-transform duration-300 hover:-translate-y-1 ${
-                    p.destaque ? "ring-2 ring-[var(--brand-yellow)]" : ""
-                  }`}
-                >
-                  <span className="spec-label text-[var(--brand-navy)]">{p.tag}</span>
-                  <div className="mt-2 font-display text-xl text-[var(--brand-ink)]">{p.modelo}</div>
-                  <p className="mt-1 font-mono text-[10px] text-muted-foreground">{p.motor}</p>
-                  
-                  <div className="mt-5 space-y-2 border-t border-dashed border-[var(--brand-ink)]/10 pt-4">
-                    <div className="flex justify-between text-xs">
-                      <span className="text-muted-foreground">Diária:</span>
-                      <strong className="text-[var(--brand-ink)] font-mono">{p.diaria}</strong>
-                    </div>
-                    <div className="flex justify-between text-xs">
-                      <span className="text-muted-foreground">Semanal:</span>
-                      <strong className="text-[var(--brand-ink)] font-mono">{p.semanal}</strong>
-                    </div>
-                    <div className="flex justify-between text-xs">
-                      <span className="text-muted-foreground">Quinzenal:</span>
-                      <strong className="text-[var(--brand-ink)] font-mono">{p.quinzenal}</strong>
-                    </div>
-                    <div className="flex justify-between text-xs">
-                      <span className="text-muted-foreground">Mensal:</span>
-                      <strong className="text-[var(--brand-navy)] font-mono font-bold">{p.mensal}</strong>
-                    </div>
-                  </div>
-
-                  <a
-                    href="https://wa.me/5511975465766"
-                    target="_blank" rel="noopener"
-                    className="mt-6 inline-flex w-full justify-center items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] py-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-ink)]"
-                  >
-                    Orçamento WhatsApp <ArrowIcon size={12} />
-                  </a>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className="border-y-2 border-[var(--brand-ink)] bg-[var(--brand-concrete)] py-20">
           <div className="mx-auto max-w-6xl px-4">
             <div className="reveal flex items-center gap-3">
@@ -576,6 +518,64 @@ function HomePage() {
                     <div className="mt-1 font-mono text-xs text-[var(--brand-ink)]/70">{d.o}</div>
                   </figcaption>
                 </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* PREÇOS E PRAZOS */}
+        <section className="bg-[var(--brand-concrete)] py-20">
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="reveal flex items-center gap-3">
+              <span className="h-px w-10 bg-[var(--brand-ink)]" />
+              <span className="spec-label">Valores Transparentes</span>
+            </div>
+            <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
+              Preço do aluguel de <span className="font-editorial text-[var(--brand-navy)]">betoneira em Osasco</span>
+            </h2>
+            <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
+              Tabela de preços médios por período de locação em Osasco SP. Cobramos por uso real e entregamos no mesmo dia sem burocracias. Pagamento flexível na entrega.
+            </p>
+
+            <div className="reveal mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {PRECOS_LOCACAO.map((p) => (
+                <article
+                  key={p.modelo}
+                  className={`rounded-2xl bg-white p-6 ring-1 ring-black/5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.2)] transition-transform duration-300 hover:-translate-y-1 ${
+                    p.destaque ? "ring-2 ring-[var(--brand-yellow)]" : ""
+                  }`}
+                >
+                  <span className="spec-label text-[var(--brand-navy)]">{p.tag}</span>
+                  <div className="mt-2 font-display text-xl text-[var(--brand-ink)]">{p.modelo}</div>
+                  <p className="mt-1 font-mono text-[10px] text-muted-foreground">{p.motor}</p>
+                  
+                  <div className="mt-5 space-y-2 border-t border-dashed border-[var(--brand-ink)]/10 pt-4">
+                    <div className="flex justify-between text-xs">
+                      <span className="text-muted-foreground">Diária:</span>
+                      <strong className="text-[var(--brand-ink)] font-mono">{p.diaria}</strong>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-muted-foreground">Semanal:</span>
+                      <strong className="text-[var(--brand-ink)] font-mono">{p.semanal}</strong>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-muted-foreground">Quinzenal:</span>
+                      <strong className="text-[var(--brand-ink)] font-mono">{p.quinzenal}</strong>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-muted-foreground">Mensal:</span>
+                      <strong className="text-[var(--brand-navy)] font-mono font-bold">{p.mensal}</strong>
+                    </div>
+                  </div>
+
+                  <a
+                    href="https://wa.me/5511975465766"
+                    target="_blank" rel="noopener"
+                    className="mt-6 inline-flex w-full justify-center items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] py-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-ink)]"
+                  >
+                    Orçamento WhatsApp <ArrowIcon size={12} />
+                  </a>
+                </article>
               ))}
             </div>
           </div>
