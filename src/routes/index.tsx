@@ -8,15 +8,15 @@ import { Steps } from "@/components/Steps";
 import { ModelCard, type Modelo } from "@/components/ModelCard";
 import { useReveal } from "@/lib/useReveal";
 import { BAIRROS } from "@/lib/bairros";
-import { ArrowIcon, PhoneIcon, TruckIcon, CheckIcon, MixerIcon } from "@/components/icons/Icons";
+import { ArrowIcon, PhoneIcon, TruckIcon, CheckIcon, MixerIcon, HelmetIcon, ClockIcon } from "@/components/icons/Icons";
 import betoneiraHero from "@/assets/betoneira-hero.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Betoneira Osasco — Locação e Venda de Betoneiras" },
+      { title: "Betoneira Osasco | Locação e Venda de Betoneiras" },
       { name: "description", content: "Locação e venda de betoneiras em Osasco. Entrega e retirada no mesmo dia, equipamentos revisados. WhatsApp (11) 97546-5766." },
-      { property: "og:title", content: "Betoneira Osasco — Locação e Venda" },
+      { property: "og:title", content: "Betoneira Osasco | Locação e Venda" },
       { property: "og:description", content: "Locação e venda de betoneiras em Osasco. Entrega e retirada no mesmo dia." },
       { property: "og:url", content: "/" },
     ],
@@ -35,7 +35,7 @@ const SERVICOS = [
   {
     n: "01",
     t: "Locação",
-    d: "Diária, semanal ou mensal. Frota 150L a 400L, sempre revisada antes da saída. Sem letras miúdas — você paga pelo dia que usa.",
+    d: "Diária, semanal ou mensal. Frota de 150L a 400L, sempre revisada antes da saída. Sem letras miúdas, você paga só pelos dias que usar.",
     Icon: MixerIcon,
   },
   {
@@ -46,19 +46,61 @@ const SERVICOS = [
   },
   {
     n: "03",
-    t: "Entrega & Retirada",
+    t: "Entrega e Retirada",
     d: "Logística própria em Osasco. Confirmou até o início da tarde, entregamos no mesmo dia. Retirada agendada sem dor de cabeça.",
     Icon: TruckIcon,
   },
 ];
 
+const DIFERENCIAIS = [
+  { Icon: TruckIcon, t: "Entrega no mesmo dia", d: "Confirmou até a tarde, sua betoneira chega ainda hoje em toda Osasco." },
+  { Icon: CheckIcon, t: "Equipamento revisado", d: "Cada máquina é conferida antes de sair, você recebe pronta para ligar e trabalhar." },
+  { Icon: HelmetIcon, t: "Atendimento local", d: "Somos de Osasco. Falar com a gente é falar direto com quem entrega, sem call center." },
+  { Icon: ClockIcon, t: "Sem burocracia", d: "Combina pelo WhatsApp, paga PIX ou dinheiro e a obra continua sem parar." },
+];
+
 const DEPOIMENTOS = [
-  { n: "Carlos M.", b: "Bussocaba", o: "Laje residencial", t: "Chegaram no horário combinado e o equipamento veio limpo. Combinei pelo WhatsApp e em 2h tava na obra." },
-  { n: "Renata S.", b: "Centro", o: "Reforma de quintal", t: "Aluguel por diária, sem complicação. Preço justo e a retirada também foi tranquila." },
-  { n: "João P.", b: "Quitaúna", o: "Construção 2 pavimentos", t: "Aluguei a 400L por 3 semanas. Funcionou direto, sem dor de cabeça. Recomendo." },
+  { n: "Carlos Mendes", b: "Bussocaba", o: "Laje residencial", t: "Chegou no horário combinado e a betoneira veio limpinha, pronta pra usar. Combinei pelo WhatsApp de manhã e em duas horas tava na obra. Atendimento de primeira, recomendo demais." },
+  { n: "Renata Souza", b: "Centro", o: "Reforma de quintal", t: "Aluguei por diária e foi tudo muito tranquilo. Preço justo, equipamento bom e a retirada também foi no horário. Já é a segunda vez que chamo e sempre fui muito bem atendida." },
+  { n: "João Pereira", b: "Quitaúna", o: "Construção de dois pavimentos", t: "Fiquei três semanas com a 400L e não tive um único problema. Funcionou direto, sem dor de cabeça, e o pessoal sempre disponível pra tirar dúvida. Pode fechar de olhos fechados." },
+];
+
+const FAQ = [
+  {
+    q: "Vocês entregam no mesmo dia?",
+    a: "Sim, entregamos no mesmo dia em toda Osasco. Para garantir, é só confirmar o pedido com a gente até o início da tarde pelo WhatsApp. A nossa logística é própria, então temos flexibilidade para encaixar sua obra na rota do dia.",
+  },
+  {
+    q: "Qual é o prazo mínimo de aluguel?",
+    a: "O prazo mínimo é de uma diária, que cobre 24 horas de uso. Para obras mais longas, oferecemos pacotes semanais e mensais com desconto progressivo, sempre combinados antes de fechar. Se precisar estender no meio do caminho, é só avisar que a gente ajusta.",
+  },
+  {
+    q: "Precisa pagar caução?",
+    a: "Sim, pedimos uma pequena caução por equipamento, devolvida integralmente na retirada caso esteja sem avarias além do uso normal. O valor é combinado junto do orçamento, para você não ser pego de surpresa. Tudo é registrado em recibo simples e claro.",
+  },
+  {
+    q: "Quais modelos vocês trabalham?",
+    a: "Trabalhamos com betoneiras de 150L, 250L e 400L, em versões elétricas 110V e 220V monofásicas e a gasolina. A 250L é a mais procurada para obras residenciais. Se você não sabe qual escolher, manda o tamanho da obra que a gente indica o modelo ideal.",
+  },
+  {
+    q: "Vocês atendem fora de Osasco?",
+    a: "Atendemos bairros vizinhos sob consulta, como Carapicuíba, Cotia, Barueri e algumas regiões da zona oeste de São Paulo. Manda o endereço pelo WhatsApp que retornamos com prazo de entrega e valor do frete para o seu local.",
+  },
+  {
+    q: "Posso pagar de qual forma?",
+    a: "Aceitamos PIX, dinheiro, cartão de débito e crédito. Para locações longas, dá para parcelar combinando direto com a gente. O pagamento da diária ou da entrada acontece no momento da entrega do equipamento na sua obra.",
+  },
 ];
 
 const DESTAQUES = BAIRROS.slice(0, 8);
+
+function Star() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
+  );
+}
 
 function HomePage() {
   useReveal();
@@ -68,22 +110,14 @@ function HomePage() {
       <SiteHeader />
       <main className="flex-1">
 
-        {/* HERO — assimétrico 3fr/2fr, min-h-[100dvh] */}
+        {/* HERO */}
         <section className="relative noise-overlay overflow-hidden bg-[var(--brand-navy)] text-white">
           <div className="mx-auto grid min-h-[calc(100dvh-80px)] max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-[3fr_2fr] md:gap-16 md:py-0">
             {/* Coluna esquerda */}
             <div className="relative">
-              {/* eyebrow vertical */}
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -left-2 top-2 hidden -rotate-90 origin-top-left md:block"
-              >
-                <span className="spec-label !text-white/50">OSC · 011 · 2025</span>
-              </div>
-
               <div className="reveal flex items-center gap-3" style={{ ["--i" as never]: 0 }}>
                 <span className="h-px w-10 bg-[var(--brand-yellow)]" />
-                <span className="spec-label !text-white/70">Osasco · SP · Locação & Venda</span>
+                <span className="spec-label !text-white/70">Osasco, SP</span>
               </div>
 
               <h1 className="reveal mt-4 font-display text-[3.25rem] leading-[0.92] tracking-tight md:text-[5.75rem]" style={{ ["--i" as never]: 1 }}>
@@ -91,11 +125,11 @@ function HomePage() {
                 <br />
                 <span className="inline-block translate-x-2 text-[var(--brand-yellow)] md:translate-x-6">sua obra</span>
                 <br />
-                <span className="font-editorial italic text-white/90">no mesmo dia.</span>
+                <span className="font-editorial text-white/90">no mesmo dia.</span>
               </h1>
 
               <p className="reveal mt-6 max-w-md text-white/80 leading-relaxed" style={{ ["--i" as never]: 2 }}>
-                Locação e venda em toda Osasco. Equipamento revisado, contrato direto, entrega rápida — sem burocracia de balcão.
+                Locação e venda em toda Osasco. Equipamento revisado, contrato direto e entrega rápida, sem burocracia de balcão.
               </p>
 
               <div className="reveal mt-8 flex flex-wrap gap-4" style={{ ["--i" as never]: 3 }}>
@@ -114,12 +148,11 @@ function HomePage() {
                 </a>
               </div>
 
-              {/* Stats em linha */}
               <div className="reveal mt-12 grid max-w-md grid-cols-3 divide-x divide-white/15 border-y border-white/15 py-4" style={{ ["--i" as never]: 4 }}>
                 {[
                   ["+50", "Bairros"],
                   ["Hoje", "Entrega"],
-                  ["150–400L", "Modelos"],
+                  ["150 a 400L", "Modelos"],
                 ].map(([k, v]) => (
                   <div key={v} className="px-3">
                     <div className="numeric text-2xl text-[var(--brand-yellow)] md:text-3xl">{k}</div>
@@ -129,18 +162,8 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Coluna direita — betoneira flutuando */}
+            {/* Coluna direita */}
             <aside className="reveal relative" style={{ ["--i" as never]: 2 }}>
-              {/* etiquetas técnicas flutuantes */}
-              <div aria-hidden className="absolute -left-2 top-6 hidden border-l-2 border-[var(--brand-yellow)] pl-3 md:block">
-                <div className="spec-label !text-white/60">Modelo</div>
-                <div className="font-mono text-sm text-white">400L · 5,5 hp</div>
-              </div>
-              <div aria-hidden className="absolute -right-2 bottom-12 hidden border-r-2 border-[var(--brand-yellow)] pr-3 text-right md:block">
-                <div className="spec-label !text-white/60">Status</div>
-                <div className="font-mono text-sm text-white">Disponível</div>
-              </div>
-
               <img
                 src={betoneiraHero}
                 alt="Betoneira amarela e azul de 400L para locação em Osasco"
@@ -154,13 +177,43 @@ function HomePage() {
           <HazardStripe />
         </section>
 
-        {/* MARQUEE — kinetic */}
+        {/* MARQUEE */}
         <TrustBar />
 
         {/* STEPS */}
         <Steps />
 
-        {/* MODELOS — Bento assimétrico (2fr 1fr) */}
+        {/* DIFERENCIAIS, fundo navy */}
+        <section className="relative noise-overlay bg-[var(--brand-navy)] py-24 text-white">
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="reveal flex items-center gap-3">
+              <span className="h-px w-10 bg-[var(--brand-yellow)]" />
+              <span className="spec-label !text-white/70">Por que a gente</span>
+            </div>
+            <h2 className="reveal mt-2 font-display text-3xl tracking-tight md:text-5xl">
+              Atendimento de obra, <span className="text-[var(--brand-yellow)]">na hora da obra.</span>
+            </h2>
+            <p className="reveal mt-4 max-w-2xl text-white/75 leading-relaxed">
+              A gente trabalha como você trabalha: combinou, cumpriu. Sem promessa que não entrega, sem máquina parada na sua obra.
+            </p>
+
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {DIFERENCIAIS.map((d, i) => (
+                <div
+                  key={d.t}
+                  className="reveal border-l-2 border-[var(--brand-yellow)] bg-white/[0.04] p-6"
+                  style={{ ["--i" as never]: i }}
+                >
+                  <d.Icon size={32} className="text-[var(--brand-yellow)]" />
+                  <h3 className="mt-4 font-display text-lg">{d.t}</h3>
+                  <p className="mt-2 text-sm text-white/75 leading-relaxed">{d.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* MODELOS, bento */}
         <section className="mx-auto max-w-6xl px-4 py-24">
           <div className="reveal flex items-center gap-3">
             <span className="h-px w-10 bg-[var(--brand-ink)]" />
@@ -168,7 +221,7 @@ function HomePage() {
           </div>
           <div className="reveal mt-2 flex flex-wrap items-end justify-between gap-3">
             <h2 className="font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
-              Modelos <span className="font-editorial italic text-[var(--brand-navy)]">disponíveis</span>
+              Modelos <span className="font-editorial text-[var(--brand-navy)]">disponíveis</span>
             </h2>
             <Link to="/servicos" className="text-sm font-bold uppercase tracking-wider text-[var(--brand-navy)] hover:underline">
               Ver todos os serviços →
@@ -176,11 +229,9 @@ function HomePage() {
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-[2fr_1fr]">
-            {/* Card grande — destaque */}
             <div className="reveal" style={{ ["--i" as never]: 0 }}>
               <ModelCard m={MODELOS[0]} size="lg" />
             </div>
-            {/* Coluna de 2 cards menores */}
             <div className="grid gap-6">
               <div className="reveal" style={{ ["--i" as never]: 1 }}>
                 <ModelCard m={MODELOS[1]} />
@@ -192,7 +243,7 @@ function HomePage() {
           </div>
         </section>
 
-        {/* SERVIÇOS — Zig-zag (era 3 cards iguais) */}
+        {/* SERVIÇOS, zig-zag */}
         <section className="border-y-2 border-[var(--brand-ink)] bg-[var(--brand-concrete)] py-20">
           <div className="mx-auto max-w-6xl px-4">
             <div className="reveal flex items-center gap-3">
@@ -200,7 +251,7 @@ function HomePage() {
               <span className="spec-label">O que fazemos</span>
             </div>
             <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
-              Três jeitos de <span className="font-editorial italic text-[var(--brand-navy)]">resolver</span> sua obra.
+              Três jeitos de <span className="font-editorial text-[var(--brand-navy)]">resolver</span> sua obra.
             </h2>
 
             <div className="mt-14 space-y-20">
@@ -210,7 +261,6 @@ function HomePage() {
                   className={`zigzag-row reveal ${i % 2 === 1 ? "reverse" : ""}`}
                   style={{ ["--i" as never]: i }}
                 >
-                  {/* texto */}
                   <div>
                     <div className="spec-label">Serviço {s.n}</div>
                     <div className="mt-2 flex items-baseline gap-4">
@@ -222,7 +272,6 @@ function HomePage() {
                     <p className="mt-5 max-w-md text-muted-foreground leading-relaxed">{s.d}</p>
                   </div>
 
-                  {/* visual */}
                   <div className="relative flex items-center justify-center">
                     <div
                       aria-hidden
@@ -240,7 +289,7 @@ function HomePage() {
           </div>
         </section>
 
-        {/* MAPA — cobertura */}
+        {/* MAPA */}
         <section className="mx-auto max-w-6xl px-4 py-24">
           <div className="grid gap-10 md:grid-cols-[1fr_1.2fr]">
             <div>
@@ -250,7 +299,7 @@ function HomePage() {
               </div>
               <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
                 Toda <span className="text-[var(--brand-navy)]">Osasco</span>,<br />
-                <span className="font-editorial italic">de ponta a ponta.</span>
+                <span className="font-editorial">de ponta a ponta.</span>
               </h2>
               <p className="reveal mt-5 max-w-md text-muted-foreground leading-relaxed">
                 Da Zona Norte à Zona Sul, do Centro aos jardins. Entrega e retirada no mesmo dia.
@@ -273,12 +322,12 @@ function HomePage() {
               </ul>
             </div>
             <div className="reveal">
-              <MapEmbed query="Osasco SP Brasil" title="Mapa de Osasco — área de atendimento" />
+              <MapEmbed query="Osasco SP Brasil" title="Mapa de Osasco, área de atendimento" />
             </div>
           </div>
         </section>
 
-        {/* DEPOIMENTOS — sem cards, divide-y editorial */}
+        {/* DEPOIMENTOS, com 5 estrelas */}
         <section className="bg-[var(--brand-concrete)] py-24">
           <div className="mx-auto max-w-4xl px-4">
             <div className="reveal flex items-center gap-3">
@@ -286,7 +335,7 @@ function HomePage() {
               <span className="spec-label">Quem já usou</span>
             </div>
             <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
-              Obras <span className="font-editorial italic text-[var(--brand-navy)]">atendidas</span> em Osasco
+              Obras <span className="font-editorial text-[var(--brand-navy)]">atendidas</span> em Osasco
             </h2>
 
             <div className="mt-12 divide-y-2 divide-[var(--brand-ink)]/15 border-y-2 border-[var(--brand-ink)]/15">
@@ -296,12 +345,15 @@ function HomePage() {
                   className="reveal grid gap-6 py-10 md:grid-cols-[auto_1fr]"
                   style={{ ["--i" as never]: i }}
                 >
-                  <div className="md:w-40">
-                    <div className="spec-label">{d.b}</div>
+                  <div className="md:w-44">
+                    <div className="flex gap-0.5 text-[var(--brand-yellow)]">
+                      {Array.from({ length: 5 }).map((_, j) => <Star key={j} />)}
+                    </div>
+                    <div className="mt-3 font-display text-base text-[var(--brand-ink)]">{d.n}</div>
+                    <div className="spec-label mt-1">{d.b}</div>
                     <div className="mt-1 font-mono text-xs text-[var(--brand-ink)]/70">{d.o}</div>
-                    <div className="mt-4 font-display text-lg text-[var(--brand-navy)]">— {d.n}</div>
                   </div>
-                  <blockquote className="font-editorial text-2xl leading-snug text-[var(--brand-ink)] md:text-3xl">
+                  <blockquote className="font-sans text-lg leading-relaxed text-[var(--brand-ink)] md:text-xl">
                     “{d.t}”
                   </blockquote>
                 </figure>
@@ -317,22 +369,16 @@ function HomePage() {
             <span className="spec-label">Dúvidas frequentes</span>
           </div>
           <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
-            Perguntas <span className="font-editorial italic text-[var(--brand-navy)]">frequentes</span>
+            Perguntas <span className="font-editorial text-[var(--brand-navy)]">frequentes</span>
           </h2>
           <div className="reveal mt-10 divide-y-2 divide-[var(--brand-ink)] border-y-2 border-[var(--brand-ink)]">
-            {[
-              { q: "Vocês entregam no mesmo dia?", a: "Sim. Pedidos confirmados até o início da tarde são entregues no mesmo dia em toda Osasco." },
-              { q: "Qual o prazo mínimo de aluguel?", a: "A diária é o prazo mínimo, mas oferecemos descontos para semanais e mensais." },
-              { q: "Precisa de caução?", a: "Sim, uma pequena caução é solicitada e devolvida na retirada do equipamento sem avarias." },
-              { q: "Quais modelos vocês trabalham?", a: "Betoneiras de 150L, 250L e 400L, elétricas (110V/220V) e a gasolina." },
-              { q: "Atendem fora de Osasco?", a: "Atendemos bairros vizinhos sob consulta — chame no WhatsApp com o endereço." },
-            ].map((f) => (
+            {FAQ.map((f) => (
               <details key={f.q} className="faq-item group py-5">
                 <summary className="flex items-center justify-between gap-4">
                   <span className="font-display text-lg text-[var(--brand-ink)]">{f.q}</span>
                   <span aria-hidden className="chev numeric text-2xl text-[var(--brand-yellow)]">+</span>
                 </summary>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+                <p className="mt-3 text-base text-foreground/80 leading-relaxed">{f.a}</p>
               </details>
             ))}
           </div>
@@ -345,7 +391,7 @@ function HomePage() {
               <div className="spec-label !text-[var(--brand-ink)]/70">Precisa hoje?</div>
               <h2 className="mt-1 font-display text-3xl leading-[0.95] tracking-tight text-[var(--brand-ink)] md:text-5xl">
                 Chame agora e entregamos<br />
-                <span className="font-editorial italic">no mesmo dia.</span>
+                <span className="font-editorial">no mesmo dia.</span>
               </h2>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
