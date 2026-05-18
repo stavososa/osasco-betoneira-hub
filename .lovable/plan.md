@@ -1,79 +1,83 @@
 
-# Site Betoneira Osasco — Locação e Venda
+## Objetivo
+Tirar a "cara de IA" do site (layout genérico azul+amarelo + cards arredondados padrão shadcn) e aproximá-lo do universo de **construção civil / locação de equipamento pesado**: tipografia industrial, texturas, bordas marcadas, micro-animações nativas (sem libs).
 
-Site institucional rápido, leve e otimizado para Google (Core Web Vitals + SEO local), com uma página por bairro de Osasco para capturar buscas tipo "alugar betoneira em [bairro]".
+---
 
-## Identidade visual (extraída da logo)
+## 1. Tipografia mais "do ramo"
+Trocar Barlow Condensed + Inter por par com cara de obra/indústria:
 
-- Azul marinho: `#1B2A5E` (primário)
-- Amarelo/âmbar: `#F2A71B` (acento)
-- Branco / off-white para fundo (institucional, leve)
-- Tipografia: sem-serifa condensada robusta nos títulos (estilo da logo — ex: Barlow Condensed) + Inter no corpo
-- Logo enviada salva em `src/assets/logo-betoneira-osasco.webp`, usada no header e footer
+- **Display (títulos):** `Oswald` (condensada, peso 700, uppercase) — clássica em sinalização industrial e construção.
+- **Alt display (numerais/preços/stats):** `Archivo Black` — usado em cartazes de obra.
+- **Texto:** `IBM Plex Sans` — neutra, legível, foge do Inter genérico.
+- **Detalhes (caption/etiqueta):** `JetBrains Mono` em letras pequenas tipo "REF. 150L · 220V" — dá aspecto de ficha técnica.
 
-## Estrutura de páginas (rotas TanStack)
+Carregar via `<link rel="preconnect">` + Google Fonts no `__root.tsx` (display=swap). Atualizar `--font-display`, `--font-sans`, adicionar `--font-mono` e `--font-numeric` em `styles.css`.
 
-```
-/                                       Home (foco cidade Osasco)
-/sobre                                  Quem somos
-/servicos                               Locação, Venda e Entrega/Retirada
-/contato                                Telefone, WhatsApp, formulário, mapa
-/alugar-betoneira-em-osasco/$bairro     Página dinâmica por bairro (SEO)
-/sitemap.xml                            Sitemap dinâmico
-```
+## 2. Linguagem visual menos "AI gradient"
+- Remover o gradient `from-navy to-#0f1b3f` do hero. Trocar por **navy sólido + textura sutil** (SVG noise inline + faixa diagonal amarela de "fita zebrada" no topo/rodapé do hero — tipo fita de sinalização de obra).
+- Trocar `rounded-xl` genérico por **cantos retos + 1 canto cortado** (clip-path) em cards de serviço — visual de placa metálica.
+- Bordas mais grossas (2px) em amarelo nos elementos de destaque, em vez de sombra suave.
+- Substituir os 3 "stat cards" do hero por uma **régua horizontal** com divisores verticais (estilo painel de obra), numerais em Archivo Black.
+- Botões: retangulares, sem rounded, com pequena "sombra dura" (offset 4px sem blur) tipo placa.
+- Adicionar pequenos **ícones SVG inline** (capacete, betoneira, caminhão, relógio) — desenhados em traço, não emoji.
 
-`public/robots.txt` liberando tudo + apontando para o sitemap.
+## 3. Sections mais inteligentes (home)
+Reorganizar a home para um fluxo mais realista de locação:
 
-## Conteúdo principal
+1. **Hero** — H1 forte, subhead curto, 2 CTAs, **fita zebrada** no rodapé do bloco.
+2. **Barra de confiança** (nova) — strip horizontal: "Entrega no mesmo dia · Equipamentos revisados · Atendimento local · Diária a partir de X" com divisores `|`.
+3. **Como funciona** (nova) — 4 passos numerados (01→04): Solicite no WhatsApp → Confirmamos entrega → Usamos sua obra → Retiramos. Linha tracejada conectando.
+4. **Modelos de betoneira** (substitui "Nossos serviços" plano) — 3 cards-ficha técnica: 150L / 250L / 400L com specs em mono (voltagem, peso, indicação de uso). Card central destacado ("mais alugada").
+5. **Serviços** — versão enxuta (Locação · Venda · Entrega) em faixa horizontal.
+6. **Área de atendimento + mapa** — mapa Osasco + lista de 6 bairros principais como chips clicáveis (link p/ páginas de bairro).
+7. **Depoimentos curtos** (nova) — 2-3 cards estilo "ficha de obra" com nome, bairro, tipo de obra. Texto genérico mas crível.
+8. **FAQ** — manter, com `<details>` animado.
+9. **CTA final** — bloco amarelo full-width "Precisa hoje? Chame agora" + WhatsApp.
+10. **Footer** — manter grade de bairros (já está bom).
 
-**Home** — hero com proposta clara ("Locação e venda de betoneiras em Osasco — entrega e retirada no mesmo dia"), CTAs WhatsApp + Ligar (11) 97546-5766, blocos de serviços (Locação / Venda / Entrega e Retirada), mapa da cidade de Osasco em destaque, FAQ curto, lista dos bairros atendidos no rodapé (links para as páginas de bairro).
+Páginas de bairro: adicionar bloco "Como funciona em {bairro}" reaproveitando o componente de passos, e barra de confiança no topo.
 
-**Serviços** — detalhamento de locação (diária/semanal/mensal), venda (modelos 150L/400L), logística.
+## 4. Animações nativas (sem libs)
+Tudo via CSS + IntersectionObserver pequeno (≈30 linhas), sem framer-motion:
 
-**Sobre** — texto institucional curto, diferenciais (atendimento local em Osasco, entrega rápida, equipamentos revisados).
+- **Reveal on scroll**: classe `.reveal` com `opacity:0; translateY(16px)` → `.is-visible` aplica transição 600ms ease-out. Hook simples em `src/lib/useReveal.ts`.
+- **Fita zebrada animada**: faixa diagonal amarela/preta com `@keyframes` movendo `background-position` (lento, 20s) — dá vida sem distrair.
+- **Hover de cards-modelo**: translateY(-4px) + borda amarela aparecendo, 200ms.
+- **Botões CTA**: pequeno "press" no `:active` (translateY 1px) + sombra dura que some.
+- **Números do hero/stats**: count-up simples em JS quando entram em viewport.
+- **Passos "Como funciona"**: linha conectora desenhada com `stroke-dasharray` animado ao entrar em viewport.
+- **FAQ `<details>`**: animação de altura com `interpolate-size: allow-keywords` + transition (CSS moderno, fallback ok).
+- **Header**: ao rolar, reduzir altura (h-16 → h-14) e adicionar sombra dura amarela embaixo.
+- **WhatsApp flutuante**: pulse sutil (scale 1 → 1.05) a cada 4s.
 
-**Contato** — WhatsApp 11 97546-5766, telefone, formulário simples (nome, telefone, mensagem — mailto/WhatsApp link, sem backend), mapa da sede.
+Tudo respeita `prefers-reduced-motion` (desativa via media query no CSS).
 
-**Páginas por bairro** (`/alugar-betoneira-em-osasco/$bairro`) — geradas a partir de uma lista única de bairros. Cada uma tem:
-- H1: "Aluguel de Betoneira em [Bairro] — Osasco"
-- Texto otimizado mencionando o bairro (entrega, retirada, modelos disponíveis)
-- Iframe Google Maps com destaque no bairro (`q=Bairro,+Osasco+SP`)
-- CTAs WhatsApp/ligar
-- `head()` com title, description, og:tags, canonical e JSON-LD `LocalBusiness` + `Service` por bairro
-- Lista de bairros vizinhos no rodapé
+## 5. Tokens / styles.css
+- Adicionar `--brand-ink: #0a0a0a` (preto real para texto forte, em vez de navy em tudo).
+- Adicionar `--brand-concrete: oklch(0.92 0.005 90)` (cinza concreto) p/ backgrounds de seção alternada.
+- Adicionar utilitários: `.hazard-stripe` (fita zebrada), `.cut-corner` (clip-path canto cortado), `.hard-shadow`, `.reveal`.
+- Manter navy + amarelo, mas usar preto e cinza-concreto como neutros principais — quebra o "azul AI".
 
-Lista de bairros (≈50, cobrindo Osasco): Adalgisa, Aliança, Ayrosa, Baronesa, Bandeiras, Bela Vista, Bonança, Bussocaba, Centro, Cidade das Flores, Cipava, City Bussocaba, Conceição, Continental, IAPI, Industrial Altino, Industrial Mazzei, Industrial Remédios, Jaguaribe, Jardim Bandeirantes, Jardim Bonança, Jardim Cipava, Jardim D'Abril, Jardim das Flores, Jardim Mutinga, Jardim Piratininga, Jardim Roberto, Jardim Santa Maria, Jardim Veloso, Khalil, KM 18, Munhoz Júnior, Novo Osasco, Padroeira, Pestana, Piratininga, Portal D'Oeste, Presidente Altino, Quitaúna, Raposo Tavares, Remédios, Rochdale, Santo Antônio, Setor Militar, Umuarama, Veloso, Vila Campesina, Vila dos Remédios, Vila Iara, Vila Menck, Vila Osasco, Vila Yara, Vila Yolanda.
+## 6. Arquivos afetados
+- `src/styles.css` — fontes, tokens novos, utilitários, keyframes, reduced-motion.
+- `src/routes/__root.tsx` — preconnect + link Google Fonts (Oswald, Archivo Black, IBM Plex Sans, JetBrains Mono).
+- `src/routes/index.tsx` — reescrita das sections conforme item 3.
+- `src/routes/alugar-betoneira-em-osasco.$bairro.tsx` — adiciona barra de confiança + "como funciona".
+- `src/routes/servicos.tsx`, `sobre.tsx`, `contato.tsx` — aplicar nova linguagem (cut-corner, hazard-stripe no topo de hero secundário).
+- `src/components/SiteHeader.tsx` — shrink no scroll, sombra dura amarela.
+- `src/components/SiteFooter.tsx` — ajustar tipografia (Oswald).
+- `src/components/WhatsAppButton.tsx` — pulse.
+- **Novos:**
+  - `src/components/HazardStripe.tsx` — faixa zebrada reutilizável.
+  - `src/components/Steps.tsx` — bloco "como funciona".
+  - `src/components/TrustBar.tsx` — barra de confiança.
+  - `src/components/ModelCard.tsx` — ficha técnica de betoneira.
+  - `src/components/icons/` — capacete, betoneira, caminhão, relógio (SVG inline).
+  - `src/lib/useReveal.ts` — hook IntersectionObserver.
+  - `src/lib/useCountUp.ts` — count-up simples.
 
-## Lista de bairros perto do rodapé
-
-Componente `<BairrosGrid />` reaproveitado em todas as páginas, mostrando "Alugar betoneira em [bairro]" em colunas, cada item linkando para a respectiva página `/alugar-betoneira-em-osasco/[slug]`. No rodapé das páginas de bairro mostra os ~12 bairros mais próximos.
-
-## SEO e performance
-
-- `head()` por rota com title (<60 chars), description (<160), og:title/description/url, canonical
-- JSON-LD `LocalBusiness` no root + `Service` nas páginas de bairro (com `areaServed`)
-- Sitemap dinâmico incluindo todas as rotas estáticas + uma URL por bairro
-- robots.txt liberando crawl
-- Imagens: logo em `webp`, `loading="lazy"` nas demais, `width`/`height` para evitar CLS
-- Mapas em `<iframe loading="lazy">` (não bloqueia render)
-- Sem libs pesadas: só Tailwind + componentes próprios (sem framer-motion, sem carrossel pesado)
-- HTML semântico (header, main, section, footer, h1 único por página)
-
-## Detalhes técnicos
-
-- Componentes em `src/components/`: `SiteHeader`, `SiteFooter`, `BairrosGrid`, `MapEmbed`, `WhatsAppButton`, `Hero`, `ServicosBlocos`, `FAQ`
-- `src/lib/bairros.ts` — array `BAIRROS` com `{ slug, nome }`, função `getBairro(slug)` e `bairrosProximos(slug)`
-- `MapEmbed` recebe `query` e renderiza `https://www.google.com/maps?q=...&output=embed`
-- `WhatsAppButton` flutuante fixo em todas as páginas com link `https://wa.me/5511975465766`
-- `src/styles.css` atualizado com tokens oklch (azul marinho, amarelo, neutros)
-- Atualizar `__root.tsx` com header/footer compartilhados, meta padrão (Organization JSON-LD), `og:site_name`
-- Substituir o placeholder em `src/routes/index.tsx`
-- `src/routes/sitemap[.]xml.ts` listando todas as rotas + bairros
-- `public/robots.txt`
-
-## Fora do escopo
-
-- Backend / banco de dados (formulário só dispara WhatsApp/mailto)
-- Painel administrativo
-- Blog (pode ser adicionado depois)
-- Imagens reais de equipamentos (uso ilustrações/ícones; podemos gerar fotos depois se quiser)
+## Fora de escopo
+- Imagens reais de betoneiras (mantém ícones SVG; usuário pode subir fotos depois).
+- Mudanças de copy/conteúdo (só tipografia/layout/animação).
+- Backend, formulários novos.
