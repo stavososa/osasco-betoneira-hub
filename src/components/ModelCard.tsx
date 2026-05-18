@@ -1,12 +1,7 @@
 import { MixerIcon } from "./icons/Icons";
+import type { Modelo } from "@/lib/modelos";
 
-export interface Modelo {
-  volume: string;
-  motor: string;
-  voltagem: string;
-  uso: string;
-  destaque?: boolean;
-}
+export type { Modelo };
 
 export function ModelCard({ m, size = "sm" }: { m: Modelo; size?: "lg" | "sm" }) {
   const isLarge = size === "lg";
