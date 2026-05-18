@@ -229,6 +229,13 @@ function HomePage() {
                 </a>
               </div>
 
+              <p className="reveal mt-4 text-xs text-white/60" style={{ ["--i" as never]: 3 }}>
+                Procurando comprar?{" "}
+                <Link to="/comprar-betoneira" className="font-bold text-[var(--brand-yellow)] underline-offset-4 hover:underline">
+                  Ver opções de venda →
+                </Link>
+              </p>
+
               <div className="reveal mt-12 grid max-w-md grid-cols-3 divide-x divide-white/15 border-y border-white/15 py-4" style={{ ["--i" as never]: 4 }}>
                 {[
                   ["+50", "Bairros de Osasco"],
