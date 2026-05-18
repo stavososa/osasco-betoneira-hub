@@ -40,7 +40,7 @@ export function SiteFooter({ bairrosVisiveis }: { bairrosVisiveis?: typeof BAIRR
             <ul className="mt-2 space-y-1 text-sm">
               <li><a href="tel:+5511975465766" className="hover:underline">(11) 97546-5766</a></li>
               <li><a href="https://wa.me/5511975465766" target="_blank" rel="noopener" className="hover:underline">WhatsApp</a></li>
-              <li>Osasco — SP</li>
+              <li>Osasco , SP</li>
             </ul>
           </div>
           <div>
@@ -55,7 +55,7 @@ export function SiteFooter({ bairrosVisiveis }: { bairrosVisiveis?: typeof BAIRR
         </div>
 
         <p className="mt-8 border-t border-white/10 pt-6 text-center text-xs text-white/60">
-          © {new Date().getFullYear()} Betoneira Osasco — Locação e Venda. Todos os direitos reservados.
+          © {new Date().getFullYear()} Betoneira Osasco , Locação e Venda. Todos os direitos reservados.
         </p>
       </div>
     </footer>

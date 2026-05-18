@@ -1,7 +1,7 @@
 const STEPS = [
   { n: "01", t: "Você chama", d: "WhatsApp ou telefone. Conta o modelo e o endereço." },
   { n: "02", t: "Confirmamos", d: "Orçamento na hora e janela de entrega no mesmo dia." },
-  { n: "03", t: "Usa na obra", d: "Diária, semanal ou mensal — sem burocracia." },
+  { n: "03", t: "Usa na obra", d: "Diária, semanal ou mensal , sem burocracia." },
   { n: "04", t: "Buscamos", d: "Você termina, a gente passa para retirar." },
 ];
 
