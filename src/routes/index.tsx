@@ -239,13 +239,7 @@ function HomePage() {
                   </div>
 
                   <div className="relative flex items-center justify-center">
-                    <div
-                      aria-hidden
-                      className={`absolute inset-x-6 inset-y-2 -z-0 border-2 border-[var(--brand-ink)] ${
-                        i % 2 === 0 ? "translate-x-3 translate-y-3" : "-translate-x-3 translate-y-3"
-                      }`}
-                    />
-                    <div className="relative z-10 flex aspect-[5/4] w-full items-center justify-center border-2 border-[var(--brand-ink)] bg-white">
+                    <div className="relative z-10 flex aspect-[5/4] w-full items-center justify-center rounded-2xl bg-white ring-1 ring-black/5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.25)]">
                       <s.Icon size={120} className="text-[var(--brand-navy)]" />
                     </div>
                   </div>
