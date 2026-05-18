@@ -96,11 +96,6 @@
     var(--brand-ink) 16px 32px
   );
   background-size: 45px 45px;
-  animation: hazard-scroll 18s linear infinite;
-}
-@keyframes hazard-scroll {
-  from { background-position: 0 0; }
-  to   { background-position: 45px 0; }
 }
 
 /* Canto cortado (placa metálica) */
