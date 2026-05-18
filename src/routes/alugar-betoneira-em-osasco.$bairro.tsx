@@ -123,7 +123,7 @@ function BairroPage() {
           <div className="mx-auto max-w-6xl px-4">
             <h2 className="font-display text-2xl uppercase text-[var(--brand-navy)]">Bairros próximos a {bairro.nome}</h2>
             <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 text-sm sm:grid-cols-3 md:grid-cols-4">
-              {proximos.map((b) => (
+              {proximos.map((b: { slug: string; nome: string }) => (
                 <li key={b.slug}>
                   <Link
                     to="/alugar-betoneira-em-osasco/$bairro"
