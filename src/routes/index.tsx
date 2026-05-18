@@ -9,6 +9,7 @@ import { ModelCard, type Modelo } from "@/components/ModelCard";
 import { useReveal } from "@/lib/useReveal";
 import { BAIRROS } from "@/lib/bairros";
 import { ArrowIcon, PhoneIcon } from "@/components/icons/Icons";
+import betoneiraHero from "@/assets/betoneira-hero.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
