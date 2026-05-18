@@ -110,56 +110,56 @@ const PRECOS_LOCACAO = [
     modelo: "Betoneira 120L",
     tag: "Reparos e Acabamentos",
     motor: "Motor 1/3 cv · 110/220V bivolt · ~60 kg",
-    diaria: "R$ 70–110",
-    semanal: "R$ 180–320",
-    quinzenal: "R$ 320–500",
-    mensal: "R$ 400–650",
+    diaria: "Sob consulta",
+    semanal: "Sob consulta",
+    quinzenal: "Sob consulta",
+    mensal: "Sob consulta",
   },
   {
     modelo: "Betoneira 150L",
     tag: "Reformas Pequenas",
     motor: "Motor ½ cv · 110/220V bivolt · ~70 kg",
-    diaria: "R$ 80–120",
-    semanal: "R$ 200–350",
-    quinzenal: "R$ 350–550",
-    mensal: "R$ 450–700",
+    diaria: "Sob consulta",
+    semanal: "Sob consulta",
+    quinzenal: "Sob consulta",
+    mensal: "Sob consulta",
   },
   {
     modelo: "Betoneira 250L",
     tag: "Obras Residenciais · Mais Alugada",
     motor: "Motor 1–2 cv · 220V mono · ~120 kg",
-    diaria: "R$ 120–180",
-    semanal: "R$ 350–550",
-    quinzenal: "R$ 550–850",
-    mensal: "R$ 700–1.100",
+    diaria: "Sob consulta",
+    semanal: "Sob consulta",
+    quinzenal: "Sob consulta",
+    mensal: "Sob consulta",
     destaque: true,
   },
   {
     modelo: "Betoneira 400L Elétrica",
     tag: "Obras de Médio Porte",
     motor: "Motor 2 cv · 220V mono · ~155 kg",
-    diaria: "R$ 160–220",
-    semanal: "R$ 500–750",
-    quinzenal: "R$ 800–1.200",
-    mensal: "R$ 1.000–1.600",
+    diaria: "Sob consulta",
+    semanal: "Sob consulta",
+    quinzenal: "Sob consulta",
+    mensal: "Sob consulta",
   },
   {
     modelo: "Betoneira 400L Gasolina",
     tag: "Sem Energia Elétrica / Obras Externas",
     motor: "Motor 5,5 hp gasolina · Alta mobilidade",
-    diaria: "R$ 200–280",
-    semanal: "R$ 650–950",
-    quinzenal: "R$ 1.000–1.500",
-    mensal: "R$ 1.400–2.000",
+    diaria: "Sob consulta",
+    semanal: "Sob consulta",
+    quinzenal: "Sob consulta",
+    mensal: "Sob consulta",
   },
   {
     modelo: "Caminhão Betoneira",
     tag: "Obras de Grande Porte · Concretagem Pesada",
     motor: "Mixer truck 8m³ · Operador incluso · Diesel",
-    diaria: "R$ 1.500–6.000",
+    diaria: "Sob consulta",
     semanal: "Sob consulta",
     quinzenal: "Sob consulta",
-    mensal: "R$ 20.000–80.000+",
+    mensal: "Sob consulta",
   },
 ];
 
@@ -220,7 +220,7 @@ const FAQ = [
   },
   {
     q: "Posso pagar de qual forma?",
-    a: "Aceitamos PIX, dinheiro, cartão de débito e crédito. Para locações longas, dá para parcelar combinando direto com a gente. O pagamento da diária ou da entrada acontece no momento da entrega do equipamento na sua obra.",
+    a: "Aceitamos PIX, dinheiro, cartão de débito e crédito. Para locações longas, dá para parcelar combinando direto com a gente. O pagamento acontece no momento da entrega do equipamento na sua obra.",
   },
   {
     q: "Vale a pena alugar ou comprar uma betoneira?",
@@ -232,7 +232,7 @@ const FAQ = [
   },
   {
     q: "Quanto custa alugar uma betoneira em Osasco?",
-    a: "O preço do aluguel de betoneira em Osasco varia conforme o modelo (150L, 250L ou 400L), o tipo (elétrica ou a gasolina) e o prazo (diária, semanal ou mensal). A diária da 250L elétrica costuma ser a opção mais procurada e mais barata para reformas e lajes residenciais. Manda o modelo e os dias pelo WhatsApp que a gente passa o valor na hora.",
+    a: "O valor do aluguel de betoneira em Osasco é definido sob consulta conforme o modelo (120L, 150L, 250L ou 400L), o tipo (elétrica ou a gasolina) e o prazo de locação. Manda o modelo e os dias pelo WhatsApp que a gente passa o orçamento na hora.",
   },
   {
     q: "Como funciona o aluguel de betoneira em Osasco?",
@@ -543,10 +543,10 @@ function HomePage() {
               <span className="spec-label">Valores Transparentes</span>
             </div>
             <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
-              Preço do aluguel de <span className="font-editorial text-[var(--brand-navy)]">betoneira em Osasco</span>
+              Aluguel de <span className="font-editorial text-[var(--brand-navy)]">betoneira em Osasco</span>
             </h2>
             <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-              Tabela de preços médios por período de locação em Osasco SP. Cobramos por uso real e entregamos no mesmo dia sem burocracias. Pagamento flexível na entrega.
+              Valores sob consulta para cada período de locação em Osasco SP. Entregamos no mesmo dia sem burocracias e com pagamento flexível na entrega.
             </p>
 
             <div className="reveal mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -561,23 +561,8 @@ function HomePage() {
                   <div className="mt-2 font-display text-xl text-[var(--brand-ink)]">{p.modelo}</div>
                   <p className="mt-1 font-mono text-[10px] text-muted-foreground">{p.motor}</p>
                   
-                  <div className="mt-5 space-y-2 border-t border-dashed border-[var(--brand-ink)]/10 pt-4">
-                    <div className="flex justify-between text-xs">
-                      <span className="text-muted-foreground">Diária:</span>
-                      <strong className="text-[var(--brand-ink)] font-mono">{p.diaria}</strong>
-                    </div>
-                    <div className="flex justify-between text-xs">
-                      <span className="text-muted-foreground">Semanal:</span>
-                      <strong className="text-[var(--brand-ink)] font-mono">{p.semanal}</strong>
-                    </div>
-                    <div className="flex justify-between text-xs">
-                      <span className="text-muted-foreground">Quinzenal:</span>
-                      <strong className="text-[var(--brand-ink)] font-mono">{p.quinzenal}</strong>
-                    </div>
-                    <div className="flex justify-between text-xs">
-                      <span className="text-muted-foreground">Mensal:</span>
-                      <strong className="text-[var(--brand-navy)] font-mono font-bold">{p.mensal}</strong>
-                    </div>
+                  <div className="mt-5 border-t border-dashed border-[var(--brand-ink)]/10 pt-4 text-center">
+                    <span className="font-display text-lg text-[var(--brand-navy)]">Sob consulta</span>
                   </div>
 
                   <a
