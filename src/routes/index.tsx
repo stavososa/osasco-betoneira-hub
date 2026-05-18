@@ -248,7 +248,7 @@ function HomePage() {
 
         {/* CTA FINAL */}
         <section className="relative noise-overlay bg-[var(--brand-yellow)] py-16">
-          <HazardStripe className="absolute inset-x-0 top-0" />
+          
           <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 text-center md:flex-row md:justify-between md:text-left">
             <div>
               <div className="spec-label !text-[var(--brand-ink)]/70">Precisa hoje?</div>
