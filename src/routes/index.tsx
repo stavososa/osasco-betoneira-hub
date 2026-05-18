@@ -131,6 +131,14 @@ const FAQ = [
     q: "Posso pagar de qual forma?",
     a: "Aceitamos PIX, dinheiro, cartão de débito e crédito. Para locações longas, dá para parcelar combinando direto com a gente. O pagamento da diária ou da entrada acontece no momento da entrega do equipamento na sua obra.",
   },
+  {
+    q: "Vale a pena alugar ou comprar uma betoneira?",
+    a: "Depende do volume e da duração da obra. Para reformas, lajes residenciais e contrapisos pontuais, alugar uma betoneira em Osasco sai bem mais barato e ainda tem entrega no mesmo dia. Para quem usa direto, como construtora ou empreiteiro com obras seguidas, a venda compensa em poucos meses. Manda o cenário pelo WhatsApp que a gente faz a conta junto.",
+  },
+  {
+    q: "Qual betoneira usar para laje: 250 ou 400 litros?",
+    a: "Para a maioria das lajes residenciais em Osasco, a betoneira de 250 litros elétrica dá conta com folga e ainda usa tomada comum 110V ou 220V. A de 400 litros a gasolina é melhor para obras de médio porte, muro grande, calçada longa ou quando não tem energia disponível na obra. Na dúvida, a gente indica pelo m² da laje.",
+  },
 ];
 
 const DESTAQUES = BAIRROS.slice(0, 8);
