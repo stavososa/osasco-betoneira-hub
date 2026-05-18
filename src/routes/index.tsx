@@ -152,6 +152,15 @@ const PRECOS_LOCACAO = [
     quinzenal: "R$ 1.000–1.500",
     mensal: "R$ 1.400–2.000",
   },
+  {
+    modelo: "Caminhão Betoneira",
+    tag: "Obras de Grande Porte · Concretagem Pesada",
+    motor: "Mixer truck 8m³ · Operador incluso · Diesel",
+    diaria: "R$ 1.500–6.000",
+    semanal: "Sob consulta",
+    quinzenal: "Sob consulta",
+    mensal: "R$ 20.000–80.000+",
+  },
 ];
 
 const SERVICOS = [

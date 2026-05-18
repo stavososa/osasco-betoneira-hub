@@ -113,6 +113,11 @@ const PRECOS_VENDA = [
     preco: "R$ 600 a R$ 5.000",
     categoria: "Custo-benefício (depende do modelo)",
   },
+  {
+    nome: "Caminhão Betoneira (mixer truck)",
+    preco: "R$ 300.000 a R$ 1.800.000",
+    categoria: "Frota pesada · Concretagem em grande volume",
+  },
 ];
 
 export const Route = createFileRoute("/comprar-betoneira")({
