@@ -8,7 +8,7 @@ import { HelmetIcon, TruckIcon, ClockIcon, CheckIcon } from "@/components/icons/
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre , Betoneira Osasco" },
+      { title: "Sobre | Betoneira Osasco" },
       { name: "description", content: "Empresa local de Osasco especializada em locação e venda de betoneiras. Atendimento ágil, equipamentos revisados e preço justo." },
       { property: "og:title", content: "Sobre a Betoneira Osasco" },
       { property: "og:description", content: "Locação e venda de betoneiras em Osasco com atendimento ágil." },

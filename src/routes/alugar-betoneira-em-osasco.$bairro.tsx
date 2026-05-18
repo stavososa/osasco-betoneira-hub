@@ -130,7 +130,7 @@ function BairroPage() {
           </div>
           <div className="reveal">
             <h2 className="sr-only">Mapa de {bairro.nome}, Osasco</h2>
-            <MapEmbed query={`${bairro.nome}, Osasco, SP, Brasil`} title={`Mapa do bairro ${bairro.nome} em Osasco`} />
+            <MapEmbed query={`${bairro.nome}, Osasco SP Brasil`} title={`Mapa do bairro ${bairro.nome} em Osasco`} />
             <p className="spec-label mt-3 text-center">Atendimento em todas as ruas de {bairro.nome}</p>
           </div>
         </section>

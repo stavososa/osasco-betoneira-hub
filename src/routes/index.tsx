@@ -273,7 +273,7 @@ function HomePage() {
               </ul>
             </div>
             <div className="reveal">
-              <MapEmbed query="Osasco, SP, Brasil" title="Mapa de Osasco — área de atendimento" />
+              <MapEmbed query="Osasco SP Brasil" title="Mapa de Osasco — área de atendimento" />
             </div>
           </div>
         </section>
