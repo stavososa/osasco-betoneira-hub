@@ -14,13 +14,54 @@ import betoneiraHero from "@/assets/betoneira-hero.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Betoneira Osasco | Locação e Venda de Betoneiras" },
-      { name: "description", content: "Locação e venda de betoneiras em Osasco. Entrega e retirada no mesmo dia, equipamentos revisados. WhatsApp (11) 97546-5766." },
-      { property: "og:title", content: "Betoneira Osasco | Locação e Venda" },
-      { property: "og:description", content: "Locação e venda de betoneiras em Osasco. Entrega e retirada no mesmo dia." },
+      { title: "Aluguel de Betoneira em Osasco | Locação 150L, 250L e 400L" },
+      {
+        name: "description",
+        content:
+          "Aluguel e locação de betoneira em Osasco SP: modelos de 150, 250 e 400 litros, elétricas 110V/220V e a gasolina. Entrega no mesmo dia, sem burocracia. WhatsApp (11) 97546-5766.",
+      },
+      { property: "og:title", content: "Aluguel de Betoneira em Osasco SP | 150L, 250L e 400L" },
+      {
+        property: "og:description",
+        content:
+          "Locação de betoneira em Osasco com entrega no mesmo dia. Misturador de concreto e argamassa para obras residenciais e de médio porte.",
+      },
       { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Betoneira Osasco",
+          description:
+            "Aluguel e venda de betoneiras em Osasco e região: locação diária, semanal e mensal de misturadores de concreto e argamassa de 150, 250 e 400 litros.",
+          telephone: "+55 11 97546-5766",
+          areaServed: [
+            { "@type": "City", name: "Osasco" },
+            { "@type": "AdministrativeArea", name: "Grande São Paulo" },
+          ],
+          priceRange: "$$",
+          address: { "@type": "PostalAddress", addressLocality: "Osasco", addressRegion: "SP", addressCountry: "BR" },
+          url: "/",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQ.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: HomePage,
 });
