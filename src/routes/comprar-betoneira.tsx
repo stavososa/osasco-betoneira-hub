@@ -128,7 +128,7 @@ export const Route = createFileRoute("/comprar-betoneira")({
       {
         property: "og:description",
         content:
-          "Compre betoneira em Osasco: 120L, 120L, 150L, 250L e 400L, elétrica ou a gasolina, com garantia e nota fiscal.",
+          "Compre betoneira em Osasco: 120L, 150L, 250L e 400L, elétrica ou a gasolina, com garantia e nota fiscal.",
       },
       { property: "og:url", content: "https://betoneiraosasco.com.br/comprar-betoneira" },
       { property: "og:type", content: "website" },

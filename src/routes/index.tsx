@@ -15,13 +15,13 @@ import betoneiraHero from "@/assets/betoneira-hero.webp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aluguel de Betoneira em Osasco | Locação 120L, 120L, 150L, 250L e 400L" },
+      { title: "Aluguel de Betoneira em Osasco | Locação 120L, 150L, 250L e 400L" },
       {
         name: "description",
         content:
           "Aluguel e locação de betoneira em Osasco SP: modelos de 120, 120, 150, 250 e 400 litros, elétricas 110V/220V e a gasolina. Entrega no mesmo dia, sem burocracia. WhatsApp (11) 97546-5766.",
       },
-      { property: "og:title", content: "Aluguel de Betoneira em Osasco SP | 120L, 120L, 150L, 250L e 400L" },
+      { property: "og:title", content: "Aluguel de Betoneira em Osasco SP | 120L, 150L, 250L e 400L" },
       {
         property: "og:description",
         content:
@@ -158,7 +158,7 @@ const SERVICOS = [
   {
     n: "01",
     t: "Locação",
-    d: "Aluguel de betoneira em Osasco por diária, semana ou mês. Frota de 120L, 120L, 150L, 250L e 400L sempre revisada. Atende pedreiro, empreiteiro e construtora, sem letras miúdas.",
+    d: "Aluguel de betoneira em Osasco por diária, semana ou mês. Frota de 120L, 150L, 250L e 400L sempre revisada. Atende pedreiro, empreiteiro e construtora, sem letras miúdas.",
     Icon: MixerIcon,
   },
   {
@@ -203,7 +203,7 @@ const FAQ = [
   },
   {
     q: "Quais modelos vocês trabalham?",
-    a: "Trabalhamos com betoneiras de 120L, 120L, 150L, 250L e 400L, em versões elétricas 110V e 220V monofásicas e a gasolina. A 250L é a mais procurada para obras residenciais. Se você não sabe qual escolher, manda o tamanho da obra que a gente indica o modelo ideal.",
+    a: "Trabalhamos com betoneiras de 120L, 150L, 250L e 400L, em versões elétricas 110V e 220V monofásicas e a gasolina. A 250L é a mais procurada para obras residenciais. Se você não sabe qual escolher, manda o tamanho da obra que a gente indica o modelo ideal.",
   },
   {
     q: "Vocês atendem fora de Osasco?",
@@ -276,7 +276,7 @@ function HomePage() {
               </h1>
 
               <p className="reveal mt-6 max-w-md text-white/80 leading-relaxed" style={{ ["--i" as never]: 2 }}>
-                Locação de betoneira em Osasco SP por diária, semana ou mês. Modelos de 120L, 120L, 150L, 250L e 400L, elétricas 110V/220V ou a gasolina, com entrega no mesmo dia e sem burocracia.
+                Locação de betoneira em Osasco SP por diária, semana ou mês. Modelos de 120L, 150L, 250L e 400L, elétricas 110V/220V ou a gasolina, com entrega no mesmo dia e sem burocracia.
               </p>
 
               <div className="reveal mt-8 flex flex-wrap gap-4" style={{ ["--i" as never]: 3 }}>
