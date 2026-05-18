@@ -67,9 +67,9 @@ export const Route = createFileRoute("/")({
 });
 
 const MODELOS: Modelo[] = [
-  { volume: "250L", motor: "2 cv elétrica", voltagem: "220V mono", uso: "Obras residenciais", destaque: true },
-  { volume: "150L", motor: "1/2 cv elétrica", voltagem: "110/220V", uso: "Reformas pequenas" },
-  { volume: "400L", motor: "5,5 hp gasolina", voltagem: "Gasolina", uso: "Médio porte" },
+  { volume: "250L", motor: "2 cv elétrica", voltagem: "220V mono", uso: "Lajes e contrapiso", destaque: true },
+  { volume: "150L", motor: "1/2 cv elétrica", voltagem: "110/220V", uso: "Reformas e reboco" },
+  { volume: "400L", motor: "5,5 hp gasolina", voltagem: "Gasolina", uso: "Muro e calçada" },
 ];
 
 const SERVICOS = [
