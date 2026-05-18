@@ -353,18 +353,12 @@ function HomePage() {
             Betoneiras de 120, 120, 150, 250 e 400 litros para aluguel em Osasco — versões elétricas monofásicas (110V/220V) e a gasolina — ideais para misturar concreto, argamassa, contrapiso e cimento em obras residenciais e de médio porte.
           </p>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-[2fr_1fr]">
-            <div className="reveal" style={{ ["--i" as never]: 0 }}>
-              <ModelCard m={MODELOS[0]} size="lg" />
-            </div>
-            <div className="grid gap-6">
-              <div className="reveal" style={{ ["--i" as never]: 1 }}>
-                <ModelCard m={MODELOS[1]} />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {MODELOS.map((m, i) => (
+              <div key={m.volume} className="reveal" style={{ ["--i" as never]: i }}>
+                <ModelCard m={m} />
               </div>
-              <div className="reveal" style={{ ["--i" as never]: 2 }}>
-                <ModelCard m={MODELOS[2]} />
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
