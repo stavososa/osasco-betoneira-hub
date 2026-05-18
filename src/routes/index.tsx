@@ -85,28 +85,16 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Painel "ficha técnica" */}
-            <aside className="reveal reveal-delay-2 self-center">
-              <div className="cut-corner-tl relative border-2 border-[var(--brand-yellow)] bg-[var(--brand-ink)] p-6">
-                <div className="spec-label !text-[var(--brand-yellow)]">Ficha · Locação</div>
-                <div className="mt-2 font-display text-3xl text-white">Pronta-entrega</div>
-                <dl className="mt-5 space-y-2 text-sm">
-                  {[
-                    ["Diária", "a partir de R$ 80"],
-                    ["Semanal", "5% de desconto"],
-                    ["Mensal", "até 20% off"],
-                    ["Frete", "incluso em Osasco"],
-                  ].map(([k, v]) => (
-                    <div key={k} className="flex items-baseline justify-between gap-3 border-b border-dashed border-white/15 pb-1">
-                      <dt className="spec-label !text-white/60">{k}</dt>
-                      <dd className="font-mono text-white">{v}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <a href="https://wa.me/5511975465766" target="_blank" rel="noopener" className="mt-5 block w-full border-2 border-[var(--brand-yellow)] bg-[var(--brand-yellow)] py-2 text-center text-xs font-bold uppercase tracking-widest text-[var(--brand-ink)]">
-                  Solicitar agora
-                </a>
-              </div>
+            {/* Imagem da betoneira */}
+            <aside className="reveal reveal-delay-2 relative self-center">
+              <img
+                src={betoneiraHero}
+                alt="Betoneira amarela e azul de 400L para locação em Osasco"
+                width={720}
+                height={780}
+                className="relative z-10 mx-auto w-full max-w-md drop-shadow-[0_30px_30px_rgba(0,0,0,0.45)]"
+                loading="eager"
+              />
             </aside>
           </div>
           <HazardStripe />
