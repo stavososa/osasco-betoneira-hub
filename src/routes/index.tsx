@@ -121,11 +121,7 @@ function HomePage() {
               </div>
 
               <h1 className="reveal mt-4 font-display text-[3.25rem] leading-[0.92] tracking-tight md:text-[5.75rem]" style={{ ["--i" as never]: 1 }}>
-                Betoneira na
-                <br />
-                <span className="inline-block translate-x-2 text-[var(--brand-yellow)] md:translate-x-6">sua obra</span>
-                <br />
-                <span className="font-editorial text-white/90">no mesmo dia.</span>
+                Aluguel de Betoneira em Osasco
               </h1>
 
               <p className="reveal mt-6 max-w-md text-white/80 leading-relaxed" style={{ ["--i" as never]: 2 }}>
