@@ -193,12 +193,12 @@ details.faq-item[open] .chev { transform: rotate(45deg); }
 .step-connector { stroke-dasharray: 200; stroke-dashoffset: 200; }
 .is-visible .step-connector { animation: draw-line 1.6s ease-out forwards; }
 
-/* Editorial accent serif (apenas em citações/H2 narrativos) */
+/* Display accent (sem itálico/cursiva) */
 .font-editorial {
-  font-family: "Fraunces", "Times New Roman", serif;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  text-transform: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
 }
 
 /* Easing global "spring-like" */
