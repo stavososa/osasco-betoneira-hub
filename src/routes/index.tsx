@@ -54,6 +54,27 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Aluguel de Betoneira em Osasco",
+          serviceType: "Construction equipment rental",
+          provider: { "@type": "LocalBusiness", name: "Betoneira Osasco", telephone: "+55 11 97546-5766" },
+          areaServed: [
+            { "@type": "City", name: "Osasco" },
+            { "@type": "City", name: "Carapicuíba" },
+            { "@type": "City", name: "Cotia" },
+            { "@type": "City", name: "Barueri" },
+            { "@type": "City", name: "Jandira" },
+            { "@type": "City", name: "Itapevi" },
+            { "@type": "AdministrativeArea", name: "Grande São Paulo" },
+          ],
+          description:
+            "Locação diária, semanal e mensal de betoneiras de 150, 250 e 400 litros, elétricas 110V/220V e a gasolina, com entrega no mesmo dia em Osasco.",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
           "@type": "FAQPage",
           mainEntity: FAQ.map((f) => ({
             "@type": "Question",
