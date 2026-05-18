@@ -155,6 +155,26 @@ const FAQ = [
     q: "Qual betoneira usar para laje: 250 ou 400 litros?",
     a: "Para a maioria das lajes residenciais em Osasco, a betoneira de 250 litros elétrica dá conta com folga e ainda usa tomada comum 110V ou 220V. A de 400 litros a gasolina é melhor para obras de médio porte, muro grande, calçada longa ou quando não tem energia disponível na obra. Na dúvida, a gente indica pelo m² da laje.",
   },
+  {
+    q: "Quanto custa alugar uma betoneira em Osasco?",
+    a: "O preço do aluguel de betoneira em Osasco varia conforme o modelo (150L, 250L ou 400L), o tipo (elétrica ou a gasolina) e o prazo (diária, semanal ou mensal). A diária da 250L elétrica costuma ser a opção mais procurada e mais barata para reformas e lajes residenciais. Manda o modelo e os dias pelo WhatsApp que a gente passa o valor na hora.",
+  },
+  {
+    q: "Como funciona o aluguel de betoneira em Osasco?",
+    a: "É simples: você manda o modelo e o endereço pelo WhatsApp, a gente confirma o orçamento, agenda a entrega no mesmo dia (se confirmado até o início da tarde) e a betoneira chega revisada, pronta para misturar concreto ou argamassa. No fim do prazo, a gente passa para retirar. Pagamento em PIX, dinheiro ou cartão.",
+  },
+  {
+    q: "Quanto rende uma betoneira de 250 litros por hora?",
+    a: "Uma betoneira de 250 litros tem capacidade útil de mistura por volta de 150 a 180 litros por carga e roda entre 8 e 12 misturas por hora, dependendo do traço e do operador. Na prática, dá para concretar uma laje residencial pequena em poucas horas. Para obras maiores, a 400L rende mais por ciclo.",
+  },
+  {
+    q: "Qual tamanho de betoneira usar para reforma residencial?",
+    a: "Para reformas pequenas, reboco e contrapiso de cômodos isolados, a betoneira de 150 litros já resolve e ocupa pouco espaço. Para lajes residenciais, calçadas e reformas maiores, a 250 litros é a escolha mais equilibrada. A 400 litros é indicada quando a obra é de médio porte ou tem muito volume de concreto.",
+  },
+  {
+    q: "Vocês também vendem betoneira em Osasco?",
+    a: "Sim. Trabalhamos com betoneiras novas e seminovas em Osasco, com garantia, nota fiscal e parcelamento. Para detalhes, modelos disponíveis e cotação, veja a página Comprar Betoneira ou chame no WhatsApp.",
+  },
 ];
 
 const DESTAQUES = BAIRROS.slice(0, 8);
