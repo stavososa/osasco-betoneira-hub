@@ -30,6 +30,7 @@ export function SiteHeader() {
           <Link to="/comprar-betoneira" className="nav-link" activeProps={{ "data-active": "true" }}>Comprar</Link>
           <Link to="/sobre" className="nav-link" activeProps={{ "data-active": "true" }}>Sobre</Link>
           <Link to="/contato" className="nav-link" activeProps={{ "data-active": "true" }}>Contato</Link>
+          <Link to="/blog" className="nav-link" activeProps={{ "data-active": "true" }}>Blog</Link>
         </nav>
         <a
           href="https://wa.me/5511975465766"
