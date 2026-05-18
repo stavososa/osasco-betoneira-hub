@@ -14,8 +14,14 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ComprarBetoneiraRouteImport } from './routes/comprar-betoneira'
+import { Route as CaminhaoBetoneiraRouteImport } from './routes/caminhao-betoneira'
 import { Route as BlogRouteImport } from './routes/blog'
-import { Route as AlugarBetoneiraEmBairroRouteImport } from './routes/alugar-betoneira-em-$bairro'
+import { Route as Betoneira400lGasolinaRouteImport } from './routes/betoneira-400l-gasolina'
+import { Route as Betoneira400lEletricaRouteImport } from './routes/betoneira-400l-eletrica'
+import { Route as Betoneira250lRouteImport } from './routes/betoneira-250l'
+import { Route as Betoneira150lRouteImport } from './routes/betoneira-150l'
+import { Route as Betoneira120lRouteImport } from './routes/betoneira-120l'
+import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SobreRoute = SobreRouteImport.update({
@@ -43,14 +49,44 @@ const ComprarBetoneiraRoute = ComprarBetoneiraRouteImport.update({
   path: '/comprar-betoneira',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CaminhaoBetoneiraRoute = CaminhaoBetoneiraRouteImport.update({
+  id: '/caminhao-betoneira',
+  path: '/caminhao-betoneira',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AlugarBetoneiraEmBairroRoute = AlugarBetoneiraEmBairroRouteImport.update({
-  id: '/alugar-betoneira-em-$bairro',
-  path: '/alugar-betoneira-em-$bairro',
+const Betoneira400lGasolinaRoute = Betoneira400lGasolinaRouteImport.update({
+  id: '/betoneira-400l-gasolina',
+  path: '/betoneira-400l-gasolina',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Betoneira400lEletricaRoute = Betoneira400lEletricaRouteImport.update({
+  id: '/betoneira-400l-eletrica',
+  path: '/betoneira-400l-eletrica',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Betoneira250lRoute = Betoneira250lRouteImport.update({
+  id: '/betoneira-250l',
+  path: '/betoneira-250l',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Betoneira150lRoute = Betoneira150lRouteImport.update({
+  id: '/betoneira-150l',
+  path: '/betoneira-150l',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Betoneira120lRoute = Betoneira120lRouteImport.update({
+  id: '/betoneira-120l',
+  path: '/betoneira-120l',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SlugRoute = SlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -61,8 +97,14 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/alugar-betoneira-em-$bairro': typeof AlugarBetoneiraEmBairroRoute
+  '/$slug': typeof SlugRoute
+  '/betoneira-120l': typeof Betoneira120lRoute
+  '/betoneira-150l': typeof Betoneira150lRoute
+  '/betoneira-250l': typeof Betoneira250lRoute
+  '/betoneira-400l-eletrica': typeof Betoneira400lEletricaRoute
+  '/betoneira-400l-gasolina': typeof Betoneira400lGasolinaRoute
   '/blog': typeof BlogRoute
+  '/caminhao-betoneira': typeof CaminhaoBetoneiraRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
@@ -71,8 +113,14 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/alugar-betoneira-em-$bairro': typeof AlugarBetoneiraEmBairroRoute
+  '/$slug': typeof SlugRoute
+  '/betoneira-120l': typeof Betoneira120lRoute
+  '/betoneira-150l': typeof Betoneira150lRoute
+  '/betoneira-250l': typeof Betoneira250lRoute
+  '/betoneira-400l-eletrica': typeof Betoneira400lEletricaRoute
+  '/betoneira-400l-gasolina': typeof Betoneira400lGasolinaRoute
   '/blog': typeof BlogRoute
+  '/caminhao-betoneira': typeof CaminhaoBetoneiraRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
@@ -82,8 +130,14 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/alugar-betoneira-em-$bairro': typeof AlugarBetoneiraEmBairroRoute
+  '/$slug': typeof SlugRoute
+  '/betoneira-120l': typeof Betoneira120lRoute
+  '/betoneira-150l': typeof Betoneira150lRoute
+  '/betoneira-250l': typeof Betoneira250lRoute
+  '/betoneira-400l-eletrica': typeof Betoneira400lEletricaRoute
+  '/betoneira-400l-gasolina': typeof Betoneira400lGasolinaRoute
   '/blog': typeof BlogRoute
+  '/caminhao-betoneira': typeof CaminhaoBetoneiraRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
@@ -94,8 +148,14 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/alugar-betoneira-em-$bairro'
+    | '/$slug'
+    | '/betoneira-120l'
+    | '/betoneira-150l'
+    | '/betoneira-250l'
+    | '/betoneira-400l-eletrica'
+    | '/betoneira-400l-gasolina'
     | '/blog'
+    | '/caminhao-betoneira'
     | '/comprar-betoneira'
     | '/contato'
     | '/servicos'
@@ -104,8 +164,14 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/alugar-betoneira-em-$bairro'
+    | '/$slug'
+    | '/betoneira-120l'
+    | '/betoneira-150l'
+    | '/betoneira-250l'
+    | '/betoneira-400l-eletrica'
+    | '/betoneira-400l-gasolina'
     | '/blog'
+    | '/caminhao-betoneira'
     | '/comprar-betoneira'
     | '/contato'
     | '/servicos'
@@ -114,8 +180,14 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/alugar-betoneira-em-$bairro'
+    | '/$slug'
+    | '/betoneira-120l'
+    | '/betoneira-150l'
+    | '/betoneira-250l'
+    | '/betoneira-400l-eletrica'
+    | '/betoneira-400l-gasolina'
     | '/blog'
+    | '/caminhao-betoneira'
     | '/comprar-betoneira'
     | '/contato'
     | '/servicos'
@@ -125,8 +197,14 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AlugarBetoneiraEmBairroRoute: typeof AlugarBetoneiraEmBairroRoute
+  SlugRoute: typeof SlugRoute
+  Betoneira120lRoute: typeof Betoneira120lRoute
+  Betoneira150lRoute: typeof Betoneira150lRoute
+  Betoneira250lRoute: typeof Betoneira250lRoute
+  Betoneira400lEletricaRoute: typeof Betoneira400lEletricaRoute
+  Betoneira400lGasolinaRoute: typeof Betoneira400lGasolinaRoute
   BlogRoute: typeof BlogRoute
+  CaminhaoBetoneiraRoute: typeof CaminhaoBetoneiraRoute
   ComprarBetoneiraRoute: typeof ComprarBetoneiraRoute
   ContatoRoute: typeof ContatoRoute
   ServicosRoute: typeof ServicosRoute
@@ -171,6 +249,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComprarBetoneiraRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/caminhao-betoneira': {
+      id: '/caminhao-betoneira'
+      path: '/caminhao-betoneira'
+      fullPath: '/caminhao-betoneira'
+      preLoaderRoute: typeof CaminhaoBetoneiraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog': {
       id: '/blog'
       path: '/blog'
@@ -178,11 +263,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/alugar-betoneira-em-$bairro': {
-      id: '/alugar-betoneira-em-$bairro'
-      path: '/alugar-betoneira-em-$bairro'
-      fullPath: '/alugar-betoneira-em-$bairro'
-      preLoaderRoute: typeof AlugarBetoneiraEmBairroRouteImport
+    '/betoneira-400l-gasolina': {
+      id: '/betoneira-400l-gasolina'
+      path: '/betoneira-400l-gasolina'
+      fullPath: '/betoneira-400l-gasolina'
+      preLoaderRoute: typeof Betoneira400lGasolinaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/betoneira-400l-eletrica': {
+      id: '/betoneira-400l-eletrica'
+      path: '/betoneira-400l-eletrica'
+      fullPath: '/betoneira-400l-eletrica'
+      preLoaderRoute: typeof Betoneira400lEletricaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/betoneira-250l': {
+      id: '/betoneira-250l'
+      path: '/betoneira-250l'
+      fullPath: '/betoneira-250l'
+      preLoaderRoute: typeof Betoneira250lRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/betoneira-150l': {
+      id: '/betoneira-150l'
+      path: '/betoneira-150l'
+      fullPath: '/betoneira-150l'
+      preLoaderRoute: typeof Betoneira150lRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/betoneira-120l': {
+      id: '/betoneira-120l'
+      path: '/betoneira-120l'
+      fullPath: '/betoneira-120l'
+      preLoaderRoute: typeof Betoneira120lRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$slug': {
+      id: '/$slug'
+      path: '/$slug'
+      fullPath: '/$slug'
+      preLoaderRoute: typeof SlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -197,8 +317,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AlugarBetoneiraEmBairroRoute: AlugarBetoneiraEmBairroRoute,
+  SlugRoute: SlugRoute,
+  Betoneira120lRoute: Betoneira120lRoute,
+  Betoneira150lRoute: Betoneira150lRoute,
+  Betoneira250lRoute: Betoneira250lRoute,
+  Betoneira400lEletricaRoute: Betoneira400lEletricaRoute,
+  Betoneira400lGasolinaRoute: Betoneira400lGasolinaRoute,
   BlogRoute: BlogRoute,
+  CaminhaoBetoneiraRoute: CaminhaoBetoneiraRoute,
   ComprarBetoneiraRoute: ComprarBetoneiraRoute,
   ContatoRoute: ContatoRoute,
   ServicosRoute: ServicosRoute,
@@ -208,3 +334,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

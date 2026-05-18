@@ -18,8 +18,8 @@ export function BairrosGrid({
       {bairros.map((b) => (
         <li key={b.slug}>
           <Link
-            to="/alugar-betoneira-em-$bairro"
-            params={{ bairro: b.slug }}
+            to="/$slug"
+            params={{ slug: `alugar-betoneira-em-${b.slug}` }}
             className={`block py-1 transition-colors ${itemClass}`}
           >
             <span className="text-[var(--brand-yellow)]">›</span> Alugar betoneira em {b.nome}

@@ -55,15 +55,26 @@ export function SiteFooter({ bairrosVisiveis }: { bairrosVisiveis?: typeof BAIRR
               <li><Link to="/" className="hover:underline">Início</Link></li>
               <li><Link to="/servicos" className="hover:underline">Serviços</Link></li>
               <li><Link to="/comprar-betoneira" className="hover:underline">Comprar betoneira</Link></li>
+              <li><Link to="/blog" className="hover:underline">Blog</Link></li>
               <li><Link to="/sobre" className="hover:underline">Sobre</Link></li>
               <li><Link to="/contato" className="hover:underline">Contato</Link></li>
-              <li><Link to="/blog" className="hover:underline">Blog</Link></li>
+            </ul>
+            <h3 className="spec-label !text-[var(--brand-yellow)] mt-5">Betoneiras</h3>
+            <ul className="mt-2 space-y-1 text-sm">
+              <li><Link to="/betoneira-120l" className="hover:underline">Betoneira 120L</Link></li>
+              <li><Link to="/betoneira-150l" className="hover:underline">Betoneira 150L</Link></li>
+              <li><Link to="/betoneira-250l" className="hover:underline">Betoneira 250L</Link></li>
+              <li><Link to="/betoneira-400l-eletrica" className="hover:underline">Betoneira 400L Elétrica</Link></li>
+              <li><Link to="/betoneira-400l-gasolina" className="hover:underline">Betoneira 400L Gasolina</Link></li>
+              <li><Link to="/caminhao-betoneira" className="hover:underline">Caminhão Betoneira</Link></li>
             </ul>
           </div>
         </div>
 
         <p className="mt-8 border-t border-white/10 pt-6 text-center text-xs text-white/60">
           © {new Date().getFullYear()} Betoneira Osasco , Locação e Venda. Todos os direitos reservados.
+          {" · "}
+          <a href="/sitemap.xml" className="hover:underline hover:text-white/80">Sitemap</a>
         </p>
       </div>
     </footer>
