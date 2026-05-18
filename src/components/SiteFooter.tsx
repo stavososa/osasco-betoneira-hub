@@ -27,9 +27,15 @@ export function SiteFooter({ bairrosVisiveis }: { bairrosVisiveis?: typeof BAIRR
 
         <div className="grid gap-8 border-t border-white/10 pt-8 md:grid-cols-3">
           <div>
-            <div className="flex items-center gap-2">
-              <img src={logo} alt="" width={36} height={36} className="h-9 w-9 object-contain" />
-              <span className="font-display text-lg">
+            <div className="flex items-center gap-3">
+              <img
+                src={logo}
+                alt=""
+                width={64}
+                height={64}
+                className="h-16 w-16 object-contain brightness-0 invert"
+              />
+              <span className="font-display text-2xl">
                 Betoneira <span className="text-[var(--brand-yellow)]">Osasco</span>
               </span>
             </div>
