@@ -8,7 +8,7 @@ import { Steps } from "@/components/Steps";
 import { ModelCard, type Modelo } from "@/components/ModelCard";
 import { useReveal } from "@/lib/useReveal";
 import { BAIRROS } from "@/lib/bairros";
-import { ArrowIcon, PhoneIcon } from "@/components/icons/Icons";
+import { ArrowIcon, PhoneIcon, TruckIcon, CheckIcon, MixerIcon } from "@/components/icons/Icons";
 import betoneiraHero from "@/assets/betoneira-hero.png";
 
 export const Route = createFileRoute("/")({
@@ -26,9 +26,36 @@ export const Route = createFileRoute("/")({
 });
 
 const MODELOS: Modelo[] = [
-  { volume: "150L", motor: "1/2 cv elétrica", voltagem: "110/220V", uso: "Reformas pequenas" },
   { volume: "250L", motor: "2 cv elétrica", voltagem: "220V mono", uso: "Obras residenciais", destaque: true },
+  { volume: "150L", motor: "1/2 cv elétrica", voltagem: "110/220V", uso: "Reformas pequenas" },
   { volume: "400L", motor: "5,5 hp gasolina", voltagem: "Gasolina", uso: "Médio porte" },
+];
+
+const SERVICOS = [
+  {
+    n: "01",
+    t: "Locação",
+    d: "Diária, semanal ou mensal. Frota 150L a 400L, sempre revisada antes da saída. Sem letras miúdas — você paga pelo dia que usa.",
+    Icon: MixerIcon,
+  },
+  {
+    n: "02",
+    t: "Venda",
+    d: "Novas e seminovas com garantia. Indicamos o modelo certo para o porte da sua obra antes de fechar negócio.",
+    Icon: CheckIcon,
+  },
+  {
+    n: "03",
+    t: "Entrega & Retirada",
+    d: "Logística própria em Osasco. Confirmou até o início da tarde, entregamos no mesmo dia. Retirada agendada sem dor de cabeça.",
+    Icon: TruckIcon,
+  },
+];
+
+const DEPOIMENTOS = [
+  { n: "Carlos M.", b: "Bussocaba", o: "Laje residencial", t: "Chegaram no horário combinado e o equipamento veio limpo. Combinei pelo WhatsApp e em 2h tava na obra." },
+  { n: "Renata S.", b: "Centro", o: "Reforma de quintal", t: "Aluguel por diária, sem complicação. Preço justo e a retirada também foi tranquila." },
+  { n: "João P.", b: "Quitaúna", o: "Construção 2 pavimentos", t: "Aluguei a 400L por 3 semanas. Funcionou direto, sem dor de cabeça. Recomendo." },
 ];
 
 const DESTAQUES = BAIRROS.slice(0, 8);
@@ -41,21 +68,37 @@ function HomePage() {
       <SiteHeader />
       <main className="flex-1">
 
-        {/* HERO */}
-        <section className="relative noise-overlay bg-[var(--brand-navy)] text-white">
-          <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.2fr_1fr] md:py-24">
-            <div>
-              <div className="reveal flex items-center gap-3">
-                <span className="h-px w-10 bg-[var(--brand-yellow)]" />
-                <span className="spec-label !text-white/70">Osasco · SP</span>
+        {/* HERO — assimétrico 3fr/2fr, min-h-[100dvh] */}
+        <section className="relative noise-overlay overflow-hidden bg-[var(--brand-navy)] text-white">
+          <div className="mx-auto grid min-h-[calc(100dvh-80px)] max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-[3fr_2fr] md:gap-16 md:py-0">
+            {/* Coluna esquerda */}
+            <div className="relative">
+              {/* eyebrow vertical */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -left-2 top-2 hidden -rotate-90 origin-top-left md:block"
+              >
+                <span className="spec-label !text-white/50">OSC · 011 · 2025</span>
               </div>
-              <h1 className="reveal reveal-delay-1 mt-3 font-display text-5xl leading-[0.95] md:text-7xl">
-                Betoneira na <span className="text-[var(--brand-yellow)]">sua obra</span><br />no mesmo dia.
+
+              <div className="reveal flex items-center gap-3" style={{ ["--i" as never]: 0 }}>
+                <span className="h-px w-10 bg-[var(--brand-yellow)]" />
+                <span className="spec-label !text-white/70">Osasco · SP · Locação & Venda</span>
+              </div>
+
+              <h1 className="reveal mt-4 font-display text-[3.25rem] leading-[0.92] tracking-tight md:text-[5.75rem]" style={{ ["--i" as never]: 1 }}>
+                Betoneira na
+                <br />
+                <span className="inline-block translate-x-2 text-[var(--brand-yellow)] md:translate-x-6">sua obra</span>
+                <br />
+                <span className="font-editorial italic text-white/90">no mesmo dia.</span>
               </h1>
-              <p className="reveal reveal-delay-2 mt-5 max-w-lg text-white/85">
-                Locação e venda em toda Osasco. Equipamentos revisados, diária, semanal ou mensal — sem burocracia.
+
+              <p className="reveal mt-6 max-w-md text-white/80 leading-relaxed" style={{ ["--i" as never]: 2 }}>
+                Locação e venda em toda Osasco. Equipamento revisado, contrato direto, entrega rápida — sem burocracia de balcão.
               </p>
-              <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-4">
+
+              <div className="reveal mt-8 flex flex-wrap gap-4" style={{ ["--i" as never]: 3 }}>
                 <a
                   href="https://wa.me/5511975465766"
                   target="_blank" rel="noopener"
@@ -65,35 +108,45 @@ function HomePage() {
                 </a>
                 <a
                   href="tel:+5511975465766"
-                  className="inline-flex items-center gap-2 border-2 border-white/40 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white hover:bg-white/10"
+                  className="inline-flex items-center gap-2 border-2 border-white/40 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-white/10"
                 >
                   <PhoneIcon size={16} /> (11) 97546-5766
                 </a>
               </div>
 
-              {/* Régua de stats */}
-              <div className="reveal reveal-delay-4 mt-12 grid grid-cols-3 divide-x divide-white/20 border-y border-white/20 py-4">
+              {/* Stats em linha */}
+              <div className="reveal mt-12 grid max-w-md grid-cols-3 divide-x divide-white/15 border-y border-white/15 py-4" style={{ ["--i" as never]: 4 }}>
                 {[
                   ["+50", "Bairros"],
                   ["Hoje", "Entrega"],
                   ["150–400L", "Modelos"],
                 ].map(([k, v]) => (
-                  <div key={v} className="px-2 text-center">
+                  <div key={v} className="px-3">
                     <div className="numeric text-2xl text-[var(--brand-yellow)] md:text-3xl">{k}</div>
-                    <div className="spec-label !text-white/70 mt-1">{v}</div>
+                    <div className="spec-label !text-white/60 mt-1">{v}</div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Imagem da betoneira */}
-            <aside className="reveal reveal-delay-2 relative self-center">
+            {/* Coluna direita — betoneira flutuando */}
+            <aside className="reveal relative" style={{ ["--i" as never]: 2 }}>
+              {/* etiquetas técnicas flutuantes */}
+              <div aria-hidden className="absolute -left-2 top-6 hidden border-l-2 border-[var(--brand-yellow)] pl-3 md:block">
+                <div className="spec-label !text-white/60">Modelo</div>
+                <div className="font-mono text-sm text-white">400L · 5,5 hp</div>
+              </div>
+              <div aria-hidden className="absolute -right-2 bottom-12 hidden border-r-2 border-[var(--brand-yellow)] pr-3 text-right md:block">
+                <div className="spec-label !text-white/60">Status</div>
+                <div className="font-mono text-sm text-white">Disponível</div>
+              </div>
+
               <img
                 src={betoneiraHero}
                 alt="Betoneira amarela e azul de 400L para locação em Osasco"
                 width={720}
                 height={780}
-                className="relative z-10 mx-auto w-full max-w-md drop-shadow-[0_30px_30px_rgba(0,0,0,0.45)]"
+                className="relative z-10 mx-auto w-full max-w-md float-soft drop-shadow-[0_30px_30px_rgba(0,0,0,0.45)]"
                 loading="eager"
               />
             </aside>
@@ -101,64 +154,106 @@ function HomePage() {
           <HazardStripe />
         </section>
 
+        {/* MARQUEE — kinetic */}
         <TrustBar />
+
+        {/* STEPS */}
         <Steps />
 
-        {/* MODELOS */}
-        <section className="mx-auto max-w-6xl px-4 py-20">
+        {/* MODELOS — Bento assimétrico (2fr 1fr) */}
+        <section className="mx-auto max-w-6xl px-4 py-24">
           <div className="reveal flex items-center gap-3">
             <span className="h-px w-10 bg-[var(--brand-ink)]" />
             <span className="spec-label">Catálogo</span>
           </div>
           <div className="reveal mt-2 flex flex-wrap items-end justify-between gap-3">
-            <h2 className="font-display text-3xl text-[var(--brand-ink)] md:text-4xl">Modelos disponíveis</h2>
+            <h2 className="font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
+              Modelos <span className="font-editorial italic text-[var(--brand-navy)]">disponíveis</span>
+            </h2>
             <Link to="/servicos" className="text-sm font-bold uppercase tracking-wider text-[var(--brand-navy)] hover:underline">
               Ver todos os serviços →
             </Link>
           </div>
-          <div className="mt-10 grid gap-7 md:grid-cols-3">
-            {MODELOS.map((m, i) => (
-              <div key={m.volume} className={`reveal reveal-delay-${i + 1}`}>
-                <ModelCard m={m} />
+
+          <div className="mt-12 grid gap-6 md:grid-cols-[2fr_1fr]">
+            {/* Card grande — destaque */}
+            <div className="reveal" style={{ ["--i" as never]: 0 }}>
+              <ModelCard m={MODELOS[0]} size="lg" />
+            </div>
+            {/* Coluna de 2 cards menores */}
+            <div className="grid gap-6">
+              <div className="reveal" style={{ ["--i" as never]: 1 }}>
+                <ModelCard m={MODELOS[1]} />
               </div>
-            ))}
+              <div className="reveal" style={{ ["--i" as never]: 2 }}>
+                <ModelCard m={MODELOS[2]} />
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* SERVIÇOS - faixa horizontal */}
-        <section className="border-y-2 border-[var(--brand-ink)] bg-[var(--brand-concrete)] py-14">
-          <div className="mx-auto grid max-w-6xl gap-8 px-4 md:grid-cols-3">
-            {[
-              { t: "Locação", d: "Diária, semanal ou mensal. 150L a 400L revisadas." },
-              { t: "Venda", d: "Equipamentos novos e seminovos com garantia." },
-              { t: "Entrega & Retirada", d: "Logística rápida em todos os bairros." },
-            ].map((s, i) => (
-              <div key={s.t} className={`reveal reveal-delay-${i + 1} flex items-start gap-4`}>
-                <span className="numeric text-3xl text-[var(--brand-yellow)] [text-shadow:_1px_1px_0_var(--brand-ink)]">
-                  0{i + 1}
-                </span>
-                <div>
-                  <h3 className="font-display text-xl text-[var(--brand-ink)]">{s.t}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{s.d}</p>
+        {/* SERVIÇOS — Zig-zag (era 3 cards iguais) */}
+        <section className="border-y-2 border-[var(--brand-ink)] bg-[var(--brand-concrete)] py-20">
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="reveal flex items-center gap-3">
+              <span className="h-px w-10 bg-[var(--brand-ink)]" />
+              <span className="spec-label">O que fazemos</span>
+            </div>
+            <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
+              Três jeitos de <span className="font-editorial italic text-[var(--brand-navy)]">resolver</span> sua obra.
+            </h2>
+
+            <div className="mt-14 space-y-20">
+              {SERVICOS.map((s, i) => (
+                <div
+                  key={s.t}
+                  className={`zigzag-row reveal ${i % 2 === 1 ? "reverse" : ""}`}
+                  style={{ ["--i" as never]: i }}
+                >
+                  {/* texto */}
+                  <div>
+                    <div className="spec-label">Serviço {s.n}</div>
+                    <div className="mt-2 flex items-baseline gap-4">
+                      <span className="numeric text-7xl leading-none text-[var(--brand-yellow)] [text-shadow:_2px_2px_0_var(--brand-ink)] md:text-8xl">
+                        {s.n}
+                      </span>
+                      <h3 className="font-display text-3xl text-[var(--brand-ink)] md:text-4xl">{s.t}</h3>
+                    </div>
+                    <p className="mt-5 max-w-md text-muted-foreground leading-relaxed">{s.d}</p>
+                  </div>
+
+                  {/* visual */}
+                  <div className="relative flex items-center justify-center">
+                    <div
+                      aria-hidden
+                      className={`absolute inset-x-6 inset-y-2 -z-0 border-2 border-[var(--brand-ink)] ${
+                        i % 2 === 0 ? "translate-x-3 translate-y-3" : "-translate-x-3 translate-y-3"
+                      }`}
+                    />
+                    <div className="relative z-10 flex aspect-[5/4] w-full items-center justify-center border-2 border-[var(--brand-ink)] bg-white">
+                      <s.Icon size={120} className="text-[var(--brand-navy)]" />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* MAPA OSASCO */}
-        <section className="mx-auto max-w-6xl px-4 py-20">
+        {/* MAPA — cobertura */}
+        <section className="mx-auto max-w-6xl px-4 py-24">
           <div className="grid gap-10 md:grid-cols-[1fr_1.2fr]">
             <div>
               <div className="reveal flex items-center gap-3">
                 <span className="h-px w-10 bg-[var(--brand-ink)]" />
                 <span className="spec-label">Área de cobertura</span>
               </div>
-              <h2 className="reveal font-display text-3xl text-[var(--brand-ink)] md:text-4xl">
-                Toda <span className="text-[var(--brand-navy)]">Osasco</span>,<br />de ponta a ponta.
+              <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
+                Toda <span className="text-[var(--brand-navy)]">Osasco</span>,<br />
+                <span className="font-editorial italic">de ponta a ponta.</span>
               </h2>
-              <p className="reveal mt-4 max-w-md text-muted-foreground">
-                Da Zona Norte à Zona Sul, do Centro aos jardins. Entrega e retirada no mesmo dia em todos os bairros.
+              <p className="reveal mt-5 max-w-md text-muted-foreground leading-relaxed">
+                Da Zona Norte à Zona Sul, do Centro aos jardins. Entrega e retirada no mesmo dia.
               </p>
               <ul className="reveal mt-6 flex flex-wrap gap-2">
                 {DESTAQUES.map((b) => (
@@ -183,26 +278,32 @@ function HomePage() {
           </div>
         </section>
 
-        {/* DEPOIMENTOS */}
-        <section className="bg-[var(--brand-concrete)] py-20">
-          <div className="mx-auto max-w-6xl px-4">
+        {/* DEPOIMENTOS — sem cards, divide-y editorial */}
+        <section className="bg-[var(--brand-concrete)] py-24">
+          <div className="mx-auto max-w-4xl px-4">
             <div className="reveal flex items-center gap-3">
               <span className="h-px w-10 bg-[var(--brand-ink)]" />
               <span className="spec-label">Quem já usou</span>
             </div>
-            <h2 className="reveal mt-2 font-display text-3xl text-[var(--brand-ink)] md:text-4xl">Obras atendidas em Osasco</h2>
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
-              {[
-                { n: "Carlos M.", b: "Bussocaba", o: "Laje residencial", t: "Chegaram no horário combinado e o equipamento veio limpo. Combinei pelo WhatsApp e em 2h tava na obra." },
-                { n: "Renata S.", b: "Centro", o: "Reforma de quintal", t: "Aluguel por diária, sem complicação. O preço foi justo e a retirada também foi tranquila." },
-                { n: "João P.", b: "Quitaúna", o: "Construção 2 pavimentos", t: "Aluguei a 400L por 3 semanas. Funcionou direto, sem dor de cabeça. Recomendo." },
-              ].map((d, i) => (
-                <figure key={d.n} className={`reveal reveal-delay-${i + 1} cut-corner border-2 border-[var(--brand-ink)] bg-white p-6 hard-shadow`}>
-                  <div className="spec-label">{d.b} · {d.o}</div>
-                  <blockquote className="mt-3 text-sm text-[var(--brand-ink)]">
+            <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
+              Obras <span className="font-editorial italic text-[var(--brand-navy)]">atendidas</span> em Osasco
+            </h2>
+
+            <div className="mt-12 divide-y-2 divide-[var(--brand-ink)]/15 border-y-2 border-[var(--brand-ink)]/15">
+              {DEPOIMENTOS.map((d, i) => (
+                <figure
+                  key={d.n}
+                  className="reveal grid gap-6 py-10 md:grid-cols-[auto_1fr]"
+                  style={{ ["--i" as never]: i }}
+                >
+                  <div className="md:w-40">
+                    <div className="spec-label">{d.b}</div>
+                    <div className="mt-1 font-mono text-xs text-[var(--brand-ink)]/70">{d.o}</div>
+                    <div className="mt-4 font-display text-lg text-[var(--brand-navy)]">— {d.n}</div>
+                  </div>
+                  <blockquote className="font-editorial text-2xl leading-snug text-[var(--brand-ink)] md:text-3xl">
                     “{d.t}”
                   </blockquote>
-                  <figcaption className="mt-4 font-display text-base text-[var(--brand-navy)]">— {d.n}</figcaption>
                 </figure>
               ))}
             </div>
@@ -210,13 +311,15 @@ function HomePage() {
         </section>
 
         {/* FAQ */}
-        <section className="mx-auto max-w-4xl px-4 py-20">
+        <section className="mx-auto max-w-4xl px-4 py-24">
           <div className="reveal flex items-center gap-3">
             <span className="h-px w-10 bg-[var(--brand-ink)]" />
             <span className="spec-label">Dúvidas frequentes</span>
           </div>
-          <h2 className="reveal mt-2 font-display text-3xl text-[var(--brand-ink)] md:text-4xl">Perguntas frequentes</h2>
-          <div className="reveal mt-8 divide-y-2 divide-[var(--brand-ink)] border-y-2 border-[var(--brand-ink)]">
+          <h2 className="reveal mt-2 font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
+            Perguntas <span className="font-editorial italic text-[var(--brand-navy)]">frequentes</span>
+          </h2>
+          <div className="reveal mt-10 divide-y-2 divide-[var(--brand-ink)] border-y-2 border-[var(--brand-ink)]">
             {[
               { q: "Vocês entregam no mesmo dia?", a: "Sim. Pedidos confirmados até o início da tarde são entregues no mesmo dia em toda Osasco." },
               { q: "Qual o prazo mínimo de aluguel?", a: "A diária é o prazo mínimo, mas oferecemos descontos para semanais e mensais." },
@@ -229,20 +332,20 @@ function HomePage() {
                   <span className="font-display text-lg text-[var(--brand-ink)]">{f.q}</span>
                   <span aria-hidden className="chev numeric text-2xl text-[var(--brand-yellow)]">+</span>
                 </summary>
-                <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
               </details>
             ))}
           </div>
         </section>
 
         {/* CTA FINAL */}
-        <section className="relative noise-overlay bg-[var(--brand-yellow)] py-16">
-          
+        <section className="relative noise-overlay bg-[var(--brand-yellow)] py-20">
           <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 text-center md:flex-row md:justify-between md:text-left">
             <div>
               <div className="spec-label !text-[var(--brand-ink)]/70">Precisa hoje?</div>
-              <h2 className="mt-1 font-display text-3xl text-[var(--brand-ink)] md:text-5xl">
-                Chame agora e entregamos<br />no mesmo dia.
+              <h2 className="mt-1 font-display text-3xl leading-[0.95] tracking-tight text-[var(--brand-ink)] md:text-5xl">
+                Chame agora e entregamos<br />
+                <span className="font-editorial italic">no mesmo dia.</span>
               </h2>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
