@@ -271,7 +271,7 @@ function HomePage() {
       <main className="flex-1">
 
         {/* HERO */}
-        <section className="relative noise-overlay overflow-hidden bg-[var(--brand-navy)] text-white">
+        <section className="relative noise-overlay overflow-hidden text-white" style={{ backgroundColor: "#132762" }}>
           <div className="mx-auto grid min-h-[calc(100dvh-80px)] max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-[1fr_1fr] md:gap-16 md:py-0">
             {/* Coluna esquerda */}
             <div className="relative">
