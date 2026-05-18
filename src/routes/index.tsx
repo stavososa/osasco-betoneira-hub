@@ -220,7 +220,7 @@ const FAQ = [
   },
   {
     q: "Posso pagar de qual forma?",
-    a: "Aceitamos PIX, dinheiro, cartão de débito e crédito. Para locações longas, dá para parcelar combinando direto com a gente. O pagamento da diária ou da entrada acontece no momento da entrega do equipamento na sua obra.",
+    a: "Aceitamos PIX, dinheiro, cartão de débito e crédito. Para locações longas, dá para parcelar combinando direto com a gente. O pagamento acontece no momento da entrega do equipamento na sua obra.",
   },
   {
     q: "Vale a pena alugar ou comprar uma betoneira?",
@@ -232,7 +232,7 @@ const FAQ = [
   },
   {
     q: "Quanto custa alugar uma betoneira em Osasco?",
-    a: "O preço do aluguel de betoneira em Osasco varia conforme o modelo (150L, 250L ou 400L), o tipo (elétrica ou a gasolina) e o prazo (diária, semanal ou mensal). A diária da 250L elétrica costuma ser a opção mais procurada e mais barata para reformas e lajes residenciais. Manda o modelo e os dias pelo WhatsApp que a gente passa o valor na hora.",
+    a: "O valor do aluguel de betoneira em Osasco é definido sob consulta conforme o modelo (120L, 150L, 250L ou 400L), o tipo (elétrica ou a gasolina) e o prazo de locação. Manda o modelo e os dias pelo WhatsApp que a gente passa o orçamento na hora.",
   },
   {
     q: "Como funciona o aluguel de betoneira em Osasco?",
