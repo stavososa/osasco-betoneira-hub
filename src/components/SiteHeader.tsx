@@ -19,7 +19,7 @@ export function SiteHeader() {
     >
       <div className={`mx-auto flex max-w-6xl items-center justify-between px-4 transition-[height] duration-200 ${scrolled ? "h-14" : "h-16"}`}>
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="Betoneira Osasco" width={40} height={40} className="h-10 w-10 object-contain" />
+          <img src={logo} alt="Betoneira Osasco" width={56} height={56} className="h-14 w-14 object-contain" />
           <span className="font-display text-xl tracking-tight text-[var(--brand-ink)]">
             Betoneira <span className="text-[var(--brand-navy)]">Osasco</span>
           </span>
