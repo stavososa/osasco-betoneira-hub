@@ -51,6 +51,7 @@ export function SiteFooter({ bairrosVisiveis }: { bairrosVisiveis?: typeof BAIRR
               <li><Link to="/comprar-betoneira" className="hover:underline">Comprar betoneira</Link></li>
               <li><Link to="/sobre" className="hover:underline">Sobre</Link></li>
               <li><Link to="/contato" className="hover:underline">Contato</Link></li>
+              <li><Link to="/blog" className="hover:underline">Blog</Link></li>
             </ul>
           </div>
         </div>

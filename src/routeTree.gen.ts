@@ -14,6 +14,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ComprarBetoneiraRouteImport } from './routes/comprar-betoneira'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AlugarBetoneiraEmBairroRouteImport } from './routes/alugar-betoneira-em-$bairro'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -42,6 +43,11 @@ const ComprarBetoneiraRoute = ComprarBetoneiraRouteImport.update({
   path: '/comprar-betoneira',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlugarBetoneiraEmBairroRoute = AlugarBetoneiraEmBairroRouteImport.update({
   id: '/alugar-betoneira-em-$bairro',
   path: '/alugar-betoneira-em-$bairro',
@@ -56,6 +62,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/alugar-betoneira-em-$bairro': typeof AlugarBetoneiraEmBairroRoute
+  '/blog': typeof BlogRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/alugar-betoneira-em-$bairro': typeof AlugarBetoneiraEmBairroRoute
+  '/blog': typeof BlogRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/alugar-betoneira-em-$bairro': typeof AlugarBetoneiraEmBairroRoute
+  '/blog': typeof BlogRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/alugar-betoneira-em-$bairro'
+    | '/blog'
     | '/comprar-betoneira'
     | '/contato'
     | '/servicos'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/alugar-betoneira-em-$bairro'
+    | '/blog'
     | '/comprar-betoneira'
     | '/contato'
     | '/servicos'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/alugar-betoneira-em-$bairro'
+    | '/blog'
     | '/comprar-betoneira'
     | '/contato'
     | '/servicos'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AlugarBetoneiraEmBairroRoute: typeof AlugarBetoneiraEmBairroRoute
+  BlogRoute: typeof BlogRoute
   ComprarBetoneiraRoute: typeof ComprarBetoneiraRoute
   ContatoRoute: typeof ContatoRoute
   ServicosRoute: typeof ServicosRoute
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComprarBetoneiraRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/alugar-betoneira-em-$bairro': {
       id: '/alugar-betoneira-em-$bairro'
       path: '/alugar-betoneira-em-$bairro'
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AlugarBetoneiraEmBairroRoute: AlugarBetoneiraEmBairroRoute,
+  BlogRoute: BlogRoute,
   ComprarBetoneiraRoute: ComprarBetoneiraRoute,
   ContatoRoute: ContatoRoute,
   ServicosRoute: ServicosRoute,
