@@ -309,10 +309,10 @@ function BairroPage() {
             <span className="spec-label">Valores Transparentes</span>
           </div>
           <h2 className="reveal mt-2 font-display text-3xl text-[var(--brand-ink)] md:text-5xl">
-            Tabela de preços de <span className="font-editorial text-[var(--brand-navy)]">aluguel</span> em {bairro.nome}
+            Aluguel de <span className="font-editorial text-[var(--brand-navy)]">betoneira</span> em {bairro.nome}
           </h2>
           <p className="reveal mt-4 max-w-2xl text-sm text-muted-foreground">
-            Valores médios por período de uso para o bairro {bairro.nome}. Atendimento sem burocracias, com pagamento flexível (PIX, dinheiro ou cartão) na entrega.
+            Valores sob consulta para locação no bairro {bairro.nome}. Atendimento sem burocracias, com pagamento flexível (PIX, dinheiro ou cartão) na entrega.
           </p>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -327,23 +327,8 @@ function BairroPage() {
                 <h3 className="mt-2 font-display text-xl text-[var(--brand-ink)]">{p.modelo}</h3>
                 <p className="mt-1 font-mono text-[10px] text-muted-foreground">{p.motor}</p>
                 
-                <div className="mt-5 space-y-2 border-t border-dashed border-[var(--brand-ink)]/10 pt-4">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-muted-foreground">Diária:</span>
-                    <strong className="text-[var(--brand-ink)] font-mono">{p.diaria}</strong>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-muted-foreground">Semanal:</span>
-                    <strong className="text-[var(--brand-ink)] font-mono">{p.semanal}</strong>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-muted-foreground">Quinzenal:</span>
-                    <strong className="text-[var(--brand-ink)] font-mono">{p.quinzenal}</strong>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-muted-foreground">Mensal:</span>
-                    <strong className="text-[var(--brand-navy)] font-mono font-bold">{p.mensal}</strong>
-                  </div>
+                <div className="mt-5 border-t border-dashed border-[var(--brand-ink)]/10 pt-4 text-center">
+                  <span className="font-display text-lg text-[var(--brand-navy)]">Sob consulta</span>
                 </div>
 
                 <a
