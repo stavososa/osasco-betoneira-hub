@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -193,6 +194,53 @@ details.faq-item[open] .chev { transform: rotate(45deg); }
 .step-connector { stroke-dasharray: 200; stroke-dashoffset: 200; }
 .is-visible .step-connector { animation: draw-line 1.6s ease-out forwards; }
 
+/* Editorial accent serif (apenas em citações/H2 narrativos) */
+.font-editorial {
+  font-family: "Fraunces", "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+/* Easing global "spring-like" */
+:root { --ease-spring: cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* Stagger cascade via --i (sem delays manuais) */
+[style*="--i"].reveal { transition-delay: calc(var(--i, 0) * 80ms); }
+
+/* Float suave para o hero (apenas transform) */
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.float-soft { animation: float-soft 7s var(--ease-spring) infinite; }
+
+/* Marquee infinita */
+@keyframes marquee-x {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.marquee { overflow: hidden; position: relative; }
+.marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee-x 38s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* Zig-zag row para serviços */
+.zigzag-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .zigzag-row { grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .zigzag-row.reverse > :first-child { order: 2; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
@@ -200,4 +248,6 @@ details.faq-item[open] .chev { transform: rotate(45deg); }
     transition-duration: 0.001ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+  .marquee-track { animation: none; }
+  .float-soft { animation: none; }
 }

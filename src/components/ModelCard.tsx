@@ -8,10 +8,13 @@ export interface Modelo {
   destaque?: boolean;
 }
 
-export function ModelCard({ m }: { m: Modelo }) {
+export function ModelCard({ m, size = "sm" }: { m: Modelo; size?: "lg" | "sm" }) {
+  const isLarge = size === "lg";
   return (
     <article
-      className={`group cut-corner relative border-2 bg-card p-6 transition-transform duration-200 hover:-translate-y-1 ${
+      className={`group relative flex h-full flex-col border-2 bg-card p-6 transition-[transform,box-shadow] duration-300 [transition-timing-function:var(--ease-spring)] hover:-translate-y-1 ${
+        isLarge ? "md:p-10" : ""
+      } ${
         m.destaque
           ? "border-[var(--brand-yellow)] hard-shadow-yellow"
           : "border-[var(--brand-ink)] hard-shadow"
@@ -23,11 +26,21 @@ export function ModelCard({ m }: { m: Modelo }) {
         </span>
       )}
       <div className="flex items-start justify-between">
-        <MixerIcon size={48} className="text-[var(--brand-navy)]" />
+        <MixerIcon size={isLarge ? 72 : 48} className="text-[var(--brand-navy)]" />
         <span className="spec-label">Ref. {m.volume}</span>
       </div>
-      <div className="mt-4 numeric text-5xl text-[var(--brand-ink)]">{m.volume}</div>
-      <dl className="mt-4 grid grid-cols-2 gap-y-2 border-t border-dashed border-[var(--brand-ink)]/30 pt-4 text-xs">
+      <div
+        className={`mt-4 numeric leading-none text-[var(--brand-ink)] ${
+          isLarge ? "text-7xl md:text-[7.5rem]" : "text-5xl"
+        }`}
+      >
+        {m.volume}
+      </div>
+      <dl
+        className={`mt-auto grid grid-cols-2 gap-y-2 border-t border-dashed border-[var(--brand-ink)]/30 pt-4 text-xs ${
+          isLarge ? "md:text-sm" : ""
+        }`}
+      >
         <dt className="spec-label">Motor</dt><dd className="text-right font-mono text-[var(--brand-ink)]">{m.motor}</dd>
         <dt className="spec-label">Alimentação</dt><dd className="text-right font-mono text-[var(--brand-ink)]">{m.voltagem}</dd>
         <dt className="spec-label">Indicada para</dt><dd className="text-right font-mono text-[var(--brand-ink)]">{m.uso}</dd>
