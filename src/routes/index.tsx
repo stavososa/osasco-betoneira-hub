@@ -236,18 +236,6 @@ function HomePage() {
                 </Link>
               </p>
 
-              <div className="reveal mt-12 grid max-w-md grid-cols-3 divide-x divide-white/15 border-y border-white/15 py-4" style={{ ["--i" as never]: 4 }}>
-                {[
-                  ["+50", "Bairros de Osasco"],
-                  ["Hoje", "Entrega no dia"],
-                  ["150 a 400L", "Elétrica · Gasolina"],
-                ].map(([k, v]) => (
-                  <div key={v} className="px-3">
-                    <div className="numeric text-2xl text-[var(--brand-yellow)] md:text-3xl">{k}</div>
-                    <div className="spec-label !text-white/60 mt-1">{v}</div>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* Coluna direita */}
