@@ -79,7 +79,7 @@ export const Route = createFileRoute("/alugar-betoneira-em-$bairro")({
     if (!loaderData) return { meta: [{ title: "Bairro não encontrado" }] };
     const { bairro } = loaderData;
     const title = `Alugar Betoneira em ${bairro.nome}, Osasco | Entrega Hoje R$ 80`;
-    const desc = `Locação de betoneiras em ${bairro.nome}, Osasco SP. Betoneiras de 150L, 250L e 400L elétricas e a gasolina com entrega e retirada no mesmo dia. WhatsApp (11) 97546-5766.`;
+    const desc = `Locação de betoneiras em ${bairro.nome}, Osasco SP. Betoneiras de 120L, 150L, 250L e 400L elétricas e a gasolina com entrega e retirada no mesmo dia. WhatsApp (11) 97546-5766.`;
     const url = `https://betoneiraosasco.com.br/alugar-betoneira-em-${params.bairro}`;
     return {
       meta: [
@@ -228,7 +228,7 @@ function BairroPage() {
               Aluguel de Betoneira em <span className="text-[var(--brand-yellow)]">{bairro.nome}</span>
             </h1>
             <p className="reveal reveal-delay-2 mt-6 max-w-2xl text-white/80 leading-relaxed">
-              Locação de betoneiras elétricas 110V/220V e a gasolina de 150L, 250L e 400L no bairro <strong>{bairro.nome}</strong> em Osasco SP. Equipamentos revisados, prontos para uso e com entrega hoje sem burocracias.
+              Locação de betoneiras elétricas 110V/220V e a gasolina de 120L, 150L, 250L e 400L no bairro <strong>{bairro.nome}</strong> em Osasco SP. Equipamentos revisados, prontos para uso e com entrega hoje sem burocracias.
             </p>
             <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-4">
               <a
