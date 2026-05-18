@@ -49,7 +49,7 @@ function SobrePage() {
         <section className="mx-auto max-w-4xl px-4 py-16">
           <div className="reveal space-y-4 text-base text-foreground/90">
             <p>A <strong>Betoneira Osasco</strong> nasceu para resolver um problema comum em obras: ter um equipamento confiável, na hora certa e sem complicação. Somos especializados em <strong>locação e venda de betoneiras</strong> em Osasco, com entrega e retirada no mesmo dia em todos os bairros.</p>
-            <p>Trabalhamos com modelos de <strong>150L, 250L e 400L</strong>, elétricas e a gasolina, para atender desde pequenas reformas até obras de maior porte.</p>
+            <p>Trabalhamos com modelos de <strong>120L, 150L, 250L e 400L</strong>, elétricas e a gasolina, para atender desde pequenas reformas até obras de maior porte.</p>
           </div>
 
           <h2 className="reveal mt-12 font-display text-2xl text-[var(--brand-ink)] md:text-3xl">Nossos diferenciais</h2>

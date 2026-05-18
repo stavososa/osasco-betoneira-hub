@@ -3,7 +3,7 @@ const MARQUEE = [
   "Betoneira elétrica 110V e 220V",
   "Betoneira a gasolina",
   "Misturador de concreto e argamassa",
-  "150L · 250L · 400L",
+  "120L · 150L · 250L · 400L",
   "Diária · Semanal · Mensal",
   "Locadora local · Frota própria",
   "Também vendemos betoneira",

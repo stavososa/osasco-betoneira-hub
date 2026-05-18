@@ -8,7 +8,12 @@ Serviço profissional de aluguel (locação) e venda de betoneiras na cidade de 
 - Área de Cobertura: Todos os 62 bairros de Osasco (Centro, Zona Norte, Zona Sul, Bussocaba, Quitaúna, etc.)
 
 ## Modelos Disponíveis para Locação (Preços Médios)
-1. **Betoneira 150 Litros**: Ideal para reformas pequenas, rebocos e reparos rápidos. Elétrica (110V/220V).
+1. **Betoneira 120 Litros**: Compacta, ideal para reparos, pequenos acabamentos e obras de bancada. Elétrica (110V/220V).
+   - Diária: R$ 70–110
+   - Semanal: R$ 180–320
+   - Quinzenal: R$ 320–500
+   - Mensal: R$ 400–650
+2. **Betoneira 150 Litros**: Ideal para reformas pequenas, rebocos e reparos rápidos. Elétrica (110V/220V).
    - Diária: R$ 80–120
    - Semanal: R$ 200–350
    - Quinzenal: R$ 350–550
@@ -30,6 +35,8 @@ Serviço profissional de aluguel (locação) e venda de betoneiras na cidade de 
    - Mensal: R$ 1.400–2.000
 
 ## Modelos Disponíveis para Venda (Preços e Modelos)
+- Betoneira 120L elétrica compacta: R$ 1.000 a R$ 2.100
+- Betoneira 120L elétrica profissional: R$ 1.500 a R$ 2.600
 - Betoneira 150L elétrica compacta: R$ 1.200 a R$ 2.300
 - Betoneira 150L elétrica profissional: R$ 1.700 a R$ 2.800
 - Betoneira 250L elétrica monofásica: R$ 2.500 a R$ 4.800
