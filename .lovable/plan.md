@@ -1,101 +1,81 @@
 ## Objetivo
 
-Aplicar a `taste-skill` (níveis 8 / 6 / 4 — variância alta, motion médio, densidade baixa) na home, **sem instalar bibliotecas novas** — tudo em HTML/CSS nativo, preservando a identidade "obra de Osasco" (amarelo, navy, ink, hazard-stripe).
+Integrar a lista de palavras-chave de SEO na home (`src/routes/index.tsx`) de forma natural, semântica e relacionada — sem encher de texto nem prejudicar o design atual (hero limpo, cards arredondados, fundo azul).
 
-Foco em: assimetria, anti-cliché de 3 cards iguais, tipografia mais autoral, motion suave via `cubic-bezier` + `animation-delay`, e densidade respirada.
+## Estratégia
 
----
+Vou distribuir as keywords em blocos que já existem na página, reescrevendo o copy para cobrir os temas principais sem soar repetitivo. Nada de "keyword stuffing": cada seção foca num cluster semântico.
 
-## Princípios da skill que vamos adotar
+### 1. Metadados (head)
 
-| Regra da skill | Como aplicamos aqui |
-|---|---|
-| Anti-center bias no Hero | Hero já é split — vamos reforçar com grid `3fr 2fr` assimétrico, eyebrow vertical e número de série lateral |
-| Banido 3-column card row | Trocar a seção "Locação / Venda / Entrega" por **zig-zag de 2 colunas alternadas** com numerais gigantes |
-| Anti-card overuse | Depoimentos saem dos cards → vão para um bloco com `divide-y` e citação tipográfica grande |
-| Tipografia anti-Inter | Já usamos Oswald + IBM Plex — manter, mas reforçar `tracking-tighter` e `leading-none` nos H1/H2 e adicionar uma `font-display` editorial (ex.: **Fraunces** ou **Cabinet Grotesk** via Google Fonts) só para H2 narrativos |
-| Saturação < 80%, sem glow | Manter amarelo/navy, remover qualquer `drop-shadow` colorido; sombras tintadas do background |
-| Sem emojis / ícones limpos | Já temos `Icons.tsx` — manter |
-| Motion via transform/opacity, spring-like | Tudo via `transition: ... cubic-bezier(0.16,1,0.3,1)` e `@keyframes` simples. Sem JS de scroll além do `useReveal` já existente |
-| `min-h-[100dvh]` no hero | Trocar `py-16/24` por `min-h-[100dvh]` com padding interno |
-| Bento 2.0 (asimétrico) | Aplicar na seção "Modelos" — 1 card grande (250L destaque) + 2 menores em grid `2fr 1fr` |
-| Kinetic marquee | Substituir o `TrustBar` por uma **marquee CSS infinita** com selos ("Entrega hoje · Equipamento revisado · Sem caução escondida · Osasco SP") |
-| Staggered orchestration | Cascade via `--index` em CSS, não delays manuais um a um |
+- **title**: "Aluguel de Betoneira em Osasco | Locação 150L, 250L e 400L"
+- **description**: cobre "locação de betoneira em Osasco", "entrega no mesmo dia", "elétrica e a gasolina", "sem burocracia", telefone.
+- **og:title / og:description**: variações com "alugar betoneira Osasco SP".
+- Adicionar JSON-LD **LocalBusiness** (nome, área atendida = Osasco e região, telefone, faixa de preço) e **FAQPage** (já temos 6 perguntas no array `FAQ`).
 
----
+### 2. Hero
 
-## Mudanças por seção (home `/`)
+- Subtítulo (eyebrow): "Osasco, SP · Grande São Paulo"
+- H1 mantém: "Aluguel de Betoneira em Osasco"
+- Parágrafo reescrito cobrindo: "locação de betoneira Osasco SP", "betoneira elétrica e a gasolina", "150L, 250L e 400L", "entrega no mesmo dia, sem burocracia, sem caução abusiva".
+- Stats: trocar rótulos para incluir "Modelos 150 a 400L", "Entrega hoje", "+50 bairros de Osasco".
 
-```text
-┌─ HERO (min-h-[100dvh], split 3fr/2fr) ─────────────┐
-│ esquerda: eyebrow vertical "OSC · 011"             │
-│           H1 com palavra-âncora deslocada          │
-│           parágrafo curto + 2 CTAs + stats em row  │
-│ direita:  betoneira PNG com leve float CSS         │
-│           etiquetas técnicas flutuando (specs)     │
-│ rodapé:   hazard-stripe fina                       │
-└────────────────────────────────────────────────────┘
+### 3. TrustBar / Marquee
 
-┌─ MARQUEE KINETIC (substitui TrustBar) ─────────────┐
-│  ENTREGA HOJE · REVISADAS · SEM BUROCRACIA · ...   │
-│  loop CSS @keyframes translateX                    │
-└────────────────────────────────────────────────────┘
+Adicionar termos curtos: "Betoneira elétrica 110V/220V · Betoneira a gasolina · Misturador de concreto · Argamassadeira · Diária, semanal e mensal · Entrega no mesmo dia em Osasco".
 
-┌─ STEPS (manter, refinar) ──────────────────────────┐
-│  já está bom — apenas suavizar conectores          │
-└────────────────────────────────────────────────────┘
+### 4. Steps
 
-┌─ MODELOS — Bento assimétrico ──────────────────────┐
-│  ┌──────────────┐  ┌────────┐                      │
-│  │  250L        │  │ 150L   │                      │
-│  │  destaque    │  ├────────┤                      │
-│  │  (grande)    │  │ 400L   │                      │
-│  └──────────────┘  └────────┘                      │
-│  grid: 2fr 1fr · gap-6                             │
-└────────────────────────────────────────────────────┘
+Reescrever as descrições dos 3 passos para mencionar: "locação por diária, semana ou mês", "betoneira revisada", "entrega e retirada em domicílio".
 
-┌─ SERVIÇOS — ZIG-ZAG (era 3 cards) ─────────────────┐
-│  01 ──── Locação           [imagem/ícone à direita]│
-│              [imagem/ícone à esquerda] Venda ── 02 │
-│  03 ──── Entrega & Retirada    [imagem à direita]  │
-│  números gigantes em font-numeric                  │
-└────────────────────────────────────────────────────┘
+### 5. Modelos (catálogo)
 
-┌─ MAPA / COBERTURA (manter, ajuste tipográfico) ────┐
+- Atualizar `uso` de cada modelo:
+  - 150L → "Reformas e reboco"
+  - 250L → "Lajes e contrapiso residencial"
+  - 400L → "Obras de médio porte, muro e calçada"
+- Acima da grade, parágrafo curto: "Betoneiras de 150, 250 e 400 litros — elétricas monofásicas (110V/220V) e a gasolina — ideais para concreto, argamassa, contrapiso e laje."
 
-┌─ DEPOIMENTOS — sem cards ──────────────────────────┐
-│  divide-y border-y, citação grande font-display    │
-│  autor + bairro em linha mono pequena              │
-│  3 itens empilhados, não em grade                  │
-└────────────────────────────────────────────────────┘
+### 6. Serviços (zig-zag)
 
-┌─ FAQ (manter, sem mudança estrutural) ─────────────┐
+Reescrever os 3 textos:
+- **Locação**: "Aluguel diário, semanal ou mensal de betoneira em Osasco. Atende pedreiro, empreiteiro e construtora."
+- **Venda**: mantém + "indicamos entre betoneira elétrica ou a gasolina conforme o porte da obra."
+- **Entrega e Retirada**: "Entrega no mesmo dia em toda Osasco e região (zona norte, zona sul e centro). Retirada agendada, sem burocracia."
 
-┌─ CTA FINAL (manter)  ──────────────────────────────┐
-```
+### 7. Nova seção "Para que serve" (entre Serviços e Mapa)
 
----
+Bloco compacto com chips/cards arredondados listando aplicações:
+"Laje · Contrapiso · Calçada · Muro · Piscina · Quintal · Reboco · Alvenaria · Reforma residencial · Construção civil"
 
-## Detalhes técnicos
+Texto curto: "Misturador de concreto, argamassa e cimento para obras residenciais e de médio porte em Osasco e Grande São Paulo."
 
-**Arquivos tocados**
-- `src/styles.css` — adicionar:
-  - `@keyframes marquee` + `.marquee` (loop horizontal, pausa no hover)
-  - `@keyframes float-soft` para a betoneira do hero
-  - cascade utility `[--i]` com `transition-delay: calc(var(--i) * 80ms)`
-  - cubic-bezier global `--ease-spring: cubic-bezier(0.16, 1, 0.3, 1)`
-  - Import opcional de **Fraunces** (Google Fonts) só para citações
-- `src/routes/index.tsx` — reescrever as 4 seções acima (hero / serviços zig-zag / modelos bento / depoimentos)
-- `src/components/TrustBar.tsx` → vira `Marquee.tsx` (renomear conceito; manter export TrustBar p/ não quebrar nada e re-exportar marquee)
-- `src/components/ModelCard.tsx` — aceitar prop `size: "lg" | "sm"` para o bento
-- Nenhum pacote novo. Sem framer-motion. Sem GSAP.
+Mantém o estilo: cards/chips com `rounded-2xl` ou `rounded-full`, sombra leve, fundo branco sobre `--brand-concrete`.
 
-**Performance / leveza**
-- Apenas `transform` + `opacity` animados
-- `noise-overlay` já é `pointer-events-none` fixo — ok
-- `useReveal` (IntersectionObserver) reaproveitado para staggered
-- Sem libs adicionais → bundle inalterado
+### 8. Mapa / cobertura
 
-**Fora de escopo**
-- Páginas internas (`/servicos`, `/sobre`, `/contato`, `/alugar-betoneira-em-osasco/$bairro`) ficam como estão nesta rodada — a skill pede consistência, mas você pediu foco em "a página", então faço só a home. Posso fazer as internas depois se quiser.
-- Sem alterações em rotas, dados, footer ou header.
+Reescrever copy: "Atendemos toda Osasco — Centro, Zona Norte, Zona Sul, Bussocaba, Quitaúna, Presidente Altino — e cidades vizinhas da Grande São Paulo sob consulta."
+
+### 9. FAQ
+
+Adicionar 2 perguntas novas ao array `FAQ` para cobrir long-tail:
+- "Vale a pena alugar ou comprar uma betoneira?"
+- "Qual betoneira usar para laje: 250 ou 400 litros?"
+
+E ajustar uma resposta existente para mencionar "betoneira elétrica ou a gasolina".
+
+### 10. CTA final
+
+Trocar texto para: "Aluguel de betoneira em Osasco com entrega no mesmo dia."
+
+## Princípios
+
+- Nenhuma mudança visual de layout — só copy, metadados e uma seção nova de "aplicações" no mesmo estilo (rounded + shadow leve).
+- Cada keyword aparece **no máximo 2x** na página; long-tail fica no FAQ e nos parágrafos descritivos.
+- Mantém tom natural em PT-BR, sem listas de keywords cruas.
+
+## Arquivos a alterar
+
+- `src/routes/index.tsx` — head meta + JSON-LD + copy de hero, steps copy override, modelos copy, serviços, nova seção aplicações, mapa, CTA, FAQ expandido.
+- `src/components/TrustBar.tsx` — itens do marquee.
+- (Opcional) `src/components/Steps.tsx` — se as descrições estiverem hardcoded lá, ajustar.

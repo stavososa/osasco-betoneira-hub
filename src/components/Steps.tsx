@@ -1,7 +1,7 @@
 const STEPS = [
-  { n: "01", t: "Você chama", d: "WhatsApp ou telefone. Conta o modelo e o endereço." },
-  { n: "02", t: "Confirmamos", d: "Orçamento na hora e janela de entrega no mesmo dia." },
-  { n: "03", t: "Usa na obra", d: "Diária, semanal ou mensal , sem burocracia." },
+  { n: "01", t: "Você chama", d: "WhatsApp ou telefone. Conta o modelo de betoneira, o endereço em Osasco e o tipo de obra." },
+  { n: "02", t: "Confirmamos", d: "Orçamento na hora para aluguel diário, semanal ou mensal, com entrega no mesmo dia." },
+  { n: "03", t: "Usa na obra", d: "Betoneira revisada na sua porta, pronta para misturar concreto, argamassa ou contrapiso." },
 ];
 
 export function Steps({ bairro }: { bairro?: string }) {
