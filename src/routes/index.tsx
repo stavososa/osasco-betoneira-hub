@@ -145,6 +145,37 @@ const PRECOS_LOCACAO = [
   },
 ];
 
+const PRECOS_VENDA = [
+  {
+    modelo: "Betoneira 150L Elétrica",
+    tag: "Compacta · Reformas",
+    motor: "Motor ½ cv · 110/220V bivolt",
+    faixa: "R$ 1.200 – 2.800",
+    destaque: false,
+  },
+  {
+    modelo: "Betoneira 250L Elétrica",
+    tag: "Mais Vendida · Residencial",
+    motor: "Motor 1–2 cv · 220V mono",
+    faixa: "R$ 2.500 – 4.800",
+    destaque: true,
+  },
+  {
+    modelo: "Betoneira 400L Elétrica",
+    tag: "Médio Porte · Mono/Trifásica",
+    motor: "Motor 2 cv · 220V mono ou trifásica",
+    faixa: "R$ 3.500 – 7.000",
+    destaque: false,
+  },
+  {
+    modelo: "Betoneira 400L Gasolina",
+    tag: "Obras Externas · 5,5 a 12 cv",
+    motor: "Motor gasolina 5,5 a 12 hp",
+    faixa: "R$ 5.500 – 14.000",
+    destaque: false,
+  },
+];
+
 const SERVICOS = [
   {
     n: "01",
