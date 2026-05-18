@@ -7,35 +7,13 @@ Serviço profissional de aluguel (locação) e venda de betoneiras na cidade de 
 - Atendimento: Segunda a Sábado, das 07h às 19h
 - Área de Cobertura: Todos os 62 bairros de Osasco (Centro, Zona Norte, Zona Sul, Bussocaba, Quitaúna, etc.)
 
-## Modelos Disponíveis para Locação (Preços Médios)
-1. **Betoneira 120 Litros**: Compacta, ideal para reparos, pequenos acabamentos e obras de bancada. Elétrica (110V/220V).
-   - Diária: R$ 70–110
-   - Semanal: R$ 180–320
-   - Quinzenal: R$ 320–500
-   - Mensal: R$ 400–650
-2. **Betoneira 150 Litros**: Ideal para reformas pequenas, rebocos e reparos rápidos. Elétrica (110V/220V).
-   - Diária: R$ 80–120
-   - Semanal: R$ 200–350
-   - Quinzenal: R$ 350–550
-   - Mensal: R$ 450–700
-2. **Betoneira 250 Litros**: A mais procurada para obras residenciais equilibradas. Elétrica (110V/220V).
-   - Diária: R$ 120–180
-   - Semanal: R$ 350–550
-   - Quinzenal: R$ 550–850
-   - Mensal: R$ 700–1.100
-3. **Betoneira 400 Litros Elétrica**: Ideal para obras de médio porte e concretagens. Monofásica 220V.
-   - Diária: R$ 160–220
-   - Semanal: R$ 500–750
-   - Quinzenal: R$ 800–1.200
-   - Mensal: R$ 1.000–1.600
-4. **Betoneira 400 Litros Gasolina**: Ideal para canteiros sem rede elétrica. Motor 5.5 hp.
-   - Diária: R$ 200–280
-   - Semanal: R$ 650–950
-   - Quinzenal: R$ 1.000–1.500
-   - Mensal: R$ 1.400–2.000
-5. **Caminhão Betoneira (mixer truck)**: Para obras de grande porte e concretagem em grande volume. Operador incluso, varia conforme região.
-   - Diária: R$ 1.500–6.000 (varia conforme região)
-   - Mensal: R$ 20.000–80.000+
+## Modelos Disponíveis para Locação
+1. **Betoneira 120 Litros**: Compacta, ideal para reparos, pequenos acabamentos e obras de bancada. Elétrica (110V/220V). Valor sob consulta.
+2. **Betoneira 150 Litros**: Ideal para reformas pequenas, rebocos e reparos rápidos. Elétrica (110V/220V). Valor sob consulta.
+3. **Betoneira 250 Litros**: A mais procurada para obras residenciais equilibradas. Elétrica (110V/220V). Valor sob consulta.
+4. **Betoneira 400 Litros Elétrica**: Ideal para obras de médio porte e concretagens. Monofásica 220V. Valor sob consulta.
+5. **Betoneira 400 Litros Gasolina**: Ideal para canteiros sem rede elétrica. Motor 5.5 hp. Valor sob consulta.
+6. **Caminhão Betoneira (mixer truck)**: Para obras de grande porte e concretagem em grande volume. Operador incluso, varia conforme região. Valor sob consulta.
 
 ## Modelos Disponíveis para Venda (Preços e Modelos)
 - Betoneira 120L elétrica compacta: R$ 1.000 a R$ 2.100
