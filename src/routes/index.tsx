@@ -62,7 +62,7 @@ export const Route = createFileRoute("/")({
               "@type": "OpeningHoursSpecification",
               dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
               opens: "07:00",
-              closes": "19:00",
+              closes: "19:00",
             },
           ],
         }),
