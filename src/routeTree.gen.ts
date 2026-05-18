@@ -13,6 +13,7 @@ import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as ComprarBetoneiraRouteImport } from './routes/comprar-betoneira'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlugarBetoneiraEmOsascoBairroRouteImport } from './routes/alugar-betoneira-em-osasco.$bairro'
 
@@ -36,6 +37,11 @@ const ContatoRoute = ContatoRouteImport.update({
   path: '/contato',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComprarBetoneiraRoute = ComprarBetoneiraRouteImport.update({
+  id: '/comprar-betoneira',
+  path: '/comprar-betoneira',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -50,6 +56,7 @@ const AlugarBetoneiraEmOsascoBairroRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -67,6 +75,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/comprar-betoneira'
     | '/contato'
     | '/servicos'
     | '/sitemap.xml'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/comprar-betoneira'
     | '/contato'
     | '/servicos'
     | '/sitemap.xml'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/comprar-betoneira'
     | '/contato'
     | '/servicos'
     | '/sitemap.xml'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComprarBetoneiraRoute: typeof ComprarBetoneiraRoute
   ContatoRoute: typeof ContatoRoute
   ServicosRoute: typeof ServicosRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -139,6 +152,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContatoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/comprar-betoneira': {
+      id: '/comprar-betoneira'
+      path: '/comprar-betoneira'
+      fullPath: '/comprar-betoneira'
+      preLoaderRoute: typeof ComprarBetoneiraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -158,6 +178,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComprarBetoneiraRoute: ComprarBetoneiraRoute,
   ContatoRoute: ContatoRoute,
   ServicosRoute: ServicosRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
