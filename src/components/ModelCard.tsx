@@ -29,6 +29,11 @@ export function ModelCard({ m, size = "sm" }: { m: Modelo; size?: "lg" | "sm" })
       >
         {m.volume}
       </div>
+      {m.tag && (
+        <p className="mt-2 text-xs font-medium text-[var(--brand-navy)] md:text-sm">
+          {m.tag}
+        </p>
+      )}
       <dl
         className={`mt-auto grid grid-cols-2 gap-y-2 border-t border-dashed border-[var(--brand-ink)]/30 pt-4 text-xs ${
           isLarge ? "md:text-sm" : ""
