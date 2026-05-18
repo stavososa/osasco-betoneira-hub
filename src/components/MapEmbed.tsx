@@ -1,7 +1,7 @@
 export function MapEmbed({ query, title }: { query: string; title: string }) {
   const src = `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
   return (
-    <div className="overflow-hidden rounded-lg border border-border shadow-sm">
+    <div className="cut-corner overflow-hidden border-2 border-[var(--brand-ink)] hard-shadow">
       <iframe
         src={src}
         title={title}
