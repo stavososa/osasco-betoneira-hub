@@ -166,7 +166,7 @@ function HomePage() {
             <div className="relative">
               <div className="reveal flex items-center gap-3" style={{ ["--i" as never]: 0 }}>
                 <span className="h-px w-10 bg-[var(--brand-yellow)]" />
-                <span className="spec-label !text-white/70">Osasco, SP</span>
+                <span className="spec-label !text-white/70">Osasco, SP · Grande São Paulo</span>
               </div>
 
               <h1 className="reveal mt-4 font-display text-[3.25rem] leading-[0.92] tracking-tight md:text-[5.75rem]" style={{ ["--i" as never]: 1 }}>
@@ -174,7 +174,7 @@ function HomePage() {
               </h1>
 
               <p className="reveal mt-6 max-w-md text-white/80 leading-relaxed" style={{ ["--i" as never]: 2 }}>
-                Locação e venda em toda Osasco. Equipamento revisado, contrato direto e entrega rápida, sem burocracia de balcão.
+                Locação de betoneira em Osasco SP por diária, semana ou mês. Modelos de 150L, 250L e 400L, elétricas 110V/220V ou a gasolina, com entrega no mesmo dia e sem burocracia.
               </p>
 
               <div className="reveal mt-8 flex flex-wrap gap-4" style={{ ["--i" as never]: 3 }}>
@@ -195,9 +195,9 @@ function HomePage() {
 
               <div className="reveal mt-12 grid max-w-md grid-cols-3 divide-x divide-white/15 border-y border-white/15 py-4" style={{ ["--i" as never]: 4 }}>
                 {[
-                  ["+50", "Bairros"],
-                  ["Hoje", "Entrega"],
-                  ["150 a 400L", "Modelos"],
+                  ["+50", "Bairros de Osasco"],
+                  ["Hoje", "Entrega no dia"],
+                  ["150 a 400L", "Elétrica · Gasolina"],
                 ].map(([k, v]) => (
                   <div key={v} className="px-3">
                     <div className="numeric text-2xl text-[var(--brand-yellow)] md:text-3xl">{k}</div>
