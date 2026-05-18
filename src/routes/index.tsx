@@ -197,7 +197,7 @@ function HomePage() {
 
         {/* HERO */}
         <section className="relative noise-overlay overflow-hidden bg-[var(--brand-navy)] text-white">
-          <div className="mx-auto grid min-h-[calc(100dvh-80px)] max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-[3fr_2fr] md:gap-16 md:py-0">
+          <div className="mx-auto grid min-h-[calc(100dvh-80px)] max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-[1fr_1fr] md:gap-16 md:py-0">
             {/* Coluna esquerda */}
             <div className="relative">
               <div className="reveal flex items-center gap-3" style={{ ["--i" as never]: 0 }}>
@@ -257,7 +257,7 @@ function HomePage() {
                 alt="Betoneira 400L amarela e azul para aluguel em Osasco SP"
                 width={720}
                 height={780}
-                className="relative z-10 mx-auto w-full max-w-2xl md:max-w-3xl lg:scale-125 float-soft drop-shadow-[0_30px_30px_rgba(0,0,0,0.45)] object-fill"
+                className="relative z-10 mx-auto w-full max-w-3xl md:max-w-none lg:scale-[1.4] float-soft drop-shadow-[0_30px_30px_rgba(0,0,0,0.45)] object-fill"
                 loading="eager"
               />
             </aside>
