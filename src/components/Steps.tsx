@@ -19,7 +19,7 @@ export function Steps({ bairro }: { bairro?: string }) {
         <ol className="mt-10 grid gap-6 md:grid-cols-3">
           {STEPS.map((s, i) => (
             <li key={s.n} className={`reveal reveal-delay-${i + 1} relative`}>
-              <div className="cut-corner border-2 border-[var(--brand-ink)] bg-white p-5 hard-shadow">
+              <div className="rounded-2xl bg-white p-6 ring-1 ring-black/5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:-translate-y-1">
                 <div className="numeric text-4xl text-[var(--brand-yellow)] [text-shadow:_2px_2px_0_var(--brand-ink)]">
                   {s.n}
                 </div>
