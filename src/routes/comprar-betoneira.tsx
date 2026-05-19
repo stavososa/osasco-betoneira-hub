@@ -155,6 +155,17 @@ export const Route = createFileRoute("/comprar-betoneira")({
           ],
           description:
             "Venda de betoneiras novas e seminovas em Osasco: 120, 120, 120, 150, 250 e 400 litros, elétricas 110V/220V e a gasolina, com garantia, nota fiscal e parcelamento.",
+          potentialAction: {
+            "@type": "BuyAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://wa.me/5511975465766?text=Quero%20comprar%20betoneira",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            }
+          }
         }),
       },
       {

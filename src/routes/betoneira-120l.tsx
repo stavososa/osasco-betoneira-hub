@@ -31,6 +31,17 @@ export const Route = createFileRoute("/betoneira-120l")({
             "@type": "OfferCatalog",
             itemListElement: [{ "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 120L Elétrica", description: "Betoneira compacta de 120 litros, elétrica bivolt 110V/220V, motor 1/3 cv." } }],
           },
+          potentialAction: {
+            "@type": "RentAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://wa.me/5511975465766?text=Quero%20alugar%20betoneira%20120l",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            }
+          }
         }),
       },
       {

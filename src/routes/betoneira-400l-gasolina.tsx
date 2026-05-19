@@ -26,6 +26,17 @@ export const Route = createFileRoute("/betoneira-400l-gasolina")({
           provider: { "@id": "https://betoneiraosasco.com.br/#business" },
           areaServed: { "@type": "City", name: "Osasco" },
           url: "https://betoneiraosasco.com.br/betoneira-400l-gasolina",
+          potentialAction: {
+            "@type": "RentAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://wa.me/5511975465766?text=Quero%20alugar%20betoneira%20400l%20gasolina",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            }
+          }
         }),
       },
       {

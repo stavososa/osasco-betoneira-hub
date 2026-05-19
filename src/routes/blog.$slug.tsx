@@ -63,14 +63,7 @@ export const Route = createFileRoute("/blog/$slug")({
                 url: "https://betoneiraosasco.com.br/blog/melhores-marcas-de-betoneira#autor"
               },
               publisher: {
-                "@type": "Organization",
-                "@id": "https://betoneiraosasco.com.br/#organization",
-                name: "Betoneiras Osasco",
-                url: "https://betoneiraosasco.com.br",
-                logo: {
-                  "@type": "ImageObject",
-                  url: "https://betoneiraosasco.com.br/assets/logo-betoneira-osasco.webp",
-                },
+                "@id": "https://betoneiraosasco.com.br/#business",
               },
             }),
           },

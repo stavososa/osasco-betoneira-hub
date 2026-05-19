@@ -161,32 +161,6 @@ export const Route = createFileRoute("/$slug")({
           }),
         },
         {
-          // Schema 3 — Place com geocoordinadas exatas do bairro
-          type: "application/ld+json",
-          children: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Place",
-            "@id": `${url}#place`,
-            name: `${bairro.nome}, Osasco, SP`,
-            geo: {
-              "@type": "GeoCoordinates",
-              latitude: bairro.lat,
-              longitude: bairro.lng,
-            },
-            hasMap: `https://www.google.com/maps/search/?api=1&query=${bairro.lat},${bairro.lng}`,
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Osasco",
-              addressRegion: "SP",
-              addressCountry: "BR",
-            },
-            containedInPlace: {
-              "@type": "City",
-              name: "Osasco",
-            },
-          }),
-        },
-        {
           // Schema 4 — BreadcrumbList (permitido repetir)
           type: "application/ld+json",
           children: JSON.stringify({

@@ -28,6 +28,17 @@ export const Route = createFileRoute("/caminhao-betoneira")({
             { "@type": "City", name: "Osasco" },
           ],
           url: "https://betoneiraosasco.com.br/caminhao-betoneira",
+          potentialAction: {
+            "@type": "RentAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: "https://wa.me/5511975465766?text=Quero%20alugar%20caminhao%20betoneira",
+              actionPlatform: [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            }
+          }
         }),
       },
       {

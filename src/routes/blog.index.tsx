@@ -36,7 +36,7 @@ export const Route = createFileRoute("/blog/")({
           "name": "Blog Betoneira Osasco",
           "description": "Dicas, guias e novidades sobre locação e venda de betoneiras em Osasco. Aprenda a escolher, operar e economizar na sua obra.",
           "publisher": {
-            "@id": "https://betoneiraosasco.com.br/#organization"
+            "@id": "https://betoneiraosasco.com.br/#business"
           },
           "blogPost": POSTS.filter((p) => p.active).map((p) => ({
             "@type": "BlogPosting",

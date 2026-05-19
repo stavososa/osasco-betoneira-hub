@@ -28,12 +28,22 @@ export const Route = createFileRoute("/servicos")({
           "serviceType": "Construction Equipment Rental and Sales",
           "description": "Locação diária/semanal/mensal, venda de betoneiras 120L–400L e entrega/retirada em Osasco. Solicite um orçamento.",
           "provider": {
-            "@type": "LocalBusiness",
             "@id": "https://betoneiraosasco.com.br/#business"
           },
           "areaServed": [
             { "@type": "City", name: "Osasco" }
           ],
+          "potentialAction": {
+            "@type": "RentAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://wa.me/5511975465766?text=Quero%20alugar%20betoneira",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            }
+          },
           "breadcrumb": {
             "@type": "BreadcrumbList",
             "itemListElement": [

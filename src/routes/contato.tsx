@@ -35,7 +35,6 @@ export const Route = createFileRoute("/contato")({
             ]
           },
           "mainEntity": {
-            "@type": "LocalBusiness",
             "@id": "https://betoneiraosasco.com.br/#business"
           }
         }),
