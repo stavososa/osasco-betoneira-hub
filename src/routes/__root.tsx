@@ -81,22 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
         { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" },
       ],
-      scripts: isBlog
-        ? []
-        : [
-            {
-              type: "application/ld+json",
-              children: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "LocalBusiness",
-                name: "Betoneira Osasco",
-                description: "Locação e venda de betoneiras em Osasco.",
-                telephone: "+5511975465766",
-                areaServed: { "@type": "City", name: "Osasco" },
-                address: { "@type": "PostalAddress", addressLocality: "Osasco", addressRegion: "SP", addressCountry: "BR" },
-              }),
-            },
-          ],
+      scripts: [],
     };
   },
   shellComponent: RootShell,

@@ -20,20 +20,6 @@ export const Route = createFileRoute("/betoneira-120l")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": ["HomeAndConstructionBusiness", "LocalBusiness"],
-          "@id": "https://betoneiraosasco.com.br/#business",
-          name: "Betoneiras Osasco",
-          url: "https://betoneiraosasco.com.br",
-          telephone: "+5511975465766",
-          address: { "@type": "PostalAddress", addressLocality: "Osasco", addressRegion: "SP", addressCountry: "BR" },
-          geo: { "@type": "GeoCoordinates", latitude: -23.5324, longitude: -46.7919 },
-          hasMap: "https://www.google.com/maps/search/?api=1&query=-23.5324,-46.7919",
-        }),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
           "@type": "Service",
           name: "Aluguel de Betoneira 120L em Osasco",
           serviceType: "Construction Equipment Rental",

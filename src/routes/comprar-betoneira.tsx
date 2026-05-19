@@ -148,11 +148,7 @@ export const Route = createFileRoute("/comprar-betoneira")({
           name: "Venda de Betoneira em Osasco",
           serviceType: "Construction equipment sales",
           provider: {
-            "@type": "LocalBusiness",
-            name: "Betoneira Osasco",
-            telephone: "+55 11 97546-5766",
-            address: { "@type": "PostalAddress", addressLocality: "Osasco", addressRegion: "SP", addressCountry: "BR" },
-            url: "https://betoneiraosasco.com.br/comprar-betoneira",
+            "@id": "https://betoneiraosasco.com.br/#business"
           },
           areaServed: [
             { "@type": "City", name: "Osasco" },

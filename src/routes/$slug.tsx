@@ -142,18 +142,18 @@ export const Route = createFileRoute("/$slug")({
             priceRange: "$$",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "Centro",
+              streetAddress: "Avenida dos Autonomistas, 896",
               addressLocality: "Osasco",
               addressRegion: "SP",
-              postalCode: "06010-000",
+              postalCode: "06020-010",
               addressCountry: "BR",
             },
             geo: {
               "@type": "GeoCoordinates",
-              latitude: -23.5324,
-              longitude: -46.7919,
+              latitude: -23.52681,
+              longitude: -46.79496,
             },
-            hasMap: "https://www.google.com/maps/search/?api=1&query=-23.5324,-46.7919",
+            hasMap: "https://www.google.com/maps/search/?api=1&query=-23.52681,-46.79496",
             areaServed: [
               { "@type": "City", name: "Osasco" },
             ],
