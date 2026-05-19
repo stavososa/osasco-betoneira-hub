@@ -218,7 +218,3 @@ Para expandir a autoridade temática (*Topical Authority*) do site e atrair trá
 O seu site de **Rank & Rent em Osasco** está com uma base técnica fantástica e design impecável. Fazendo o ajuste da **`BASE_URL` no sitemap**, tornando as **URLs canônicas absolutas** e aplicando a **estratégia de enriquecer o texto dinâmico das páginas de bairros** com referências locais reais, você terá um ativo de SEO extremamente poderoso, pronto para dominar as buscas locais em Osasco e gerar centenas de contatos qualificados.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Built by Antigravity — Pair Programming Partner  
-🆓 Free  → https://www.skool.com/ai-marketing-hub
-⚡ Pro   → https://www.skool.com/ai-marketing-hub-pro
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
