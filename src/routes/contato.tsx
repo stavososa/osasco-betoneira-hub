@@ -17,6 +17,30 @@ export const Route = createFileRoute("/contato")({
       { property: "og:url", content: "https://betoneiraosasco.com.br/contato" },
     ],
     links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/contato" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "@id": "https://betoneiraosasco.com.br/contato#webpage",
+          "url": "https://betoneiraosasco.com.br/contato",
+          "name": "Contato | Betoneira Osasco",
+          "description": "Fale com a Betoneira Osasco: WhatsApp (11) 97546-5766. Atendimento em toda Osasco, entrega e retirada no mesmo dia.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Contato", item: "https://betoneiraosasco.com.br/contato" }
+            ]
+          },
+          "mainEntity": {
+            "@type": "LocalBusiness",
+            "@id": "https://betoneiraosasco.com.br/#business"
+          }
+        }),
+      },
+    ],
   }),
   component: ContatoPage,
 });

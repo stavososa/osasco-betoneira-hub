@@ -1,11 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { HazardStripe } from "@/components/HazardStripe";
 import { useReveal } from "@/lib/useReveal";
 import { ArrowIcon } from "@/components/icons/Icons";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "Blog | Betoneira Osasco" },
@@ -15,52 +14,31 @@ export const Route = createFileRoute("/blog")({
       { property: "og:url", content: "https://betoneiraosasco.com.br/blog" },
     ],
     links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/blog" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
+            { "@type": "ListItem", position: 2, name: "Blog", item: "https://betoneiraosasco.com.br/blog" },
+          ],
+        }),
+      },
+    ],
   }),
   component: BlogPage,
 });
 
-const POSTS = [
+export const POSTS = [
   {
-    slug: "como-escolher-betoneira",
-    titulo: "Como escolher a betoneira ideal para sua obra",
-    resumo: "Capacidade, tipo de motor e voltagem , entenda os critérios para acertar na escolha.",
-    data: "12 Mai 2026",
+    slug: "melhores-marcas-de-betoneira",
+    titulo: "Quais as Melhores Marcas de Betoneira? Guia Completo 2026",
+    resumo: "Descubra quais são as melhores marcas de betoneira do mercado brasileiro, compare capacidades, preços e saiba qual escolher.",
+    data: "19 Mai 2026",
     categoria: "Guia",
-  },
-  {
-    slug: "alugar-ou-comprar-betoneira",
-    titulo: "Alugar ou comprar betoneira: o que vale mais a pena?",
-    resumo: "Compare custos, tempo de obra e manutenção antes de tomar a decisão.",
-    data: "05 Mai 2026",
-    categoria: "Comparativo",
-  },
-  {
-    slug: "manutencao-betoneira",
-    titulo: "Manutenção de betoneira: dicas para prolongar a vida útil",
-    resumo: "Limpeza correta, lubrificação e cuidados elétricos que evitam problemas.",
-    data: "28 Abr 2026",
-    categoria: "Manutenção",
-  },
-  {
-    slug: "seguranca-obra-betoneira",
-    titulo: "Segurança ao operar betoneira na obra",
-    resumo: "EPIs obrigatórios, posicionamento e boas práticas para evitar acidentes.",
-    data: "20 Abr 2026",
-    categoria: "Segurança",
-  },
-  {
-    slug: "betoneira-eletrica-vs-gasolina",
-    titulo: "Betoneira elétrica x gasolina: qual escolher?",
-    resumo: "Cada motor tem seu lugar , veja as vantagens e limitações de cada tipo.",
-    data: "12 Abr 2026",
-    categoria: "Comparativo",
-  },
-  {
-    slug: "calculo-concreto-obra",
-    titulo: "Como calcular a quantidade de concreto para sua obra",
-    resumo: "Fórmula simples para evitar desperdício e economizar material.",
-    data: "03 Abr 2026",
-    categoria: "Guia",
+    active: true,
   },
 ];
 
@@ -83,7 +61,6 @@ function BlogPage() {
               Guias, dicas e comparativos para você acertar na escolha da betoneira e tocar sua obra com tranquilidade.
             </p>
           </div>
-          <HazardStripe />
         </section>
 
         <section className="mx-auto max-w-6xl px-4 py-16">
@@ -91,7 +68,7 @@ function BlogPage() {
             {POSTS.map((p) => (
               <article
                 key={p.slug}
-                className="reveal cut-corner flex flex-col border-2 border-[var(--brand-ink)] bg-card p-6 hard-shadow"
+                className="reveal cut-corner flex flex-col border-2 border-[var(--brand-ink)] bg-card p-6 hard-shadow animate-reveal"
               >
                 <div className="flex items-center justify-between">
                   <span className="spec-label">{p.categoria}</span>
@@ -99,9 +76,13 @@ function BlogPage() {
                 </div>
                 <h2 className="mt-3 font-display text-xl text-[var(--brand-ink)]">{p.titulo}</h2>
                 <p className="mt-2 flex-1 text-sm text-muted-foreground">{p.resumo}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[var(--brand-navy)]">
-                  Em breve <ArrowIcon size={14} />
-                </span>
+                <Link
+                  to="/blog/$slug"
+                  params={{ slug: p.slug }}
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[var(--brand-navy)] hover:text-[var(--brand-yellow)] transition-colors"
+                >
+                  Ler guia completo <ArrowIcon size={14} />
+                </Link>
               </article>
             ))}
           </div>

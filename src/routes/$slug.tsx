@@ -156,7 +156,6 @@ export const Route = createFileRoute("/$slug")({
             hasMap: "https://www.google.com/maps/search/?api=1&query=-23.5324,-46.7919",
             areaServed: [
               { "@type": "City", name: "Osasco" },
-              { "@type": "AdministrativeArea", name: "Grande São Paulo" },
             ],
             openingHoursSpecification: [
               {
@@ -199,7 +198,7 @@ export const Route = createFileRoute("/$slug")({
             "@context": "https://schema.org",
             "@type": "Place",
             "@id": `${url}#place`,
-            name: `${bairro.nome} — Osasco, SP`,
+            name: `${bairro.nome}, Osasco, SP`,
             geo: {
               "@type": "GeoCoordinates",
               latitude: bairro.lat,
@@ -390,7 +389,7 @@ function BairroPage() {
             </Link>
           </div>
           <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Betoneiras de 120L, 150L, 250L e 400L para aluguel em {bairro.nome} — versões elétricas monofásicas (110V/220V) e a gasolina — ideais para misturar concreto, argamassa, contrapiso e cimento em obras residenciais e de médio porte.
+            Betoneiras de 120L, 150L, 250L e 400L para aluguel em {bairro.nome}, nas versões elétricas monofásicas (110V/220V) e a gasolina, ideais para misturar concreto, argamassa, contrapiso e cimento em obras residenciais e de médio porte.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {MODELOS.map((m, i) => (

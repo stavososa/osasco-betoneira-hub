@@ -8,13 +8,37 @@ import { HelmetIcon, TruckIcon, ClockIcon, CheckIcon } from "@/components/icons/
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre | Betoneira Osasco" },
-      { name: "description", content: "Empresa local de Osasco especializada em locação e venda de betoneiras. Atendimento ágil, equipamentos revisados e preço justo." },
-      { property: "og:title", content: "Sobre a Betoneira Osasco" },
-      { property: "og:description", content: "Locação e venda de betoneiras em Osasco com atendimento ágil." },
+      { title: "Quem Somos, Missão e Nossa História | Betoneira Osasco" },
+      { name: "description", content: "Empresa local de Osasco especializada em locação e venda de betoneiras. Conheça nossa história, missão e valores baseados na segurança." },
+      { property: "og:title", content: "Quem Somos, Missão e História | Betoneira Osasco" },
+      { property: "og:description", content: "Locação e venda de betoneiras em Osasco com frota 100% revisada e atendimento ágil." },
       { property: "og:url", content: "https://betoneiraosasco.com.br/sobre" },
     ],
     links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/sobre" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "@id": "https://betoneiraosasco.com.br/sobre#webpage",
+          "url": "https://betoneiraosasco.com.br/sobre",
+          "name": "Quem Somos, Missão e Nossa História | Betoneira Osasco",
+          "description": "Empresa local de Osasco especializada em locação e venda de betoneiras. Atendimento ágil, equipamentos revisados e preço justo.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Sobre", item: "https://betoneiraosasco.com.br/sobre" }
+            ]
+          },
+          "mainEntity": {
+            "@type": "LocalBusiness",
+            "@id": "https://betoneiraosasco.com.br/#business"
+          }
+        }),
+      },
+    ],
   }),
   component: SobrePage,
 });
@@ -47,12 +71,37 @@ function SobrePage() {
         </section>
 
         <section className="mx-auto max-w-4xl px-4 py-16">
-          <div className="reveal space-y-4 text-base text-foreground/90">
-            <p>A <strong>Betoneira Osasco</strong> nasceu para resolver um problema comum em obras: ter um equipamento confiável, na hora certa e sem complicação. Somos especializados em <strong>locação e venda de betoneiras</strong> em Osasco, com entrega e retirada no mesmo dia em todos os bairros.</p>
-            <p>Trabalhamos com modelos de <strong>120L, 150L, 250L e 400L</strong>, elétricas e a gasolina, para atender desde pequenas reformas até obras de maior porte.</p>
+          <div className="reveal space-y-4 text-base text-foreground/90 leading-relaxed">
+            <p>A <strong>Betoneira Osasco</strong> nasceu para resolver um problema crônico na construção civil local: a dificuldade de ter um equipamento confiável, entregue pontualmente e com suporte técnico no canteiro. Com uma visão voltada à produtividade e agilidade, nos especializamos na <strong>locação e venda de betoneiras novas e seminovas</strong> em Osasco, garantindo entrega e retirada no mesmo dia em qualquer um dos 62 bairros da cidade.</p>
+            <p>Nossa equipe técnica realiza manutenções preventivas rigorosas em toda a frota (modelos de <strong>120L, 150L, 250L e 400L</strong>, elétricas e a gasolina) antes de cada despacho. Assim, garantimos que sua betoneira chegue limpa, testada e pronta para produzir concretagem homogênea e rápida.</p>
           </div>
 
-          <h2 className="reveal mt-12 font-display text-2xl text-[var(--brand-ink)] md:text-3xl">Nossos diferenciais</h2>
+          {/* Missão, Visão e Valores */}
+          <div className="reveal mt-16 grid gap-6 md:grid-cols-3">
+            <div className="border-2 border-[var(--brand-ink)] bg-white p-6 hard-shadow rounded-lg">
+              <span className="text-3xl">🎯</span>
+              <h3 className="font-display text-lg uppercase text-[var(--brand-ink)] mt-3">Nossa Missão</h3>
+              <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                Oferecer soluções de locação de betoneiras com agilidade incomparável, equipamentos 100% confiáveis e atendimento humanizado para impulsionar o sucesso e a produtividade de todas as obras em Osasco.
+              </p>
+            </div>
+            <div className="border-2 border-[var(--brand-ink)] bg-white p-6 hard-shadow rounded-lg">
+              <span className="text-3xl">👁️</span>
+              <h3 className="font-display text-lg uppercase text-[var(--brand-ink)] mt-3">Nossa Visão</h3>
+              <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                Ser reconhecida como a principal referência e parceira preferencial em locação de betoneiras na região de Osasco, destacando-se pela excelência logística e conservação impecável do maquinário.
+              </p>
+            </div>
+            <div className="border-2 border-[var(--brand-ink)] bg-white p-6 hard-shadow rounded-lg">
+              <span className="text-3xl">🤝</span>
+              <h3 className="font-display text-lg uppercase text-[var(--brand-ink)] mt-3">Nossos Valores</h3>
+              <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                Segurança absoluta dos operadores, pontualidade britânica em todas as entregas, transparência inegociável nos contratos e profundo compromisso com o resultado da sua construção ou reforma.
+              </p>
+            </div>
+          </div>
+
+          <h2 className="reveal mt-16 font-display text-3xl text-[var(--brand-ink)] uppercase tracking-tight">Nossos Diferenciais Técnicos</h2>
           <div className="mt-6 grid gap-5 md:grid-cols-2">
             {PILARES.map(({ Icon, t, d }, i) => (
               <div key={t} className={`reveal reveal-delay-${i + 1} flex gap-4 border-l-4 border-[var(--brand-yellow)] bg-[var(--brand-concrete)] p-5`}>
@@ -64,6 +113,34 @@ function SobrePage() {
               </div>
             ))}
           </div>
+
+          {/* Como Funcionamos - 4 Passos Práticos */}
+          <section className="reveal mt-20 border-2 border-[var(--brand-ink)] bg-[var(--brand-concrete)] p-8 hard-shadow rounded-lg">
+            <span className="spec-label !text-[var(--brand-navy)] font-bold">Processo Simplificado</span>
+            <h2 className="font-display text-2xl md:text-3xl uppercase text-[var(--brand-ink)] mt-2">Como funcionamos em 4 passos práticos</h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-4">
+              <div className="space-y-2">
+                <span className="numeric text-3xl text-[var(--brand-yellow)] [text-shadow:_2px_2px_0_var(--brand-ink)] block">01</span>
+                <h4 className="font-display text-sm uppercase text-[var(--brand-ink)]">Orçamento Rápido</h4>
+                <p className="text-xs text-muted-foreground leading-relaxed">Fale conosco pelo WhatsApp, tire suas dúvidas de capacidade e receba valores claros instantaneamente.</p>
+              </div>
+              <div className="space-y-2">
+                <span className="numeric text-3xl text-[var(--brand-yellow)] [text-shadow:_2px_2px_0_var(--brand-ink)] block">02</span>
+                <h4 className="font-display text-sm uppercase text-[var(--brand-ink)]">Entrega no Canteiro</h4>
+                <p className="text-xs text-muted-foreground leading-relaxed">Nossa equipe de logística realiza a entrega no endereço da sua obra em toda Osasco com frete ágil.</p>
+              </div>
+              <div className="space-y-2">
+                <span className="numeric text-3xl text-[var(--brand-yellow)] [text-shadow:_2px_2px_0_var(--brand-ink)] block">03</span>
+                <h4 className="font-display text-sm uppercase text-[var(--brand-ink)]">Uso Produtivo</h4>
+                <p className="text-xs text-muted-foreground leading-relaxed">Trabalhe com um equipamento revisado, seguro e altamente produtivo para obter um concreto homogêneo.</p>
+              </div>
+              <div className="space-y-2">
+                <span className="numeric text-3xl text-[var(--brand-yellow)] [text-shadow:_2px_2px_0_var(--brand-ink)] block">04</span>
+                <h4 className="font-display text-sm uppercase text-[var(--brand-ink)]">Retirada Agendada</h4>
+                <p className="text-xs text-muted-foreground leading-relaxed">Finalizou o serviço? Basta nos notificar e realizamos a coleta do maquinário no local sem burocracias.</p>
+              </div>
+            </div>
+          </section>
         </section>
       </main>
       <SiteFooter />

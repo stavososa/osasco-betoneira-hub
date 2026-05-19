@@ -40,7 +40,6 @@ export const Route = createFileRoute("/caminhao-betoneira")({
           provider: { "@id": "https://betoneiraosasco.com.br/#business" },
           areaServed: [
             { "@type": "City", name: "Osasco" },
-            { "@type": "AdministrativeArea", name: "Grande São Paulo" },
           ],
           url: "https://betoneiraosasco.com.br/caminhao-betoneira",
         }),
@@ -104,7 +103,7 @@ function CaminhaoBetoPage() {
           <div className="reveal flex items-center gap-3"><span className="h-px w-10 bg-[var(--brand-ink)]" /><span className="spec-label">Por que o caminhão betoneira?</span></div>
           <h2 className="reveal mt-2 font-display text-3xl text-[var(--brand-ink)] md:text-5xl">Quando a betoneira <span className="font-editorial text-[var(--brand-navy)]">não é suficiente</span></h2>
           <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Para obras que exigem grandes volumes de concreto em pouco tempo — lajes comerciais, fundações, pisos industriais — o caminhão betoneira entrega concreto pronto diretamente na obra, eliminando o custo com traço manual e reduzindo drasticamente o tempo de execução.
+            Para obras que exigem grandes volumes de concreto em pouco tempo, como lajes comerciais, fundações e pisos industriais, o caminhão betoneira entrega concreto pronto diretamente na obra, eliminando o custo com traço manual e reduzindo drasticamente o tempo de execução.
           </p>
           <div className="reveal mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[

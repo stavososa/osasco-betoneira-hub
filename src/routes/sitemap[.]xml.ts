@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { BAIRROS } from "@/lib/bairros";
+import { POSTS } from "./blog.index";
 
 const BASE_URL = "https://betoneiraosasco.com.br";
 
@@ -13,14 +14,7 @@ interface SitemapEntry {
 
 const TODAY = new Date().toISOString().split("T")[0];
 
-const BLOG_POSTS = [
-  "como-escolher-betoneira",
-  "alugar-ou-comprar-betoneira",
-  "manutencao-betoneira",
-  "seguranca-obra-betoneira",
-  "betoneira-eletrica-vs-gasolina",
-  "calculo-concreto-obra",
-];
+const BLOG_POSTS = POSTS.filter((p) => p.active).map((p) => p.slug);
 
 const BETONEIRAS_SLUGS = [
   "betoneira-120l",

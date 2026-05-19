@@ -16,7 +16,7 @@ const BENEFICIOS = [
   {
     Icon: HelmetIcon,
     t: "Seminova revisada",
-    d: "Equipamento usado, revisado e testado — preço acessível para começar a trabalhar agora.",
+    d: "Equipamento usado, revisado e testado, com preço acessível para começar a trabalhar agora.",
   },
   {
     Icon: ClockIcon,
@@ -44,7 +44,7 @@ const FAQ_VENDA = [
   },
   {
     q: "Qual betoneira comprar para começar a trabalhar como pedreiro?",
-    a: "Para começar, a betoneira de 250 litros elétrica monofásica costuma ser a melhor escolha — atende reforma, laje residencial e contrapiso, usa tomada comum 220V e tem boa revenda. Se a sua rotina inclui obra sem energia disponível, vale considerar a 400L a gasolina.",
+    a: "Para começar, a betoneira de 250 litros elétrica monofásica costuma ser a melhor escolha: atende reforma, laje residencial e contrapiso, usa tomada comum 220V e tem boa revenda. Se a sua rotina inclui obra sem energia disponível, vale considerar a 400L a gasolina.",
   },
   {
     q: "A venda inclui nota fiscal e assistência técnica?",
@@ -156,10 +156,6 @@ export const Route = createFileRoute("/comprar-betoneira")({
           },
           areaServed: [
             { "@type": "City", name: "Osasco" },
-            { "@type": "City", name: "Carapicuíba" },
-            { "@type": "City", name: "Cotia" },
-            { "@type": "City", name: "Barueri" },
-            { "@type": "AdministrativeArea", name: "Grande São Paulo" },
           ],
           description:
             "Venda de betoneiras novas e seminovas em Osasco: 120, 120, 120, 150, 250 e 400 litros, elétricas 110V/220V e a gasolina, com garantia, nota fiscal e parcelamento.",
@@ -219,7 +215,7 @@ function ComprarPage() {
             </h1>
 
             <p className="reveal mt-6 max-w-2xl text-white/80 leading-relaxed" style={{ ["--i" as never]: 2 }}>
-              Venda de betoneira nova e seminova em Osasco SP — modelos de 120, 120, 120, 150, 250 e 400 litros, elétricas 110V/220V e a gasolina, com garantia, nota fiscal e parcelamento. Atendemos pedreiro, empreiteiro e construtora.
+              Venda de betoneira nova e seminova em Osasco SP, com modelos de 120, 120, 120, 150, 250 e 400 litros, elétricas 110V/220V e a gasolina, além de garantia, nota fiscal e parcelamento. Atendemos pedreiro, empreiteiro e construtora.
             </p>
 
             <div className="reveal mt-8 flex flex-wrap gap-4" style={{ ["--i" as never]: 3 }}>
@@ -258,7 +254,7 @@ function ComprarPage() {
             Loja local de <span className="font-editorial text-[var(--brand-navy)]">betoneira em Osasco</span>
           </h2>
           <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Trabalhamos com venda direta de betoneira nova e seminova para pedreiro, empreiteiro e construtora. Garantia, nota fiscal e suporte técnico — sem call center, falando direto com quem entrega o equipamento.
+            Trabalhamos com venda direta de betoneira nova e seminova para pedreiro, empreiteiro e construtora. Garantia, nota fiscal e suporte técnico, sem intermediários ou call center, falando direto com quem entrega o equipamento.
           </p>
 
           <div className="reveal mt-10 grid gap-6 md:grid-cols-3">
@@ -286,7 +282,7 @@ function ComprarPage() {
               Betoneiras <span className="font-editorial text-[var(--brand-navy)]">à venda</span> em Osasco
             </h2>
             <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-              Preço de betoneira 120, 120, 120, 150, 250 e 400 litros — elétrica monofásica (110V/220V) ou a gasolina. Confira abaixo as faixas de preço de equipamentos novos e seminovos com garantia.
+              Preço de betoneira 120, 120, 120, 150, 250 e 400 litros, nas versões elétrica monofásica (110V/220V) ou a gasolina. Confira abaixo as faixas de preço de equipamentos novos e seminovos com garantia.
             </p>
 
             <div className="reveal mt-10 grid gap-6 md:grid-cols-3">

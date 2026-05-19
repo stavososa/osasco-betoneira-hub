@@ -60,40 +60,45 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Betoneira Osasco , Locação e Venda de Betoneiras" },
-      { name: "description", content: "Locação e venda de betoneiras em Osasco. Entrega e retirada no mesmo dia em todos os bairros. Fale no WhatsApp: (11) 97546-5766." },
-      { name: "theme-color", content: "#1B2A5E" },
-      { property: "og:site_name", content: "Betoneira Osasco" },
-      { property: "og:type", content: "website" },
-      { property: "og:locale", content: "pt_BR" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
-      { rel: "apple-touch-icon", href: "/favicon.png" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "Betoneira Osasco",
-          description: "Locação e venda de betoneiras em Osasco.",
-          telephone: "+5511975465766",
-          areaServed: { "@type": "City", name: "Osasco" },
-          address: { "@type": "PostalAddress", addressLocality: "Osasco", addressRegion: "SP", addressCountry: "BR" },
-        }),
-      },
-    ],
-  }),
+  head: (ctx) => {
+    const isBlog = ctx.matches?.some((m) => m.pathname.startsWith("/blog"));
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: "Betoneira Osasco , Locação e Venda de Betoneiras" },
+        { name: "description", content: "Locação e venda de betoneiras em Osasco. Entrega e retirada no mesmo dia em todos os bairros. Fale no WhatsApp: (11) 97546-5766." },
+        { name: "theme-color", content: "#1B2A5E" },
+        { property: "og:site_name", content: "Betoneira Osasco" },
+        { property: "og:type", content: "website" },
+        { property: "og:locale", content: "pt_BR" },
+      ],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        { rel: "icon", type: "image/png", href: "/favicon.png" },
+        { rel: "apple-touch-icon", href: "/favicon.png" },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+        { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" },
+      ],
+      scripts: isBlog
+        ? []
+        : [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                name: "Betoneira Osasco",
+                description: "Locação e venda de betoneiras em Osasco.",
+                telephone: "+5511975465766",
+                areaServed: { "@type": "City", name: "Osasco" },
+                address: { "@type": "PostalAddress", addressLocality: "Osasco", addressRegion: "SP", addressCountry: "BR" },
+              }),
+            },
+          ],
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

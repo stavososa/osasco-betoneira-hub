@@ -9,13 +9,41 @@ import { CheckIcon, ArrowIcon } from "@/components/icons/Icons";
 export const Route = createFileRoute("/servicos")({
   head: () => ({
     meta: [
-      { title: "Serviços , Locação, Venda e Entrega de Betoneiras" },
-      { name: "description", content: "Locação diária/semanal/mensal, venda de betoneiras 120L–400L e entrega/retirada em Osasco. Solicite um orçamento." },
-      { property: "og:title", content: "Serviços | Betoneira Osasco" },
-      { property: "og:description", content: "Locação, venda e logística de betoneiras em Osasco." },
+      { title: "Serviços de Locação, Venda e Assistência de Betoneiras em Osasco" },
+      { name: "description", content: "Locação diária, semanal e mensal de betoneiras de 120L a 400L e venda de equipamentos com assistência técnica especializada e entrega rápida em Osasco." },
+      { property: "og:title", content: "Serviços de Locação e Venda de Betoneiras | Betoneira Osasco" },
+      { property: "og:description", content: "Locação de betoneiras elétricas e a gasolina com frete rápido e manutenção preventiva completa em Osasco SP." },
       { property: "og:url", content: "https://betoneiraosasco.com.br/servicos" },
     ],
     links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/servicos" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": "https://betoneiraosasco.com.br/servicos#service",
+          "url": "https://betoneiraosasco.com.br/servicos",
+          "name": "Serviços de Locação, Venda e Assistência de Betoneiras em Osasco",
+          "serviceType": "Construction Equipment Rental and Sales",
+          "description": "Locação diária/semanal/mensal, venda de betoneiras 120L–400L e entrega/retirada em Osasco. Solicite um orçamento.",
+          "provider": {
+            "@type": "LocalBusiness",
+            "@id": "https://betoneiraosasco.com.br/#business"
+          },
+          "areaServed": [
+            { "@type": "City", name: "Osasco" }
+          ],
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Serviços", item: "https://betoneiraosasco.com.br/servicos" }
+            ]
+          }
+        }),
+      },
+    ],
   }),
   component: ServicosPage,
 });
@@ -68,7 +96,71 @@ function ServicosPage() {
             ))}
           </div>
 
-          <div className="reveal mt-14 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] p-8 text-center hard-shadow">
+          {/* Inspeção Preventiva de 12 Pontos */}
+          <section className="reveal mt-20 border-2 border-[var(--brand-ink)] bg-white p-8 hard-shadow rounded-lg">
+            <div className="flex items-center gap-3">
+              <span className="h-px w-10 bg-[var(--brand-ink)]" />
+              <span className="spec-label">Qualidade Garantida</span>
+            </div>
+            <h2 className="font-display text-2xl md:text-3xl uppercase text-[var(--brand-ink)] mt-2">Inspeção técnica de 12 pontos antes do envio</h2>
+            <p className="text-sm text-muted-foreground mt-2 max-w-2xl">Cada betoneira da nossa frota passa por uma verificação técnica rigorosa antes de ser transportada para qualquer obra em Osasco. Isso anula riscos de quebra e atrasos no seu cronograma de concretagem.</p>
+            
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3 text-xs">
+              <div className="border border-dashed border-[var(--brand-ink)]/30 p-4 bg-[var(--brand-concrete)]">
+                <strong className="block text-[var(--brand-navy)] uppercase">1. Pinhão e Cremalheira</strong>
+                <span className="text-muted-foreground mt-1 block">Ajuste de folga e lubrificação técnica para mistura sem travamentos.</span>
+              </div>
+              <div className="border border-dashed border-[var(--brand-ink)]/30 p-4 bg-[var(--brand-concrete)]">
+                <strong className="block text-[var(--brand-navy)] uppercase">2. Isolamento Elétrico</strong>
+                <span className="text-muted-foreground mt-1 block">Varredura de isolamento e conexões contra choques no canteiro.</span>
+              </div>
+              <div className="border border-dashed border-[var(--brand-ink)]/30 p-4 bg-[var(--brand-concrete)]">
+                <strong className="block text-[var(--brand-navy)] uppercase">3. Cabo de Alimentação</strong>
+                <span className="text-muted-foreground mt-1 block">Inspeção de plugues e fios contra rachaduras ou desgaste.</span>
+              </div>
+              <div className="border border-dashed border-[var(--brand-ink)]/30 p-4 bg-[var(--brand-concrete)]">
+                <strong className="block text-[var(--brand-navy)] uppercase">4. Tambor e Palhetas</strong>
+                <span className="text-muted-foreground mt-1 block">Remoção de resíduos acumulados e verificação de soldas internas.</span>
+              </div>
+              <div className="border border-dashed border-[var(--brand-ink)]/30 p-4 bg-[var(--brand-concrete)]">
+                <strong className="block text-[var(--brand-navy)] uppercase">5. Botão de Emergência</strong>
+                <span className="text-muted-foreground mt-1 block">Teste físico do botão Liga/Desliga e sistema de parada rápida.</span>
+              </div>
+              <div className="border border-dashed border-[var(--brand-ink)]/30 p-4 bg-[var(--brand-concrete)]">
+                <strong className="block text-[var(--brand-navy)] uppercase">6. Pneus e Rolamento</strong>
+                <span className="text-muted-foreground mt-1 block">Lubrificação dos eixos e estabilidade das rodas para transporte seguro.</span>
+              </div>
+            </div>
+          </section>
+
+          {/* Formatos Flexíveis de Parceria */}
+          <section className="reveal mt-16">
+            <div className="flex items-center gap-3">
+              <span className="h-px w-10 bg-[var(--brand-ink)]" />
+              <span className="spec-label">Planos Personalizados</span>
+            </div>
+            <h2 className="font-display text-2xl md:text-3xl uppercase text-[var(--brand-ink)] mt-2">Formatos flexíveis de locação</h2>
+            
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              <div className="border-2 border-[var(--brand-ink)] bg-[var(--brand-concrete)] p-6 hard-shadow rounded-lg">
+                <span className="numeric text-2xl text-[var(--brand-yellow)] [text-shadow:_1px_1px_0_var(--brand-ink)] block">DIÁRIO</span>
+                <h3 className="font-display text-lg text-[var(--brand-ink)] mt-2">Obras de Curto Prazo</h3>
+                <p className="text-xs text-muted-foreground mt-2 leading-relaxed">Ideal para pequenas reformas residenciais, reparos em calçadas ou fundações rápidas que necessitam do equipamento por poucos dias.</p>
+              </div>
+              <div className="border-2 border-[var(--brand-ink)] bg-[var(--brand-concrete)] p-6 hard-shadow rounded-lg">
+                <span className="numeric text-2xl text-[var(--brand-yellow)] [text-shadow:_1px_1px_0_var(--brand-ink)] block">SEMANAL</span>
+                <h3 className="font-display text-lg text-[var(--brand-ink)] mt-2">Construções Médias</h3>
+                <p className="text-xs text-muted-foreground mt-2 leading-relaxed">Perfeito para etapas de alvenaria e pilares que duram cerca de uma a duas semanas, aliando excelente custo-benefício à flexibilidade.</p>
+              </div>
+              <div className="border-2 border-[var(--brand-ink)] bg-[var(--brand-concrete)] p-6 hard-shadow rounded-lg">
+                <span className="numeric text-2xl text-[var(--brand-yellow)] [text-shadow:_1px_1px_0_var(--brand-ink)] block">MENSAL</span>
+                <h3 className="font-display text-lg text-[var(--brand-ink)] mt-2">Grandes Cronogramas</h3>
+                <p className="text-xs text-muted-foreground mt-2 leading-relaxed">Recomendado para construtoras e incorporadoras que demandam o misturador durante toda a execução da fundação e estrutura.</p>
+              </div>
+            </div>
+          </section>
+
+          <div className="reveal mt-16 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] p-8 text-center hard-shadow rounded-lg">
             <div className="spec-label !text-[var(--brand-ink)]/70">Atendimento rápido</div>
             <h2 className="mt-1 font-display text-3xl text-[var(--brand-ink)] md:text-4xl">Solicite um orçamento agora</h2>
             <p className="mt-2 text-sm text-[var(--brand-ink)]/80">Resposta em minutos pelo WhatsApp.</p>

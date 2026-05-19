@@ -15,7 +15,6 @@ import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ComprarBetoneiraRouteImport } from './routes/comprar-betoneira'
 import { Route as CaminhaoBetoneiraRouteImport } from './routes/caminhao-betoneira'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as Betoneira400lGasolinaRouteImport } from './routes/betoneira-400l-gasolina'
 import { Route as Betoneira400lEletricaRouteImport } from './routes/betoneira-400l-eletrica'
 import { Route as Betoneira250lRouteImport } from './routes/betoneira-250l'
@@ -23,6 +22,8 @@ import { Route as Betoneira150lRouteImport } from './routes/betoneira-150l'
 import { Route as Betoneira120lRouteImport } from './routes/betoneira-120l'
 import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
@@ -52,11 +53,6 @@ const ComprarBetoneiraRoute = ComprarBetoneiraRouteImport.update({
 const CaminhaoBetoneiraRoute = CaminhaoBetoneiraRouteImport.update({
   id: '/caminhao-betoneira',
   path: '/caminhao-betoneira',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Betoneira400lGasolinaRoute = Betoneira400lGasolinaRouteImport.update({
@@ -94,6 +90,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -103,13 +109,14 @@ export interface FileRoutesByFullPath {
   '/betoneira-250l': typeof Betoneira250lRoute
   '/betoneira-400l-eletrica': typeof Betoneira400lEletricaRoute
   '/betoneira-400l-gasolina': typeof Betoneira400lGasolinaRoute
-  '/blog': typeof BlogRoute
   '/caminhao-betoneira': typeof CaminhaoBetoneiraRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -119,13 +126,14 @@ export interface FileRoutesByTo {
   '/betoneira-250l': typeof Betoneira250lRoute
   '/betoneira-400l-eletrica': typeof Betoneira400lEletricaRoute
   '/betoneira-400l-gasolina': typeof Betoneira400lGasolinaRoute
-  '/blog': typeof BlogRoute
   '/caminhao-betoneira': typeof CaminhaoBetoneiraRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -136,13 +144,14 @@ export interface FileRoutesById {
   '/betoneira-250l': typeof Betoneira250lRoute
   '/betoneira-400l-eletrica': typeof Betoneira400lEletricaRoute
   '/betoneira-400l-gasolina': typeof Betoneira400lGasolinaRoute
-  '/blog': typeof BlogRoute
   '/caminhao-betoneira': typeof CaminhaoBetoneiraRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -154,13 +163,14 @@ export interface FileRouteTypes {
     | '/betoneira-250l'
     | '/betoneira-400l-eletrica'
     | '/betoneira-400l-gasolina'
-    | '/blog'
     | '/caminhao-betoneira'
     | '/comprar-betoneira'
     | '/contato'
     | '/servicos'
     | '/sitemap.xml'
     | '/sobre'
+    | '/blog/$slug'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -170,13 +180,14 @@ export interface FileRouteTypes {
     | '/betoneira-250l'
     | '/betoneira-400l-eletrica'
     | '/betoneira-400l-gasolina'
-    | '/blog'
     | '/caminhao-betoneira'
     | '/comprar-betoneira'
     | '/contato'
     | '/servicos'
     | '/sitemap.xml'
     | '/sobre'
+    | '/blog/$slug'
+    | '/blog'
   id:
     | '__root__'
     | '/'
@@ -186,13 +197,14 @@ export interface FileRouteTypes {
     | '/betoneira-250l'
     | '/betoneira-400l-eletrica'
     | '/betoneira-400l-gasolina'
-    | '/blog'
     | '/caminhao-betoneira'
     | '/comprar-betoneira'
     | '/contato'
     | '/servicos'
     | '/sitemap.xml'
     | '/sobre'
+    | '/blog/$slug'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -203,13 +215,14 @@ export interface RootRouteChildren {
   Betoneira250lRoute: typeof Betoneira250lRoute
   Betoneira400lEletricaRoute: typeof Betoneira400lEletricaRoute
   Betoneira400lGasolinaRoute: typeof Betoneira400lGasolinaRoute
-  BlogRoute: typeof BlogRoute
   CaminhaoBetoneiraRoute: typeof CaminhaoBetoneiraRoute
   ComprarBetoneiraRoute: typeof ComprarBetoneiraRoute
   ContatoRoute: typeof ContatoRoute
   ServicosRoute: typeof ServicosRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -254,13 +267,6 @@ declare module '@tanstack/react-router' {
       path: '/caminhao-betoneira'
       fullPath: '/caminhao-betoneira'
       preLoaderRoute: typeof CaminhaoBetoneiraRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/betoneira-400l-gasolina': {
@@ -312,6 +318,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -323,14 +343,25 @@ const rootRouteChildren: RootRouteChildren = {
   Betoneira250lRoute: Betoneira250lRoute,
   Betoneira400lEletricaRoute: Betoneira400lEletricaRoute,
   Betoneira400lGasolinaRoute: Betoneira400lGasolinaRoute,
-  BlogRoute: BlogRoute,
   CaminhaoBetoneiraRoute: CaminhaoBetoneiraRoute,
   ComprarBetoneiraRoute: ComprarBetoneiraRoute,
   ContatoRoute: ContatoRoute,
   ServicosRoute: ServicosRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

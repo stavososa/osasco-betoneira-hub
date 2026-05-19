@@ -63,12 +63,6 @@ export const Route = createFileRoute("/")({
           hasMap: "https://www.google.com/maps/search/?api=1&query=-23.5324,-46.7919",
           areaServed: [
             { "@type": "City", name: "Osasco" },
-            { "@type": "City", name: "Carapicuíba" },
-            { "@type": "City", name: "Barueri" },
-            { "@type": "City", name: "Cotia" },
-            { "@type": "City", name: "Jandira" },
-            { "@type": "City", name: "Itapevi" },
-            { "@type": "AdministrativeArea", name: "Grande São Paulo" },
           ],
           openingHoursSpecification: [
             {
@@ -91,7 +85,7 @@ export const Route = createFileRoute("/")({
           serviceType: "Construction Equipment Rental",
           description: "Locação diária, semanal e mensal de betoneiras de 120L, 150L, 250L e 400L, elétricas 110V/220V e a gasolina, com entrega no mesmo dia em Osasco SP.",
           provider: { "@id": "https://betoneiraosasco.com.br/#business" },
-          areaServed: { "@type": "City", name: "Osasco", containedInPlace: { "@type": "AdministrativeArea", name: "Grande São Paulo" } },
+          areaServed: { "@type": "City", name: "Osasco" },
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: "Catálogo de betoneiras para aluguel",
@@ -113,7 +107,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "Place",
           "@id": "https://betoneiraosasco.com.br/#place",
-          name: "Osasco — Centro",
+          name: "Osasco, Centro",
           geo: {
             "@type": "GeoCoordinates",
             latitude: -23.5324,
@@ -390,7 +384,7 @@ function HomePage() {
           </div>
 
           <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Betoneiras de 120, 120, 150, 250 e 400 litros para aluguel em Osasco — versões elétricas monofásicas (110V/220V) e a gasolina — ideais para misturar concreto, argamassa, contrapiso e cimento em obras residenciais e de médio porte.
+            Betoneiras de 120, 120, 150, 250 e 400 litros para aluguel em Osasco, nas versões elétricas monofásicas (110V/220V) e a gasolina, ideais para misturar concreto, argamassa, contrapiso e cimento em obras residenciais e de médio porte.
           </p>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -497,7 +491,7 @@ function HomePage() {
                 <span className="font-editorial">de ponta a ponta.</span>
               </h2>
               <p className="reveal mt-5 max-w-md text-muted-foreground leading-relaxed">
-                O aluguel de betoneiras em Osasco cobre toda a cidade — Centro, Zona Norte, Zona Sul, Bussocaba, Quitaúna e Presidente Altino — além de cidades vizinhas como Carapicuíba, Cotia, Barueri, Jandira e a zona oeste de São Paulo. Entrega e retirada no mesmo dia.
+                O aluguel de betoneiras em Osasco cobre toda a cidade (Centro, Zona Norte, Zona Sul, Bussocaba, Quitaúna e Presidente Altino), além de cidades vizinhas como Carapicuíba, Cotia, Barueri, Jandira e a zona oeste de São Paulo. Entrega e retirada no mesmo dia.
               </p>
               <ul className="reveal mt-6 flex flex-wrap gap-2">
                 {DESTAQUES.map((b) => (
