@@ -9,6 +9,7 @@ import { ModelCard } from "@/components/ModelCard";
 import { MODELOS } from "@/lib/modelos";
 import { useReveal } from "@/lib/useReveal";
 import { ArrowIcon, PhoneIcon, CheckIcon, HelmetIcon, ClockIcon, TruckIcon, MixerIcon } from "@/components/icons/Icons";
+import { CTAFinal } from "@/components/CTAFinal";
 import { getBairro, bairrosProximos } from "@/lib/bairros";
 import betoneiraHero from "@/assets/betoneira-hero.webp";
 
@@ -584,6 +585,13 @@ function BairroPage() {
             </ul>
           </div>
         </section>
+
+        {/* CTA FINAL */}
+        <CTAFinal
+          title={`Aluguel de betoneiras em ${bairro.nome}`}
+          highlight="com entrega em 24 a 48h."
+          waText={`Olá! Quero alugar uma betoneira no bairro ${bairro.nome}, Osasco.`}
+        />
       </main>
       <SiteFooter />
     </div>
