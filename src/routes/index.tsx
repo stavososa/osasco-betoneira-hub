@@ -647,7 +647,7 @@ function HomePage() {
               <div className="spec-label !text-[var(--brand-ink)]/70">Precisa hoje?</div>
               <h2 className="mt-1 font-display text-3xl leading-[0.95] tracking-tight text-[var(--brand-ink)] md:text-5xl">
                 Aluguel de betoneiras em Osasco<br />
-                <span className="font-editorial">com entrega no mesmo dia.</span>
+                <span className="font-editorial">com entrega de 24 a 48h.</span>
               </h2>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
