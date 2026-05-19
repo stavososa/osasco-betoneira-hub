@@ -92,23 +92,34 @@ export const Route = createFileRoute("/")({
                 { "@type": "Offer", itemOffered: { "@type": "Product", name: "Caminhão Betoneira" } },
               ],
             },
+            potentialAction: {
+              "@type": "RentAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: "https://wa.me/5511975465766?text=Quero%20alugar%20betoneira",
+                actionPlatform: [
+                  "http://schema.org/DesktopWebPlatform",
+                  "http://schema.org/MobileWebPlatform"
+                ]
+              }
+            },
           },
         }),
       },
       {
-        // Schema 3 — Place com GeoCoordinates do centro de Osasco
+        // Schema 3 — Place com GeoCoordinates do endereço principal
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Place",
           "@id": "https://betoneiraosasco.com.br/#place",
-          name: "Osasco, Centro",
+          name: "Osasco",
           geo: {
             "@type": "GeoCoordinates",
-            latitude: -23.5324,
-            longitude: -46.7919,
+            latitude: -23.52681,
+            longitude: -46.79496,
           },
-          hasMap: "https://www.google.com/maps/search/?api=1&query=-23.5324,-46.7919",
+          hasMap: "https://www.google.com/maps/search/?api=1&query=-23.52681,-46.79496",
           address: {
             "@type": "PostalAddress",
             addressLocality: "Osasco",

@@ -127,63 +127,37 @@ export const Route = createFileRoute("/$slug")({
       links: [{ rel: "canonical", href: url }],
       scripts: [
         {
-          // Schema 1 — Organization + LocalBusiness + HomeAndConstructionBusiness com Service do bairro aninhado
+          // Schema 1 — Service para o bairro específico (provider via @id) com RentAction
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": ["Organization", "LocalBusiness", "HomeAndConstructionBusiness"],
-            "@id": "https://betoneiraosasco.com.br/#business",
-            name: "Betoneiras Osasco",
-            alternateName: "Betoneira Osasco",
-            url: "https://betoneiraosasco.com.br",
-            telephone: "+5511975465766",
-            image: "https://betoneiraosasco.com.br/assets/betoneira-hero.webp",
-            logo: "https://betoneiraosasco.com.br/assets/logo-betoneira-osasco.webp",
-            priceRange: "$$",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "Avenida dos Autonomistas, 896",
-              addressLocality: "Osasco",
-              addressRegion: "SP",
-              postalCode: "06020-010",
-              addressCountry: "BR",
-            },
-            geo: {
-              "@type": "GeoCoordinates",
-              latitude: -23.52681,
-              longitude: -46.79496,
-            },
-            hasMap: "https://www.google.com/maps/search/?api=1&query=-23.52681,-46.79496",
-            areaServed: [
-              { "@type": "City", name: "Osasco" },
-            ],
-            openingHoursSpecification: [
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-                opens: "07:00",
-                closes: "19:00",
+            "@type": "Service",
+            name: `Aluguel de Betoneiras em ${bairro.nome}, Osasco`,
+            serviceType: "Construction Equipment Rental",
+            description: `Locação de betoneiras no bairro ${bairro.nome} em Osasco SP. Entrega no mesmo dia, equipamentos revisados de 120L, 150L, 250L, 400L elétrica e a gasolina.`,
+            provider: { "@id": "https://betoneiraosasco.com.br/#business" },
+            areaServed: {
+              "@type": "Place",
+              name: `${bairro.nome}, Osasco, SP`,
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: bairro.lat,
+                longitude: bairro.lng,
               },
-            ],
-            sameAs: ["https://wa.me/5511975465766"],
-            service: {
-              "@type": "Service",
-              name: `Aluguel de Betoneiras em ${bairro.nome}, Osasco`,
-              serviceType: "Construction Equipment Rental",
-              description: `Locação de betoneiras no bairro ${bairro.nome} em Osasco SP. Entrega no mesmo dia, equipamentos revisados de 120L, 150L, 250L, 400L elétrica e a gasolina.`,
-              provider: { "@id": "https://betoneiraosasco.com.br/#business" },
-              areaServed: {
-                "@type": "Place",
-                name: `${bairro.nome}, Osasco, SP`,
-                geo: {
-                  "@type": "GeoCoordinates",
-                  latitude: bairro.lat,
-                  longitude: bairro.lng,
-                },
-                hasMap: `https://www.google.com/maps/search/?api=1&query=${bairro.lat},${bairro.lng}`,
-              },
-              url,
+              hasMap: `https://www.google.com/maps/search/?api=1&query=${bairro.lat},${bairro.lng}`,
             },
+            potentialAction: {
+              "@type": "RentAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: "https://wa.me/5511975465766?text=Quero%20alugar%20betoneira",
+                actionPlatform: [
+                  "http://schema.org/DesktopWebPlatform",
+                  "http://schema.org/MobileWebPlatform"
+                ]
+              }
+            },
+            url,
           }),
         },
         {
