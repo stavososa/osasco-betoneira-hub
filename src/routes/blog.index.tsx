@@ -26,6 +26,32 @@ export const Route = createFileRoute("/blog/")({
           ],
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "@id": "https://betoneiraosasco.com.br/blog#blog",
+          "url": "https://betoneiraosasco.com.br/blog",
+          "name": "Blog Betoneira Osasco",
+          "description": "Dicas, guias e novidades sobre locação e venda de betoneiras em Osasco. Aprenda a escolher, operar e economizar na sua obra.",
+          "publisher": {
+            "@id": "https://betoneiraosasco.com.br/#organization"
+          },
+          "blogPost": POSTS.filter((p) => p.active).map((p) => ({
+            "@type": "BlogPosting",
+            "@id": `https://betoneiraosasco.com.br/blog/${p.slug}#entry`,
+            "headline": p.titulo,
+            "description": p.resumo,
+            "url": `https://betoneiraosasco.com.br/blog/${p.slug}`,
+            "datePublished": "2026-05-19",
+            "author": {
+              "@type": "Person",
+              "name": "Beto Vieira"
+            }
+          }))
+        }),
+      },
     ],
   }),
   component: BlogPage,

@@ -127,11 +127,11 @@ export const Route = createFileRoute("/$slug")({
       links: [{ rel: "canonical", href: url }],
       scripts: [
         {
-          // Schema 1 — HomeAndConstructionBusiness + LocalBusiness (único bloco raiz, referenciado por @id)
+          // Schema 1 — Organization + LocalBusiness + HomeAndConstructionBusiness com Service do bairro aninhado
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": ["HomeAndConstructionBusiness", "LocalBusiness"],
+            "@type": ["Organization", "LocalBusiness", "HomeAndConstructionBusiness"],
             "@id": "https://betoneiraosasco.com.br/#business",
             name: "Betoneiras Osasco",
             alternateName: "Betoneira Osasco",
@@ -166,29 +166,24 @@ export const Route = createFileRoute("/$slug")({
               },
             ],
             sameAs: ["https://wa.me/5511975465766"],
-          }),
-        },
-        {
-          // Schema 2 — Service para o bairro específico (provider via @id)
-          type: "application/ld+json",
-          children: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            name: `Aluguel de Betoneiras em ${bairro.nome}, Osasco`,
-            serviceType: "Construction Equipment Rental",
-            description: `Locação de betoneiras no bairro ${bairro.nome} em Osasco SP. Entrega no mesmo dia, equipamentos revisados de 120L, 150L, 250L, 400L elétrica e a gasolina.`,
-            provider: { "@id": "https://betoneiraosasco.com.br/#business" },
-            areaServed: {
-              "@type": "Place",
-              name: `${bairro.nome}, Osasco, SP`,
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: bairro.lat,
-                longitude: bairro.lng,
+            service: {
+              "@type": "Service",
+              name: `Aluguel de Betoneiras em ${bairro.nome}, Osasco`,
+              serviceType: "Construction Equipment Rental",
+              description: `Locação de betoneiras no bairro ${bairro.nome} em Osasco SP. Entrega no mesmo dia, equipamentos revisados de 120L, 150L, 250L, 400L elétrica e a gasolina.`,
+              provider: { "@id": "https://betoneiraosasco.com.br/#business" },
+              areaServed: {
+                "@type": "Place",
+                name: `${bairro.nome}, Osasco, SP`,
+                geo: {
+                  "@type": "GeoCoordinates",
+                  latitude: bairro.lat,
+                  longitude: bairro.lng,
+                },
+                hasMap: `https://www.google.com/maps/search/?api=1&query=${bairro.lat},${bairro.lng}`,
               },
-              hasMap: `https://www.google.com/maps/search/?api=1&query=${bairro.lat},${bairro.lng}`,
+              url,
             },
-            url,
           }),
         },
         {

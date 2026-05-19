@@ -33,11 +33,11 @@ export const Route = createFileRoute("/")({
     links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/" }],
     scripts: [
       {
-        // Schema 1 — HomeAndConstructionBusiness (único bloco raiz de negócio)
+        // Schema 1 — Organization + LocalBusiness + HomeAndConstructionBusiness com Service aninhado
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": ["HomeAndConstructionBusiness", "LocalBusiness"],
+          "@type": ["Organization", "LocalBusiness", "HomeAndConstructionBusiness"],
           "@id": "https://betoneiraosasco.com.br/#business",
           name: "Betoneiras Osasco",
           alternateName: "Betoneira Osasco",
@@ -73,30 +73,25 @@ export const Route = createFileRoute("/")({
             },
           ],
           sameAs: ["https://wa.me/5511975465766"],
-        }),
-      },
-      {
-        // Schema 2 — Service com provider referenciando o business
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Aluguel de Betoneiras em Osasco",
-          serviceType: "Construction Equipment Rental",
-          description: "Locação diária, semanal e mensal de betoneiras de 120L, 150L, 250L e 400L, elétricas 110V/220V e a gasolina, com entrega no mesmo dia em Osasco SP.",
-          provider: { "@id": "https://betoneiraosasco.com.br/#business" },
-          areaServed: { "@type": "City", name: "Osasco" },
-          hasOfferCatalog: {
-            "@type": "OfferCatalog",
-            name: "Catálogo de betoneiras para aluguel",
-            itemListElement: [
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 120L Elétrica" } },
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 150L Elétrica" } },
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 250L Elétrica" } },
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Elétrica" } },
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Gasolina" } },
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Caminhão Betoneira" } },
-            ],
+          service: {
+            "@type": "Service",
+            name: "Aluguel de Betoneiras em Osasco",
+            serviceType: "Construction Equipment Rental",
+            description: "Locação diária, semanal e mensal de betoneiras de 120L, 150L, 250L e 400L, elétricas 110V/220V e a gasolina, com entrega no mesmo dia em Osasco SP.",
+            provider: { "@id": "https://betoneiraosasco.com.br/#business" },
+            areaServed: { "@type": "City", name: "Osasco" },
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Catálogo de betoneiras para aluguel",
+              itemListElement: [
+                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 120L Elétrica" } },
+                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 150L Elétrica" } },
+                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 250L Elétrica" } },
+                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Elétrica" } },
+                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Gasolina" } },
+                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Caminhão Betoneira" } },
+              ],
+            },
           },
         }),
       },
