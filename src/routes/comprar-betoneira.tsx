@@ -144,51 +144,55 @@ export const Route = createFileRoute("/comprar-betoneira")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Venda de Betoneira em Osasco",
-          serviceType: "Construction equipment sales",
-          provider: {
-            "@id": "https://betoneiraosasco.com.br/#business"
+          "@type": "WebPage",
+          "@id": "https://betoneiraosasco.com.br/comprar-betoneira#webpage",
+          "url": "https://betoneiraosasco.com.br/comprar-betoneira",
+          "name": "Comprar Betoneira em Osasco | Venda com Garantia",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://betoneiraosasco.com.br/#website",
+            "url": "https://betoneiraosasco.com.br/",
+            "name": "Betoneira Osasco"
           },
-          areaServed: [
-            { "@type": "City", name: "Osasco" },
-          ],
-          description:
-            "Venda de betoneiras novas e seminovas em Osasco: 120, 120, 120, 150, 250 e 400 litros, elétricas 110V/220V e a gasolina, com garantia, nota fiscal e parcelamento.",
-          potentialAction: {
-            "@type": "BuyAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "https://wa.me/5511975465766?text=Quero%20comprar%20betoneira",
-              "actionPlatform": [
-                "http://schema.org/DesktopWebPlatform",
-                "http://schema.org/MobileWebPlatform"
-              ]
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Comprar Betoneira", item: "https://betoneiraosasco.com.br/comprar-betoneira" },
+            ],
+          },
+          "mainEntity": {
+            "@type": "Service",
+            "@id": "https://betoneiraosasco.com.br/comprar-betoneira#service",
+            "name": "Venda de Betoneira em Osasco",
+            "serviceType": "Construction equipment sales",
+            "provider": {
+              "@id": "https://betoneiraosasco.com.br/#business"
+            },
+            "areaServed": [
+              { "@type": "City", name: "Osasco" },
+            ],
+            "description": "Venda de betoneiras novas e seminovas em Osasco: 120, 150, 250 e 400 litros, elétricas 110V/220V e a gasolina, com garantia, nota fiscal e parcelamento.",
+            "potentialAction": {
+              "@type": "BuyAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://wa.me/5511975465766?text=Quero%20comprar%20betoneira",
+                "actionPlatform": [
+                  "http://schema.org/DesktopWebPlatform",
+                  "http://schema.org/MobileWebPlatform"
+                ]
+              }
             }
+          },
+          "subjectOf": {
+            "@type": "FAQPage",
+            "mainEntity": FAQ_VENDA.map((f) => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            }))
           }
-        }),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-            { "@type": "ListItem", position: 2, name: "Comprar Betoneira", item: "https://betoneiraosasco.com.br/comprar-betoneira" },
-          ],
-        }),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: FAQ_VENDA.map((f) => ({
-            "@type": "Question",
-            name: f.q,
-            acceptedAnswer: { "@type": "Answer", text: f.a },
-          })),
         }),
       },
     ],

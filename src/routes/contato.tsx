@@ -139,7 +139,7 @@ function ContatoPage() {
             <span className="spec-label">Localização</span>
           </div>
           <h2 className="reveal mt-2 font-display text-2xl text-[var(--brand-ink)] md:text-3xl">Onde estamos</h2>
-          <p className="reveal mt-2 text-sm text-muted-foreground">Sede em Osasco , atendemos toda a cidade.</p>
+          <p className="reveal mt-2 text-sm text-muted-foreground">Sede em Osasco - SP, atendemos toda a cidade.</p>
           <div className="reveal mt-6">
             <MapEmbed query="Osasco SP Brasil" title="Localização , Osasco" />
           </div>

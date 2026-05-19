@@ -8,10 +8,13 @@ import { Steps } from "@/components/Steps";
 import { ModelCard } from "@/components/ModelCard";
 import { MODELOS } from "@/lib/modelos";
 import { useReveal } from "@/lib/useReveal";
-import { ArrowIcon, PhoneIcon, CheckIcon, HelmetIcon, ClockIcon, TruckIcon, MixerIcon } from "@/components/icons/Icons";
+import { ArrowIcon, PhoneIcon, CheckIcon, HelmetIcon, ClockIcon, TruckIcon, MixerIcon, WhatsappIcon } from "@/components/icons/Icons";
 import { CTAFinal } from "@/components/CTAFinal";
 import { getBairro, bairrosProximos } from "@/lib/bairros";
 import betoneiraHero from "@/assets/betoneira-hero.webp";
+import alugarBetoneiraOsasco from "@/assets/alugar-betoneira-osasco.webp";
+import betoneiraOsascoAluga from "@/assets/betoneira-osasco-aluga.webp";
+import betoneiraParaAlugarEmOsasco from "@/assets/betoneira-para-alugar-em-osasco.webp";
 
 const PRECOS_LOCACAO = [
   {
@@ -74,21 +77,24 @@ const PRECOS_LOCACAO = [
 const SERVICOS = [
   {
     n: "01",
-    t: "Locação",
+    t: "Locação de betoneira",
     d: "Aluguel de betoneira em Osasco por diária, semana ou mês. Frota de 120L, 150L, 250L e 400L sempre revisada. Atende pedreiro, empreiteiro e construtora, sem letras miúdas.",
-    Icon: MixerIcon,
+    image: alugarBetoneiraOsasco,
+    alt: "Aluguel de betoneiras em Osasco SP",
   },
   {
     n: "02",
-    t: "Venda",
+    t: "Venda de betoneira",
     d: "Betoneiras novas e seminovas com garantia. Indicamos entre elétrica monofásica (110V/220V) e a gasolina conforme o porte da sua obra residencial ou de médio porte.",
-    Icon: CheckIcon,
+    image: betoneiraOsascoAluga,
+    alt: "Venda de betoneira em Osasco",
   },
   {
     n: "03",
     t: "Entrega e Retirada",
     d: "Logística própria em toda Osasco e região, do Centro à Zona Norte e Zona Sul. Confirmou até o início da tarde, entregamos no mesmo dia. Retirada agendada sem dor de cabeça.",
-    Icon: TruckIcon,
+    image: betoneiraParaAlugarEmOsasco,
+    alt: "Serviço de entrega e retirada de betoneiras em Osasco",
   },
 ];
 
@@ -98,6 +104,27 @@ function Star() {
       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
     </svg>
   );
+}
+
+export function getFaqLocal(bairroNome: string) {
+  return [
+    {
+      q: `Vocês entregam no mesmo dia no bairro ${bairroNome}?`,
+      a: `Sim, realizamos a entrega e a retirada de betoneiras no mesmo dia em todas as ruas e canteiros de obras do bairro ${bairroNome}, em Osasco. Para que possamos programar a logística própria e incluir o seu equipamento na rota de entregas diárias, solicitamos que a confirmação do agendamento seja realizada com nossos consultores de atendimento pelo WhatsApp até o início da tarde.`,
+    },
+    {
+      q: `Qual é o preço do frete para o bairro ${bairroNome}?`,
+      a: `Por sermos uma empresa local sediada em Osasco e contarmos com uma logística própria e bem estruturada, conseguimos oferecer taxas de frete extremamente acessíveis para o bairro ${bairroNome}. Em contratos de locação semanais, quinzenais ou mensais, podemos conceder isenção completa do valor do frete. Manda a localização da sua obra pelo WhatsApp para receber um orçamento completo.`,
+    },
+    {
+      q: "Qual modelo de betoneira escolher para reforma residencial?",
+      a: "A betoneira de 250 litros é o modelo mais indicado e alugado para a maioria das obras residenciais em Osasco. Ela possui capacidade útil para misturar de 150 a 180 litros de concreto ou argamassa por ciclo de trabalho e funciona perfeitamente em tomadas elétricas comuns de 110V ou 220V monofásicas disponíveis no canteiro de obras. Para misturas pesadas de lajes, muros de arrimo ou calçadas de grande extensão que necessitem de maior rendimento contínuo de concreto, a locação da betoneira de 400 litros (elétrica ou com motor a gasolina) torna-se a opção mais produtiva e ágil. Oferecemos orçamentos personalizados sob consulta via WhatsApp, garantindo suporte completo e logística própria de entrega direta no mesmo dia em toda a Grande São Paulo.",
+    },
+    {
+      q: `Como funciona o agendamento de locação para o ${bairroNome}?`,
+      a: `O processo de aluguel de betoneiras para o bairro ${bairroNome} é totalmente desburocratizado. Basta entrar em contato conosco pelo WhatsApp, definir o modelo (120L, 150L, 250L ou 400L) e o período desejado. A máquina é entregue limpa, revisada e pronta para uso. O agendamento é feito de forma rápida e segura. Ao término do prazo acordado, nossa equipe realiza a retirada de forma rápida e organizada.`,
+    },
+  ];
 }
 
 export const Route = createFileRoute("/$slug")({
@@ -121,85 +148,146 @@ export const Route = createFileRoute("/$slug")({
         { name: "description", content: desc },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
+        { property: "og:image", content: "https://betoneiraosasco.com.br/assets/betoneira-hero.webp" },
         { property: "og:url", content: url },
         { property: "og:type", content: "article" },
       ],
-      links: [{ rel: "canonical", href: url }],
+      links: [
+        { rel: "canonical", href: url },
+        { rel: "preload", href: betoneiraHero, as: "image", fetchPriority: "high" as any },
+      ],
       scripts: [
         {
-          // Schema 1 — Service para o bairro específico (provider via @id) com RentAction
+          // Schema Unificado — WebPage Raiz com Entidades Aninhadas
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Service",
-            name: `Aluguel de Betoneiras em ${bairro.nome}, Osasco`,
-            serviceType: "Construction Equipment Rental",
-            description: `Locação de betoneiras no bairro ${bairro.nome} em Osasco SP. Entrega no mesmo dia, equipamentos revisados de 120L, 150L, 250L, 400L elétrica e a gasolina.`,
-            provider: { "@id": "https://betoneiraosasco.com.br/#business" },
-            areaServed: {
-              "@type": "Place",
-              name: `${bairro.nome}, Osasco, SP`,
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: bairro.lat,
-                longitude: bairro.lng,
-              },
-              hasMap: `https://www.google.com/maps/search/?api=1&query=${bairro.lat},${bairro.lng}`,
+            "@type": "WebPage",
+            "@id": `${url}#webpage`,
+            url: url,
+            name: title,
+            isPartOf: {
+              "@type": "WebSite",
+              "@id": "https://betoneiraosasco.com.br/#website",
+              url: "https://betoneiraosasco.com.br/",
+              name: "Betoneira Osasco",
             },
-            potentialAction: {
-              "@type": "RentAction",
-              target: {
-                "@type": "EntryPoint",
-                urlTemplate: "https://wa.me/5511975465766?text=Quero%20alugar%20betoneira",
-                actionPlatform: [
-                  "http://schema.org/DesktopWebPlatform",
-                  "http://schema.org/MobileWebPlatform"
-                ]
-              }
+            breadcrumb: {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
+                { "@type": "ListItem", position: 2, name: `Aluguel em ${bairro.nome}`, item: url },
+              ],
             },
-            url,
-          }),
-        },
-        {
-          // Schema 4 — BreadcrumbList (permitido repetir)
-          type: "application/ld+json",
-          children: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-              { "@type": "ListItem", position: 2, name: `Aluguel em ${bairro.nome}`, item: url },
-            ],
-          }),
-        },
-        {
-          // Schema 5 — FAQPage (permitido repetir, conteúdo dinâmico por bairro)
-          type: "application/ld+json",
-          children: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: `Vocês entregam no mesmo dia no bairro ${bairro.nome}?`,
-                acceptedAnswer: { "@type": "Answer", text: `Sim, entregamos betoneiras no mesmo dia em toda a região do ${bairro.nome}, em Osasco. Para garantir o recebimento na rota diária, pedimos apenas que confirme seu agendamento conosco pelo WhatsApp até o início da tarde.` },
+            mainEntity: {
+              "@type": "Service",
+              "@id": `${url}#service`,
+              name: `Aluguel de Betoneiras em ${bairro.nome}, Osasco`,
+              serviceType: "Construction Equipment Rental",
+              description: `Locação de betoneiras no bairro ${bairro.nome} em Osasco SP. Entrega no mesmo dia, equipamentos revisados de 120L, 150L, 250L e 400L elétrica e a gasolina. Ligue ou chame no WhatsApp: (11) 97546-5766.`,
+              url: url,
+              telephone: "+5511975465766",
+              provider: {
+                "@type": "HomeAndConstructionBusiness",
+                "@id": "https://betoneiraosasco.com.br/#business",
+                name: "Betoneiras Osasco",
+                alternateName: "Betoneira Osasco",
+                description: "Aluguel e venda de betoneiras em Osasco SP. Locação diária, semanal e mensal de misturadores de concreto e argamassa de 120L, 150L, 250L e 400L, com entrega no mesmo dia.",
+                url: "https://betoneiraosasco.com.br",
+                telephone: "+5511975465766",
+                image: "https://betoneiraosasco.com.br/assets/betoneira-hero.webp",
+                logo: "https://betoneiraosasco.com.br/assets/logo-betoneira-osasco.webp",
+                priceRange: "$$",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "Rua Narciso Sturlini, 201",
+                  addressLocality: "Osasco",
+                  addressRegion: "SP",
+                  postalCode: "06018-100",
+                  addressCountry: "BR",
+                },
+                geo: {
+                  "@type": "GeoCoordinates",
+                  latitude: -23.5325,
+                  longitude: -46.7917,
+                },
+                hasMap: "https://www.google.com/maps/search/?api=1&query=-23.5325,-46.7917",
+                areaServed: [
+                  { "@type": "City", name: "Osasco" },
+                ],
+                openingHoursSpecification: [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                    opens: "07:00",
+                    closes: "19:00",
+                  },
+                ],
+                potentialAction: {
+                  "@type": "RentAction",
+                  target: {
+                    "@type": "EntryPoint",
+                    urlTemplate: "https://wa.me/5511975465766?text=Quero%20alugar%20betoneira",
+                    actionPlatform: [
+                      "http://schema.org/DesktopWebPlatform",
+                      "http://schema.org/MobileWebPlatform",
+                    ],
+                  },
+                },
+                sameAs: ["https://wa.me/5511975465766"],
               },
-              {
-                "@type": "Question",
-                name: `Qual é o preço do frete para o bairro ${bairro.nome}?`,
-                acceptedAnswer: { "@type": "Answer", text: `Como somos de Osasco e nossa base logística é estratégica, oferecemos taxas de entrega e retirada extremamente acessíveis (e em locações semanais ou mensais o frete pode sair grátis). Manda a sua rua no ${bairro.nome} pelo WhatsApp que passamos o valor do frete na hora.` },
+              areaServed: {
+                "@type": "Place",
+                name: `${bairro.nome}, Osasco, SP`,
+                geo: {
+                  "@type": "GeoCoordinates",
+                  latitude: bairro.lat,
+                  longitude: bairro.lng,
+                },
+                hasMap: `https://www.google.com/maps/search/?api=1&query=${bairro.lat},${bairro.lng}`,
+                containedInPlace: { "@type": "City", name: "Osasco" },
               },
-              {
-                "@type": "Question",
-                name: "Qual modelo de betoneira escolher para reforma residencial?",
-                acceptedAnswer: { "@type": "Answer", text: "Para reformas internas e rebocos comuns, a betoneira de 150L elétrica já resolve perfeitamente. Para concretagem de calçadas, muros e lajes residenciais, o modelo de 250L é o mais equilibrado e roda em tomadas elétricas padrão. O modelo de 400L é ideal para obras rápidas de médio e grande volume." },
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                  opens: "07:00",
+                  closes: "19:00",
+                },
+              ],
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: `Betoneiras disponíveis para aluguel em ${bairro.nome}`,
+                itemListElement: [
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 120L Elétrica" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 150L Elétrica" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 250L Elétrica" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Elétrica" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Gasolina" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Caminhão Betoneira" } },
+                ],
               },
-              {
-                "@type": "Question",
-                name: `Como funciona o agendamento de locação para o ${bairro.nome}?`,
-                acceptedAnswer: { "@type": "Answer", text: "É extremamente simples e sem burocracias. Você nos chama no WhatsApp, passa o modelo de betoneira que precisa, o tempo de locação (diária, semanal ou mensal) e o endereço completo de entrega. A máquina chega limpa e revisada, e o pagamento é feito apenas no ato da entrega." },
+              potentialAction: {
+                "@type": "RentAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: `https://wa.me/5511975465766?text=Quero%20alugar%20betoneira%20em%20${encodeURIComponent(bairro.nome)}`,
+                  actionPlatform: [
+                    "http://schema.org/DesktopWebPlatform",
+                    "http://schema.org/MobileWebPlatform",
+                  ],
+                },
               },
-            ],
+              sameAs: ["https://wa.me/5511975465766"],
+            },
+            subjectOf: {
+              "@type": "FAQPage",
+              mainEntity: getFaqLocal(bairro.nome).map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
           }),
         },
       ],
@@ -234,24 +322,7 @@ function BairroPage() {
   const variantIndex = bairro.nome.length % obraVariations.length;
   const tipoObra = obraVariations[variantIndex];
 
-  const FAQ_LOCAL = [
-    {
-      q: `Vocês entregam no mesmo dia no bairro ${bairro.nome}?`,
-      a: `Sim, entregamos betoneiras no mesmo dia em toda a região do ${bairro.nome}, em Osasco. Para garantir o recebimento na rota diária, pedimos apenas que confirme seu agendamento conosco pelo WhatsApp até o início da tarde.`,
-    },
-    {
-      q: `Qual é o preço do frete para o bairro ${bairro.nome}?`,
-      a: `Como somos de Osasco e nossa base logística é estratégica, oferecemos taxas de entrega e retirada extremamente acessíveis (e em locações semanais ou mensais o frete pode sair grátis). Manda a sua rua no ${bairro.nome} pelo WhatsApp que passamos o valor do frete na hora.`,
-    },
-    {
-      q: "Qual modelo de betoneira escolher para reforma residencial?",
-      a: "Para reformas internas e rebocos comuns, a betoneira de 150L elétrica já resolve perfeitamente. Para concretagem de calçadas, muros e lajes residenciais, o modelo de 250L é o mais equilibrado e roda em tomadas elétricas padrão. O modelo de 400L é ideal para obras rápidas de médio e grande volume.",
-    },
-    {
-      q: `Como funciona o agendamento de locação para o ${bairro.nome}?`,
-      a: "É extremamente simples e sem burocracias. Você nos chama no WhatsApp, passa o modelo de betoneira que precisa, o tempo de locação (diária, semanal ou mensal) e o endereço completo de entrega. A máquina chega limpa e revisada, e o pagamento é feito apenas no ato da entrega.",
-    },
-  ];
+  const FAQ_LOCAL = getFaqLocal(bairro.nome);
 
   const DEPOIMENTOS_LOCAL = [
     { n: "Carlos Mendes", b: bairro.nome, o: "Reforma de calçada", t: "Excelente atendimento. Moro aqui no bairro e o equipamento chegou em menos de 2 horas na minha obra, limpo e pronto para rodar. Facilitou muito a concretagem." },
@@ -278,7 +349,7 @@ function BairroPage() {
               </h1>
 
               <p className="reveal mt-6 max-w-md text-white/80 leading-relaxed" style={{ ["--i" as never]: 2 }}>
-                O melhor serviço de aluguel de betoneiras em {bairro.nome}. Fornecemos betoneiras elétricas 110V/220V e a gasolina de 120L, 150L, 250L e 400L. Referência em aluguel de betoneiras em Osasco com entrega rápida para {tipoObra}.
+                O melhor serviço de aluguel de betoneiras em {bairro.nome}. Fornecemos betoneiras elétricas 110V/220V e a gasolina de 120L, 150L, 250L e 400L. Se você busca uma <strong>betoneira perto de mim</strong> para {tipoObra}, conte com nossa entrega rápida no dia.
               </p>
 
               <div className="reveal mt-8 flex flex-wrap gap-4" style={{ ["--i" as never]: 3 }}>
@@ -287,7 +358,7 @@ function BairroPage() {
                   target="_blank" rel="noopener"
                   className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow"
                 >
-                  Orçamento no WhatsApp <ArrowIcon size={16} />
+                  <WhatsappIcon size={16} /> Orçamento no WhatsApp <ArrowIcon size={16} />
                 </a>
                 <a
                   href="tel:+5511975465766"
@@ -307,6 +378,7 @@ function BairroPage() {
                 height={780}
                 className="relative z-10 ml-auto w-full max-w-3xl md:max-w-none lg:scale-[1.25] lg:translate-x-16 xl:translate-x-24 object-contain"
                 loading="eager"
+                fetchPriority="high"
               />
             </aside>
           </div>
@@ -322,6 +394,8 @@ function BairroPage() {
           <div className="reveal flex items-center gap-3">
             <span className="h-px w-10 bg-[var(--brand-ink)]" />
             <span className="spec-label">Catálogo</span>
+            <span className="text-muted-foreground/30">•</span>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--brand-navy)]">Locação de betoneira Osasco</h4>
           </div>
           <div className="reveal mt-2 flex flex-wrap items-end justify-between gap-3">
             <h2 className="font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
@@ -332,7 +406,7 @@ function BairroPage() {
             </Link>
           </div>
           <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Betoneiras de 120L, 150L, 250L e 400L para aluguel em {bairro.nome}, nas versões elétricas monofásicas (110V/220V) e a gasolina, ideais para misturar concreto, argamassa, contrapiso e cimento em obras residenciais e de médio porte.
+            Betoneiras de 120L, 150L, 250L e 400L para aluguel em {bairro.nome}. Se você precisa de uma betoneira perto de mim para misturar concreto, argamassa, contrapiso e cimento em obras residenciais, temos modelos elétricos (110V/220V) e a gasolina.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {MODELOS.map((m, i) => (
@@ -340,6 +414,29 @@ function BairroPage() {
                 <ModelCard m={m} />
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* GREEN CTA 1: MEIO DA PÁGINA */}
+        <section className="relative overflow-hidden border-b-2 border-[var(--brand-ink)] bg-[#25D366] py-12 text-[var(--brand-ink)] noise-overlay">
+          <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 text-center md:flex-row md:text-left">
+            <div>
+              <span className="spec-label !text-[var(--brand-ink)]/80">Entrega Expressa</span>
+              <h3 className="mt-2 font-display text-2xl md:text-4xl tracking-tight leading-tight">
+                Entrega prioritária no bairro <span className="underline decoration-2">{bairro.nome}</span> em até 24h! <br />
+                <span className="font-editorial text-[var(--brand-navy)]">Solicite seu orçamento sem compromisso.</span>
+              </h3>
+            </div>
+            <div>
+              <a
+                href={`https://wa.me/5511975465766?text=${encodeURIComponent(`Olá! Quero alugar uma betoneira no bairro ${bairro.nome}, Osasco. Vim do site.`)}`}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-white px-8 py-4 text-sm font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow hover:translate-y-[1px] transition-all"
+              >
+                <WhatsappIcon size={18} /> Orçamento em {bairro.nome} <ArrowIcon size={18} />
+              </a>
+            </div>
           </div>
         </section>
 
@@ -365,8 +462,13 @@ function BairroPage() {
                     <p className="mt-5 max-w-md text-muted-foreground leading-relaxed">{s.d}</p>
                   </div>
                   <div className="relative flex items-center justify-center">
-                    <div className="relative z-10 flex aspect-[5/4] w-full items-center justify-center rounded-2xl bg-white ring-1 ring-black/5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.25)]">
-                      <s.Icon size={120} className="text-[var(--brand-navy)]" />
+                    <div className="relative z-10 flex aspect-[5/4] w-full items-center justify-center rounded-2xl bg-white ring-1 ring-black/5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.25)] overflow-hidden">
+                      <img
+                        src={s.image}
+                        alt={s.alt}
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        loading="lazy"
+                      />
                     </div>
                   </div>
                 </div>
@@ -394,6 +496,30 @@ function BairroPage() {
           </ul>
         </section>
 
+        {/* GREEN CTA 2: LOCAÇÃO SEM BUROCRACIA */}
+        <section className="relative overflow-hidden border-b-2 border-[var(--brand-ink)] bg-[#25D366] py-16 text-[var(--brand-ink)] noise-overlay">
+          <div className="mx-auto max-w-4xl px-4 text-center">
+            <span className="spec-label !text-[var(--brand-ink)]/80">Locação Sem Burocracia</span>
+            <h3 className="mt-2 font-display text-3xl md:text-5xl tracking-tight leading-tight">
+              Locação ágil para {tipoObra} <br />
+              <span className="font-editorial text-[var(--brand-navy)]">no bairro {bairro.nome}!</span>
+            </h3>
+            <p className="mx-auto mt-4 max-w-lg text-sm text-[var(--brand-ink)]/90 leading-relaxed">
+              Equipamentos novos, revisados e higienizados entregues direto no seu canteiro de obras em {bairro.nome}. Fale conosco pelo WhatsApp agora mesmo.
+            </p>
+            <div className="mt-8">
+              <a
+                href={`https://wa.me/5511975465766?text=${encodeURIComponent(`Olá! Quero alugar uma betoneira no bairro ${bairro.nome}, Osasco. Vim do site.`)}`}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] px-8 py-4 text-base font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow hover:translate-y-[1px] transition-all"
+              >
+                <WhatsappIcon size={20} /> Conversar no WhatsApp <ArrowIcon size={20} />
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* DETALHES DO ATENDIMENTO LOCAL (MAPA) */}
         <section className="mx-auto grid max-w-6xl gap-10 px-4 py-24 md:grid-cols-[1fr_1.2fr]">
           <div>
@@ -405,6 +531,9 @@ function BairroPage() {
               Toda <span className="text-[var(--brand-navy)]">Osasco</span>,<br />
               <span className="font-editorial">de ponta a ponta.</span>
             </h2>
+            <div className="reveal mt-4 text-xs font-bold uppercase tracking-wider text-[var(--brand-navy)]">
+              <h4>Betoneira perto de mim</h4>
+            </div>
             <div className="mt-6 space-y-4 text-sm text-muted-foreground leading-relaxed">
               <p>
                 A <strong>Betoneira Osasco</strong> é referência em locação de betoneira em Osasco. Atendemos de forma prioritária todas as ruas e canteiros de obras do bairro <strong>{bairro.nome}</strong>. Nossa logística própria permite agilidade máxima na entrega.
@@ -458,10 +587,10 @@ function BairroPage() {
               <span className="spec-label">Valores Transparentes</span>
             </div>
             <h2 className="reveal mt-2 font-display text-3xl text-[var(--brand-ink)] md:text-5xl">
-              Aluguel de <span className="font-editorial text-[var(--brand-navy)]">betoneiras</span> em {bairro.nome}
+              Alugar betoneira <span className="font-editorial text-[var(--brand-navy)]">em {bairro.nome}: preço e prazos</span>
             </h2>
             <p className="reveal mt-4 max-w-2xl text-sm text-muted-foreground">
-              Valores sob consulta para locação no bairro {bairro.nome}. Atendimento sem burocracias, com pagamento flexível (PIX, dinheiro ou cartão) na entrega.
+              Valores sob consulta para locação no bairro {bairro.nome}. Atendimento sem burocracias, com total facilidade no pagamento e faturamento descomplicado.
             </p>
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {PRECOS_LOCACAO.map((p) => (
@@ -473,7 +602,7 @@ function BairroPage() {
                     <span className="font-display text-lg text-[var(--brand-navy)]">Sob consulta</span>
                   </div>
                   <a href={`https://wa.me/5511975465766?text=${encodeURIComponent(`Olá! Quero orçamento para aluguel de ${p.modelo} no bairro ${bairro.nome}, Osasco.`)}`} target="_blank" rel="noopener" className="mt-6 inline-flex w-full justify-center items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] py-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-ink)]">
-                    Confirmar Valores <ArrowIcon size={12} />
+                    <WhatsappIcon size={12} /> Confirmar Valores <ArrowIcon size={12} />
                   </a>
                 </article>
               ))}

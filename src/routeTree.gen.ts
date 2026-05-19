@@ -9,9 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermosRouteImport } from './routes/termos'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicosRouteImport } from './routes/servicos'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
+import { Route as PostSitemapDotxmlRouteImport } from './routes/post-sitemap[.]xml'
+import { Route as PageSitemapDotxmlRouteImport } from './routes/page-sitemap[.]xml'
+import { Route as LocalSitemapDotxmlRouteImport } from './routes/local-sitemap[.]xml'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ComprarBetoneiraRouteImport } from './routes/comprar-betoneira'
 import { Route as CaminhaoBetoneiraRouteImport } from './routes/caminhao-betoneira'
@@ -25,6 +30,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const TermosRoute = TermosRouteImport.update({
+  id: '/termos',
+  path: '/termos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
@@ -38,6 +48,26 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicosRoute = ServicosRouteImport.update({
   id: '/servicos',
   path: '/servicos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PostSitemapDotxmlRoute = PostSitemapDotxmlRouteImport.update({
+  id: '/post-sitemap.xml',
+  path: '/post-sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PageSitemapDotxmlRoute = PageSitemapDotxmlRouteImport.update({
+  id: '/page-sitemap.xml',
+  path: '/page-sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocalSitemapDotxmlRoute = LocalSitemapDotxmlRouteImport.update({
+  id: '/local-sitemap.xml',
+  path: '/local-sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContatoRoute = ContatoRouteImport.update({
@@ -112,9 +142,14 @@ export interface FileRoutesByFullPath {
   '/caminhao-betoneira': typeof CaminhaoBetoneiraRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
+  '/local-sitemap.xml': typeof LocalSitemapDotxmlRoute
+  '/page-sitemap.xml': typeof PageSitemapDotxmlRoute
+  '/post-sitemap.xml': typeof PostSitemapDotxmlRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
+  '/termos': typeof TermosRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -129,9 +164,14 @@ export interface FileRoutesByTo {
   '/caminhao-betoneira': typeof CaminhaoBetoneiraRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
+  '/local-sitemap.xml': typeof LocalSitemapDotxmlRoute
+  '/page-sitemap.xml': typeof PageSitemapDotxmlRoute
+  '/post-sitemap.xml': typeof PostSitemapDotxmlRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
+  '/termos': typeof TermosRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog': typeof BlogIndexRoute
 }
@@ -147,9 +187,14 @@ export interface FileRoutesById {
   '/caminhao-betoneira': typeof CaminhaoBetoneiraRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
+  '/local-sitemap.xml': typeof LocalSitemapDotxmlRoute
+  '/page-sitemap.xml': typeof PageSitemapDotxmlRoute
+  '/post-sitemap.xml': typeof PostSitemapDotxmlRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
+  '/termos': typeof TermosRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -166,9 +211,14 @@ export interface FileRouteTypes {
     | '/caminhao-betoneira'
     | '/comprar-betoneira'
     | '/contato'
+    | '/local-sitemap.xml'
+    | '/page-sitemap.xml'
+    | '/post-sitemap.xml'
+    | '/privacidade'
     | '/servicos'
     | '/sitemap.xml'
     | '/sobre'
+    | '/termos'
     | '/blog/$slug'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
@@ -183,9 +233,14 @@ export interface FileRouteTypes {
     | '/caminhao-betoneira'
     | '/comprar-betoneira'
     | '/contato'
+    | '/local-sitemap.xml'
+    | '/page-sitemap.xml'
+    | '/post-sitemap.xml'
+    | '/privacidade'
     | '/servicos'
     | '/sitemap.xml'
     | '/sobre'
+    | '/termos'
     | '/blog/$slug'
     | '/blog'
   id:
@@ -200,9 +255,14 @@ export interface FileRouteTypes {
     | '/caminhao-betoneira'
     | '/comprar-betoneira'
     | '/contato'
+    | '/local-sitemap.xml'
+    | '/page-sitemap.xml'
+    | '/post-sitemap.xml'
+    | '/privacidade'
     | '/servicos'
     | '/sitemap.xml'
     | '/sobre'
+    | '/termos'
     | '/blog/$slug'
     | '/blog/'
   fileRoutesById: FileRoutesById
@@ -218,15 +278,27 @@ export interface RootRouteChildren {
   CaminhaoBetoneiraRoute: typeof CaminhaoBetoneiraRoute
   ComprarBetoneiraRoute: typeof ComprarBetoneiraRoute
   ContatoRoute: typeof ContatoRoute
+  LocalSitemapDotxmlRoute: typeof LocalSitemapDotxmlRoute
+  PageSitemapDotxmlRoute: typeof PageSitemapDotxmlRoute
+  PostSitemapDotxmlRoute: typeof PostSitemapDotxmlRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
   ServicosRoute: typeof ServicosRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRoute
+  TermosRoute: typeof TermosRoute
   BlogSlugRoute: typeof BlogSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/termos': {
+      id: '/termos'
+      path: '/termos'
+      fullPath: '/termos'
+      preLoaderRoute: typeof TermosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sobre': {
       id: '/sobre'
       path: '/sobre'
@@ -246,6 +318,34 @@ declare module '@tanstack/react-router' {
       path: '/servicos'
       fullPath: '/servicos'
       preLoaderRoute: typeof ServicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/post-sitemap.xml': {
+      id: '/post-sitemap.xml'
+      path: '/post-sitemap.xml'
+      fullPath: '/post-sitemap.xml'
+      preLoaderRoute: typeof PostSitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/page-sitemap.xml': {
+      id: '/page-sitemap.xml'
+      path: '/page-sitemap.xml'
+      fullPath: '/page-sitemap.xml'
+      preLoaderRoute: typeof PageSitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/local-sitemap.xml': {
+      id: '/local-sitemap.xml'
+      path: '/local-sitemap.xml'
+      fullPath: '/local-sitemap.xml'
+      preLoaderRoute: typeof LocalSitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contato': {
@@ -346,9 +446,14 @@ const rootRouteChildren: RootRouteChildren = {
   CaminhaoBetoneiraRoute: CaminhaoBetoneiraRoute,
   ComprarBetoneiraRoute: ComprarBetoneiraRoute,
   ContatoRoute: ContatoRoute,
+  LocalSitemapDotxmlRoute: LocalSitemapDotxmlRoute,
+  PageSitemapDotxmlRoute: PageSitemapDotxmlRoute,
+  PostSitemapDotxmlRoute: PostSitemapDotxmlRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
   ServicosRoute: ServicosRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRoute,
+  TermosRoute: TermosRoute,
   BlogSlugRoute: BlogSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
 }

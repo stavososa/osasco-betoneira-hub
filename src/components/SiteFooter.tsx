@@ -3,6 +3,8 @@ import { BAIRROS } from "@/lib/bairros";
 import { BairrosGrid } from "./BairrosGrid";
 import { HazardStripe } from "./HazardStripe";
 import logo from "@/assets/logo-betoneira-osasco.webp";
+import googleSafeBrowsing from "@/assets/google-safe-browsing.webp";
+import brasaoDeOsasco from "@/assets/brasao-de-osasco.webp";
 
 export function SiteFooter({ bairrosVisiveis }: { bairrosVisiveis?: typeof BAIRROS }) {
   return (
@@ -40,13 +42,41 @@ export function SiteFooter({ bairrosVisiveis }: { bairrosVisiveis?: typeof BAIRR
               </span>
             </div>
             <p className="mt-2 text-sm text-white/70">Locação e venda de betoneiras em toda Osasco e região.</p>
+            <div className="mt-6 flex items-center gap-4">
+              <a
+                href="https://transparencyreport.google.com/safe-browsing/search?url=betoneiraosasco.com.br&hl=pt_BR"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-90 transition-opacity hover:opacity-100"
+              >
+                <img
+                  src={googleSafeBrowsing}
+                  alt="Google Safe Browsing - Betoneira Osasco"
+                  className="h-14 w-auto object-contain rounded-xl shadow-lg"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href="https://osasco.sp.gov.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-90 transition-opacity hover:opacity-100"
+              >
+                <img
+                  src={brasaoDeOsasco}
+                  alt="Brasão de Osasco SP"
+                  className="h-16 w-auto object-contain"
+                  loading="lazy"
+                />
+              </a>
+            </div>
           </div>
           <div>
             <h3 className="spec-label !text-[var(--brand-yellow)]">Contato</h3>
             <ul className="mt-2 space-y-1 text-sm">
               <li><a href="tel:+5511975465766" className="hover:underline">(11) 97546-5766</a></li>
               <li><a href="https://wa.me/5511975465766" target="_blank" rel="noopener" className="hover:underline">WhatsApp</a></li>
-              <li>Osasco , SP</li>
+              <li>Osasco - SP</li>
             </ul>
           </div>
           <div>
@@ -75,6 +105,10 @@ export function SiteFooter({ bairrosVisiveis }: { bairrosVisiveis?: typeof BAIRR
           © {new Date().getFullYear()} Betoneira Osasco , Locação e Venda. Todos os direitos reservados.
           {" · "}
           <a href="/sitemap.xml" className="hover:underline hover:text-white/80">Sitemap</a>
+          {" · "}
+          <Link to="/termos" className="hover:underline hover:text-white/80">Termos de Uso</Link>
+          {" · "}
+          <Link to="/privacidade" className="hover:underline hover:text-white/80">Política de Privacidade</Link>
         </p>
       </div>
     </footer>

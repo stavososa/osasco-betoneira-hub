@@ -23,7 +23,7 @@ export const BAIRROS: Bairro[] = [
   { slug: "city-bussocaba",         nome: "City Bussocaba",     lat: -23.5198, lng: -46.8034 },
   { slug: "conceicao",              nome: "Conceição",          lat: -23.5289, lng: -46.7978 },
   { slug: "helena-maria",           nome: "Helena Maria",       lat: -23.5401, lng: -46.8012 },
-  { slug: "iapi",                   nome: "I.A.P.I",            lat: -23.5367, lng: -46.7856 },
+  { slug: "iapi",                   nome: "IAPI",               lat: -23.5367, lng: -46.7856 },
   { slug: "industrial-altino",      nome: "Altino",             lat: -23.5289, lng: -46.7712 },
   { slug: "industrial-anhanguera",  nome: "Anhanguera",         lat: -23.5334, lng: -46.7634 },
   { slug: "industrial-autonomistas",nome: "Autonomistas",       lat: -23.5412, lng: -46.7756 },

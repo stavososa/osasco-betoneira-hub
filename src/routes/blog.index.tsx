@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useReveal } from "@/lib/useReveal";
 import { ArrowIcon } from "@/components/icons/Icons";
+import melhoresMarcasImg from "@/assets/quais-as-melhores-marcas-de-betoneiras.webp";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
@@ -19,37 +20,45 @@ export const Route = createFileRoute("/blog/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-            { "@type": "ListItem", position: 2, name: "Blog", item: "https://betoneiraosasco.com.br/blog" },
-          ],
-        }),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Blog",
-          "@id": "https://betoneiraosasco.com.br/blog#blog",
+          "@type": "CollectionPage",
+          "@id": "https://betoneiraosasco.com.br/blog#webpage",
           "url": "https://betoneiraosasco.com.br/blog",
-          "name": "Blog Betoneira Osasco",
-          "description": "Dicas, guias e novidades sobre locação e venda de betoneiras em Osasco. Aprenda a escolher, operar e economizar na sua obra.",
-          "publisher": {
-            "@id": "https://betoneiraosasco.com.br/#business"
+          "name": "Blog | Betoneira Osasco",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://betoneiraosasco.com.br/#website",
+            "url": "https://betoneiraosasco.com.br/",
+            "name": "Betoneira Osasco"
           },
-          "blogPost": POSTS.filter((p) => p.active).map((p) => ({
-            "@type": "BlogPosting",
-            "@id": `https://betoneiraosasco.com.br/blog/${p.slug}#entry`,
-            "headline": p.titulo,
-            "description": p.resumo,
-            "url": `https://betoneiraosasco.com.br/blog/${p.slug}`,
-            "datePublished": "2026-05-19",
-            "author": {
-              "@type": "Person",
-              "name": "Beto Vieira"
-            }
-          }))
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Blog", item: "https://betoneiraosasco.com.br/blog" },
+            ],
+          },
+          "mainEntity": {
+            "@type": "Blog",
+            "@id": "https://betoneiraosasco.com.br/blog#blog",
+            "url": "https://betoneiraosasco.com.br/blog",
+            "name": "Blog Betoneira Osasco",
+            "description": "Dicas, guias e novidades sobre locação e venda de betoneiras em Osasco. Aprenda a escolher, operar e economizar na sua obra.",
+            "publisher": {
+              "@id": "https://betoneiraosasco.com.br/#business"
+            },
+            "blogPost": POSTS.filter((p) => p.active).map((p) => ({
+              "@type": "BlogPosting",
+              "@id": `https://betoneiraosasco.com.br/blog/${p.slug}#entry`,
+              "headline": p.titulo,
+              "description": p.resumo,
+              "url": `https://betoneiraosasco.com.br/blog/${p.slug}`,
+              "datePublished": "2026-05-19",
+              "author": {
+                "@type": "Person",
+                "name": "Beto Vieira"
+              }
+            }))
+          }
         }),
       },
     ],
@@ -64,6 +73,7 @@ export const POSTS = [
     resumo: "Descubra quais são as melhores marcas de betoneira do mercado brasileiro, compare capacidades, preços e saiba qual escolher.",
     data: "19 Mai 2026",
     categoria: "Guia",
+    imagem: melhoresMarcasImg,
     active: true,
   },
 ];
@@ -94,21 +104,33 @@ function BlogPage() {
             {POSTS.map((p) => (
               <article
                 key={p.slug}
-                className="reveal cut-corner flex flex-col border-2 border-[var(--brand-ink)] bg-card p-6 hard-shadow animate-reveal"
+                className="reveal cut-corner flex flex-col border-2 border-[var(--brand-ink)] bg-card p-0 hard-shadow animate-reveal overflow-hidden"
               >
-                <div className="flex items-center justify-between">
-                  <span className="spec-label">{p.categoria}</span>
-                  <span className="font-mono text-xs text-muted-foreground">{p.data}</span>
+                {p.imagem && (
+                  <div className="relative aspect-[16/10] overflow-hidden border-b-2 border-[var(--brand-ink)] bg-[var(--brand-ink)]/5">
+                    <img
+                      src={p.imagem}
+                      alt={p.titulo}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-col flex-1 p-6">
+                  <div className="flex items-center justify-between">
+                    <span className="spec-label">{p.categoria}</span>
+                    <span className="font-mono text-xs text-muted-foreground">{p.data}</span>
+                  </div>
+                  <h2 className="mt-3 font-display text-xl text-[var(--brand-ink)]">{p.titulo}</h2>
+                  <p className="mt-2 flex-1 text-sm text-muted-foreground">{p.resumo}</p>
+                  <Link
+                    to="/blog/$slug"
+                    params={{ slug: p.slug }}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[var(--brand-navy)] hover:text-[var(--brand-yellow)] transition-colors"
+                  >
+                    Ler guia completo <ArrowIcon size={14} />
+                  </Link>
                 </div>
-                <h2 className="mt-3 font-display text-xl text-[var(--brand-ink)]">{p.titulo}</h2>
-                <p className="mt-2 flex-1 text-sm text-muted-foreground">{p.resumo}</p>
-                <Link
-                  to="/blog/$slug"
-                  params={{ slug: p.slug }}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[var(--brand-navy)] hover:text-[var(--brand-yellow)] transition-colors"
-                >
-                  Ler guia completo <ArrowIcon size={14} />
-                </Link>
               </article>
             ))}
           </div>

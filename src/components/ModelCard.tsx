@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { MixerIcon } from "./icons/Icons";
 import type { Modelo } from "@/lib/modelos";
 
@@ -27,25 +28,21 @@ export function ModelCard({ m, size = "sm" }: { m: Modelo; size?: "lg" | "sm" })
             decoding="async"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          <span className="absolute right-3 top-3 rounded-full bg-white/90 px-2 py-1 spec-label backdrop-blur">Ref. {m.volume}</span>
+          <span className="absolute right-3 top-3 rounded-full bg-white/90 px-2 py-1 spec-label backdrop-blur">Ref. {m.volume.replace("Betoneira ", "")}</span>
         </div>
       ) : (
         <div className="flex items-start justify-between">
           <MixerIcon size={isLarge ? 72 : 48} className="text-[var(--brand-navy)]" />
-          <span className="spec-label">Ref. {m.volume}</span>
+          <span className="spec-label">Ref. {m.volume.replace("Betoneira ", "")}</span>
         </div>
       )}
-      <div
-        className={`mt-4 numeric leading-none break-words ${
-          isLarge
-            ? "text-[var(--brand-ink)] text-7xl md:text-[7.5rem]"
-            : m.volume.length > 4
-              ? "text-2xl"
-              : "text-[var(--brand-ink)] text-5xl"
+      <h3
+        className={`mt-4 font-display uppercase tracking-tight text-[var(--brand-ink)] break-words ${
+          isLarge ? "text-3xl md:text-4xl" : "text-xl md:text-2xl"
         }`}
       >
         {m.volume}
-      </div>
+      </h3>
       {m.tag && (
         <p className="mt-2 text-xs font-medium text-[var(--brand-navy)] md:text-sm">
           {m.tag}
@@ -60,6 +57,12 @@ export function ModelCard({ m, size = "sm" }: { m: Modelo; size?: "lg" | "sm" })
         <dt className="spec-label">Alimentação</dt><dd className="text-right font-mono text-[var(--brand-ink)]">{m.voltagem}</dd>
         <dt className="spec-label">Indicada para</dt><dd className="text-right font-mono text-[var(--brand-ink)]">{m.uso}</dd>
       </dl>
+      <Link
+        to={m.slug}
+        className="mt-5 w-full text-center border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] py-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow rounded-lg transition-colors hover:bg-[var(--brand-navy)] hover:text-white"
+      >
+        Ver mais
+      </Link>
     </article>
   );
 }

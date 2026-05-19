@@ -7,6 +7,7 @@ import { useReveal } from "@/lib/useReveal";
 import { ArrowIcon, PhoneIcon, CheckIcon, ClockIcon } from "@/components/icons/Icons";
 import { useState, useEffect } from "react";
 import betoVieiraImg from "@/assets/beto-vieira.webp";
+import melhoresMarcasImg from "@/assets/quais-as-melhores-marcas-de-betoneiras.webp";
 import { POSTS } from "./blog.index";
 
 // Lista de posts válidos para evitar carregamento incorreto de lixo
@@ -21,10 +22,10 @@ export const Route = createFileRoute("/blog/$slug")({
   },
   head: ({ params }) => {
     if (params.slug === "melhores-marcas-de-betoneira") {
-      const title = "Melhores Marcas de Betoneira em 2026: Guia Completo Comparativo";
+      const title = "Quais as melhores marcas de betoneiras?";
       const desc = "Descubra quais são as melhores marcas de betoneira do mercado brasileiro em 2026. Compare Menegotti, CSM, Maqtron e Possamai. Saiba qual escolher!";
       const url = `https://betoneiraosasco.com.br/blog/${params.slug}`;
-      const image = "https://betoneiraosasco.com.br/assets/betoneira-hero.webp";
+      const image = "https://betoneiraosasco.com.br/assets/quais-as-melhores-marcas-de-betoneiras.webp";
       const publishDate = "2026-05-19T08:00:00Z";
       const updateDate = "2026-05-19T08:00:00Z";
 
@@ -43,41 +44,46 @@ export const Route = createFileRoute("/blog/$slug")({
         links: [{ rel: "canonical", href: url }],
         scripts: [
           {
-            // Schema 1: BlogPosting (E-E-A-T e SEO Semântico)
             type: "application/ld+json",
             children: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "BlogPosting",
-              "@id": `${url}#post`,
-              mainEntityOfPage: url,
-              headline: "Quais as Melhores Marcas de Betoneira? Guia Completo 2026",
-              description: desc,
-              image: [image],
-              datePublished: publishDate,
-              dateModified: updateDate,
-              author: {
-                "@type": "Person",
-                name: "Beto Vieira",
-                jobTitle: "Especialista em Equipamentos de Obra e Concretagem",
-                image: "https://betoneiraosasco.com.br/assets/beto-vieira.webp",
-                url: "https://betoneiraosasco.com.br/blog/melhores-marcas-de-betoneira#autor"
+              "@type": "WebPage",
+              "@id": `${url}#webpage`,
+              "url": url,
+              "name": title,
+              "isPartOf": {
+                "@type": "WebSite",
+                "@id": "https://betoneiraosasco.com.br/#website",
+                "url": "https://betoneiraosasco.com.br/",
+                "name": "Betoneira Osasco"
               },
-              publisher: {
-                "@id": "https://betoneiraosasco.com.br/#business",
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
+                  { "@type": "ListItem", position: 2, name: "Blog", item: "https://betoneiraosasco.com.br/blog" },
+                  { "@type": "ListItem", position: 3, name: "Melhores Marcas de Betoneira", item: url },
+                ],
               },
-            }),
-          },
-          {
-            // Schema 2: BreadcrumbList
-            type: "application/ld+json",
-            children: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-                { "@type": "ListItem", position: 2, name: "Blog", item: "https://betoneiraosasco.com.br/blog" },
-                { "@type": "ListItem", position: 3, name: "Melhores Marcas de Betoneira", item: url },
-              ],
+              "mainEntity": {
+                "@type": "BlogPosting",
+                "@id": `${url}#post`,
+                "headline": "Quais as Melhores Marcas de Betoneira? Guia Completo 2026",
+                "description": desc,
+                "image": [image],
+                "datePublished": publishDate,
+                "dateModified": updateDate,
+                "author": {
+                  "@type": "Person",
+                  "name": "Beto Vieira",
+                  "jobTitle": "Especialista em Equipamentos de Obra e Concretagem",
+                  "image": "https://betoneiraosasco.com.br/assets/beto-vieira.webp",
+                  "url": "https://betoneiraosasco.com.br/blog/melhores-marcas-de-betoneira#autor"
+                },
+                "publisher": {
+                  "@id": "https://betoneiraosasco.com.br/#business",
+                },
+              }
             }),
           },
         ],
@@ -204,6 +210,17 @@ function BlogPostPage() {
             {/* CORPO DO ARTIGO */}
             <article className="reveal flex flex-col border-2 border-[var(--brand-ink)] bg-white p-4 sm:p-6 md:p-10 hard-shadow-yellow rounded-lg" id="introducao">
               
+              {/* Imagem Âncora (Featured Image - Proporção Natural) */}
+              <div className="relative -mx-4 -mt-4 sm:-mx-6 sm:-mt-6 md:-mx-10 md:-mt-10 mb-8 overflow-hidden rounded-t-lg border-b-2 border-[var(--brand-ink)]">
+                <img
+                  src={melhoresMarcasImg}
+                  alt="Quais as melhores marcas de betoneiras?"
+                  className="w-full h-auto block animate-reveal"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
+
               {/* Box de Resumo E-E-A-T */}
               <div className="mb-8 border-l-4 border-[var(--brand-yellow)] bg-[var(--brand-concrete)] p-5 text-sm leading-relaxed text-muted-foreground">
                 <span className="spec-label text-[var(--brand-ink)] font-bold">Resumo Prático do Especialista:</span>
@@ -211,6 +228,25 @@ function BlogPostPage() {
                   Escolher a betoneira certa economiza tempo e evita paralisações indesejadas no canteiro. Para uso intenso em canteiros residenciais e locação, <strong>Menegotti</strong> e <strong>CSM</strong> dominam o mercado com robustez superior e excelente pós-venda. Se você busca equilíbrio financeiro, a <strong>Maqtron</strong> e a <strong>Possamai</strong> são ideais. Para reparos ocasionais, modelos de marcas de entrada como <strong>Motomil</strong> atendem sem pesar no bolso.
                 </p>
               </div>
+
+              {/* Sumário Inline Retrátil para Mobile (Neo-Brutalism details accordion) */}
+              <details className="faq-item group lg:hidden mb-8 border-2 border-[var(--brand-ink)] bg-[var(--brand-concrete)] p-4 rounded-lg shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
+                <summary className="flex items-center justify-between gap-4 cursor-pointer font-display text-sm uppercase tracking-wider text-[var(--brand-ink)] font-bold select-none">
+                  <span>Guia Rápido do Artigo</span>
+                  <span className="chev font-mono text-xl text-[var(--brand-yellow)] bg-[var(--brand-ink)] px-2 rounded" aria-hidden="true">+</span>
+                </summary>
+                <nav className="mt-4 border-t border-[var(--brand-ink)]/10 pt-4">
+                  <ul className="space-y-2.5 font-display text-xs uppercase tracking-wider text-[var(--brand-ink)]">
+                    <li><a href="#introducao" className="block hover:text-[var(--brand-yellow)]">• Introdução</a></li>
+                    <li><a href="#o-que-considerar" className="block hover:text-[var(--brand-yellow)]">• Critérios de Compra</a></li>
+                    <li><a href="#marcas-destaque" className="block hover:text-[var(--brand-yellow)]">• Análise das 6 Marcas</a></li>
+                    <li><a href="#comparativo-rapido" className="block hover:text-[var(--brand-yellow)]">• Tabela Comparativa</a></li>
+                    <li><a href="#domestico-vs-profissional" className="block hover:text-[var(--brand-yellow)]">• Doméstico vs. Profissional</a></li>
+                    <li><a href="#faq" className="block hover:text-[var(--brand-yellow)]">• FAQ Obra</a></li>
+                    <li><a href="#conclusao" className="block hover:text-[var(--brand-yellow)]">• Conclusão e Contato</a></li>
+                  </ul>
+                </nav>
+              </details>
 
               {/* INTRODUÇÃO */}
               <div className="prose max-w-none text-foreground/90 space-y-6 text-base leading-relaxed">
@@ -406,8 +442,8 @@ function BlogPostPage() {
                   Para facilitar a visualização técnica, elaboramos uma tabela comparativa com os dados médios de mercado em 2026 para os modelos profissionais de 400 litros de cada fabricante:
                 </p>
 
-                <div className="overflow-x-auto border-2 border-[var(--brand-ink)] bg-white shadow-sm rounded-lg">
-                  <table className="w-full text-left border-collapse">
+                <div className="overflow-x-auto border-2 border-[var(--brand-ink)] bg-white shadow-sm rounded-lg w-full">
+                  <table className="w-full min-w-[700px] text-left border-collapse">
                     <thead>
                       <tr className="bg-[var(--brand-navy)] text-white border-b-2 border-[var(--brand-ink)] text-xs uppercase tracking-wider font-mono">
                         <th className="p-4 border-r border-[var(--brand-ink)]/20">Marca</th>
@@ -661,11 +697,11 @@ function BlogPostPage() {
 
             </article>
 
-            {/* SIDEBAR RÍGIDA COM ÍNDICE E CONVERSÃO */}
-            <aside className="space-y-6">
+            {/* SIDEBAR RÍGIDA COM ÍNDICE E CONVERSÃO - HIDDEN ON MOBILE/TABLET */}
+            <aside className="hidden lg:block space-y-6">
               
               {/* Box de Índice Clicável (TOC) - Fixo/Sticky */}
-              <div className="sticky top-6 border-2 border-[var(--brand-ink)] bg-white p-5 hard-shadow rounded-lg">
+              <div className="sticky top-20 border-2 border-[var(--brand-ink)] bg-white p-5 hard-shadow rounded-lg">
                 <span className="spec-label text-[var(--brand-navy)] font-bold">Índice do Guia</span>
                 <nav className="mt-4">
                   <ul className="space-y-3 font-display text-sm uppercase tracking-wider text-[var(--brand-ink)]">

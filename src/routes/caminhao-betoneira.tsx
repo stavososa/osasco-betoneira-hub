@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { CTAFinal } from "@/components/CTAFinal";
 import { TrustBar } from "@/components/TrustBar";
 import { useReveal } from "@/lib/useReveal";
-import { ArrowIcon, PhoneIcon } from "@/components/icons/Icons";
+import { ArrowIcon, PhoneIcon, WhatsappIcon } from "@/components/icons/Icons";
 import caminhaoBetoneira from "@/assets/caminhao-betoneira.webp";
 
 export const Route = createFileRoute("/caminhao-betoneira")({
@@ -19,37 +20,46 @@ export const Route = createFileRoute("/caminhao-betoneira")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Caminhão Betoneira (Mixer Truck) em Osasco",
-          serviceType: "Concrete Mixer Truck Rental",
-          description: "Locação de caminhão betoneira para concretagem pesada em Osasco e Grande São Paulo. Capacidade 8m³, operador incluso.",
-          provider: { "@id": "https://betoneiraosasco.com.br/#business" },
-          areaServed: [
-            { "@type": "City", name: "Osasco" },
-          ],
-          url: "https://betoneiraosasco.com.br/caminhao-betoneira",
-          potentialAction: {
-            "@type": "RentAction",
-            target: {
-              "@type": "EntryPoint",
-              urlTemplate: "https://wa.me/5511975465766?text=Quero%20alugar%20caminhao%20betoneira",
-              actionPlatform: [
-                "http://schema.org/DesktopWebPlatform",
-                "http://schema.org/MobileWebPlatform"
-              ]
+          "@type": "WebPage",
+          "@id": "https://betoneiraosasco.com.br/caminhao-betoneira#webpage",
+          "url": "https://betoneiraosasco.com.br/caminhao-betoneira",
+          "name": "Caminhão Betoneira em Osasco | Mixer Truck | Betoneiras Osasco",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://betoneiraosasco.com.br/#website",
+            "url": "https://betoneiraosasco.com.br/",
+            "name": "Betoneira Osasco"
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Caminhão Betoneira", item: "https://betoneiraosasco.com.br/caminhao-betoneira" },
+            ],
+          },
+          "mainEntity": {
+            "@type": "Service",
+            "@id": "https://betoneiraosasco.com.br/caminhao-betoneira#service",
+            "name": "Caminhão Betoneira (Mixer Truck) em Osasco",
+            "serviceType": "Concrete Mixer Truck Rental",
+            "description": "Locação de caminhão betoneira para concretagem pesada em Osasco e Grande São Paulo. Capacidade 8m³, operador incluso.",
+            "provider": { "@id": "https://betoneiraosasco.com.br/#business" },
+            "areaServed": [
+              { "@type": "City", name: "Osasco" },
+            ],
+            "url": "https://betoneiraosasco.com.br/caminhao-betoneira",
+            "potentialAction": {
+              "@type": "RentAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://wa.me/5511975465766?text=Quero%20alugar%20caminhao%20betoneira",
+                "actionPlatform": [
+                  "http://schema.org/DesktopWebPlatform",
+                  "http://schema.org/MobileWebPlatform"
+                ]
+              }
             }
           }
-        }),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-            { "@type": "ListItem", position: 2, name: "Caminhão Betoneira", item: "https://betoneiraosasco.com.br/caminhao-betoneira" },
-          ],
         }),
       },
     ],
@@ -81,7 +91,7 @@ function CaminhaoBetoPage() {
               </p>
               <div className="reveal mt-8 flex flex-wrap gap-4">
                 <a href="https://wa.me/5511975465766?text=Quero%20orçamento%20de%20caminhão%20betoneira%20em%20Osasco" target="_blank" rel="noopener" className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow">
-                  Orçamento no WhatsApp <ArrowIcon size={16} />
+                  <WhatsappIcon size={16} /> Orçamento no WhatsApp <ArrowIcon size={16} />
                 </a>
                 <a href="tel:+5511975465766" className="inline-flex items-center gap-2 border-2 border-white/40 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white hover:bg-white/10">
                   <PhoneIcon size={16} /> (11) 97546-5766
@@ -162,18 +172,12 @@ function CaminhaoBetoPage() {
           </div>
         </section>
 
-        <section className="relative noise-overlay bg-[var(--brand-yellow)] py-20">
-          <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 text-center md:flex-row md:justify-between md:text-left">
-            <div>
-              <div className="spec-label !text-[var(--brand-ink)]/70">Grande volume, entrega rápida</div>
-              <h2 className="mt-1 font-display text-3xl leading-tight text-[var(--brand-ink)] md:text-4xl">Caminhão betoneira em Osasco<br /><span className="font-editorial">solicite orçamento agora.</span></h2>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a href="https://wa.me/5511975465766?text=Quero%20orçamento%20de%20caminhão%20betoneira%20em%20Osasco" target="_blank" rel="noopener" className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-white px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow">WhatsApp <ArrowIcon size={16} /></a>
-              <a href="tel:+5511975465766" className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-ink)] px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-yellow)] hard-shadow"><PhoneIcon size={16} /> (11) 97546-5766</a>
-            </div>
-          </div>
-        </section>
+        <CTAFinal
+          title="Caminhão betoneira em Osasco"
+          highlight="solicite orçamento agora."
+          eyebrow="Grande volume, entrega rápida"
+          waText="Quero orçamento de caminhão betoneira em Osasco"
+        />
       </main>
       <SiteFooter />
     </div>

@@ -1,2 +1,16 @@
 User-agent: *
 Allow: /
+
+# Evitar indexação de buscas internas
+Disallow: /*?s=
+Disallow: /*?search=
+
+# Evitar rastreamento de rotas de funções internas do TanStack Start
+Disallow: /_server/
+Disallow: /_server-functions/
+
+# Evitar rastreamento de URLs com parâmetros de rastreamento comuns
+Disallow: /*?utm_*
+Disallow: /*?fbclid=
+
+Sitemap: https://betoneiraosasco.com.br/sitemap.xml

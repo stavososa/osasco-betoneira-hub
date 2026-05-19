@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { CTAFinal } from "@/components/CTAFinal";
 import { TrustBar } from "@/components/TrustBar";
 import { useReveal } from "@/lib/useReveal";
-import { ArrowIcon, PhoneIcon } from "@/components/icons/Icons";
+import { ArrowIcon, PhoneIcon, WhatsappIcon } from "@/components/icons/Icons";
 import betoneira250 from "@/assets/betoneira-250l.webp";
 
 export const Route = createFileRoute("/betoneira-250l")({
@@ -19,39 +20,48 @@ export const Route = createFileRoute("/betoneira-250l")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Aluguel de Betoneira 250L em Osasco",
-          serviceType: "Construction Equipment Rental",
-          description: "Locação da betoneira mais alugada em Osasco: 250 litros, elétrica monofásica 220V, motor 1-2 cv. Ideal para laje, contrapiso e concretagem residencial.",
-          provider: { "@id": "https://betoneiraosasco.com.br/#business" },
-          areaServed: { "@type": "City", name: "Osasco" },
-          url: "https://betoneiraosasco.com.br/betoneira-250l",
-          hasOfferCatalog: {
-            "@type": "OfferCatalog",
-            itemListElement: [{ "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 250L Elétrica Monofásica", description: "A betoneira mais alugada em Osasco. 250 litros, elétrica 220V monofásica, motor 2 cv." } }],
+          "@type": "WebPage",
+          "@id": "https://betoneiraosasco.com.br/betoneira-250l#webpage",
+          "url": "https://betoneiraosasco.com.br/betoneira-250l",
+          "name": "Betoneira 250L em Osasco | Mais Alugada | Betoneiras Osasco",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://betoneiraosasco.com.br/#website",
+            "url": "https://betoneiraosasco.com.br/",
+            "name": "Betoneira Osasco"
           },
-          potentialAction: {
-            "@type": "RentAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "https://wa.me/5511975465766?text=Quero%20alugar%20betoneira%20250l",
-              "actionPlatform": [
-                "http://schema.org/DesktopWebPlatform",
-                "http://schema.org/MobileWebPlatform"
-              ]
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Betoneira 250L", item: "https://betoneiraosasco.com.br/betoneira-250l" },
+            ],
+          },
+          "mainEntity": {
+            "@type": "Service",
+            "@id": "https://betoneiraosasco.com.br/betoneira-250l#service",
+            "name": "Aluguel de Betoneira 250L em Osasco",
+            "serviceType": "Construction Equipment Rental",
+            "description": "Locação da betoneira mais alugada em Osasco: 250 litros, elétrica monofásica 220V, motor 1-2 cv. Ideal para laje, contrapiso e concretagem residencial.",
+            "provider": { "@id": "https://betoneiraosasco.com.br/#business" },
+            "areaServed": { "@type": "City", name: "Osasco" },
+            "url": "https://betoneiraosasco.com.br/betoneira-250l",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "itemListElement": [{ "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 250L Elétrica Monofásica", description: "A betoneira mais alugada em Osasco. 250 litros, elétrica 220V monofásica, motor 2 cv." } }],
+            },
+            "potentialAction": {
+              "@type": "RentAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://wa.me/5511975465766?text=Quero%20alugar%20betoneira%20250l",
+                "actionPlatform": [
+                  "http://schema.org/DesktopWebPlatform",
+                  "http://schema.org/MobileWebPlatform"
+                ]
+              }
             }
           }
-        }),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-            { "@type": "ListItem", position: 2, name: "Betoneira 250L", item: "https://betoneiraosasco.com.br/betoneira-250l" },
-          ],
         }),
       },
     ],
@@ -83,7 +93,7 @@ function Betoneira250Page() {
               </p>
               <div className="reveal mt-8 flex flex-wrap gap-4">
                 <a href="https://wa.me/5511975465766?text=Quero%20alugar%20betoneira%20250L" target="_blank" rel="noopener" className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow">
-                  Orçamento no WhatsApp <ArrowIcon size={16} />
+                  <WhatsappIcon size={16} /> Orçamento no WhatsApp <ArrowIcon size={16} />
                 </a>
                 <a href="tel:+5511975465766" className="inline-flex items-center gap-2 border-2 border-white/40 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white hover:bg-white/10">
                   <PhoneIcon size={16} /> (11) 97546-5766
@@ -119,18 +129,12 @@ function Betoneira250Page() {
             </ul>
           </div>
         </section>
-        <section className="relative noise-overlay bg-[var(--brand-yellow)] py-20">
-          <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 text-center md:flex-row md:justify-between md:text-left">
-            <div>
-              <div className="spec-label !text-[var(--brand-ink)]/70">A mais pedida</div>
-              <h2 className="mt-1 font-display text-3xl leading-tight text-[var(--brand-ink)] md:text-4xl">Aluguel de betoneira 250L em Osasco<br /><span className="font-editorial">com entrega no mesmo dia.</span></h2>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a href="https://wa.me/5511975465766?text=Quero%20alugar%20betoneira%20250L" target="_blank" rel="noopener" className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-white px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow">WhatsApp <ArrowIcon size={16} /></a>
-              <a href="tel:+5511975465766" className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-ink)] px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-yellow)] hard-shadow"><PhoneIcon size={16} /> (11) 97546-5766</a>
-            </div>
-          </div>
-        </section>
+        <CTAFinal
+          title="Aluguel de betoneira 250L em Osasco"
+          highlight="com entrega no mesmo dia."
+          eyebrow="A mais pedida"
+          waText="Quero alugar betoneira 250L em Osasco"
+        />
       </main>
       <SiteFooter />
     </div>

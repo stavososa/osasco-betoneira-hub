@@ -20,9 +20,9 @@ export function BairrosGrid({
           <Link
             to="/$slug"
             params={{ slug: `alugar-betoneira-em-${b.slug}` }}
-            className={`block py-1 transition-colors ${itemClass}`}
+            className={`block py-1 transition-colors hover:underline ${itemClass}`}
           >
-            <span className="text-[var(--brand-yellow)]">›</span> Alugar betoneira em {b.nome}
+            <span className="text-[var(--brand-yellow)] mr-1">›</span> {b.nome}
           </Link>
         </li>
       ))}

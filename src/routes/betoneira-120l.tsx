@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { CTAFinal } from "@/components/CTAFinal";
 import { TrustBar } from "@/components/TrustBar";
 import { useReveal } from "@/lib/useReveal";
-import { ArrowIcon, PhoneIcon } from "@/components/icons/Icons";
+import { ArrowIcon, PhoneIcon, WhatsappIcon } from "@/components/icons/Icons";
 import betoneira120 from "@/assets/betoneira-120l.webp";
 
 export const Route = createFileRoute("/betoneira-120l")({
@@ -20,39 +21,48 @@ export const Route = createFileRoute("/betoneira-120l")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Aluguel de Betoneira 120L em Osasco",
-          serviceType: "Construction Equipment Rental",
-          description: "Locação de betoneira 120 litros elétrica bivolt em Osasco SP. Motor 1/3 cv, ideal para reparos e acabamentos.",
-          provider: { "@id": "https://betoneiraosasco.com.br/#business" },
-          areaServed: { "@type": "City", name: "Osasco" },
-          url: "https://betoneiraosasco.com.br/betoneira-120l",
-          hasOfferCatalog: {
-            "@type": "OfferCatalog",
-            itemListElement: [{ "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 120L Elétrica", description: "Betoneira compacta de 120 litros, elétrica bivolt 110V/220V, motor 1/3 cv." } }],
+          "@type": "WebPage",
+          "@id": "https://betoneiraosasco.com.br/betoneira-120l#webpage",
+          "url": "https://betoneiraosasco.com.br/betoneira-120l",
+          "name": "Betoneira 120L em Osasco | Aluguel e Venda | Betoneiras Osasco",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://betoneiraosasco.com.br/#website",
+            "url": "https://betoneiraosasco.com.br/",
+            "name": "Betoneira Osasco"
           },
-          potentialAction: {
-            "@type": "RentAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "https://wa.me/5511975465766?text=Quero%20alugar%20betoneira%20120l",
-              "actionPlatform": [
-                "http://schema.org/DesktopWebPlatform",
-                "http://schema.org/MobileWebPlatform"
-              ]
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Betoneira 120L", item: "https://betoneiraosasco.com.br/betoneira-120l" },
+            ],
+          },
+          "mainEntity": {
+            "@type": "Service",
+            "@id": "https://betoneiraosasco.com.br/betoneira-120l#service",
+            "name": "Aluguel de Betoneira 120L em Osasco",
+            "serviceType": "Construction Equipment Rental",
+            "description": "Locação de betoneira 120 litros elétrica bivolt em Osasco SP. Motor 1/3 cv, ideal para reparos e acabamentos.",
+            "provider": { "@id": "https://betoneiraosasco.com.br/#business" },
+            "areaServed": { "@type": "City", name: "Osasco" },
+            "url": "https://betoneiraosasco.com.br/betoneira-120l",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "itemListElement": [{ "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 120L Elétrica", description: "Betoneira compacta de 120 litros, elétrica bivolt 110V/220V, motor 1/3 cv." } }],
+            },
+            "potentialAction": {
+              "@type": "RentAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://wa.me/5511975465766?text=Quero%20alugar%20betoneira%20120l",
+                "actionPlatform": [
+                  "http://schema.org/DesktopWebPlatform",
+                  "http://schema.org/MobileWebPlatform"
+                ]
+              }
             }
           }
-        }),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-            { "@type": "ListItem", position: 2, name: "Betoneira 120L", item: "https://betoneiraosasco.com.br/betoneira-120l" },
-          ],
         }),
       },
     ],
@@ -83,7 +93,7 @@ function Betoneira120Page() {
               <div className="reveal mt-8 flex flex-wrap gap-4">
                 <a href="https://wa.me/5511975465766?text=Quero%20alugar%20betoneira%20120L%20em%20Osasco" target="_blank" rel="noopener"
                   className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow">
-                  Orçamento no WhatsApp <ArrowIcon size={16} />
+                  <WhatsappIcon size={16} /> Orçamento no WhatsApp <ArrowIcon size={16} />
                 </a>
                 <a href="tel:+5511975465766" className="inline-flex items-center gap-2 border-2 border-white/40 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white hover:bg-white/10">
                   <PhoneIcon size={16} /> (11) 97546-5766
@@ -145,25 +155,12 @@ function Betoneira120Page() {
         </section>
 
         {/* CTA */}
-        <section className="relative noise-overlay bg-[var(--brand-yellow)] py-20">
-          <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 text-center md:flex-row md:justify-between md:text-left">
-            <div>
-              <div className="spec-label !text-[var(--brand-ink)]/70">Pronto para usar</div>
-              <h2 className="mt-1 font-display text-3xl leading-tight text-[var(--brand-ink)] md:text-4xl">
-                Aluguel de betoneira 120L em Osasco<br />
-                <span className="font-editorial">com entrega no mesmo dia.</span>
-              </h2>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a href="https://wa.me/5511975465766?text=Quero%20alugar%20betoneira%20120L%20em%20Osasco" target="_blank" rel="noopener" className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-white px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow">
-                WhatsApp <ArrowIcon size={16} />
-              </a>
-              <a href="tel:+5511975465766" className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-ink)] px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-yellow)] hard-shadow">
-                <PhoneIcon size={16} /> (11) 97546-5766
-              </a>
-            </div>
-          </div>
-        </section>
+        <CTAFinal
+          title="Aluguel de betoneira 120L em Osasco"
+          highlight="com entrega no mesmo dia."
+          eyebrow="Pronto para usar"
+          waText="Quero alugar betoneira 120L em Osasco"
+        />
       </main>
       <SiteFooter />
     </div>
