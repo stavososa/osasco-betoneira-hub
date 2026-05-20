@@ -52,6 +52,8 @@ export function SiteFooter({ bairrosVisiveis }: { bairrosVisiveis?: typeof BAIRR
                 <img
                   src={googleSafeBrowsing}
                   alt="Google Safe Browsing - Betoneira Osasco"
+                  width={168}
+                  height={56}
                   className="h-14 w-auto object-contain rounded-xl shadow-lg"
                   loading="lazy"
                 />
@@ -65,6 +67,8 @@ export function SiteFooter({ bairrosVisiveis }: { bairrosVisiveis?: typeof BAIRR
                 <img
                   src={brasaoDeOsasco}
                   alt="Brasão de Osasco SP"
+                  width={64}
+                  height={64}
                   className="h-16 w-auto object-contain"
                   loading="lazy"
                 />

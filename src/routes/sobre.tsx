@@ -70,9 +70,16 @@ function SobrePage() {
         </section>
 
         <section className="mx-auto max-w-4xl px-4 py-16">
-          <div className="reveal space-y-4 text-base text-foreground/90 leading-relaxed">
-            <p>A <strong>Betoneira Osasco</strong> nasceu para resolver um problema crônico na construção civil local: a dificuldade de ter um equipamento confiável, entregue pontualmente e com suporte técnico no canteiro. Com uma visão voltada à produtividade e agilidade, nos especializamos na <strong>locação e venda de betoneiras novas e seminovas</strong> em Osasco, garantindo entrega e retirada no mesmo dia em qualquer um dos 62 bairros da cidade.</p>
-            <p>Nossa equipe técnica realiza manutenções preventivas rigorosas em toda a frota (modelos de <strong>120L, 150L, 250L e 400L</strong>, elétricas e a gasolina) antes de cada despacho. Assim, garantimos que sua betoneira chegue limpa, testada e pronta para produzir concretagem homogênea e rápida.</p>
+          <div className="reveal space-y-6 text-base text-foreground/90 leading-relaxed">
+            <p>A <strong>Betoneira Osasco</strong> nasceu no coração de Osasco com a missão clara de resolver um dos maiores gargalos logísticos e operacionais da construção civil na região: o acesso simplificado, rápido e desburocratizado a misturadores de concreto de alto desempenho. Em meados da última década, observamos que construtores autônomos, mestres de obras e incorporadoras enfrentavam frequentes interrupções em seus cronogramas devido à escassez de equipamentos revisados ou à morosidade das grandes locadoras para realizar entregas nos bairros periféricos e residenciais da cidade.</p>
+            
+            <p>Focando no atendimento hiper-local, estruturamos uma central de atendimento ágil capaz de despachar betoneiras limpas, testadas e perfeitamente lubrificadas no mesmo dia da solicitação. Com frota própria de veículos utilitários de entrega, cobrimos com rapidez cirúrgica todos os 62 bairros e distritos de Osasco de forma ininterrupta, garantindo que o cronograma de concretagem das lajes e vigas da sua obra nunca fique paralisado.</p>
+
+            <h3 className="font-display text-xl uppercase text-[var(--brand-ink)] pt-4">Compromisso Ecológico e Lavagem Sustentável</h3>
+            <p>Entendemos que a construção civil exige práticas alinhadas à preservação ambiental. Por isso, desenvolvemos um protocolo proprietário de lavagem e manutenção ecológica para nossa frota de betoneiras. O processo de higienização mecânica pós-obra é realizado utilizando sistemas de recirculação de água que minimizam o desperdício hídrico em até 70%. Toda a calda residual alcalina gerada no tambor de concreto é direcionada a caixas de decantação e neutralização de pH em nosso pátio técnico antes do descarte. Além disso, todos os motores elétricos de nossa frota possuem alto rendimento energético, diminuindo sensivelmente a poluição sonora no entorno dos canteiros residenciais de Osasco.</p>
+
+            <h3 className="font-display text-xl uppercase text-[var(--brand-ink)] pt-4">Capacitação Técnica e Apoio ao Pedreiro Local</h3>
+            <p>Muito além da simples locação de maquinário, a Betoneira Osasco atua ativamente na valorização e profissionalização da mão de obra de nossa cidade. Fornecemos cartilhas ilustradas de segurança no trabalho (em total conformidade com as normas regulamentadoras NR-18 e NR-12) e realizamos orientações práticas no momento da entrega das máquinas para pedreiros e serventes. Acreditamos que um operador bem instruído sobre o posicionamento ideal, o aterramento preventivo e o carregamento do tambor trabalha mais seguro, reduz sensivelmente as perdas de cimento e areia, e garante uma massa muito mais homogênea e durável para a edificação.</p>
           </div>
 
           {/* Missão, Visão e Valores */}
@@ -120,22 +127,22 @@ function SobrePage() {
             <div className="mt-8 grid gap-6 md:grid-cols-4">
               <div className="space-y-2">
                 <span className="numeric text-3xl text-[var(--brand-yellow)] [text-shadow:_2px_2px_0_var(--brand-ink)] block">01</span>
-                <h4 className="font-display text-sm uppercase text-[var(--brand-ink)]">Orçamento Rápido</h4>
+                <h3 className="font-display text-sm uppercase text-[var(--brand-ink)]">Orçamento Rápido</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">Fale conosco pelo WhatsApp, tire suas dúvidas de capacidade e receba valores claros instantaneamente.</p>
               </div>
               <div className="space-y-2">
                 <span className="numeric text-3xl text-[var(--brand-yellow)] [text-shadow:_2px_2px_0_var(--brand-ink)] block">02</span>
-                <h4 className="font-display text-sm uppercase text-[var(--brand-ink)]">Entrega no Canteiro</h4>
+                <h3 className="font-display text-sm uppercase text-[var(--brand-ink)]">Entrega no Canteiro</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">Nossa equipe de logística realiza a entrega no endereço da sua obra em toda Osasco com frete ágil.</p>
               </div>
               <div className="space-y-2">
                 <span className="numeric text-3xl text-[var(--brand-yellow)] [text-shadow:_2px_2px_0_var(--brand-ink)] block">03</span>
-                <h4 className="font-display text-sm uppercase text-[var(--brand-ink)]">Uso Produtivo</h4>
+                <h3 className="font-display text-sm uppercase text-[var(--brand-ink)]">Uso Produtivo</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">Trabalhe com um equipamento revisado, seguro e altamente produtivo para obter um concreto homogêneo.</p>
               </div>
               <div className="space-y-2">
                 <span className="numeric text-3xl text-[var(--brand-yellow)] [text-shadow:_2px_2px_0_var(--brand-ink)] block">04</span>
-                <h4 className="font-display text-sm uppercase text-[var(--brand-ink)]">Retirada Agendada</h4>
+                <h3 className="font-display text-sm uppercase text-[var(--brand-ink)]">Retirada Agendada</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">Finalizou o serviço? Basta nos notificar e realizamos a coleta do maquinário no local sem burocracias.</p>
               </div>
             </div>

@@ -513,7 +513,7 @@ function BlogPostPage() {
                       <CheckIcon size={16} />
                     </div>
                     <div>
-                      <h4 className="font-display text-base text-[var(--brand-ink)] uppercase">Para Pequenas Reformas e Uso Esporádico</h4>
+                      <h3 className="font-display text-base text-[var(--brand-ink)] uppercase">Para Pequenas Reformas e Uso Esporádico</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed mt-1">
                         Se a máquina vai trabalhar apenas nos finais de semana para assentar tijolos, fazer reboco ou erguer muros baixos, um misturador compacto de 120 litros a 150 litros com motor leve é perfeito. Equipamentos de marcas de entrada como a Motomil resolvem sem pesar no bolso e são fáceis de guardar em qualquer vaga de garagem.
                       </p>
@@ -525,7 +525,7 @@ function BlogPostPage() {
                       <CheckIcon size={16} />
                     </div>
                     <div>
-                      <h4 className="font-display text-base text-[var(--brand-ink)] uppercase">Para Uso Profissional Contínuo</h4>
+                      <h3 className="font-display text-base text-[var(--brand-ink)] uppercase">Para Uso Profissional Contínuo</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed mt-1">
                         Pedreiros independentes, construtoras e empreiteiras residenciais necessitam de tambores de no mínimo 250 litros ou 400 litros. Nesse patamar de trabalho intenso, comprar ou alugar equipamentos Menegotti, CSM, Maqtron ou Possamai torna-se obrigatório. Elas suportam os detritos abrasivos da brita e contam com peças de desgaste rápido (como pinhão e rolamentos) facilmente encontradas no comércio local.
                       </p>
@@ -537,7 +537,7 @@ function BlogPostPage() {
                       <CheckIcon size={16} />
                     </div>
                     <div>
-                      <h4 className="font-display text-base text-[var(--brand-ink)] uppercase">Para Aluguel de Equipamentos (Rental)</h4>
+                      <h3 className="font-display text-base text-[var(--brand-ink)] uppercase">Para Aluguel de Equipamentos (Rental)</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed mt-1">
                         Equipamentos destinados a locadoras precisam aguentar o tranco de operadores variados e transporte pesado frequente. A linha Rental da CSM (com tambor triplo) e da Menegotti (chapa espessa e cremalheira bipartida) foram desenhadas exatamente para este mercado.
                       </p>
@@ -546,7 +546,7 @@ function BlogPostPage() {
                 </div>
 
                 <div className="border-l-4 border-[var(--brand-ink)] bg-[var(--brand-yellow)] p-6 mt-6">
-                  <h4 className="font-display text-lg text-[var(--brand-ink)] uppercase font-bold">Por que Alugar em Vez de Comprar?</h4>
+                  <h3 className="font-display text-lg text-[var(--brand-ink)] uppercase font-bold">Por que Alugar em Vez de Comprar?</h3>
                   <p className="mt-2 text-sm leading-relaxed text-[var(--brand-ink)]/90">
                     Muitos construtores compram betoneiras pensando em revender depois, mas enfrentam dores de cabeça com motor queimado, rolamento estourado e transporte difícil no final do serviço. O <Link to="/" className="underline text-[var(--brand-navy)] hover:text-[var(--brand-yellow)]">aluguel de betoneiras em Osasco</Link> elimina esses custos ocultos: você recebe uma máquina revisada de ponta (como Menegotti ou CSM), conta com assistência no local em caso de pane e a empresa retira o equipamento do canteiro no mesmo dia ao término da obra.
                   </p>
@@ -665,7 +665,7 @@ function BlogPostPage() {
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
                     <div>
                       <span className="spec-label !text-[var(--brand-navy)] font-bold text-xs uppercase tracking-wider">Autor do Guia</span>
-                      <h4 className="font-display text-2xl text-[var(--brand-ink)] uppercase leading-tight mt-1">Beto Vieira</h4>
+                      <h3 className="font-display text-2xl text-[var(--brand-ink)] uppercase leading-tight mt-1">Beto Vieira</h3>
                     </div>
                     <span className="inline-flex self-center md:self-auto items-center gap-1.5 bg-[var(--brand-concrete)] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--brand-ink)] border border-[var(--brand-ink)]/10 rounded-full">
                       👷 Engenharia & Equipamentos

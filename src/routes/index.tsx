@@ -374,7 +374,7 @@ function HomePage() {
             <span className="h-px w-10 bg-[var(--brand-ink)]" />
             <span className="spec-label">Catálogo</span>
             <span className="text-muted-foreground/30">•</span>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--brand-navy)]">Locação de betoneira Osasco</h4>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--brand-navy)]">Locação de betoneira Osasco</h3>
           </div>
           <div className="reveal mt-2 flex flex-wrap items-end justify-between gap-3">
             <h2 className="font-display text-3xl tracking-tight text-[var(--brand-ink)] md:text-5xl">
@@ -545,7 +545,7 @@ function HomePage() {
                 <span className="font-editorial">de ponta a ponta.</span>
               </h2>
               <div className="reveal mt-4 text-xs font-bold uppercase tracking-wider text-[var(--brand-navy)]">
-                <h4>Betoneira perto de mim</h4>
+                <h3>Betoneira perto de mim</h3>
               </div>
               <p className="reveal mt-5 max-w-md text-muted-foreground leading-relaxed">
                 O aluguel de betoneiras em Osasco cobre toda a cidade (Centro, Zona Norte, Zona Sul, Bussocaba, Quitaúna e Presidente Altino), além de cidades vizinhas como Carapicuíba, Cotia, Barueri, Jandira e a zona oeste de São Paulo. Se você precisa de uma betoneira perto de mim em Osasco, garantimos entrega e retirada rápida no mesmo dia.

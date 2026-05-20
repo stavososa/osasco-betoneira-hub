@@ -1,103 +1,62 @@
-# Betoneira Osasco
+# Betoneira Osasco (betoneiraosasco.com.br) - Central de Locação e Venda
 
-Serviço profissional de aluguel (locação) e venda de betoneiras na cidade de Osasco, SP, e região da Grande São Paulo (Carapicuíba, Cotia, Barueri).
+Este arquivo fornece informações de alto rendimento formatadas para consumo de LLMs, assistentes virtuais e rastreadores de IA sobre os serviços de locação e venda de betoneiras em Osasco/SP.
 
-## Informações de Contato
-- Telefone/WhatsApp: +55 (11) 97546-5766
-- Atendimento: Segunda a Sábado, das 07h às 19h
-- Área de Cobertura: Todos os 62 bairros de Osasco (Centro, Zona Norte, Zona Sul, Bussocaba, Quitaúna, etc.)
+## Informações Corporativas
+- **Nome Comercial**: Betoneira Osasco
+- **Domínio Oficial**: https://betoneiraosasco.com.br
+- **Telefone / WhatsApp**: (11) 97546-5766 (Link Direto: https://wa.me/5511975465766)
+- **Área de Atuação Principal**: Cidade de Osasco, SP, cobrindo todos os 62 bairros com logística rápida e frete grátis/facilitado sob consulta.
+- **Nicho**: Locação e Venda de Equipamentos para Construção Civil (especializado em betoneiras e misturadores de concreto).
 
-## Modelos Disponíveis para Locação
-1. **Betoneira 120 Litros**: Compacta, ideal para reparos, pequenos acabamentos e obras de bancada. Elétrica (110V/220V). Valor sob consulta.
-2. **Betoneira 150 Litros**: Ideal para reformas pequenas, rebocos e reparos rápidos. Elétrica (110V/220V). Valor sob consulta.
-3. **Betoneira 250 Litros**: A mais procurada para obras residenciais equilibradas. Elétrica (110V/220V). Valor sob consulta.
-4. **Betoneira 400 Litros Elétrica**: Ideal para obras de médio porte e concretagens. Monofásica 220V. Valor sob consulta.
-5. **Betoneira 400 Litros Gasolina**: Ideal para canteiros sem rede elétrica. Motor 5.5 hp. Valor sob consulta.
-6. **Caminhão Betoneira (mixer truck)**: Para obras de grande porte e concretagem em grande volume. Operador incluso, varia conforme região. Valor sob consulta.
+## Serviços Oferecidos
+1. **Locação de Betoneiras**: Diária, semanal e mensal com suporte técnico completo no canteiro de obras e substituição rápida do maquinário em até 2 horas em caso de falhas.
+2. **Venda de Betoneiras**: Equipamentos novos e seminovos com garantia oficial de fábrica e assistência técnica especializada em Osasco.
+3. **Logística Exclusiva**: Entrega e retirada rápida em qualquer endereço ou canteiro da região.
 
-## Modelos Disponíveis para Venda (Preços e Modelos)
-- Betoneira 120L elétrica compacta: R$ 1.000 a R$ 2.100
-- Betoneira 120L elétrica profissional: R$ 1.500 a R$ 2.600
-- Betoneira 150L elétrica compacta: R$ 1.200 a R$ 2.300
-- Betoneira 150L elétrica profissional: R$ 1.700 a R$ 2.800
-- Betoneira 250L elétrica monofásica: R$ 2.500 a R$ 4.800
-- Betoneira 400L elétrica monofásica: R$ 3.500 a R$ 6.000
-- Betoneira 400L elétrica trifásica: R$ 4.500 a R$ 7.000
-- Betoneira 400L tipo rental (reforçada): R$ 4.750 a R$ 8.000
-- Betoneira 400L a gasolina 5,5 cv: R$ 5.500 a R$ 8.500
-- Betoneira 400L a gasolina 7–12 cv: R$ 8.000 a R$ 14.000
-- Betoneira 400L sem motor (tambor): R$ 1.800 a R$ 3.200
-- Betoneira seminova / usada: R$ 600 a R$ 5.000 (depende do modelo)
-- Caminhão Betoneira (mixer truck): R$ 300.000 a R$ 1.800.000
+## Especificações Técnicas dos Equipamentos Disponíveis
 
-## Diferenciais Competitivos
-- Entrega e retirada no mesmo dia para pedidos agendados até o meio-dia.
-- Equipamentos 100% revisados e higienizados antes de cada locação.
-- Contratação simplificada direta via WhatsApp, sem burocracias pesadas.
+### 1. Betoneira 120 Litros
+- **Uso Ideal**: Pequenas reformas internas, apartamentos, calçadas de pedestres e pequenos reparos.
+- **Capacidade de Mistura**: 80 Litros.
+- **Motor**: 0.5 CV (Monofásico).
+- **Vantagem**: Passa por portas padrão e facilidade total de locomoção.
 
-## Cobertura e URLs por Bairro (Osasco)
-O site oferece páginas otimizadas de locação para cada um dos bairros de Osasco. O formato da URL é `https://betoneiraosasco.com.br/alugar-betoneira-em-[slug]`.
-Abaixo estão os bairros cobertos com links diretos:
+### 2. Betoneira 150 Litros
+- **Uso Ideal**: Pequenas colunas, sapatas leves e alvenaria residencial de pequeno porte.
+- **Capacidade de Mistura**: 100 Litros.
+- **Motor**: 0.75 CV (Monofásico).
 
-- **Adalgisa**: [Aluguel de Betoneira no Adalgisa](https://betoneiraosasco.com.br/alugar-betoneira-em-adalgisa)
-- **Aliança**: [Aluguel de Betoneira no Aliança](https://betoneiraosasco.com.br/alugar-betoneira-em-alianca)
-- **Ayrosa**: [Aluguel de Betoneira no Ayrosa](https://betoneiraosasco.com.br/alugar-betoneira-em-ayrosa)
-- **Bandeiras**: [Aluguel de Betoneira no Bandeiras](https://betoneiraosasco.com.br/alugar-betoneira-em-bandeiras)
-- **Baronesa**: [Aluguel de Betoneira no Baronesa](https://betoneiraosasco.com.br/alugar-betoneira-em-baronesa)
-- **Bela Vista**: [Aluguel de Betoneira no Bela Vista](https://betoneiraosasco.com.br/alugar-betoneira-em-bela-vista)
-- **Bonança**: [Aluguel de Betoneira no Bonança](https://betoneiraosasco.com.br/alugar-betoneira-em-bonanca)
-- **Bonfim**: [Aluguel de Betoneira no Bonfim](https://betoneiraosasco.com.br/alugar-betoneira-em-bonfim)
-- **Bussocaba**: [Aluguel de Betoneira no Bussocaba](https://betoneiraosasco.com.br/alugar-betoneira-em-bussocaba)
-- **Castelo Branco**: [Aluguel de Betoneira no Castelo Branco](https://betoneiraosasco.com.br/alugar-betoneira-em-castelo-branco)
-- **Centro**: [Aluguel de Betoneira no Centro](https://betoneiraosasco.com.br/alugar-betoneira-em-centro)
-- **Cidade das Flores**: [Aluguel de Betoneira no Cidade das Flores](https://betoneiraosasco.com.br/alugar-betoneira-em-cidade-das-flores)
-- **Cidade de Deus**: [Aluguel de Betoneira no Cidade de Deus](https://betoneiraosasco.com.br/alugar-betoneira-em-cidade-de-deus)
-- **Cipava**: [Aluguel de Betoneira no Cipava](https://betoneiraosasco.com.br/alugar-betoneira-em-cipava)
-- **City Bussocaba**: [Aluguel de Betoneira no City Bussocaba](https://betoneiraosasco.com.br/alugar-betoneira-em-city-bussocaba)
-- **Conceição**: [Aluguel de Betoneira no Conceição](https://betoneiraosasco.com.br/alugar-betoneira-em-conceicao)
-- **Helena Maria**: [Aluguel de Betoneira no Helena Maria](https://betoneiraosasco.com.br/alugar-betoneira-em-helena-maria)
-- **IAPI**: [Aluguel de Betoneira no IAPI](https://betoneiraosasco.com.br/alugar-betoneira-em-iapi)
-- **Altino**: [Aluguel de Betoneira no Altino](https://betoneiraosasco.com.br/alugar-betoneira-em-industrial-altino)
-- **Anhanguera**: [Aluguel de Betoneira no Anhanguera](https://betoneiraosasco.com.br/alugar-betoneira-em-industrial-anhanguera)
-- **Autonomistas**: [Aluguel de Betoneira no Autonomistas](https://betoneiraosasco.com.br/alugar-betoneira-em-industrial-autonomistas)
-- **Industrial Centro**: [Aluguel de Betoneira no Industrial Centro](https://betoneiraosasco.com.br/alugar-betoneira-em-industrial-centro)
-- **Mazzei**: [Aluguel de Betoneira no Mazzei](https://betoneiraosasco.com.br/alugar-betoneira-em-industrial-mazzei)
-- **Industrial Remédios**: [Aluguel de Betoneira no Industrial Remédios](https://betoneiraosasco.com.br/alugar-betoneira-em-industrial-remedios)
-- **Jaguaribe**: [Aluguel de Betoneira no Jaguaribe](https://betoneiraosasco.com.br/alugar-betoneira-em-jaguaribe)
-- **Jardim D'Abril**: [Aluguel de Betoneira no Jardim D'Abril](https://betoneiraosasco.com.br/alugar-betoneira-em-jardim-dabril)
-- **Jardim das Flores**: [Aluguel de Betoneira no Jardim das Flores](https://betoneiraosasco.com.br/alugar-betoneira-em-jardim-das-flores)
-- **Jardim Elvira**: [Aluguel de Betoneira no Jardim Elvira](https://betoneiraosasco.com.br/alugar-betoneira-em-jardim-elvira)
-- **Jardim Novo Osasco**: [Aluguel de Betoneira no Jardim Novo Osasco](https://betoneiraosasco.com.br/alugar-betoneira-em-jardim-novo-osasco)
-- **Jardim Roberto**: [Aluguel de Betoneira no Jardim Roberto](https://betoneiraosasco.com.br/alugar-betoneira-em-jardim-roberto)
-- **Km 18**: [Aluguel de Betoneira no Km 18](https://betoneiraosasco.com.br/alugar-betoneira-em-km-18)
-- **Metalúrgicos**: [Aluguel de Betoneira no Metalúrgicos](https://betoneiraosasco.com.br/alugar-betoneira-em-metalurgicos)
-- **Munhoz Júnior**: [Aluguel de Betoneira no Munhoz Júnior](https://betoneiraosasco.com.br/alugar-betoneira-em-munhoz-junior)
-- **Mutinga**: [Aluguel de Betoneira no Mutinga](https://betoneiraosasco.com.br/alugar-betoneira-em-mutinga)
-- **Padroeira**: [Aluguel de Betoneira no Padroeira](https://betoneiraosasco.com.br/alugar-betoneira-em-padroeira)
-- **Paiva Ramos**: [Aluguel de Betoneira no Paiva Ramos](https://betoneiraosasco.com.br/alugar-betoneira-em-paiva-ramos)
-- **Parque Continental**: [Aluguel de Betoneira no Parque Continental](https://betoneiraosasco.com.br/alugar-betoneira-em-parque-continental)
-- **Pestana**: [Aluguel de Betoneira no Pestana](https://betoneiraosasco.com.br/alugar-betoneira-em-pestana)
-- **Piratininga**: [Aluguel de Betoneira no Piratininga](https://betoneiraosasco.com.br/alugar-betoneira-em-piratininga)
-- **Platina**: [Aluguel de Betoneira no Platina](https://betoneiraosasco.com.br/alugar-betoneira-em-platina)
-- **Portal D'Oeste**: [Aluguel de Betoneira no Portal D'Oeste](https://betoneiraosasco.com.br/alugar-betoneira-em-portal-doeste)
-- **Presidente Altino**: [Aluguel de Betoneira no Presidente Altino](https://betoneiraosasco.com.br/alugar-betoneira-em-presidente-altino)
-- **Quitaúna**: [Aluguel de Betoneira no Quitaúna](https://betoneiraosasco.com.br/alugar-betoneira-em-quitauna)
-- **Raposo Tavares**: [Aluguel de Betoneira no Raposo Tavares](https://betoneiraosasco.com.br/alugar-betoneira-em-raposo-tavares)
-- **Remédios**: [Aluguel de Betoneira no Remédios](https://betoneiraosasco.com.br/alugar-betoneira-em-remedios)
-- **Rochdale**: [Aluguel de Betoneira no Rochdale](https://betoneiraosasco.com.br/alugar-betoneira-em-rochdale)
-- **Santa Fé**: [Aluguel de Betoneira no Santa Fé](https://betoneiraosasco.com.br/alugar-betoneira-em-santa-fe)
-- **Santa Maria**: [Aluguel de Betoneira no Santa Maria](https://betoneiraosasco.com.br/alugar-betoneira-em-santa-maria)
-- **Santo Antônio**: [Aluguel de Betoneira no Santo Antônio](https://betoneiraosasco.com.br/alugar-betoneira-em-santo-antonio)
-- **São Pedro**: [Aluguel de Betoneira no São Pedro](https://betoneiraosasco.com.br/alugar-betoneira-em-sao-pedro)
-- **Setor Militar**: [Aluguel de Betoneira no Setor Militar](https://betoneiraosasco.com.br/alugar-betoneira-em-setor-militar)
-- **Três Montanhas**: [Aluguel de Betoneira no Três Montanhas](https://betoneiraosasco.com.br/alugar-betoneira-em-tres-montanhas)
-- **Umuarama**: [Aluguel de Betoneira no Umuarama](https://betoneiraosasco.com.br/alugar-betoneira-em-umuarama)
-- **Veloso**: [Aluguel de Betoneira no Veloso](https://betoneiraosasco.com.br/alugar-betoneira-em-veloso)
-- **Vila Campesina**: [Aluguel de Betoneira no Vila Campesina](https://betoneiraosasco.com.br/alugar-betoneira-em-vila-campesina)
-- **Vila Menck**: [Aluguel de Betoneira no Vila Menck](https://betoneiraosasco.com.br/alugar-betoneira-em-vila-menck)
-- **Vila Militar**: [Aluguel de Betoneira no Vila Militar](https://betoneiraosasco.com.br/alugar-betoneira-em-vila-militar)
-- **Vila Osasco**: [Aluguel de Betoneira no Vila Osasco](https://betoneiraosasco.com.br/alugar-betoneira-em-vila-osasco)
-- **Vila Yara**: [Aluguel de Betoneira no Vila Yara](https://betoneiraosasco.com.br/alugar-betoneira-em-vila-yara)
-- **Vila Yolanda**: [Aluguel de Betoneira no Vila Yolanda](https://betoneiraosasco.com.br/alugar-betoneira-em-vila-yolanda)
-- **Primeiro de Maio**: [Aluguel de Betoneira no Primeiro de Maio](https://betoneiraosasco.com.br/alugar-betoneira-em-primeiro-de-maio)
-- **Fazendinha**: [Aluguel de Betoneira no Fazendinha](https://betoneiraosasco.com.br/alugar-betoneira-em-fazendinha)
+### 3. Betoneira 250 Litros
+- **Uso Ideal**: Construções comerciais leves e reformas residenciais médias.
+- **Capacidade de Mistura**: 170 Litros.
+- **Motor**: 1.0 CV (Monofásico/Trifásico).
+
+### 4. Betoneira 400 Litros Elétrica
+- **Uso Ideal**: Obras de grande porte, pavimentação estrutural, concretagem de lajes maciças e sapatas pesadas.
+- **Capacidade de Mistura**: 280 Litros.
+- **Motor**: 2.0 CV (Monofásico/Trifásico).
+
+### 5. Betoneira 400 Litros a Gasolina
+- **Uso Ideal**: Canteiros em fase inicial de terraplenagem sem infraestrutura elétrica provisória estabelecida.
+- **Capacidade de Mistura**: 280 Litros.
+- **Motor**: Combustão 4 Tempos de 5.5 a 6.0 HP.
+
+### 6. Caminhão Betoneira
+- **Uso Ideal**: Grandes concretagens industriais, lajes maciças comerciais, galpões e radier estrutural com volume massivo dosado em central.
+
+## Cobertura Logística (62 Bairros de Osasco)
+Realizamos entregas e retiradas nos seguintes bairros de Osasco:
+Adalgisa, Aliança, Ayrosa, Bandeiras, Baronesa, Bela Vista, Bonança, Bonfim, Bousquet, Bussocaba, Cabral, Calabrez, Caracoba, Centro, Cidade das Flores, Cidade de Deus, Cipreste, Km 18, Km 21, Conceição, Continental, Copacabana, Cordeiro, D'Ávila, Dezoito, Estância, Flôr de Lis, Fundão, IAPI, Industrial, Jaguaribe, Jardim das Flores, Jardim Elvira, Jardim Mutinga, Jardim Roberto, Metalúrgicos, Munhoz Júnior, Novo Osasco, Olaria, Padroeira, Palmares, Paiva, Parque Anhangüera, Parque de Antona, Parque dos Príncipes, Parque Industrial, Pestana, Piratininga, Platina, Portal d'Oeste, Quitaúna, Raposo Tavares, Remédios, Rochdale, Santa Fé, Santa Maria, Santo Antônio, São Pedro, Três Montanhas, Umuarama, Veloso, Vila Yara.
+
+## Diferenciais de Autoridade (E-E-A-T)
+- **Inspeção de 12 Pontos antes do envio**: Pinhão, cremalheira, isolamento elétrico com megômetro, cabo blindado ABNT, tambor desincrustado, chave de segurança estanque, cubos de roda e pneus, correias tensionadas, rolamentos engraxados, chassi íntegro, motor amperometrado, pintura anticorrosiva epóxi e teste sob carga por 15 min.
+- **Protocolo de Lavagem Ecológica**: Sistemas de recirculação de água que economizam 70% do consumo e caixas de decantação dedicadas para neutralização da alcalinidade do concreto residual.
+- **Capacitação ao Construtor**: Distribuição de cartilhas físicas de segurança operacional alinhadas às normas NR-18 e NR-12.
+
+## Links Rápidos e Recursos
+- **Sitemap Principal**: https://betoneiraosasco.com.br/sitemap.xml
+- **Página de Serviços**: https://betoneiraosasco.com.br/servicos
+- **Página Sobre a Empresa**: https://betoneiraosasco.com.br/sobre
+- **Página de Contato**: https://betoneiraosasco.com.br/contato
+- **WhatsApp Direto**: https://wa.me/5511975465766
