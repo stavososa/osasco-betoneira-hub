@@ -32,6 +32,10 @@ export const Route = createFileRoute("/page-sitemap.xml")({
           { path: "/contato", changefreq: "monthly", priority: "0.5", lastmod: TODAY },
           { path: "/termos", changefreq: "monthly", priority: "0.3", lastmod: TODAY },
           { path: "/privacidade", changefreq: "monthly", priority: "0.3", lastmod: TODAY },
+          { path: "/locacao-de-betoneiras", changefreq: "monthly", priority: "0.8", lastmod: TODAY },
+          { path: "/locacao-caminhao-betoneira", changefreq: "monthly", priority: "0.8", lastmod: TODAY },
+          { path: "/entrega-e-retirada-de-betoneira", changefreq: "monthly", priority: "0.7", lastmod: TODAY },
+          { path: "/blog", changefreq: "weekly", priority: "0.8", lastmod: TODAY },
           ...BETONEIRAS_SLUGS.map((b) => ({
             path: `/${b}`,
             changefreq: "monthly" as const,

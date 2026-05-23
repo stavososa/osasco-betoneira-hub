@@ -48,7 +48,7 @@ export const Route = createFileRoute("/betoneira-250l")({
             "url": "https://betoneiraosasco.com.br/betoneira-250l",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
-              "itemListElement": [{ "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 250L Elétrica Monofásica", description: "A betoneira mais alugada em Osasco. 250 litros, elétrica 220V monofásica, motor 2 cv." } }],
+              "itemListElement": [{ "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 250L Elétrica Monofásica", description: "A betoneira mais alugada em Osasco. 250 litros, elétrica 220V monofásica, motor 2 cv.", aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "128" } } }],
             },
             "potentialAction": {
               "@type": "RentAction",

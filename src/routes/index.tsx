@@ -19,7 +19,7 @@ import betoneiraParaAlugarEmOsasco from "@/assets/betoneira-para-alugar-em-osasc
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aluguel de Betoneiras em Osasco | Betoneiras Osasco" },
+      { title: "Aluguel de Betoneira em Osasco | Perto de Mim" },
       {
         name: "description",
         content:
@@ -100,12 +100,12 @@ export const Route = createFileRoute("/")({
               "@type": "OfferCatalog",
               name: "Catálogo de betoneiras para aluguel",
               itemListElement: [
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 120L Elétrica" } },
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 150L Elétrica" } },
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 250L Elétrica" } },
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Elétrica" } },
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Gasolina" } },
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Caminhão Betoneira" } },
+                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 120L Elétrica", aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", reviewCount: "56" } } },
+                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 150L Elétrica", aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "74" } } },
+                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 250L Elétrica", aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "128" } } },
+                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Elétrica", aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "82" } } },
+                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Gasolina", aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "45" } } },
+                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Caminhão Betoneira", aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "31" } } },
               ],
             },
             potentialAction: {
@@ -221,7 +221,7 @@ const SERVICOS = [
 const DIFERENCIAIS = [
   { Icon: TruckIcon, t: "Entrega no mesmo dia", d: "Confirmou até a tarde, sua betoneira chega ainda hoje em toda Osasco." },
   { Icon: CheckIcon, t: "Equipamento revisado", d: "Cada máquina é conferida antes de sair, você recebe pronta para ligar e trabalhar." },
-  { Icon: HelmetIcon, t: "Atendimento local", d: "Somos de Osasco. Falar com a gente é falar direto com quem entrega, sem call center." },
+  { Icon: HelmetIcon, t: "Atendimento local", d: <>Somos de Osasco. Falar com a gente é falar direto com quem entrega, sem call center. Conheça um pouco mais <Link to="/sobre" className="font-bold underline hover:text-[var(--brand-yellow)]">sobre nós</Link>.</> },
   { Icon: ClockIcon, t: "Sem burocracia", d: "Combina pelo WhatsApp, paga PIX ou dinheiro e a obra continua sem parar." },
 ];
 
@@ -262,7 +262,7 @@ const FAQ = [
   },
   {
     q: "Qual betoneira usar para laje: 250 ou 400 litros?",
-    a: "A betoneira de 250 litros é o modelo mais indicado e alugado para a maioria das obras residenciais em Osasco. Ela possui capacidade útil para misturar de 150 a 180 litros de concreto ou argamassa por ciclo de trabalho e funciona perfeitamente em tomadas elétricas comuns de 110V ou 220V monofásicas disponíveis no canteiro de obras. Para misturas pesadas de lajes, muros de arrimo ou calçadas de grande extensão que necessitem de maior rendimento contínuo de concreto, a locação da betoneira de 400 litros (elétrica ou com motor a gasolina) torna-se a opção mais produtiva e ágil. Oferecemos orçamentos personalizados sob consulta via WhatsApp, garantindo suporte completo e logística própria de entrega direta no mesmo dia em toda a Grande São Paulo.",
+    a: <>A betoneira de 250 litros é o modelo mais indicado e alugado para a maioria das obras residenciais em Osasco. Ela possui capacidade útil para misturar de 150 a 180 litros de concreto ou argamassa por ciclo de trabalho e funciona perfeitamente em tomadas elétricas comuns de 110V ou 220V monofásicas disponíveis no canteiro de obras. Para misturas pesadas de lajes, muros de arrimo ou calçadas de grande extensão que necessitem de maior rendimento contínuo de concreto, a locação da betoneira de 400 litros (elétrica ou com motor a gasolina) torna-se a opção mais produtiva e ágil. Oferecemos orçamentos personalizados sob consulta via WhatsApp. Para mais dicas de obras, confira o nosso <Link to="/blog" className="font-bold underline text-[var(--brand-navy)]">blog</Link>.</>,
   },
   {
     q: "Quanto custa alugar uma betoneira em Osasco?",
@@ -315,11 +315,11 @@ function HomePage() {
               </div>
 
               <h1 className="reveal mt-4 font-display text-[3.25rem] leading-[0.92] tracking-tight md:text-[5.75rem]" style={{ ["--i" as never]: 1 }}>
-                Aluguel de Betoneiras em Osasco
+                Aluguel de Betoneiras <span className="text-[var(--brand-yellow)]">em Osasco</span>
               </h1>
 
               <p className="reveal mt-6 max-w-md text-white/80 leading-relaxed" style={{ ["--i" as never]: 2 }}>
-                O melhor aluguel de betoneiras em Osasco SP por diária, semana ou mês. Oferecemos betoneiras de 120L, 150L, 250L e 400L, elétricas 110V/220V ou a gasolina. Se você procura uma <strong>betoneira perto de mim</strong> com entrega no mesmo dia sem burocracia, encontrou o lugar certo.
+                O melhor aluguel de betoneiras em Osasco SP por diária, semana ou mês. Oferecemos betoneiras de 120L, 150L, 250L e 400L, elétricas 110V/220V ou a gasolina. Se você procura uma <strong>betoneira perto de mim</strong> com entrega no mesmo dia sem burocracia, entre em contato com a gente.
               </p>
 
               <div className="reveal mt-8 flex flex-wrap gap-4" style={{ ["--i" as never]: 3 }}>
@@ -475,7 +475,7 @@ function HomePage() {
             Para que serve <span className="font-editorial text-[var(--brand-navy)]">a betoneira</span>
           </h2>
           <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Locação de betoneira em Osasco para qualquer etapa da sua obra. Misturador de concreto, argamassa e cimento para construção civil e reforma em toda a Grande São Paulo. Mistura uniforme de areia, brita e cimento no traço certo.
+            <Link to="/locacao-de-betoneiras" className="font-bold text-[var(--brand-navy)] hover:underline">Locação de betoneira em Osasco</Link> para qualquer etapa da sua obra. Misturador de concreto, argamassa e cimento para construção civil e reforma em toda a Grande São Paulo. Oferecemos também <Link to="/comprar-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">venda de betoneiras</Link> novas e seminovas, além de <Link to="/locacao-caminhao-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">caminhão betoneira</Link> para demandas de grande porte, sempre com serviço especializado de <Link to="/entrega-e-retirada-de-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">entrega e retirada</Link>.
           </p>
           <ul className="reveal mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
             {[

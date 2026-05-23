@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HazardStripe } from "@/components/HazardStripe";
@@ -71,9 +71,10 @@ export const Route = createFileRoute("/servicos")({
 });
 
 const SERVICOS = [
-  { n: "01", titulo: "Locação de Betoneiras", desc: "120L, 150L, 250L e 400L para diária, semanal ou mensal. Equipamentos revisados.", itens: ["Sob consulta", "Descontos semanal/mensal", "Elétricas e a gasolina"] },
-  { n: "02", titulo: "Venda de Betoneiras", desc: "Novos e seminovos com garantia. Ideal para construtoras e profissionais.", itens: ["Novas e seminovas", "Garantia de fábrica", "Assistência em Osasco"] },
-  { n: "03", titulo: "Entrega & Retirada", desc: "Logística rápida em toda Osasco. Entregamos onde sua obra estiver.", itens: ["Entrega no mesmo dia", "Retirada agendada", "Todos os bairros"] },
+  { n: "01", titulo: "Locação de Betoneiras", desc: "120L, 150L, 250L e 400L para diária, semanal ou mensal. Equipamentos revisados.", itens: ["Sob consulta", "Descontos semanal/mensal", "Elétricas e a gasolina"], link: "/locacao-de-betoneiras" },
+  { n: "02", titulo: "Venda de Betoneiras", desc: "Novos e seminovos com garantia. Ideal para construtoras e profissionais.", itens: ["Novas e seminovas", "Garantia de fábrica", "Assistência em Osasco"], link: "/comprar-betoneira" },
+  { n: "03", titulo: "Caminhão Betoneira", desc: "Mixer trucks de 8m³ para grandes lajes e fundações. Operador incluso.", itens: ["Alta capacidade", "Concreto pronto", "Obras pesadas"], link: "/locacao-caminhao-betoneira" },
+  { n: "04", titulo: "Entrega & Retirada", desc: "Logística rápida em toda Osasco. Entregamos onde sua obra estiver.", itens: ["Entrega no mesmo dia", "Retirada agendada", "Todos os bairros"], link: "/entrega-e-retirada-de-betoneira" },
 ];
 
 function ServicosPage() {
@@ -89,7 +90,7 @@ function ServicosPage() {
               <span className="spec-label !text-white/70">O que fazemos</span>
             </div>
             <h1 className="reveal reveal-delay-1 mt-3 font-display text-4xl md:text-6xl">Nossos <span className="text-[var(--brand-yellow)]">serviços</span></h1>
-            <p className="reveal reveal-delay-2 mt-4 max-w-2xl text-white/85">Locação, venda e logística de betoneiras em Osasco. Tudo o que sua obra precisa, sem complicação.</p>
+            <p className="reveal reveal-delay-2 mt-4 max-w-2xl text-white/85">Descubra as soluções que temos para a sua obra em Osasco. Desde aluguel e venda até a logística de entrega.</p>
           </div>
           <HazardStripe />
         </section>
@@ -97,23 +98,28 @@ function ServicosPage() {
         <TrustBar />
 
         <section className="mx-auto max-w-6xl px-4 py-20">
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {SERVICOS.map((s, i) => (
-              <article key={s.titulo} className={`reveal reveal-delay-${i + 1} cut-corner border-2 border-[var(--brand-ink)] bg-card p-6 hard-shadow`}>
-                <div className="flex items-baseline justify-between">
-                  <span className="numeric text-4xl text-[var(--brand-yellow)] [text-shadow:_2px_2px_0_var(--brand-ink)]">{s.n}</span>
-                  <span className="spec-label">Serviço</span>
+              <article key={s.titulo} className={`reveal reveal-delay-${i + 1} cut-corner flex flex-col justify-between border-2 border-[var(--brand-ink)] bg-card p-6 hard-shadow`}>
+                <div>
+                  <div className="flex items-baseline justify-between">
+                    <span className="numeric text-4xl text-[var(--brand-yellow)] [text-shadow:_2px_2px_0_var(--brand-ink)]">{s.n}</span>
+                    <span className="spec-label">Serviço</span>
+                  </div>
+                  <h2 className="mt-3 font-display text-xl text-[var(--brand-ink)]">{s.titulo}</h2>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+                  <ul className="mt-4 space-y-2 border-t border-dashed border-[var(--brand-ink)]/30 pt-4 text-sm mb-6">
+                    {s.itens.map((i2) => (
+                      <li key={i2} className="flex items-start gap-2">
+                        <CheckIcon size={16} className="mt-0.5 shrink-0 text-[var(--brand-yellow)]" />
+                        <span>{i2}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h2 className="mt-3 font-display text-xl text-[var(--brand-ink)]">{s.titulo}</h2>
-                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-                <ul className="mt-4 space-y-2 border-t border-dashed border-[var(--brand-ink)]/30 pt-4 text-sm">
-                  {s.itens.map((i2) => (
-                    <li key={i2} className="flex items-start gap-2">
-                      <CheckIcon size={16} className="mt-0.5 shrink-0 text-[var(--brand-yellow)]" />
-                      <span>{i2}</span>
-                    </li>
-                  ))}
-                </ul>
+                <Link to={s.link} className="inline-flex items-center justify-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] px-4 py-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow transition-all hover:-translate-y-0.5 hover:shadow-[4px_4px_0_0_var(--brand-ink)]">
+                  Saiba mais <ArrowIcon size={14} />
+                </Link>
               </article>
             ))}
           </div>

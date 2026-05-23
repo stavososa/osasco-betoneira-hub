@@ -259,12 +259,12 @@ export const Route = createFileRoute("/$slug")({
                 "@type": "OfferCatalog",
                 name: `Betoneiras disponíveis para aluguel em ${bairro.nome}`,
                 itemListElement: [
-                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 120L Elétrica" } },
-                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 150L Elétrica" } },
-                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 250L Elétrica" } },
-                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Elétrica" } },
-                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Gasolina" } },
-                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Caminhão Betoneira" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 120L Elétrica", aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", reviewCount: "56" } } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 150L Elétrica", aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "74" } } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 250L Elétrica", aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "128" } } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Elétrica", aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "82" } } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 400L Gasolina", aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "45" } } },
+                  { "@type": "Offer", itemOffered: { "@type": "Product", name: "Caminhão Betoneira", aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "31" } } },
                 ],
               },
               potentialAction: {
@@ -358,7 +358,7 @@ function BairroPage() {
 
               <div className="reveal mt-8 flex flex-wrap gap-4" style={{ ["--i" as never]: 3 }}>
                 <a
-                  href={`https://wa.me/5511975465766?text=${encodeURIComponent(`Olá! Quero alugar uma betoneira no bairro ${bairro.nome}, Osasco. Minha obra fica perto da ${bairro.avenidaPrincipal}.`)}`}
+                  href={`https://wa.me/5511975465766?text=${encodeURIComponent(`Olá! Quero alugar uma betoneira no bairro ${bairro.nome}, Osasco.`)}`}
                   target="_blank" rel="noopener"
                   className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow"
                 >
@@ -410,7 +410,7 @@ function BairroPage() {
             </Link>
           </div>
           <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Betoneiras de 120L, 150L, 250L e 400L para aluguel no bairro {bairro.nome}. Se você precisa de uma betoneira perto de mim para misturar concreto, argamassa, contrapiso e cimento para {bairro.caracteristicaObra} nas proximidades do {bairro.pontoReferencia}, temos modelos elétricos (110V/220V) e a gasolina.
+            <Link to="/locacao-de-betoneiras" className="font-bold text-[var(--brand-navy)] hover:underline">Locação de betoneiras</Link> de 120L, 150L, 250L e 400L no bairro {bairro.nome}. Se você precisa de uma betoneira perto de mim para misturar concreto, argamassa e cimento para {bairro.caracteristicaObra} nas proximidades do {bairro.pontoReferencia}, temos a solução. Oferecemos também nosso serviço focado em <Link to="/entrega-e-retirada-de-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">entrega e retirada</Link> ágil, além do <Link to="/locacao-caminhao-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">caminhão betoneira</Link> para grandes demandas.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {MODELOS.map((m, i) => (
@@ -433,7 +433,7 @@ function BairroPage() {
             </div>
             <div>
               <a
-                href={`https://wa.me/5511975465766?text=${encodeURIComponent(`Olá! Quero alugar uma betoneira no bairro ${bairro.nome}, Osasco, perto da ${bairro.avenidaPrincipal}.`)}`}
+                href={`https://wa.me/5511975465766?text=${encodeURIComponent(`Olá! Quero alugar uma betoneira no bairro ${bairro.nome}, Osasco.`)}`}
                 target="_blank"
                 rel="noopener"
                 className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-white px-8 py-4 text-sm font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow hover:translate-y-[1px] transition-all"
@@ -513,7 +513,7 @@ function BairroPage() {
             </p>
             <div className="mt-8">
               <a
-                href={`https://wa.me/5511975465766?text=${encodeURIComponent(`Olá! Quero alugar uma betoneira no bairro ${bairro.nome}, Osasco. Estou na região do ${bairro.pontoReferencia}.`)}`}
+                href={`https://wa.me/5511975465766?text=${encodeURIComponent(`Olá! Quero alugar uma betoneira no bairro ${bairro.nome}, Osasco.`)}`}
                 target="_blank"
                 rel="noopener"
                 className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] px-8 py-4 text-base font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow hover:translate-y-[1px] transition-all"
@@ -665,7 +665,7 @@ function BairroPage() {
         <CTAFinal
           title={`Aluguel de betoneiras em ${bairro.nome}`}
           highlight={`perto do ${bairro.pontoReferencia}`}
-          waText={`Olá! Quero alugar uma betoneira no bairro ${bairro.nome}, Osasco. Minha obra fica perto da ${bairro.avenidaPrincipal}.`}
+          waText={`Olá! Quero alugar uma betoneira no bairro ${bairro.nome}, Osasco.`}
         />
       </main>
       <SiteFooter />

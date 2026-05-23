@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MapEmbed } from "@/components/MapEmbed";
@@ -57,7 +57,7 @@ function ContatoPage() {
               <span className="spec-label !text-white/70">Fale com a gente</span>
             </div>
             <h1 className="reveal reveal-delay-1 mt-3 font-display text-4xl md:text-6xl">Fale <span className="text-[var(--brand-yellow)]">conosco</span></h1>
-            <p className="reveal reveal-delay-2 mt-4 max-w-2xl text-white/85">Atendimento rápido pelo WhatsApp ou telefone. Estamos em Osasco e atendemos todos os bairros.</p>
+            <p className="reveal reveal-delay-2 mt-4 max-w-2xl text-white/85">Atendimento rápido pelo WhatsApp ou telefone para <Link to="/locacao-de-betoneiras" className="text-[var(--brand-yellow)] hover:underline font-bold">locação de betoneiras</Link> e serviços de <Link to="/entrega-e-retirada-de-betoneira" className="text-[var(--brand-yellow)] hover:underline font-bold">entrega e retirada</Link>. Estamos em Osasco e atendemos todos os bairros.</p>
           </div>
           <HazardStripe />
         </section>

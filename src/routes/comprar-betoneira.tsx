@@ -247,8 +247,8 @@ function ComprarPage() {
 
             <p className="reveal mt-4 text-xs text-white/60" style={{ ["--i" as never]: 3 }}>
               Prefere alugar?{" "}
-              <Link to="/" className="font-bold text-[var(--brand-yellow)] underline-offset-4 hover:underline">
-                Ver aluguel de betoneira →
+              <Link to="/locacao-de-betoneiras" className="font-bold text-[var(--brand-yellow)] underline-offset-4 hover:underline">
+                Ver locação de betoneira →
               </Link>
             </p>
           </div>
@@ -265,7 +265,7 @@ function ComprarPage() {
             Loja local de <span className="font-editorial text-[var(--brand-navy)]">betoneira em Osasco</span>
           </h2>
           <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Trabalhamos com venda direta de betoneira nova e seminova para pedreiro, empreiteiro e construtora. Garantia, nota fiscal e suporte técnico, sem intermediários ou call center, falando direto com quem entrega o equipamento.
+            Trabalhamos com venda direta de betoneiras novas e seminovas para pedreiro, empreiteiro e construtora. Garantia, nota fiscal e suporte técnico, sem intermediários ou call center, com nossa própria logística ágil de <Link to="/entrega-e-retirada-de-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">entrega e retirada</Link>.
           </p>
 
           <div className="reveal mt-10 grid gap-6 md:grid-cols-3">

@@ -92,7 +92,7 @@
           <!-- Header -->
           <div class="header">
             <h1>Sitemap XML</h1>
-            <p>Gerado dinamicamente para indexação de SEO no portal Betoneira Osasco.</p>
+            <p>Gerado dinamicamente para indexação no portal Betoneira Osasco.</p>
           </div>
           
           <div class="content">
@@ -192,9 +192,7 @@
             </xsl:choose>
           </div>
         </div>
-        <div class="footer-info">
-          Este site é destinado totalmente ao foco de aquisição de clientes de forma orgânica por um usuário totalmente independente do setor de betoneiras e construção.
-        </div>
+
       </body>
     </html>
   </xsl:template>

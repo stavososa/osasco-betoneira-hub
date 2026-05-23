@@ -94,7 +94,7 @@ function BlogPage() {
               Blog <span className="text-[var(--brand-yellow)]">Betoneira Osasco</span>
             </h1>
             <p className="reveal reveal-delay-2 mt-4 max-w-2xl text-white/85">
-              Guias, dicas e comparativos para você acertar na escolha da betoneira e tocar sua obra com tranquilidade.
+              Guias, dicas e comparativos para você acertar na escolha para <Link to="/locacao-de-betoneiras" className="text-[var(--brand-yellow)] hover:underline font-bold">locação de betoneiras</Link> ou <Link to="/comprar-betoneira" className="text-[var(--brand-yellow)] hover:underline font-bold">compra</Link> e tocar sua obra com tranquilidade. Aproveite e conheça também nossa solução em <Link to="/locacao-caminhao-betoneira" className="text-[var(--brand-yellow)] hover:underline font-bold">caminhão betoneira</Link>.
             </p>
           </div>
         </section>

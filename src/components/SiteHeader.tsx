@@ -6,6 +6,7 @@ import { WhatsappIcon } from "@/components/icons/Icons";
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -29,7 +30,19 @@ export function SiteHeader() {
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-medium uppercase tracking-wider md:flex">
           <Link to="/" className="nav-link" activeProps={{ "data-active": "true" }}>Início</Link>
-          <Link to="/servicos" className="nav-link" activeProps={{ "data-active": "true" }}>Serviços</Link>
+          <div className="relative group">
+            <Link to="/servicos" className="nav-link flex items-center gap-1" activeProps={{ "data-active": "true" }}>
+              Serviços
+              <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+            </Link>
+            <div className="absolute top-full left-0 pt-2 w-56 hidden group-hover:block z-50">
+              <div className="flex flex-col bg-white border-2 border-[var(--brand-ink)] hard-shadow">
+                <Link to="/locacao-de-betoneiras" className="px-4 py-3 hover:bg-[var(--brand-concrete)] hover:text-[var(--brand-navy)] border-b border-[var(--brand-ink)]/10 text-xs font-bold transition-colors">Locação de Betoneiras</Link>
+                <Link to="/locacao-caminhao-betoneira" className="px-4 py-3 hover:bg-[var(--brand-concrete)] hover:text-[var(--brand-navy)] border-b border-[var(--brand-ink)]/10 text-xs font-bold transition-colors">Caminhão Betoneira</Link>
+                <Link to="/entrega-e-retirada-de-betoneira" className="px-4 py-3 hover:bg-[var(--brand-concrete)] hover:text-[var(--brand-navy)] text-xs font-bold transition-colors">Entrega e Retirada</Link>
+              </div>
+            </div>
+          </div>
           <Link to="/comprar-betoneira" className="nav-link" activeProps={{ "data-active": "true" }}>Comprar</Link>
           <Link to="/sobre" className="nav-link" activeProps={{ "data-active": "true" }}>Sobre</Link>
           <Link to="/contato" className="nav-link" activeProps={{ "data-active": "true" }}>Contato</Link>
@@ -67,7 +80,25 @@ export function SiteHeader() {
       {mobileMenuOpen && (
         <nav className="border-t-2 border-[var(--brand-ink)] bg-background py-4 px-4 flex flex-col gap-3 md:hidden animate-fade-in">
           <Link to="/" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 border-b border-[var(--brand-ink)]/10 hover:text-[var(--brand-navy)] transition-colors">Início</Link>
-          <Link to="/servicos" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 border-b border-[var(--brand-ink)]/10 hover:text-[var(--brand-navy)] transition-colors">Serviços</Link>
+          <div className="flex flex-col border-b border-[var(--brand-ink)]/10">
+            <button 
+              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              className="flex items-center justify-between py-2 text-base font-bold uppercase tracking-wider hover:text-[var(--brand-navy)] transition-colors text-left w-full"
+            >
+              <span>Serviços</span>
+              <svg className={`w-5 h-5 text-[var(--brand-ink)] transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {mobileServicesOpen && (
+              <div className="flex flex-col pl-4 pb-3 pt-1 gap-3 border-l-2 border-[var(--brand-yellow)] ml-1 animate-fade-in">
+                <Link to="/servicos" onClick={() => setMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-wider text-muted-foreground hover:text-[var(--brand-navy)] transition-colors">Visão Geral</Link>
+                <Link to="/locacao-de-betoneiras" onClick={() => setMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-wider text-muted-foreground hover:text-[var(--brand-navy)] transition-colors">Locação de Betoneiras</Link>
+                <Link to="/locacao-caminhao-betoneira" onClick={() => setMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-wider text-muted-foreground hover:text-[var(--brand-navy)] transition-colors">Caminhão Betoneira</Link>
+                <Link to="/entrega-e-retirada-de-betoneira" onClick={() => setMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-wider text-muted-foreground hover:text-[var(--brand-navy)] transition-colors">Entrega e Retirada</Link>
+              </div>
+            )}
+          </div>
           <Link to="/comprar-betoneira" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 border-b border-[var(--brand-ink)]/10 hover:text-[var(--brand-navy)] transition-colors">Comprar</Link>
           <Link to="/sobre" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 border-b border-[var(--brand-ink)]/10 hover:text-[var(--brand-navy)] transition-colors">Sobre</Link>
           <Link to="/contato" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 border-b border-[var(--brand-ink)]/10 hover:text-[var(--brand-navy)] transition-colors">Contato</Link>

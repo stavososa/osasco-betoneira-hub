@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HazardStripe } from "@/components/HazardStripe";
@@ -47,10 +47,10 @@ function PrivacidadePage() {
                 Política de Privacidade
               </h2>
               <p>
-                A política da <strong>Betoneira Osasco</strong> é respeitar a sua privacidade em relação a qualquer informação que possamos coletar no site e outros canais que possuímos e operamos.
+                A política principal do portal <Link to="/" className="font-bold text-[var(--brand-navy)] hover:underline">Betoneira Osasco</Link> é respeitar a sua privacidade em relação a qualquer informação que possamos coletar. Somos totalmente transparentes sobre as nossas práticas e sobre nossa forma de trabalhar — caso queira conhecer os bastidores da nossa equipe, visite a página <Link to="/sobre" className="font-bold text-[var(--brand-navy)] hover:underline">Sobre Nós</Link>.
               </p>
               <p className="mt-3">
-                Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.
+                Solicitamos informações pessoais apenas quando realmente precisamos delas para formalizar a entrega de algum dos nossos <Link to="/servicos" className="font-bold text-[var(--brand-navy)] hover:underline">serviços oferecidos</Link> — seja durante o processo de faturamento na área destinada a <Link to="/comprar-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">comprar betoneira</Link>, ou para alinhar o envio logístico pesado da <Link to="/locacao-caminhao-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">locação de caminhão betoneira</Link>. Fazemo-lo por meios justos e legais, com o seu pleno consentimento.
               </p>
               <p className="mt-3">
                 Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, os protegemos dentro de meios comercialmente aceitáveis para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.
@@ -59,7 +59,7 @@ function PrivacidadePage() {
                 O nosso site pode ter links para sites externos que não são operados por nós. Esteja ciente de que não temos controle sobre o conteúdo e práticas desses sites e não podemos aceitar responsabilidade por suas respectivas políticas de privacidade e Termos de Uso.
               </p>
               <p className="mt-3">
-                Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que talvez não possamos fornecer alguns dos serviços desejados.
+                Você é livre para recusar a nossa solicitação de informações pessoais na página de <Link to="/contato" className="font-bold text-[var(--brand-navy)] hover:underline">contato</Link>, entendendo que talvez não possamos fornecer orçamentos de <Link to="/servicos" className="font-bold text-[var(--brand-navy)] hover:underline">serviços</Link> desejados.
               </p>
               <p className="mt-3">
                 O uso continuado de nosso site será considerado como aceitação de nossas práticas em torno de privacidade e informações pessoais. Se você tiver alguma dúvida sobre como lidamos com dados do usuário e informações pessoais, fale conosco através do nosso canal de atendimento.
@@ -71,7 +71,7 @@ function PrivacidadePage() {
                 Política de Cookies
               </h2>
               <p>
-                Quando os visitantes deixam comentários ou preenchem formulários de contato no site, coletamos os dados mostrados no formulário, além do endereço de IP e de dados do navegador do visitante, para auxiliar na detecção de spam.
+                Quando os visitantes participam e deixam comentários de dúvidas sobre nossas dicas e guias de obra no <Link to="/blog" className="font-bold text-[var(--brand-navy)] hover:underline">blog</Link>, ou quando preenchem os formulários de comunicação na página de <Link to="/contato" className="font-bold text-[var(--brand-navy)] hover:underline">contato</Link>, coletamos os dados mostrados no formulário, além do endereço de IP e de dados do navegador do visitante, para auxiliar na detecção de spam e segurança da plataforma.
               </p>
 
               <h3 className="font-display text-lg text-[var(--brand-ink)] mt-4 mb-2">
@@ -135,7 +135,7 @@ function PrivacidadePage() {
                 Alterações na Política
               </h2>
               <p>
-                A <strong>Betoneira Osasco</strong> poderá alterar esta política de privacidade e segurança de dados a qualquer momento. Toda alteração na presente Política de Privacidade e Segurança de Dados será veiculada neste espaço. Portanto, solicitamos a leitura periódica desta Política como meio de se informar sobre a forma que coletamos, tratamos e protegemos as suas informações.
+                A <strong>Betoneira Osasco</strong> poderá alterar esta política de privacidade e segurança de dados a qualquer momento. Toda alteração na presente Política de Privacidade e Segurança de Dados será veiculada neste espaço. Portanto, solicitamos a leitura periódica desta Política, assim como nossos <Link to="/termos" className="font-bold text-[var(--brand-navy)] hover:underline">Termos de Uso</Link>, como meio de se informar sobre a forma que coletamos, tratamos e protegemos as suas informações.
               </p>
             </div>
 

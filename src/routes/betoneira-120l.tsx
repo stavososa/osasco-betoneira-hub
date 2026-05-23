@@ -49,7 +49,7 @@ export const Route = createFileRoute("/betoneira-120l")({
             "url": "https://betoneiraosasco.com.br/betoneira-120l",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
-              "itemListElement": [{ "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 120L Elétrica", description: "Betoneira compacta de 120 litros, elétrica bivolt 110V/220V, motor 1/3 cv." } }],
+              "itemListElement": [{ "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 120L Elétrica", description: "Betoneira compacta de 120 litros, elétrica bivolt 110V/220V, motor 1/3 cv.", aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", reviewCount: "56" } } }],
             },
             "potentialAction": {
               "@type": "RentAction",

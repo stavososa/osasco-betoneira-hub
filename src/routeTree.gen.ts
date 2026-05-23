@@ -17,6 +17,9 @@ import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as PostSitemapDotxmlRouteImport } from './routes/post-sitemap[.]xml'
 import { Route as PageSitemapDotxmlRouteImport } from './routes/page-sitemap[.]xml'
 import { Route as LocalSitemapDotxmlRouteImport } from './routes/local-sitemap[.]xml'
+import { Route as LocacaoDeBetoneirasRouteImport } from './routes/locacao-de-betoneiras'
+import { Route as LocacaoCaminhaoBetoneiraRouteImport } from './routes/locacao-caminhao-betoneira'
+import { Route as EntregaERetiradaDeBetoneiraRouteImport } from './routes/entrega-e-retirada-de-betoneira'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ComprarBetoneiraRouteImport } from './routes/comprar-betoneira'
 import { Route as CaminhaoBetoneiraRouteImport } from './routes/caminhao-betoneira'
@@ -70,6 +73,23 @@ const LocalSitemapDotxmlRoute = LocalSitemapDotxmlRouteImport.update({
   path: '/local-sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocacaoDeBetoneirasRoute = LocacaoDeBetoneirasRouteImport.update({
+  id: '/locacao-de-betoneiras',
+  path: '/locacao-de-betoneiras',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocacaoCaminhaoBetoneiraRoute =
+  LocacaoCaminhaoBetoneiraRouteImport.update({
+    id: '/locacao-caminhao-betoneira',
+    path: '/locacao-caminhao-betoneira',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EntregaERetiradaDeBetoneiraRoute =
+  EntregaERetiradaDeBetoneiraRouteImport.update({
+    id: '/entrega-e-retirada-de-betoneira',
+    path: '/entrega-e-retirada-de-betoneira',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ContatoRoute = ContatoRouteImport.update({
   id: '/contato',
   path: '/contato',
@@ -142,6 +162,9 @@ export interface FileRoutesByFullPath {
   '/caminhao-betoneira': typeof CaminhaoBetoneiraRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
+  '/entrega-e-retirada-de-betoneira': typeof EntregaERetiradaDeBetoneiraRoute
+  '/locacao-caminhao-betoneira': typeof LocacaoCaminhaoBetoneiraRoute
+  '/locacao-de-betoneiras': typeof LocacaoDeBetoneirasRoute
   '/local-sitemap.xml': typeof LocalSitemapDotxmlRoute
   '/page-sitemap.xml': typeof PageSitemapDotxmlRoute
   '/post-sitemap.xml': typeof PostSitemapDotxmlRoute
@@ -164,6 +187,9 @@ export interface FileRoutesByTo {
   '/caminhao-betoneira': typeof CaminhaoBetoneiraRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
+  '/entrega-e-retirada-de-betoneira': typeof EntregaERetiradaDeBetoneiraRoute
+  '/locacao-caminhao-betoneira': typeof LocacaoCaminhaoBetoneiraRoute
+  '/locacao-de-betoneiras': typeof LocacaoDeBetoneirasRoute
   '/local-sitemap.xml': typeof LocalSitemapDotxmlRoute
   '/page-sitemap.xml': typeof PageSitemapDotxmlRoute
   '/post-sitemap.xml': typeof PostSitemapDotxmlRoute
@@ -187,6 +213,9 @@ export interface FileRoutesById {
   '/caminhao-betoneira': typeof CaminhaoBetoneiraRoute
   '/comprar-betoneira': typeof ComprarBetoneiraRoute
   '/contato': typeof ContatoRoute
+  '/entrega-e-retirada-de-betoneira': typeof EntregaERetiradaDeBetoneiraRoute
+  '/locacao-caminhao-betoneira': typeof LocacaoCaminhaoBetoneiraRoute
+  '/locacao-de-betoneiras': typeof LocacaoDeBetoneirasRoute
   '/local-sitemap.xml': typeof LocalSitemapDotxmlRoute
   '/page-sitemap.xml': typeof PageSitemapDotxmlRoute
   '/post-sitemap.xml': typeof PostSitemapDotxmlRoute
@@ -211,6 +240,9 @@ export interface FileRouteTypes {
     | '/caminhao-betoneira'
     | '/comprar-betoneira'
     | '/contato'
+    | '/entrega-e-retirada-de-betoneira'
+    | '/locacao-caminhao-betoneira'
+    | '/locacao-de-betoneiras'
     | '/local-sitemap.xml'
     | '/page-sitemap.xml'
     | '/post-sitemap.xml'
@@ -233,6 +265,9 @@ export interface FileRouteTypes {
     | '/caminhao-betoneira'
     | '/comprar-betoneira'
     | '/contato'
+    | '/entrega-e-retirada-de-betoneira'
+    | '/locacao-caminhao-betoneira'
+    | '/locacao-de-betoneiras'
     | '/local-sitemap.xml'
     | '/page-sitemap.xml'
     | '/post-sitemap.xml'
@@ -255,6 +290,9 @@ export interface FileRouteTypes {
     | '/caminhao-betoneira'
     | '/comprar-betoneira'
     | '/contato'
+    | '/entrega-e-retirada-de-betoneira'
+    | '/locacao-caminhao-betoneira'
+    | '/locacao-de-betoneiras'
     | '/local-sitemap.xml'
     | '/page-sitemap.xml'
     | '/post-sitemap.xml'
@@ -278,6 +316,9 @@ export interface RootRouteChildren {
   CaminhaoBetoneiraRoute: typeof CaminhaoBetoneiraRoute
   ComprarBetoneiraRoute: typeof ComprarBetoneiraRoute
   ContatoRoute: typeof ContatoRoute
+  EntregaERetiradaDeBetoneiraRoute: typeof EntregaERetiradaDeBetoneiraRoute
+  LocacaoCaminhaoBetoneiraRoute: typeof LocacaoCaminhaoBetoneiraRoute
+  LocacaoDeBetoneirasRoute: typeof LocacaoDeBetoneirasRoute
   LocalSitemapDotxmlRoute: typeof LocalSitemapDotxmlRoute
   PageSitemapDotxmlRoute: typeof PageSitemapDotxmlRoute
   PostSitemapDotxmlRoute: typeof PostSitemapDotxmlRoute
@@ -346,6 +387,27 @@ declare module '@tanstack/react-router' {
       path: '/local-sitemap.xml'
       fullPath: '/local-sitemap.xml'
       preLoaderRoute: typeof LocalSitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locacao-de-betoneiras': {
+      id: '/locacao-de-betoneiras'
+      path: '/locacao-de-betoneiras'
+      fullPath: '/locacao-de-betoneiras'
+      preLoaderRoute: typeof LocacaoDeBetoneirasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locacao-caminhao-betoneira': {
+      id: '/locacao-caminhao-betoneira'
+      path: '/locacao-caminhao-betoneira'
+      fullPath: '/locacao-caminhao-betoneira'
+      preLoaderRoute: typeof LocacaoCaminhaoBetoneiraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/entrega-e-retirada-de-betoneira': {
+      id: '/entrega-e-retirada-de-betoneira'
+      path: '/entrega-e-retirada-de-betoneira'
+      fullPath: '/entrega-e-retirada-de-betoneira'
+      preLoaderRoute: typeof EntregaERetiradaDeBetoneiraRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contato': {
@@ -446,6 +508,9 @@ const rootRouteChildren: RootRouteChildren = {
   CaminhaoBetoneiraRoute: CaminhaoBetoneiraRoute,
   ComprarBetoneiraRoute: ComprarBetoneiraRoute,
   ContatoRoute: ContatoRoute,
+  EntregaERetiradaDeBetoneiraRoute: EntregaERetiradaDeBetoneiraRoute,
+  LocacaoCaminhaoBetoneiraRoute: LocacaoCaminhaoBetoneiraRoute,
+  LocacaoDeBetoneirasRoute: LocacaoDeBetoneirasRoute,
   LocalSitemapDotxmlRoute: LocalSitemapDotxmlRoute,
   PageSitemapDotxmlRoute: PageSitemapDotxmlRoute,
   PostSitemapDotxmlRoute: PostSitemapDotxmlRoute,

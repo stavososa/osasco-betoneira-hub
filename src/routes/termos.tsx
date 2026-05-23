@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HazardStripe } from "@/components/HazardStripe";
@@ -47,10 +47,10 @@ function TermosPage() {
                 Termos de Uso
               </h2>
               <p>
-                O presente site <strong>Betoneira Osasco</strong> proporciona, incluindo todas as informações, ferramentas e serviços disponíveis para você, o usuário, com a condição da sua aceitação de todos os termos, condições, políticas e avisos declarados aqui.
+                A plataforma oficial da <Link to="/" className="font-bold text-[var(--brand-navy)] hover:underline">Betoneira Osasco</Link> proporciona o acesso online a todo o nosso catálogo de soluções para construção civil. Para entender a essência do nosso negócio, nossa história de atuação e nossa missão, convidamos você a visitar a página <Link to="/sobre" className="font-bold text-[var(--brand-navy)] hover:underline">Sobre nós</Link>. O uso de qualquer ferramenta ou informação disponível neste portal está condicionado à sua aceitação de todos os termos, condições e políticas declarados aqui.
               </p>
               <p className="mt-3">
-                Ao visitar nosso site e/ou comprar/solicitar orçamentos, você está utilizando nossos “Serviços”. Consequentemente, você concorda com os seguintes termos e condições (“Termos de serviço”, “Termos”), incluindo os termos e condições e políticas adicionais mencionados neste documento e/ou disponíveis por hyperlink.
+                Ao visitar nosso site e solicitar orçamentos voltados à <Link to="/locacao-de-betoneiras" className="font-bold text-[var(--brand-navy)] hover:underline">locação de betoneiras</Link> para suprir equipamentos na sua obra temporariamente, você está utilizando nossos “Serviços”. Consequentemente, você concorda com os seguintes termos e condições...
               </p>
               <p className="mt-3">
                 Esses Termos de serviço se aplicam a todos os usuários do site, incluindo, sem limitação, os usuários que são navegadores, fornecedores, parceiros, clientes, lojistas e/ou contribuidores de conteúdo.
@@ -92,7 +92,7 @@ function TermosPage() {
                 Você entende que o seu conteúdo pode ser transferido sem criptografia e pode: (a) ser transmitido por várias redes; e (b) sofrer alterações para se adaptar e se adequar às exigências técnicas de conexão de redes ou dispositivos.
               </p>
               <p className="mt-3">
-                Você concorda em não reproduzir, duplicar, copiar, vender, revender ou explorar qualquer parte do Serviço, uso do Serviço, acesso ao Serviço, ou qualquer contato no site através do qual o serviço é fornecido, sem nossa permissão expressa por escrito.
+                Você concorda em não reproduzir, duplicar, copiar, vender, revender ou explorar qualquer parte do Serviço, nem utilizar as informações de suporte e telefone presentes em nossa página de <Link to="/contato" className="font-bold text-[var(--brand-navy)] hover:underline">contato</Link> para envio de spams ou propostas comerciais sem nossa permissão expressa por escrito.
               </p>
             </div>
 
@@ -113,7 +113,7 @@ function TermosPage() {
                 Informações, Serviços e Preços
               </h2>
               <p>
-                Os preços e descrições dos serviços ou equipamentos expostos estão sujeitos a alterações sem notificação prévia.
+                Buscamos sempre manter nossa vitrine de <Link to="/servicos" className="font-bold text-[var(--brand-navy)] hover:underline">serviços</Link> atualizada, cobrindo tudo o que você precisa para a construção civil. No entanto, os preços e descrições dos equipamentos — seja nosso catálogo para quem deseja possuir um equipamento em definitivo na aba <Link to="/comprar-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">comprar betoneira</Link> ou nossa solução para concretagem de altíssimo volume via <Link to="/locacao-caminhao-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">caminhão betoneira</Link> — estão sujeitos a alterações sem notificação prévia.
               </p>
               <p className="mt-3">
                 Reservamos o direito de, a qualquer momento, modificar ou descontinuar o Serviço (ou qualquer parte ou conteúdo do mesmo) sem notificação em qualquer momento. Não nos responsabilizamos por você ou por qualquer terceiro por qualquer modificação, alteração de preço, suspensão ou descontinuação do Serviço.
@@ -158,7 +158,7 @@ function TermosPage() {
                 Isenção de Responsabilidades e Garantias
               </h2>
               <p>
-                As informações contidas no site <strong>Betoneira Osasco</strong> são apenas para fins de informação geral. Não assumimos qualquer responsabilidade por erros ou omissões nos conteúdos do Serviço.
+                As informações contidas no site <strong>Betoneira Osasco</strong>, bem como as dicas do nosso <Link to="/blog" className="font-bold text-[var(--brand-navy)] hover:underline">blog</Link>, são apenas para fins de informação geral. Não assumimos qualquer responsabilidade por erros ou omissões nos conteúdos do Serviço.
               </p>
               <p className="mt-3">
                 Nós não garantimos, representamos ou justificamos que o seu uso do nosso serviço será totalmente pontual, seguro, sem erros ou interrupções. Você concorda que o seu uso ou incapacidade de usar o serviço é por sua conta e risco.

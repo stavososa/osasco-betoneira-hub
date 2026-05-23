@@ -208,7 +208,7 @@ function BlogPostPage() {
           <div className="grid gap-10 lg:grid-cols-[1fr_300px]">
             
             {/* CORPO DO ARTIGO */}
-            <article className="reveal flex flex-col border-2 border-[var(--brand-ink)] bg-white p-4 sm:p-6 md:p-10 hard-shadow-yellow rounded-lg" id="introducao">
+            <article className="reveal flex flex-col min-w-0 border-2 border-[var(--brand-ink)] bg-white p-4 sm:p-6 md:p-10 hard-shadow-yellow rounded-lg" id="introducao">
               
               {/* Imagem Âncora (Featured Image - Proporção Natural) */}
               <div className="relative -mx-4 -mt-4 sm:-mx-6 sm:-mt-6 md:-mx-10 md:-mt-10 mb-8 overflow-hidden rounded-t-lg border-b-2 border-[var(--brand-ink)]">
@@ -257,7 +257,7 @@ function BlogPostPage() {
                   O problema é que o mercado brasileiro oferece dezenas de modelos, de marcas variadas, com capacidades que vão de 120 litros até mais de 400 litros. Escolher errado pode significar equipamento subpotente para a demanda da obra, ou então gasto desnecessário com uma máquina superdimensionada.
                 </p>
                 <p>
-                  Neste guia completo, você vai conhecer em detalhes as <strong>melhores marcas de betoneira disponíveis no Brasil em 2026</strong>, entender os diferenciais técnicos de cada fabricante e descobrir qual modelo se encaixa perfeitamente na sua necessidade, seja para um pequeno retoque doméstico ou para um canteiro profissional de grande porte. Se você está executando uma obra em Osasco e região, entender essas diferenças ajuda inclusive na hora de planejar o seu <Link to="/" className="underline text-[var(--brand-navy)] hover:text-[var(--brand-yellow)]">aluguel de betoneiras em Osasco</Link> de maneira inteligente.
+                  Neste guia completo, você vai conhecer em detalhes as <strong>melhores marcas de betoneira disponíveis no Brasil em 2026</strong>, entender os diferenciais técnicos de cada fabricante e descobrir qual modelo se encaixa perfeitamente na sua necessidade, seja para um pequeno retoque doméstico ou para um canteiro profissional de grande porte. Se você está executando uma obra em Osasco e região, entender essas diferenças ajuda inclusive na hora de planejar o seu <Link to="/locacao-de-betoneiras" className="underline font-bold text-[var(--brand-navy)] hover:text-[var(--brand-yellow)]">aluguel de betoneiras</Link> ou até mesmo a contratação de <Link to="/locacao-caminhao-betoneira" className="underline font-bold text-[var(--brand-navy)] hover:text-[var(--brand-yellow)]">caminhão betoneira</Link> de maneira inteligente.
                 </p>
               </div>
 
@@ -548,7 +548,7 @@ function BlogPostPage() {
                 <div className="border-l-4 border-[var(--brand-ink)] bg-[var(--brand-yellow)] p-6 mt-6">
                   <h3 className="font-display text-lg text-[var(--brand-ink)] uppercase font-bold">Por que Alugar em Vez de Comprar?</h3>
                   <p className="mt-2 text-sm leading-relaxed text-[var(--brand-ink)]/90">
-                    Muitos construtores compram betoneiras pensando em revender depois, mas enfrentam dores de cabeça com motor queimado, rolamento estourado e transporte difícil no final do serviço. O <Link to="/" className="underline text-[var(--brand-navy)] hover:text-[var(--brand-yellow)]">aluguel de betoneiras em Osasco</Link> elimina esses custos ocultos: você recebe uma máquina revisada de ponta (como Menegotti ou CSM), conta com assistência no local em caso de pane e a empresa retira o equipamento do canteiro no mesmo dia ao término da obra.
+                    Muitos construtores compram betoneiras pensando em revender depois, mas enfrentam dores de cabeça com motor queimado, rolamento estourado e transporte difícil no final do serviço. A <Link to="/locacao-de-betoneiras" className="underline font-bold text-[var(--brand-navy)] hover:text-[var(--brand-yellow)]">locação de betoneiras</Link> elimina esses custos ocultos: você recebe uma máquina revisada de ponta (como Menegotti ou CSM), conta com assistência no local em caso de pane e a empresa se responsabiliza pela <Link to="/entrega-e-retirada-de-betoneira" className="underline font-bold text-[var(--brand-navy)] hover:text-[var(--brand-yellow)]">entrega e retirada</Link> do canteiro no mesmo dia ao término da obra.
                   </p>
                 </div>
               </section>
