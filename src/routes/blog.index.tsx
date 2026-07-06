@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { useReveal } from "@/lib/useReveal";
 import { ArrowIcon } from "@/components/icons/Icons";
 import melhoresMarcasImg from "@/assets/quais-as-melhores-marcas-de-betoneiras.webp";
+import comoFazerConcretoImg from "@/assets/como-fazer-concreto-na-betoneira.webp";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
@@ -52,7 +53,7 @@ export const Route = createFileRoute("/blog/")({
               "headline": p.titulo,
               "description": p.resumo,
               "url": `https://betoneiraosasco.com.br/blog/${p.slug}`,
-              "datePublished": "2026-05-19",
+              "datePublished": p.dataISO,
               "author": {
                 "@type": "Person",
                 "name": "Beto Vieira"
@@ -68,10 +69,21 @@ export const Route = createFileRoute("/blog/")({
 
 export const POSTS = [
   {
+    slug: "como-fazer-concreto-na-betoneira",
+    titulo: "Como Fazer Concreto na Betoneira: Passo a Passo Completo",
+    resumo: "Aprenda o traço ideal, a ordem certa dos materiais e o tempo de mistura para fazer concreto na betoneira sem erros.",
+    data: "06 Jul 2026",
+    dataISO: "2026-07-06",
+    categoria: "Tutorial",
+    imagem: comoFazerConcretoImg,
+    active: true,
+  },
+  {
     slug: "melhores-marcas-de-betoneira",
     titulo: "Quais as Melhores Marcas de Betoneira? Guia Completo 2026",
     resumo: "Descubra quais são as melhores marcas de betoneira do mercado brasileiro, compare capacidades, preços e saiba qual escolher.",
     data: "19 Mai 2026",
+    dataISO: "2026-05-19",
     categoria: "Guia",
     imagem: melhoresMarcasImg,
     active: true,

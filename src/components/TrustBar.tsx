@@ -16,6 +16,7 @@ export function TrustBar() {
   return (
     <div
       className="marquee group border-y-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] text-[var(--brand-ink)]"
+      role="region"
       aria-label="Diferenciais"
     >
       <div className="marquee-track py-4">

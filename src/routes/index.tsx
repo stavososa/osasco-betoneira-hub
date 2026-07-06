@@ -574,7 +574,7 @@ function HomePage() {
         </section>
 
         {/* TAMBÉM VENDE */}
-        <section className="mx-auto max-w-6xl px-4 pb-10">
+        <div className="mx-auto max-w-6xl px-4 pb-10">
           <div className="reveal flex flex-col items-start justify-between gap-4 rounded-2xl bg-white p-6 ring-1 ring-black/5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.2)] md:flex-row md:items-center md:p-8">
             <div>
               <div className="spec-label text-[var(--brand-navy)]">Venda de betoneira em Osasco</div>
@@ -589,7 +589,7 @@ function HomePage() {
               Ver opções de venda <ArrowIcon size={14} />
             </Link>
           </div>
-        </section>
+        </div>
 
         {/* DEPOIMENTOS, fundo navy, cards arredondados */}
         <section className="relative noise-overlay bg-[var(--brand-navy)] py-24 text-white">
@@ -649,7 +649,7 @@ function HomePage() {
                   }`}
                 >
                   <span className="spec-label text-[var(--brand-navy)]">{p.tag}</span>
-                  <div className="mt-2 font-display text-xl text-[var(--brand-ink)]">{p.modelo}</div>
+                  <h3 className="mt-2 font-display text-xl text-[var(--brand-ink)]">{p.modelo}</h3>
                   <p className="mt-1 font-mono text-[10px] text-muted-foreground">{p.motor}</p>
                   
                   <div className="mt-5 border-t border-dashed border-[var(--brand-ink)]/10 pt-4 text-center">

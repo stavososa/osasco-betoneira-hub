@@ -8,10 +8,17 @@ import { ArrowIcon, PhoneIcon, CheckIcon, ClockIcon } from "@/components/icons/I
 import { useState, useEffect } from "react";
 import betoVieiraImg from "@/assets/beto-vieira.webp";
 import melhoresMarcasImg from "@/assets/quais-as-melhores-marcas-de-betoneiras.webp";
+import comoFazerConcretoImg from "@/assets/como-fazer-concreto-na-betoneira.webp";
 import { POSTS } from "./blog.index";
 
 // Lista de posts válidos para evitar carregamento incorreto de lixo
 const VALID_SLUGS = POSTS.filter((p) => p.active).map((p) => p.slug);
+
+// Seções de cada post usadas para o índice (TOC) com scroll-spy
+const TOC_SECTIONS: Record<string, string[]> = {
+  "melhores-marcas-de-betoneira": ["introducao", "o-que-considerar", "marcas-destaque", "comparativo-rapido", "domestico-vs-profissional", "faq", "conclusao"],
+  "como-fazer-concreto-na-betoneira": ["introducao", "preparacao", "traco-ideal", "passo-a-passo", "tempo-de-mistura", "erros-comuns", "seguranca", "faq", "conclusao"],
+};
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -90,6 +97,75 @@ export const Route = createFileRoute("/blog/$slug")({
       };
     }
 
+    if (params.slug === "como-fazer-concreto-na-betoneira") {
+      const title = "Como Fazer Concreto na Betoneira: Passo a Passo";
+      const desc = "Aprenda como fazer concreto na betoneira: traço ideal, ordem certa dos materiais e tempo de mistura. Guia prático com base na ABCP e na NR-12.";
+      const url = `https://betoneiraosasco.com.br/blog/${params.slug}/`;
+      const image = "https://betoneiraosasco.com.br/assets/como-fazer-concreto-na-betoneira.webp";
+      const publishDate = "2026-07-06T08:00:00Z";
+      const updateDate = "2026-07-06T08:00:00Z";
+
+      return {
+        meta: [
+          { title },
+          { name: "description", content: desc },
+          { property: "og:title", content: title },
+          { property: "og:description", content: desc },
+          { property: "og:url", content: url },
+          { property: "og:image", content: image },
+          { property: "og:type", content: "article" },
+          { name: "twitter:card", content: "summary_large_image" },
+          { name: "author", content: "Beto Vieira" },
+        ],
+        links: [{ rel: "canonical", href: url }],
+        scripts: [
+          {
+            type: "application/ld+json",
+            children: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "@id": `${url}#webpage`,
+              "url": url,
+              "name": title,
+              "isPartOf": {
+                "@type": "WebSite",
+                "@id": "https://betoneiraosasco.com.br/#website",
+                "url": "https://betoneiraosasco.com.br/",
+                "name": "Betoneira Osasco"
+              },
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
+                  { "@type": "ListItem", position: 2, name: "Blog", item: "https://betoneiraosasco.com.br/blog/" },
+                  { "@type": "ListItem", position: 3, name: "Como Fazer Concreto na Betoneira", item: url },
+                ],
+              },
+              "mainEntity": {
+                "@type": "BlogPosting",
+                "@id": `${url}#post`,
+                "headline": "Como Fazer Concreto na Betoneira: Passo a Passo Completo",
+                "description": desc,
+                "image": [image],
+                "datePublished": publishDate,
+                "dateModified": updateDate,
+                "author": {
+                  "@type": "Person",
+                  "name": "Beto Vieira",
+                  "jobTitle": "Especialista em Equipamentos de Obra e Concretagem",
+                  "image": "https://betoneiraosasco.com.br/assets/beto-vieira.webp",
+                  "url": "https://betoneiraosasco.com.br/blog/como-fazer-concreto-na-betoneira/#autor"
+                },
+                "publisher": {
+                  "@id": "https://betoneiraosasco.com.br/#business",
+                },
+              }
+            }),
+          },
+        ],
+      };
+    }
+
     // Fallback para outros posts vindo em breve
     return {
       meta: [
@@ -108,8 +184,8 @@ function BlogPostPage() {
 
   // Monitorar seções para destacar o índice (TOC)
   useEffect(() => {
-    if (slug !== "melhores-marcas-de-betoneira") return;
-    const sections = ["introducao", "o-que-considerar", "marcas-destaque", "comparativo-rapido", "domestico-vs-profissional", "faq", "conclusao"];
+    const sections = TOC_SECTIONS[slug];
+    if (!sections) return;
     const handleScroll = () => {
       const scrollPos = window.scrollY + 200;
       for (const section of sections) {
@@ -128,7 +204,7 @@ function BlogPostPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [slug]);
 
-  if (slug !== "melhores-marcas-de-betoneira") {
+  if (slug !== "melhores-marcas-de-betoneira" && slug !== "como-fazer-concreto-na-betoneira") {
     // Tela Premium para posts em breve
     return (
       <div className="flex min-h-screen flex-col">
@@ -161,6 +237,532 @@ function BlogPostPage() {
               <Link to="/blog" className="mt-6 inline-block text-xs font-bold uppercase tracking-wider text-muted-foreground hover:underline">
                 ← Voltar ao Blog
               </Link>
+            </div>
+          </section>
+        </main>
+        <SiteFooter />
+      </div>
+    );
+  }
+
+  if (slug === "como-fazer-concreto-na-betoneira") {
+    return (
+      <div className="flex min-h-screen flex-col">
+        <SiteHeader />
+        <main className="flex-1 bg-[var(--brand-concrete)]">
+          {/* HERO SECTION DO ARTIGO */}
+          <header className="relative noise-overlay overflow-hidden text-white bg-[var(--brand-navy)] py-10 md:py-16">
+            <div className="mx-auto max-w-4xl px-4">
+              <nav aria-label="breadcrumb" className="reveal flex items-center gap-2 spec-label !text-white/70">
+                <Link to="/" className="hover:text-[var(--brand-yellow)]">Início</Link>
+                <span className="text-[var(--brand-yellow)]">/</span>
+                <Link to="/blog" className="hover:text-[var(--brand-yellow)]">Blog</Link>
+                <span className="text-[var(--brand-yellow)]">/ Como Fazer Concreto</span>
+              </nav>
+
+              <h1 className="reveal mt-4 font-display text-[2.5rem] leading-[1.0] tracking-tight md:text-[4rem] text-white">
+                Como Fazer <span className="text-[var(--brand-yellow)] font-editorial">Concreto</span> na Betoneira<br className="hidden md:inline" /> Passo a Passo Completo
+              </h1>
+
+              <div className="reveal mt-6 flex flex-wrap items-center gap-4 text-xs font-mono text-white/80">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-[var(--brand-yellow)]" />
+                  <span>Por: Beto Vieira</span>
+                </div>
+                <span>•</span>
+                <time dateTime="2026-07-06">Publicado em: 06 de Julho de 2026</time>
+                <span>•</span>
+                <span className="flex items-center gap-1">
+                  <ClockIcon size={12} /> Leitura: 9 min
+                </span>
+              </div>
+            </div>
+            <HazardStripe />
+          </header>
+
+          {/* CONTAINER DO CONTEÚDO PRINCIPAL (LAYOUT PREMIUM COM SIDEBAR) */}
+          <section className="mx-auto max-w-6xl px-4 py-8 md:py-16">
+            <div className="grid gap-10 lg:grid-cols-[1fr_300px]">
+
+              {/* CORPO DO ARTIGO */}
+              <article className="reveal flex flex-col min-w-0 border-2 border-[var(--brand-ink)] bg-white p-4 sm:p-6 md:p-10 hard-shadow-yellow rounded-lg" id="introducao">
+
+                {/* Imagem Âncora (Featured Image) */}
+                <div className="relative -mx-4 -mt-4 sm:-mx-6 sm:-mt-6 md:-mx-10 md:-mt-10 mb-8 overflow-hidden rounded-t-lg border-b-2 border-[var(--brand-ink)]">
+                  <img
+                    src={comoFazerConcretoImg}
+                    alt="Betoneira em funcionamento misturando concreto em um canteiro de obras"
+                    className="w-full h-auto block animate-reveal"
+                    loading="eager"
+                    fetchPriority="high"
+                  />
+                </div>
+
+                {/* Box de Resumo E-E-A-T */}
+                <div className="mb-8 border-l-4 border-[var(--brand-yellow)] bg-[var(--brand-concrete)] p-5 text-sm leading-relaxed text-muted-foreground">
+                  <span className="spec-label text-[var(--brand-ink)] font-bold">Resumo Prático do Especialista:</span>
+                  <p className="mt-2">
+                    Para fazer concreto na betoneira, use o traço padrão <strong>1:2:3</strong> (uma parte de cimento, duas de areia e três de brita) com relação água/cimento entre <strong>0,5 e 0,6</strong>. Ligue a betoneira, jogue um pouco de água e a brita primeiro, depois o cimento e a areia, complete a água aos poucos e bata por <strong>3 a 5 minutos</strong> até obter uma mistura homogênea e sem grumos.
+                  </p>
+                </div>
+
+                {/* Sumário Inline Retrátil para Mobile */}
+                <details className="faq-item group lg:hidden mb-8 border-2 border-[var(--brand-ink)] bg-[var(--brand-concrete)] p-4 rounded-lg shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
+                  <summary className="flex items-center justify-between gap-4 cursor-pointer font-display text-sm uppercase tracking-wider text-[var(--brand-ink)] font-bold select-none">
+                    <span>Guia Rápido do Artigo</span>
+                    <span className="chev font-mono text-xl text-[var(--brand-yellow)] bg-[var(--brand-ink)] px-2 rounded" aria-hidden="true">+</span>
+                  </summary>
+                  <nav className="mt-4 border-t border-[var(--brand-ink)]/10 pt-4">
+                    <ul className="space-y-2.5 font-display text-xs uppercase tracking-wider text-[var(--brand-ink)]">
+                      <li><a href="#introducao" className="block hover:text-[var(--brand-yellow)]">• Introdução</a></li>
+                      <li><a href="#preparacao" className="block hover:text-[var(--brand-yellow)]">• Antes de Começar</a></li>
+                      <li><a href="#traco-ideal" className="block hover:text-[var(--brand-yellow)]">• Traço Ideal</a></li>
+                      <li><a href="#passo-a-passo" className="block hover:text-[var(--brand-yellow)]">• Passo a Passo</a></li>
+                      <li><a href="#tempo-de-mistura" className="block hover:text-[var(--brand-yellow)]">• Tempo de Mistura</a></li>
+                      <li><a href="#erros-comuns" className="block hover:text-[var(--brand-yellow)]">• Erros Comuns</a></li>
+                      <li><a href="#seguranca" className="block hover:text-[var(--brand-yellow)]">• Segurança</a></li>
+                      <li><a href="#faq" className="block hover:text-[var(--brand-yellow)]">• FAQ Obra</a></li>
+                      <li><a href="#conclusao" className="block hover:text-[var(--brand-yellow)]">• Conclusão e Contato</a></li>
+                    </ul>
+                  </nav>
+                </details>
+
+                {/* INTRODUÇÃO */}
+                <div className="prose max-w-none text-foreground/90 space-y-6 text-base leading-relaxed">
+                  <p>
+                    Fazer concreto na betoneira parece simples, mas errar a ordem dos materiais, a quantidade de água ou o tempo de mistura compromete a resistência final da peça. Um concreto mal misturado pode segregar, criar bolhas de ar e reduzir drasticamente a resistência à compressão, mesmo usando os materiais corretos.
+                  </p>
+                  <p>
+                    A boa notícia é que o processo segue uma lógica bem definida, usada por pedreiros e engenheiros em qualquer canteiro do Brasil. Seguindo o traço certo e a sequência correta de mistura, qualquer pessoa consegue produzir um concreto homogêneo e resistente direto na própria <Link to="/locacao-de-betoneiras" className="underline font-bold text-[var(--brand-navy)] hover:text-[var(--brand-yellow)]">betoneira alugada</Link> ou adquirida.
+                  </p>
+                  <p>
+                    Neste guia você vai aprender o <strong>traço ideal de concreto para cada uso</strong> (fundação, viga, laje ou contrapiso), a <strong>ordem correta</strong> de colocar os materiais no tambor, quanto tempo bater a mistura e os erros mais comuns que arruínam a concretagem. Se a demanda for muito grande, para lajes de grande porte também existe a opção de contratar um <Link to="/caminhao-betoneira" className="underline font-bold text-[var(--brand-navy)] hover:text-[var(--brand-yellow)]">caminhão betoneira</Link> em vez de misturar manualmente.
+                  </p>
+                </div>
+
+                {/* ANTES DE COMEÇAR */}
+                <hr className="my-10 border-t-2 border-dashed border-[var(--brand-ink)]/10" />
+                <section id="preparacao" className="space-y-6">
+                  <h2 className="font-display text-2xl md:text-3xl text-[var(--brand-ink)] uppercase">
+                    O que você precisa antes de começar?
+                  </h2>
+                  <p className="text-base text-foreground/90 leading-relaxed">
+                    Antes de ligar a betoneira, separe todos os materiais e equipamentos de proteção. Segundo a <strong>NR-12</strong> (norma regulamentadora de segurança em máquinas do Ministério do Trabalho), operar equipamentos rotativos sem os EPIs adequados é uma das principais causas de acidentes em obras de pequeno porte.
+                  </p>
+
+                  <div className="grid gap-6 sm:grid-cols-2 mt-4">
+                    <div className="border border-[var(--brand-ink)]/15 bg-[var(--brand-concrete)] p-5 rounded">
+                      <h3 className="font-display text-lg text-[var(--brand-navy)] uppercase">Materiais</h3>
+                      <ul className="mt-2 text-sm text-muted-foreground leading-relaxed list-disc pl-5 space-y-1">
+                        <li>Cimento Portland (CP-II é o mais comum para obras residenciais)</li>
+                        <li>Areia média, lavada e livre de barro ou matéria orgânica</li>
+                        <li>Brita 1 (ou brita 0 para peças mais finas)</li>
+                        <li>Água limpa, de preferência potável</li>
+                      </ul>
+                    </div>
+
+                    <div className="border border-[var(--brand-ink)]/15 bg-[var(--brand-concrete)] p-5 rounded">
+                      <h3 className="font-display text-lg text-[var(--brand-navy)] uppercase">Ferramentas e EPIs</h3>
+                      <ul className="mt-2 text-sm text-muted-foreground leading-relaxed list-disc pl-5 space-y-1">
+                        <li>Betoneira com cremalheira protegida (conforme NR-12)</li>
+                        <li>Pá, enxada e carrinho de mão ou padiola</li>
+                        <li>Balde graduado para medir a água com precisão</li>
+                        <li>Luvas, botas de PVC, óculos de proteção e máscara contra poeira</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-[var(--brand-yellow)]/15 border border-[var(--brand-yellow)] p-4 rounded text-sm text-[var(--brand-ink)] flex items-start gap-3">
+                    <span className="font-bold font-mono">💡 Dica Prática de Obra:</span>
+                    <p>
+                      Nunca carregue a betoneira acima de 70% da capacidade do tambor. Um tambor de 400 litros, por exemplo, deve receber no máximo entre 270 e 300 litros de mistura por batelada para girar e homogeneizar corretamente.
+                    </p>
+                  </div>
+                </section>
+
+                {/* TRAÇO IDEAL */}
+                <hr className="my-10 border-t-2 border-dashed border-[var(--brand-ink)]/10" />
+                <section id="traco-ideal" className="space-y-6">
+                  <h2 className="font-display text-2xl md:text-3xl text-[var(--brand-ink)] uppercase">
+                    Qual o traço ideal de concreto para a betoneira?
+                  </h2>
+                  <p className="text-base text-foreground/90 leading-relaxed">
+                    O traço é a proporção entre cimento, areia, brita e água usada na mistura. A <strong>Associação Brasileira de Cimento Portland (ABCP)</strong> recomenda o traço <strong>1:2:3</strong> (cimento:areia:brita) em volume como referência geral para concreto estrutural simples, ajustando a água conforme a trabalhabilidade desejada.
+                  </p>
+
+                  <div className="overflow-x-auto border-2 border-[var(--brand-ink)] bg-white shadow-sm rounded-lg w-full">
+                    <table className="w-full min-w-[650px] text-left border-collapse">
+                      <thead>
+                        <tr className="bg-[var(--brand-navy)] text-white border-b-2 border-[var(--brand-ink)] text-xs uppercase tracking-wider font-mono">
+                          <th className="p-4 border-r border-[var(--brand-ink)]/20">Aplicação</th>
+                          <th className="p-4 border-r border-[var(--brand-ink)]/20">Traço (Cimento:Areia:Brita)</th>
+                          <th className="p-4 border-r border-[var(--brand-ink)]/20">Água/Cimento</th>
+                          <th className="p-4">Resistência Aproximada</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-[var(--brand-ink)]/10 text-sm">
+                        <tr className="hover:bg-[var(--brand-concrete)] transition-colors">
+                          <td className="p-4 font-bold border-r border-[var(--brand-ink)]/20 text-[var(--brand-ink)]">Contrapiso e calçada</td>
+                          <td className="p-4 border-r border-[var(--brand-ink)]/20 font-mono">1 : 3 : 3</td>
+                          <td className="p-4 border-r border-[var(--brand-ink)]/20 font-mono">0,6</td>
+                          <td className="p-4">fck ≈ 15 MPa</td>
+                        </tr>
+                        <tr className="hover:bg-[var(--brand-concrete)] transition-colors">
+                          <td className="p-4 font-bold border-r border-[var(--brand-ink)]/20 text-[var(--brand-ink)]">Fundação e sapata</td>
+                          <td className="p-4 border-r border-[var(--brand-ink)]/20 font-mono">1 : 2,5 : 3</td>
+                          <td className="p-4 border-r border-[var(--brand-ink)]/20 font-mono">0,55</td>
+                          <td className="p-4">fck ≈ 20 MPa</td>
+                        </tr>
+                        <tr className="hover:bg-[var(--brand-concrete)] transition-colors">
+                          <td className="p-4 font-bold border-r border-[var(--brand-ink)]/20 text-[var(--brand-ink)]">Viga e pilar</td>
+                          <td className="p-4 border-r border-[var(--brand-ink)]/20 font-mono">1 : 2 : 3</td>
+                          <td className="p-4 border-r border-[var(--brand-ink)]/20 font-mono">0,5</td>
+                          <td className="p-4">fck ≈ 25 MPa</td>
+                        </tr>
+                        <tr className="hover:bg-[var(--brand-concrete)] transition-colors">
+                          <td className="p-4 font-bold border-r border-[var(--brand-ink)]/20 text-[var(--brand-ink)]">Laje</td>
+                          <td className="p-4 border-r border-[var(--brand-ink)]/20 font-mono">1 : 2 : 2,5</td>
+                          <td className="p-4 border-r border-[var(--brand-ink)]/20 font-mono">0,5</td>
+                          <td className="p-4">fck ≈ 25 MPa</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p className="text-xs text-muted-foreground italic">
+                    *Valores de referência para obras residenciais de pequeno porte. Para elementos estruturais críticos, sempre siga o traço especificado pelo projeto estrutural, conforme a <strong>ABNT NBR 6118</strong>.
+                  </p>
+                </section>
+
+                {/* PASSO A PASSO */}
+                <hr className="my-10 border-t-2 border-dashed border-[var(--brand-ink)]/10" />
+                <section id="passo-a-passo" className="space-y-8">
+                  <h2 className="font-display text-2xl md:text-3xl text-[var(--brand-ink)] uppercase">
+                    Passo a passo: como fazer concreto na betoneira
+                  </h2>
+                  <p className="text-base text-foreground/90 leading-relaxed">
+                    A ordem de entrada dos materiais no tambor influencia diretamente a homogeneidade do concreto. Bater cimento seco puro contra a parede do tambor antes da brita, por exemplo, faz o pó grudar e formar grumos difíceis de desfazer.
+                  </p>
+
+                  <div className="space-y-6">
+                    {[
+                      { n: "01", t: "Ligue a betoneira e adicione um pouco de água", d: "Com o tambor já girando, jogue cerca de 10% da água prevista para o traço. Isso evita que o cimento e a areia grudem direto na chapa metálica." },
+                      { n: "02", t: "Adicione a brita", d: "Jogue toda a brita do traço com o tambor em movimento. A brita ajuda a 'lavar' as paredes internas e evita perda de finos." },
+                      { n: "03", t: "Adicione o cimento", d: "Despeje o cimento sobre a brita já úmida, nunca direto na chapa seca da betoneira." },
+                      { n: "04", t: "Adicione a areia", d: "Em seguida, jogue a areia. Ela ajuda a arrastar o cimento que ficou preso na brita e inicia a formação da pasta." },
+                      { n: "05", t: "Complete a água aos poucos", d: "Vá adicionando o restante da água em pequenas quantidades, observando a consistência. Não jogue tudo de uma vez." },
+                      { n: "06", t: "Bata por 3 a 5 minutos", d: "Deixe a betoneira girar até a mistura ficar homogênea, brilhante e sem pontos secos ou grumos visíveis." },
+                      { n: "07", t: "Verifique a consistência (slump)", d: "O concreto ideal escorre da pá em uma massa coesa, sem escorrer como água nem quebrar em pedaços secos." },
+                      { n: "08", t: "Despeje e limpe a betoneira imediatamente", d: "Retire todo o concreto e lave o tambor com água e um pouco de brita ainda girando, antes que o cimento endureça na chapa." },
+                    ].map((step) => (
+                      <div key={step.n} className="flex gap-4 items-start">
+                        <span className="font-mono text-3xl font-bold text-[var(--brand-yellow)] shrink-0">{step.n}</span>
+                        <div>
+                          <h3 className="font-display text-lg text-[var(--brand-ink)] uppercase">{step.t}</h3>
+                          <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{step.d}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                {/* TEMPO DE MISTURA */}
+                <hr className="my-10 border-t-2 border-dashed border-[var(--brand-ink)]/10" />
+                <section id="tempo-de-mistura" className="space-y-6">
+                  <h2 className="font-display text-2xl md:text-3xl text-[var(--brand-ink)] uppercase">
+                    Quanto tempo bater o concreto na betoneira?
+                  </h2>
+                  <p className="text-base text-foreground/90 leading-relaxed">
+                    O tempo mínimo recomendado é de <strong>3 a 5 minutos</strong> de mistura após todos os materiais estarem no tambor, contados a partir do momento em que o último ingrediente é adicionado. Misturas com betoneiras de 400 litros e cargas cheias tendem a precisar do limite superior desse intervalo.
+                  </p>
+                  <p className="text-base text-foreground/90 leading-relaxed">
+                    Bater por menos de 2 minutos costuma deixar pontos secos e concreto com resistência irregular. Já bater por tempo excessivo (mais de 10 minutos) pode gerar segregação, com a brita se concentrando no fundo e a nata de cimento subindo para a superfície.
+                  </p>
+                  <div className="bg-[var(--brand-yellow)]/15 border border-[var(--brand-yellow)] p-4 rounded text-sm text-[var(--brand-ink)] flex items-start gap-3">
+                    <span className="font-bold font-mono">💡 Dica Prática de Obra:</span>
+                    <p>
+                      Use sempre o mesmo número de padiolas ou baldes de cada material para manter o traço constante entre uma batelada e outra. Isso garante que todas as peças concretadas no dia tenham a mesma resistência.
+                    </p>
+                  </div>
+                </section>
+
+                {/* ERROS COMUNS */}
+                <hr className="my-10 border-t-2 border-dashed border-[var(--brand-ink)]/10" />
+                <section id="erros-comuns" className="space-y-6">
+                  <h2 className="font-display text-2xl md:text-3xl text-[var(--brand-ink)] uppercase">
+                    Quais os erros mais comuns ao fazer concreto na betoneira?
+                  </h2>
+                  <p className="text-base text-foreground/90 leading-relaxed">
+                    O erro mais frequente em canteiros pequenos é o excesso de água na mistura. Água a mais deixa o concreto mais fácil de aplicar no curto prazo, mas reduz de forma proporcional a resistência final da peça curada.
+                  </p>
+
+                  <div className="space-y-4">
+                    <div className="flex gap-4 items-start">
+                      <div className="p-2 bg-[var(--brand-yellow)] text-[var(--brand-ink)] rounded-full mt-1">
+                        <CheckIcon size={16} />
+                      </div>
+                      <div>
+                        <h3 className="font-display text-base text-[var(--brand-ink)] uppercase">Excesso de água ("dar uma aguadinha")</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed mt-1">
+                          Aumentar a água além da relação água/cimento prevista no traço enfraquece o concreto e aumenta a porosidade, facilitando a entrada de umidade e corrosão da armadura ao longo dos anos.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-4 items-start">
+                      <div className="p-2 bg-[var(--brand-yellow)] text-[var(--brand-ink)] rounded-full mt-1">
+                        <CheckIcon size={16} />
+                      </div>
+                      <div>
+                        <h3 className="font-display text-base text-[var(--brand-ink)] uppercase">Inverter a ordem dos materiais</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed mt-1">
+                          Jogar cimento seco direto na chapa vazia do tambor faz o pó grudar nas paredes e formar grumos que não se desfazem nem com tempo extra de mistura.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-4 items-start">
+                      <div className="p-2 bg-[var(--brand-yellow)] text-[var(--brand-ink)] rounded-full mt-1">
+                        <CheckIcon size={16} />
+                      </div>
+                      <div>
+                        <h3 className="font-display text-base text-[var(--brand-ink)] uppercase">Não limpar a betoneira entre bateladas</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed mt-1">
+                          Resíduos de concreto endurecido acumulados no tambor reduzem o volume útil de mistura e contaminam a próxima batelada com material já curado.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-4 items-start">
+                      <div className="p-2 bg-[var(--brand-yellow)] text-[var(--brand-ink)] rounded-full mt-1">
+                        <CheckIcon size={16} />
+                      </div>
+                      <div>
+                        <h3 className="font-display text-base text-[var(--brand-ink)] uppercase">Sobrecarregar o tambor</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed mt-1">
+                          Colocar mais material do que a capacidade útil da betoneira impede o giro completo da mistura, deixando bolsões de material seco no fundo do tambor.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                {/* SEGURANÇA */}
+                <hr className="my-10 border-t-2 border-dashed border-[var(--brand-ink)]/10" />
+                <section id="seguranca" className="space-y-6">
+                  <h2 className="font-display text-2xl md:text-3xl text-[var(--brand-ink)] uppercase">
+                    Como operar a betoneira com segurança?
+                  </h2>
+                  <p className="text-base text-foreground/90 leading-relaxed">
+                    A <strong>NR-12</strong> exige que a cremalheira (coroa dentada) da betoneira esteja sempre protegida contra contato acidental, já que essa é uma das partes móveis que mais causa acidentes com mãos e dedos em canteiros de obra.
+                  </p>
+                  <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
+                    <li>Nunca introduza a pá, enxada ou as mãos dentro do tambor enquanto ele estiver girando.</li>
+                    <li>Verifique o aterramento elétrico da betoneira antes de ligá-la, principalmente em dias de chuva.</li>
+                    <li>Use sempre luvas, botas de PVC e óculos de proteção contra respingos de cimento.</li>
+                    <li>Mantenha a área ao redor do tambor livre de fios soltos, entulho e outras pessoas circulando.</li>
+                    <li>Desligue e trave a betoneira antes de qualquer manutenção ou limpeza mais profunda.</li>
+                  </ul>
+                </section>
+
+                {/* PERGUNTAS FREQUENTES */}
+                <hr className="my-10 border-t-2 border-dashed border-[var(--brand-ink)]/10" />
+                <section id="faq" className="space-y-6">
+                  <h2 className="font-display text-2xl md:text-3xl text-[var(--brand-ink)] uppercase text-center">
+                    Perguntas Frequentes Sobre Fazer Concreto na Betoneira
+                  </h2>
+
+                  <div className="divide-y-2 divide-[var(--brand-ink)] border-y-2 border-[var(--brand-ink)] bg-white p-6 shadow-sm rounded">
+
+                    <details className="faq-item group py-4">
+                      <summary className="flex items-center justify-between gap-4 cursor-pointer">
+                        <span className="font-display text-base md:text-lg text-[var(--brand-ink)] uppercase font-bold">Posso usar qualquer tipo de areia para fazer concreto?</span>
+                        <span className="chev font-mono text-2xl text-[var(--brand-yellow)]" aria-hidden="true">+</span>
+                      </summary>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                        Não. Use areia média lavada, livre de barro, argila ou matéria orgânica. Areia suja reduz a aderência entre a pasta de cimento e os agregados, comprometendo a resistência final do concreto.
+                      </p>
+                    </details>
+
+                    <details className="faq-item group py-4">
+                      <summary className="flex items-center justify-between gap-4 cursor-pointer">
+                        <span className="font-display text-base md:text-lg text-[var(--brand-ink)] uppercase font-bold">Quanto tempo tenho para usar o concreto depois de misturado?</span>
+                        <span className="chev font-mono text-2xl text-[var(--brand-yellow)]" aria-hidden="true">+</span>
+                      </summary>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                        Em condições normais de temperatura, o concreto deve ser aplicado em até 90 minutos após a mistura. Em dias muito quentes, esse prazo cai bastante, pois o calor acelera o início da pega do cimento.
+                      </p>
+                    </details>
+
+                    <details className="faq-item group py-4">
+                      <summary className="flex items-center justify-between gap-4 cursor-pointer">
+                        <span className="font-display text-base md:text-lg text-[var(--brand-ink)] uppercase font-bold">Posso adicionar aditivo impermeabilizante na betoneira?</span>
+                        <span className="chev font-mono text-2xl text-[var(--brand-yellow)]" aria-hidden="true">+</span>
+                      </summary>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                        Sim. Aditivos impermeabilizantes e plastificantes podem ser adicionados junto com a água, seguindo sempre a dosagem indicada pelo fabricante na embalagem do produto.
+                      </p>
+                    </details>
+
+                    <details className="faq-item group py-4">
+                      <summary className="flex items-center justify-between gap-4 cursor-pointer">
+                        <span className="font-display text-base md:text-lg text-[var(--brand-ink)] uppercase font-bold">Qual tamanho de betoneira ideal para concretar uma laje?</span>
+                        <span className="chev font-mono text-2xl text-[var(--brand-yellow)]" aria-hidden="true">+</span>
+                      </summary>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                        Para lajes residenciais, betoneiras de 250 a 400 litros produzem o volume necessário em menos bateladas. Para lajes muito grandes, o ideal é avaliar a contratação de um caminhão betoneira.
+                      </p>
+                    </details>
+
+                    <details className="faq-item group py-4">
+                      <summary className="flex items-center justify-between gap-4 cursor-pointer">
+                        <span className="font-display text-base md:text-lg text-[var(--brand-ink)] uppercase font-bold">Como limpar a betoneira depois de usar?</span>
+                        <span className="chev font-mono text-2xl text-[var(--brand-yellow)]" aria-hidden="true">+</span>
+                      </summary>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                        Com o tambor ainda girando, jogue água e um pouco de brita para soltar os resíduos de concreto fresco das paredes internas antes que o cimento endureça. Nunca deixe para limpar no dia seguinte.
+                      </p>
+                    </details>
+
+                  </div>
+                </section>
+
+                {/* CONCLUSÃO E CTA */}
+                <hr className="my-10 border-t-2 border-dashed border-[var(--brand-ink)]/10" />
+                <section id="conclusao" className="space-y-6">
+                  <h2 className="font-display text-2xl md:text-3xl text-[var(--brand-ink)] uppercase">
+                    Conclusão: Concreto bem feito começa na ordem certa da mistura
+                  </h2>
+                  <div className="prose max-w-none text-foreground/90 space-y-4 text-base leading-relaxed">
+                    <p>
+                      Fazer concreto na betoneira é um processo simples quando você respeita o traço correto, a ordem de entrada dos materiais e o tempo mínimo de mistura. Esses três fatores, juntos, definem se a peça concretada vai resistir décadas ou apresentar problemas em poucos anos.
+                    </p>
+                    <p>
+                      Antes de iniciar uma concretagem, revise a quantidade de material necessária, prepare os EPIs e certifique-se de que a betoneira está com a cremalheira protegida conforme a NR-12. Isso evita retrabalho, desperdício de material e riscos desnecessários no canteiro.
+                    </p>
+                  </div>
+
+                  <div className="mt-10 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] p-6 md:p-8 rounded-lg hard-shadow">
+                    <span className="spec-label text-[var(--brand-ink)] font-bold">Precisa de betoneira para sua obra em Osasco?</span>
+                    <h3 className="mt-2 font-display text-2xl md:text-3xl text-[var(--brand-ink)] uppercase">
+                      Alugue betoneiras revisadas com entrega no mesmo dia!
+                    </h3>
+                    <p className="mt-2 text-sm text-[var(--brand-ink)]/90 max-w-2xl leading-relaxed">
+                      A <Link to="/" className="underline text-[var(--brand-navy)] hover:text-[var(--brand-yellow)]">Betoneira Osasco</Link> entrega betoneiras de 120L, 150L, 250L e 400L limpas e revisadas em qualquer bairro de Osasco. Confira também nossos modelos disponíveis para <Link to="/comprar-betoneira" className="underline text-[var(--brand-navy)] hover:text-[var(--brand-yellow)]">compra</Link> e o serviço de <Link to="/entrega-e-retirada-de-betoneira" className="underline text-[var(--brand-navy)] hover:text-[var(--brand-yellow)]">entrega e retirada</Link> no mesmo dia.
+                    </p>
+                    <div className="mt-6 flex flex-wrap gap-4">
+                      <a
+                        href={`https://wa.me/5511975465766?text=${encodeURIComponent("Olá! Gostaria de fazer um orçamento de locação de betoneira em Osasco.")}`}
+                        target="_blank"
+                        rel="noopener"
+                        className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-white px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-ink)] hard-shadow hover:bg-[var(--brand-concrete)] transition-colors"
+                      >
+                        Solicitar Orçamento Grátis <ArrowIcon size={16} />
+                      </a>
+                      <a
+                        href="tel:+5511975465766"
+                        className="inline-flex items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-ink)] px-6 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand-yellow)] hard-shadow hover:bg-[var(--brand-ink)]/90 transition-colors"
+                      >
+                        <PhoneIcon size={16} /> Ligar: (11) 97546-5766
+                      </a>
+                    </div>
+                  </div>
+                </section>
+
+                {/* Card de Autor Premium (E-E-A-T) */}
+                <section id="autor" className="reveal mt-12 cut-corner border-2 border-[var(--brand-ink)] bg-white p-6 md:p-8 hard-shadow flex flex-col md:flex-row items-center md:items-start gap-6">
+                  <img
+                    src={betoVieiraImg}
+                    alt="Beto Vieira, Especialista em Betoneiras e Equipamentos de Construção em Osasco"
+                    width={120}
+                    height={120}
+                    className="w-24 h-24 md:w-28 md:h-28 rounded-full border-2 border-[var(--brand-ink)] object-cover shadow-sm bg-[var(--brand-concrete)]"
+                    loading="lazy"
+                  />
+                  <div className="flex-1 space-y-3">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                      <div>
+                        <span className="spec-label !text-[var(--brand-navy)] font-bold text-xs uppercase tracking-wider">Autor do Guia</span>
+                        <h3 className="font-display text-2xl text-[var(--brand-ink)] uppercase leading-tight mt-1">Beto Vieira</h3>
+                      </div>
+                      <span className="inline-flex self-center md:self-auto items-center gap-1.5 bg-[var(--brand-concrete)] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--brand-ink)] border border-[var(--brand-ink)]/10 rounded-full">
+                        👷 Engenharia & Equipamentos
+                      </span>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Beto Vieira é especialista em engenharia prática e equipamentos para canteiro de obras, acumulando mais de 15 anos de experiência na seleção, manutenção e dimensionamento de misturadores de concreto. Consultor técnico da <strong>Betoneiras Osasco</strong>, atua orientando construtores, mestres de obras e engenheiros na escolha correta do traço e do maquinário ideal para garantir produtividade máxima, segurança impecável e o melhor custo-benefício em Osasco e toda a Grande São Paulo.
+                    </p>
+                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2 text-xs font-mono text-muted-foreground">
+                      <span className="flex items-center gap-1">✓ Autoridade Técnica</span>
+                      <span>•</span>
+                      <span className="flex items-center gap-1">✓ Revisão Prática</span>
+                      <span>•</span>
+                      <span className="flex items-center gap-1">✓ Especialista Osasco</span>
+                    </div>
+                  </div>
+                </section>
+
+                {/* Referências de Rodapé (E-E-A-T) */}
+                <footer className="mt-12 border-t border-[var(--brand-ink)]/15 pt-6 text-xs text-muted-foreground space-y-2">
+                  <p>
+                    <strong>Referências e Citações de Autoridade:</strong>
+                  </p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Dosagem e traços de referência para concreto: <a href="https://www.abcp.org.br" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--brand-navy)]">ABCP (Associação Brasileira de Cimento Portland)</a>.</li>
+                    <li>Projeto de estruturas de concreto: <a href="https://www.abnt.org.br" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--brand-navy)]">ABNT NBR 6118</a>.</li>
+                    <li>Segurança na operação de máquinas e equipamentos: <a href="https://www.gov.br/trabalho-e-emprego" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--brand-navy)]">NR-12, Ministério do Trabalho e Emprego</a>.</li>
+                  </ul>
+                </footer>
+
+              </article>
+
+              {/* SIDEBAR RÍGIDA COM ÍNDICE E CONVERSÃO */}
+              <aside className="hidden lg:block space-y-6">
+
+                <div className="sticky top-20 border-2 border-[var(--brand-ink)] bg-white p-5 hard-shadow rounded-lg">
+                  <span className="spec-label text-[var(--brand-navy)] font-bold">Índice do Guia</span>
+                  <nav className="mt-4">
+                    <ul className="space-y-3 font-display text-sm uppercase tracking-wider text-[var(--brand-ink)]">
+                      {[
+                        { id: "introducao", label: "Introdução" },
+                        { id: "preparacao", label: "Antes de Começar" },
+                        { id: "traco-ideal", label: "Traço Ideal" },
+                        { id: "passo-a-passo", label: "Passo a Passo" },
+                        { id: "tempo-de-mistura", label: "Tempo de Mistura" },
+                        { id: "erros-comuns", label: "Erros Comuns" },
+                        { id: "seguranca", label: "Segurança" },
+                        { id: "faq", label: "FAQ Obra" },
+                        { id: "conclusao", label: "Conclusão e Contato" },
+                      ].map((item) => (
+                        <li key={item.id}>
+                          <a
+                            href={`#${item.id}`}
+                            className={`block transition-colors hover:text-[var(--brand-yellow)] ${activeSection === item.id ? "text-[var(--brand-yellow)] font-bold pl-1 border-l-2 border-[var(--brand-yellow)]" : ""}`}
+                          >
+                            • {item.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+
+                  <div className="my-5 border-t border-[var(--brand-ink)]/15" />
+
+                  <div>
+                    <p className="text-xs text-muted-foreground font-mono leading-relaxed">
+                      Alugue betoneira em Osasco sem burocracias. Atendimento rápido e entrega na porta da sua obra.
+                    </p>
+                    <a
+                      href={`https://wa.me/5511975465766?text=${encodeURIComponent("Olá! Gostaria de um orçamento rápido para aluguel de betoneiras em Osasco.")}`}
+                      target="_blank"
+                      rel="noopener"
+                      className="mt-4 flex w-full justify-center items-center gap-2 border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] py-2.5 text-xs font-bold uppercase tracking-wider text-[var(--brand-ink)] hover:bg-[var(--brand-yellow)]/90 transition-colors"
+                    >
+                      Chamar no WhatsApp <ArrowIcon size={12} />
+                    </a>
+                  </div>
+                </div>
+
+              </aside>
             </div>
           </section>
         </main>

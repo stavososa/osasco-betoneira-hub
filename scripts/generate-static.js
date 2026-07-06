@@ -6,6 +6,33 @@ import http from 'http';
 const __dirname = path.resolve();
 const DIST_STATIC = path.join(__dirname, 'static-unzipped');
 
+// The app router uses trailingSlash: "always", so any crawled path missing
+// a trailing slash comes back as a 307 redirect. Follow it instead of
+// silently writing an empty body (http.get does not follow redirects).
+function fetchFollowingRedirects(url, maxRedirects = 5) {
+  return new Promise((resolve, reject) => {
+    const attempt = (currentUrl, redirectsLeft) => {
+      http.get(currentUrl, (res) => {
+        const { statusCode, headers } = res;
+        if (statusCode >= 300 && statusCode < 400 && headers.location) {
+          res.resume();
+          if (redirectsLeft <= 0) {
+            reject(new Error(`Too many redirects for ${url}`));
+            return;
+          }
+          const nextUrl = new URL(headers.location, currentUrl).toString();
+          attempt(nextUrl, redirectsLeft - 1);
+          return;
+        }
+        let data = '';
+        res.on('data', (chunk) => (data += chunk));
+        res.on('end', () => resolve(data));
+      }).on('error', reject);
+    };
+    attempt(url, maxRedirects);
+  });
+}
+
 // List of all neighborhoods (copied from src/lib/bairros.ts for standalone execution)
 const BAIRROS = [
   { slug: "adalgisa", nome: "Adalgisa", avenidaPrincipal: "Avenida Adalgisa", pontoReferencia: "São Francisco Golf Club", caracteristicaObra: "reformas residenciais e acabamentos de alto padrão" },
@@ -85,6 +112,7 @@ const PAGES = [
   { path: '/entrega-e-retirada-de-betoneira', out: 'entrega-e-retirada-de-betoneira/index.html' },
   { path: '/blog', out: 'blog/index.html' },
   { path: '/blog/melhores-marcas-de-betoneira', out: 'blog/melhores-marcas-de-betoneira/index.html' },
+  { path: '/blog/como-fazer-concreto-na-betoneira', out: 'blog/como-fazer-concreto-na-betoneira/index.html' },
   { path: '/betoneira-120l', out: 'betoneira-120l/index.html' },
   { path: '/betoneira-150l', out: 'betoneira-150l/index.html' },
   { path: '/betoneira-250l', out: 'betoneira-250l/index.html' },
@@ -405,13 +433,7 @@ async function main() {
   for (const page of PAGES) {
     const url = `http://127.0.0.1:5199${page.path}`;
     try {
-      const html = await new Promise((resolve, reject) => {
-        http.get(url, (res) => {
-          let data = '';
-          res.on('data', chunk => data += chunk);
-          res.on('end', () => resolve(data));
-        }).on('error', reject);
-      });
+      const html = await fetchFollowingRedirects(url);
 
       console.log(`🌐 Crawled: ${page.path} -> ${page.out}`);
 
@@ -490,13 +512,7 @@ async function main() {
   for (const page of XML_PAGES) {
     const url = `http://127.0.0.1:5199${page.path}`;
     try {
-      const xml = await new Promise((resolve, reject) => {
-        http.get(url, (res) => {
-          let data = '';
-          res.on('data', chunk => data += chunk);
-          res.on('end', () => resolve(data));
-        }).on('error', reject);
-      });
+      const xml = await fetchFollowingRedirects(url);
 
       console.log(`🌐 Crawled XML: ${page.path} -> ${page.out}`);
       const outPath = path.join(DIST_STATIC, page.out);
