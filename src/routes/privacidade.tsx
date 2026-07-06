@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HazardStripe } from "@/components/HazardStripe";
@@ -11,9 +11,9 @@ export const Route = createFileRoute("/privacidade")({
       { name: "description", content: "Política de privacidade e proteção de dados do portal Betoneira Osasco. Entenda o uso de cookies e como tratamos suas informações." },
       { property: "og:title", content: "Política de Privacidade | Betoneira Osasco" },
       { property: "og:description", content: "Saiba mais sobre como protegemos seus dados pessoais e nosso uso de cookies." },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/privacidade" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/privacidade/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/privacidade" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/privacidade/" }],
   }),
   component: PrivacidadePage,
 });

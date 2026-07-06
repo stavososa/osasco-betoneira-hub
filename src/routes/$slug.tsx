@@ -141,7 +141,7 @@ export const Route = createFileRoute("/$slug")({
     const { bairro } = loaderData;
     const title = `Aluguel de Betoneiras em ${bairro.nome} | Betoneiras Osasco`;
     const desc = `Aluguel de betoneiras em ${bairro.nome} em Osasco, diversos tipos de betoneiras com o melhor preço e atendimento mais rápido`;
-    const url = `https://betoneiraosasco.com.br/${params.slug}`;
+    const url = `https://betoneiraosasco.com.br/${params.slug}/`;
     return {
       meta: [
         { title },
@@ -353,7 +353,7 @@ function BairroPage() {
               </h1>
 
               <p className="reveal mt-6 max-w-md text-white/80 leading-relaxed" style={{ ["--i" as never]: 2 }}>
-                O melhor aluguel de betoneira em {bairro.nome}. Fornecemos modelos elétricos (110V/220V) e a gasolina de 120L, 150L, 250L e 400L. Se você busca uma <strong>betoneira perto de mim</strong> para {bairro.caracteristicaObra}, conte com nossa entrega ágil na região da {bairro.avenidaPrincipal}.
+                O melhor aluguel de betoneira em {bairro.nome}. Fornecemos modelos elétricos (110V/220V) e a gasolina de 120L, 150L, 250L e 400L. Se você busca uma <Link to="/" className="font-bold underline hover:text-[var(--brand-yellow)]">betoneira perto de mim</Link> para {bairro.caracteristicaObra}, conte com nossa entrega ágil na região da {bairro.avenidaPrincipal}.
               </p>
 
               <div className="reveal mt-8 flex flex-wrap gap-4" style={{ ["--i" as never]: 3 }}>
@@ -410,7 +410,7 @@ function BairroPage() {
             </Link>
           </div>
           <p className="reveal mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            <Link to="/locacao-de-betoneiras" className="font-bold text-[var(--brand-navy)] hover:underline">Locação de betoneiras</Link> de 120L, 150L, 250L e 400L no bairro {bairro.nome}. Se você precisa de uma betoneira perto de mim para misturar concreto, argamassa e cimento para {bairro.caracteristicaObra} nas proximidades do {bairro.pontoReferencia}, temos a solução. Oferecemos também nosso serviço focado em <Link to="/entrega-e-retirada-de-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">entrega e retirada</Link> ágil, além do <Link to="/locacao-caminhao-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">caminhão betoneira</Link> para grandes demandas.
+            <Link to="/locacao-de-betoneiras" className="font-bold text-[var(--brand-navy)] hover:underline">Locação de betoneiras</Link> de 120L, 150L, 250L e 400L no bairro {bairro.nome}. Se você precisa de uma betoneira para misturar concreto, argamassa e cimento para {bairro.caracteristicaObra} nas proximidades do {bairro.pontoReferencia}, temos a solução. Oferecemos também nosso serviço focado em <Link to="/entrega-e-retirada-de-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">entrega e retirada</Link> ágil, além do <Link to="/locacao-caminhao-betoneira" className="font-bold text-[var(--brand-navy)] hover:underline">caminhão betoneira</Link> para grandes demandas.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {MODELOS.map((m, i) => (
@@ -535,9 +535,6 @@ function BairroPage() {
               Toda <span className="text-[var(--brand-navy)]">Osasco</span>,<br />
               <span className="font-editorial">de ponta a ponta.</span>
             </h2>
-            <div className="reveal mt-4 text-xs font-bold uppercase tracking-wider text-[var(--brand-navy)]">
-              <h3>Betoneira perto de mim</h3>
-            </div>
             <div className="mt-6 space-y-4 text-sm text-muted-foreground leading-relaxed">
               <p>
                 A <strong>Betoneira Osasco</strong> é referência em locação de betoneira em Osasco. Atendemos de forma prioritária todas as ruas e canteiros de obras do bairro <strong>{bairro.nome}</strong>, com forte presença e entregas frequentes ao longo da <strong>{bairro.avenidaPrincipal}</strong>. Nossa logística própria garante agilidade na entrega perto de referências como o <strong>{bairro.pontoReferencia}</strong>.

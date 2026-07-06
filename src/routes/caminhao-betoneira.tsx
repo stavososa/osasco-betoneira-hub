@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CTAFinal } from "@/components/CTAFinal";
@@ -12,17 +12,17 @@ export const Route = createFileRoute("/caminhao-betoneira")({
     meta: [
       { title: "Caminhão Betoneira em Osasco | Mixer Truck | Betoneiras Osasco" },
       { name: "description", content: "Caminhão betoneira (mixer truck) em Osasco SP para obras de grande porte. Concretagem pesada, 8m³, operador incluso, diesel. Solicite orçamento pelo WhatsApp." },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/caminhao-betoneira" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/caminhao-betoneira/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/caminhao-betoneira" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/caminhao-betoneira/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": "https://betoneiraosasco.com.br/caminhao-betoneira#webpage",
-          "url": "https://betoneiraosasco.com.br/caminhao-betoneira",
+          "@id": "https://betoneiraosasco.com.br/caminhao-betoneira/#webpage",
+          "url": "https://betoneiraosasco.com.br/caminhao-betoneira/",
           "name": "Caminhão Betoneira em Osasco | Mixer Truck | Betoneiras Osasco",
           "isPartOf": {
             "@type": "WebSite",
@@ -34,12 +34,12 @@ export const Route = createFileRoute("/caminhao-betoneira")({
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Caminhão Betoneira", item: "https://betoneiraosasco.com.br/caminhao-betoneira" },
+              { "@type": "ListItem", position: 2, name: "Caminhão Betoneira", item: "https://betoneiraosasco.com.br/caminhao-betoneira/" },
             ],
           },
           "mainEntity": {
             "@type": "Service",
-            "@id": "https://betoneiraosasco.com.br/caminhao-betoneira#service",
+            "@id": "https://betoneiraosasco.com.br/caminhao-betoneira/#service",
             "name": "Caminhão Betoneira (Mixer Truck) em Osasco",
             "serviceType": "Concrete Mixer Truck Rental",
             "description": "Locação de caminhão betoneira para concretagem pesada em Osasco e Grande São Paulo. Capacidade 8m³, operador incluso.",
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/caminhao-betoneira")({
             "areaServed": [
               { "@type": "City", name: "Osasco" },
             ],
-            "url": "https://betoneiraosasco.com.br/caminhao-betoneira",
+            "url": "https://betoneiraosasco.com.br/caminhao-betoneira/",
             "potentialAction": {
               "@type": "RentAction",
               "target": {

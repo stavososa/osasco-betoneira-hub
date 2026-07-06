@@ -4,7 +4,7 @@ import { spawn } from 'child_process';
 import http from 'http';
 
 const __dirname = path.resolve();
-const DIST_STATIC = path.join(__dirname, 'dist-static');
+const DIST_STATIC = path.join(__dirname, 'static-unzipped');
 
 // List of all neighborhoods (copied from src/lib/bairros.ts for standalone execution)
 const BAIRROS = [
@@ -93,6 +93,13 @@ const PAGES = [
   { path: '/caminhao-betoneira', out: 'caminhao-betoneira/index.html' }
 ];
 
+const XML_PAGES = [
+  { path: '/sitemap.xml', out: 'sitemap.xml' },
+  { path: '/post-sitemap.xml', out: 'post-sitemap.xml' },
+  { path: '/page-sitemap.xml', out: 'page-sitemap.xml' },
+  { path: '/local-sitemap.xml', out: 'local-sitemap.xml' }
+];
+
 // Add neighborhood pages
 BAIRROS.forEach(b => {
   PAGES.push({
@@ -157,6 +164,15 @@ async function main() {
       copyRecursive(path.join(publicDir, item), path.join(DIST_STATIC, item));
     });
   }
+
+  // Copy extra root files to match the example template
+  ['README.md', '.assetsignore'].forEach(file => {
+    const srcPath = path.join(__dirname, file);
+    if (fs.existsSync(srcPath)) {
+      console.log(`📄 Copying ${file} to root...`);
+      fs.copyFileSync(srcPath, path.join(DIST_STATIC, file));
+    }
+  });
 
   // 4. Start the dev server in the background
   console.log('🚀 Spawning dev server...');
@@ -245,7 +261,7 @@ async function main() {
       </nav>
       <div class="flex items-center gap-2 sm:gap-4">
         <a href="https://wa.me/5511975465766?text=Vim%20do%20site%20gostaria%20de%20fazer%20or%C3%A7amento" target="_blank" rel="noopener" class="inline-flex border-2 border-[var(--brand-ink)] bg-[#25D366] text-white hover:bg-[#128C7E] px-2 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-wider shadow-[2px_2px_0_0_rgba(0,0,0,1)] md:hard-shadow items-center gap-1.5 transition-all">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.666.988 3.311 1.564 5.351 1.565 5.505 0 9.98-4.475 9.984-9.982.002-2.67-1.03-5.18-2.901-7.052C17.152 1.812 14.643.78 11.979.78c-5.513 0-10.019 4.477-10.023 9.987a9.92 9.92 0 0 0 1.523 5.25l-.993 3.623 3.722-.975zm13.16-5.834c-.237-.118-1.398-.69-1.609-.767-.211-.077-.365-.118-.519.117-.154.237-.597.767-.732.922-.135.154-.27.172-.507.054-.237-.118-.999-.368-1.902-1.176-.703-.627-1.178-1.402-1.316-1.638-.138-.237-.015-.365.103-.483.107-.107.237-.27.356-.405.118-.135.158-.237.237-.393.079-.158.04-.296-.02-.414-.06-.118-.519-1.252-.712-1.714-.188-.45-.378-.39-.519-.398-.135-.008-.29-.009-.444-.009-.154 0-.405.058-.616.29-.211.237-.808.79-.808 1.927 0 1.137.828 2.233.943 2.39.115.158 1.628 2.486 3.945 3.487.551.238 1.01.39 1.348.497.554.176 1.057.151 1.454.092.443-.066 1.398-.57 1.595-1.121.197-.552.197-1.026.138-1.122-.059-.096-.212-.154-.45-.272z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 32 32"><path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.8 5.5 2.2 7.9L0 32l8.4-2.2c2.3 1.3 4.9 2 7.6 2 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.4c-2.4 0-4.8-.7-6.9-2l-.5-.3-5 1.3 1.3-4.8-.3-.5C3.2 20.4 2.5 18.2 2.5 16 2.5 8.6 8.6 2.5 16 2.5c3.6 0 7 1.4 9.5 4 2.5 2.5 4 5.9 4 9.5 0 7.4-6.1 13.3-13.5 13.3zm7.6-10c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.7-.2-1 .2-.3.4-1.1 1.3-1.3 1.6-.2.3-.5.3-.9.1-2.4-1.2-4-2.2-5.6-5-.4-.7.4-.7 1.2-2.3.1-.3.1-.5 0-.7-.1-.2-1-2.3-1.3-3.2-.3-.8-.7-.7-1-.7h-.8c-.3 0-.7.1-1.1.5s-1.5 1.5-1.5 3.6 1.5 4.2 1.7 4.5c.2.3 3 4.6 7.3 6.4 1 .5 1.8.7 2.5.9 1 .3 2 .3 2.8.2 1.1-.2 2.4-1 2.7-1.9.3-.9.3-1.8.2-1.9 0-.2-.4-.3-.8-.5z"/></svg>
           <span>(11) 97546-5766</span>
         </a>
         <button type="button" class="flex h-10 w-10 items-center justify-center border-2 border-[var(--brand-ink)] bg-[var(--brand-yellow)] text-[var(--brand-ink)] shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:translate-y-[1px] hover:translate-x-[1px] hover:shadow-[1px_1px_0_0_rgba(0,0,0,1)] active:translate-y-[2px] active:translate-x-[2px] active:shadow-[0px_0px_0_0_rgba(0,0,0,1)] md:hidden transition-all" id="mobile-menu-btn" aria-label="Abrir menu">
@@ -279,6 +295,12 @@ async function main() {
       <a href="/sobre" class="text-base font-bold uppercase tracking-wider py-2 border-b border-[var(--brand-ink)]/10 hover:text-[var(--brand-navy)] transition-colors">Sobre</a>
       <a href="/contato" class="text-base font-bold uppercase tracking-wider py-2 border-b border-[var(--brand-ink)]/10 hover:text-[var(--brand-navy)] transition-colors">Contato</a>
       <a href="/blog" class="text-base font-bold uppercase tracking-wider py-2 hover:text-[var(--brand-navy)] transition-colors">Blog</a>
+      <div class="mt-2 pt-2 border-t border-[var(--brand-ink)]/10">
+        <a href="https://wa.me/5511975465766?text=Vim%20do%20site%20gostaria%20de%20fazer%20or%C3%A7amento" target="_blank" rel="noopener" class="flex border-2 border-[var(--brand-ink)] bg-[#25D366] text-white hover:bg-[#128C7E] px-4 py-3 text-sm font-bold uppercase tracking-wider shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:translate-y-[1px] hover:translate-x-[1px] hover:shadow-[1px_1px_0_0_rgba(0,0,0,1)] items-center justify-center gap-2 transition-all">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 32 32"><path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.8 5.5 2.2 7.9L0 32l8.4-2.2c2.3 1.3 4.9 2 7.6 2 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.4c-2.4 0-4.8-.7-6.9-2l-.5-.3-5 1.3 1.3-4.8-.3-.5C3.2 20.4 2.5 18.2 2.5 16 2.5 8.6 8.6 2.5 16 2.5c3.6 0 7 1.4 9.5 4 2.5 2.5 4 5.9 4 9.5 0 7.4-6.1 13.3-13.5 13.3zm7.6-10c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.7-.2-1 .2-.3.4-1.1 1.3-1.3 1.6-.2.3-.5.3-.9.1-2.4-1.2-4-2.2-5.6-5-.4-.7.4-.7 1.2-2.3.1-.3.1-.5 0-.7-.1-.2-1-2.3-1.3-3.2-.3-.8-.7-.7-1-.7h-.8c-.3 0-.7.1-1.1.5s-1.5 1.5-1.5 3.6 1.5 4.2 1.7 4.5c.2.3 3 4.6 7.3 6.4 1 .5 1.8.7 2.5.9 1 .3 2 .3 2.8.2 1.1-.2 2.4-1 2.7-1.9.3-.9.3-1.8.2-1.9 0-.2-.4-.3-.8-.5z"/></svg>
+          <span>Falar no WhatsApp</span>
+        </a>
+      </div>
     </nav>
   </header>
   `;
@@ -393,46 +415,62 @@ async function main() {
 
       console.log(`🌐 Crawled: ${page.path} -> ${page.out}`);
 
-      // Post-process page HTML
-      let processed = html;
+      const depth = page.out.split('/').length - 1;
+      const rel = depth === 0 ? './' : '../'.repeat(depth);
 
-      // 1. Replace Stylesheet link
-      processed = processed.replace(
-        /<link[^>]*rel="stylesheet"[^>]*href="[^"]*"[^>]*>/gi,
-        '<link rel="stylesheet" href="/assets/styles.css">'
-      );
+      // 1. Strip ALL client hydration scripts (React/Vite/TanStack runtime)
+      let processed = html
+        // Remove <script type="module"> with src
+        .replace(/<script\s+type="module"[^>]*src="[^"]*"[^>]*><\/script>/gi, '')
+        // Remove <script type="module"> with inline content (react-refresh, etc.)
+        .replace(/<script\s+type="module"[\s\S]*?<\/script>/gi, '')
+        // Remove Vinxi scripts
+        .replace(/<script[^>]*src="\/_vinxi[^"]*"[^>]*><\/script>/gi, '')
+        // Remove @vite scripts
+        .replace(/<script[^>]*src="\/@vite[^"]*"[^>]*><\/script>/gi, '')
+        // Remove TanStack router stream scripts (class="$tsr")
+        .replace(/<script[^>]*class="\$tsr"[^>]*>[\s\S]*?<\/script>/gi, '')
+        // Remove TanStack scroll restoration inline scripts
+        .replace(/<script>\(function\(t\)\{let s;try\{s=JSON[\.\s\S]*?<\/script>/gi, '')
+        // Remove any script containing $_TSR or $R assignment (TanStack hydration)
+        .replace(/<script[^>]*>[\s\S]*?\$_TSR[\s\S]*?<\/script>/gi, '')
+        .replace(/<script[^>]*>[\s\S]*?\$R\["tsr"\][\s\S]*?<\/script>/gi, '')
+        // Remove vite preamble script
+        .replace(/<script[^>]*>window\.__vite_plugin_react_preamble_installed__[^<]*<\/script>/gi, '')
+        // Remove speculationrules script
+        .replace(/<script type="speculationrules">[\s\S]*?<\/script>/gi, '');
 
-      // 2. Strip client hydration scripts
-      processed = processed.replace(/<script\s+type="module"\s+src="\/[^"]*"><\/script>/gi, '');
-      processed = processed.replace(/<script[^>]*src="\/_vinxi[^"]*"[^>]*><\/script>/gi, '');
-      processed = processed.replace(/<script[^>]*>window\.__vite_plugin_react_preamble_installed__[^<]*<\/script>/gi, '');
-
-      // 3. Inject static clean header and toggle script
-      // Locate the <header> block and replace it
+      // 2. Inject static header
       const headerRegex = /<header[^>]*>([\s\S]*?)<\/header>/i;
-      processed = processed.replace(headerRegex, staticHeader);
+      const relativeHeader = staticHeader
+        .replace(/href="\/"/g, `href="${rel}"`)
+        .replace(/href="\/([^"]+)"/g, (m, p) => `href="${rel}${p.replace(/\/$/, '')}/"`);
+      processed = processed.replace(headerRegex, relativeHeader);
 
-      // Removed urlReplacements as user wants no .html extensions in the generated paths.
+      // 3. Fix ALL absolute paths in one pass
+      // Assets
+      processed = processed.replace(/(href|src)="\/assets\/([^"]*)"/g, `$1="${rel}assets/$2"`);
+      processed = processed.replace(/(href|src)="\/_slug-assets\/([^"]+)"/g, `$1="${rel}assets/$2"`);
+      processed = processed.replace(/(href|src)="\/[^"]*assets\/([^"]+\.webp)"/g, `$1="${rel}assets/$2"`);
+      // Favicons
+      processed = processed.replace(/href="\/favicon\.(png|ico)"/g, `href="${rel}favicon.$1"`);
+      processed = processed.replace(/content="\/favicon/g, `content="${rel}favicon`);
+      // CSS - remove ONLY local/Vite hashed stylesheets (NOT Google Fonts or other external links)
+      processed = processed.replace(/<link[^>]*rel="stylesheet"[^>]*href="(?!https?:\/\/)[^"]*"[^>]*>/gi, `<link rel="stylesheet" href="${rel}assets/styles.css">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">`);
+      // Internal navigation
+      processed = processed.replace(/href="(\/(?!\/)(?![^"]*:)[^"#?]*)"/g, (match, p1) => {
+        let normalized = p1.replace(/^\//, '');
+        if (normalized === '') return `href="${rel}"`;
+        if (!normalized.endsWith('/') && !normalized.includes('.')) normalized += '/';
+        return `href="${rel}${normalized}"`;
+      });
 
-      // 4.1 Inject Microsoft Clarity in the head
-      const clarityScript = `
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){ 
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}; 
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i; 
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y); 
-  })(window, document, "clarity", "script", "wvfpw6mx5c");
-</script>
-</head>`;
+      // 4. Inject Clarity and vanilla JS
+      const clarityScript = `\n<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wvfpw6mx5c");</script>\n</head>`;
       processed = processed.replace('</head>', clarityScript);
-
-      // Adjust images from /src/assets/logo-betoneira-osasco.webp to /assets/logo-betoneira-osasco.webp
-      processed = processed.replace(/src="\/src\/assets\/([^"]+)"/g, 'src="/assets/$1"');
-      processed = processed.replace(/src="\/_slug-assets\/([^"]+)"/g, 'src="/assets/$1"');
-      processed = processed.replace(/src="\/[^"]*assets\/([^"]+\.webp)"/g, 'src="/assets/$1"');
-
-      // Inject vanilla scripting before </body>
       processed = processed.replace('</body>', `${vanillaScripts}\n</body>`);
+
+      // Removed base tag because it breaks relative paths when used with relative prefixes
 
       // 5. Write to file
       const outPath = path.join(DIST_STATIC, page.out);
@@ -442,6 +480,27 @@ async function main() {
       }
       fs.writeFileSync(outPath, processed, 'utf8');
 
+    } catch (err) {
+      console.error(`❌ Error crawling ${page.path}: ${err.message}`);
+    }
+  }
+
+  // Fetch XML sitemaps
+  console.log(`🌐 Fetching ${XML_PAGES.length} XML sitemaps...`);
+  for (const page of XML_PAGES) {
+    const url = `http://127.0.0.1:5199${page.path}`;
+    try {
+      const xml = await new Promise((resolve, reject) => {
+        http.get(url, (res) => {
+          let data = '';
+          res.on('data', chunk => data += chunk);
+          res.on('end', () => resolve(data));
+        }).on('error', reject);
+      });
+
+      console.log(`🌐 Crawled XML: ${page.path} -> ${page.out}`);
+      const outPath = path.join(DIST_STATIC, page.out);
+      fs.writeFileSync(outPath, xml, 'utf8');
     } catch (err) {
       console.error(`❌ Error crawling ${page.path}: ${err.message}`);
     }

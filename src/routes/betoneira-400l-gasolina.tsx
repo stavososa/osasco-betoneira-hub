@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CTAFinal } from "@/components/CTAFinal";
@@ -12,17 +12,17 @@ export const Route = createFileRoute("/betoneira-400l-gasolina")({
     meta: [
       { title: "Betoneira 400L Gasolina em Osasco | Sem Energia | Betoneiras Osasco" },
       { name: "description", content: "Aluguel de betoneira 400L a gasolina em Osasco SP. Motor 5,5 hp, sem necessidade de energia elétrica. Ideal para obras externas e locais sem tomada. Entrega no mesmo dia." },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/betoneira-400l-gasolina" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/betoneira-400l-gasolina/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/betoneira-400l-gasolina" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/betoneira-400l-gasolina/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": "https://betoneiraosasco.com.br/betoneira-400l-gasolina#webpage",
-          "url": "https://betoneiraosasco.com.br/betoneira-400l-gasolina",
+          "@id": "https://betoneiraosasco.com.br/betoneira-400l-gasolina/#webpage",
+          "url": "https://betoneiraosasco.com.br/betoneira-400l-gasolina/",
           "name": "Betoneira 400L Gasolina em Osasco | Sem Energia | Betoneiras Osasco",
           "isPartOf": {
             "@type": "WebSite",
@@ -34,18 +34,18 @@ export const Route = createFileRoute("/betoneira-400l-gasolina")({
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Betoneira 400L Gasolina", item: "https://betoneiraosasco.com.br/betoneira-400l-gasolina" },
+              { "@type": "ListItem", position: 2, name: "Betoneira 400L Gasolina", item: "https://betoneiraosasco.com.br/betoneira-400l-gasolina/" },
             ],
           },
           "mainEntity": {
             "@type": "Service",
-            "@id": "https://betoneiraosasco.com.br/betoneira-400l-gasolina#service",
+            "@id": "https://betoneiraosasco.com.br/betoneira-400l-gasolina/#service",
             "name": "Aluguel de Betoneira 400L Gasolina em Osasco",
             "serviceType": "Construction Equipment Rental",
             "description": "Locação de betoneira 400 litros a gasolina em Osasco SP. Motor 5,5 hp, sem necessidade de energia elétrica. Ideal para obras externas.",
             "provider": { "@id": "https://betoneiraosasco.com.br/#business" },
             "areaServed": { "@type": "City", name: "Osasco" },
-            "url": "https://betoneiraosasco.com.br/betoneira-400l-gasolina",
+            "url": "https://betoneiraosasco.com.br/betoneira-400l-gasolina/",
             "potentialAction": {
               "@type": "RentAction",
               "target": {

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HazardStripe } from "@/components/HazardStripe";
@@ -135,18 +135,18 @@ export const Route = createFileRoute("/comprar-betoneira")({
         content:
           "Compre betoneira em Osasco: 120L, 150L, 250L e 400L, elétrica ou a gasolina, com garantia e nota fiscal.",
       },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/comprar-betoneira" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/comprar-betoneira/" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/comprar-betoneira" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/comprar-betoneira/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": "https://betoneiraosasco.com.br/comprar-betoneira#webpage",
-          "url": "https://betoneiraosasco.com.br/comprar-betoneira",
+          "@id": "https://betoneiraosasco.com.br/comprar-betoneira/#webpage",
+          "url": "https://betoneiraosasco.com.br/comprar-betoneira/",
           "name": "Comprar Betoneira em Osasco | Venda com Garantia",
           "isPartOf": {
             "@type": "WebSite",
@@ -158,12 +158,12 @@ export const Route = createFileRoute("/comprar-betoneira")({
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Comprar Betoneira", item: "https://betoneiraosasco.com.br/comprar-betoneira" },
+              { "@type": "ListItem", position: 2, name: "Comprar Betoneira", item: "https://betoneiraosasco.com.br/comprar-betoneira/" },
             ],
           },
           "mainEntity": {
             "@type": "Service",
-            "@id": "https://betoneiraosasco.com.br/comprar-betoneira#service",
+            "@id": "https://betoneiraosasco.com.br/comprar-betoneira/#service",
             "name": "Venda de Betoneira em Osasco",
             "serviceType": "Construction equipment sales",
             "provider": {

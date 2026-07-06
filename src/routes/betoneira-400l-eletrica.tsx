@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CTAFinal } from "@/components/CTAFinal";
@@ -12,17 +12,17 @@ export const Route = createFileRoute("/betoneira-400l-eletrica")({
     meta: [
       { title: "Betoneira 400L Elétrica em Osasco | Aluguel | Betoneiras Osasco" },
       { name: "description", content: "Aluguel de betoneira 400L elétrica em Osasco SP. Motor 2 cv, 220V monofásico, para obras de médio porte, muros e calçadas longas. Entrega no mesmo dia." },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/betoneira-400l-eletrica" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/betoneira-400l-eletrica/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/betoneira-400l-eletrica" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/betoneira-400l-eletrica/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": "https://betoneiraosasco.com.br/betoneira-400l-eletrica#webpage",
-          "url": "https://betoneiraosasco.com.br/betoneira-400l-eletrica",
+          "@id": "https://betoneiraosasco.com.br/betoneira-400l-eletrica/#webpage",
+          "url": "https://betoneiraosasco.com.br/betoneira-400l-eletrica/",
           "name": "Betoneira 400L Elétrica em Osasco | Aluguel | Betoneiras Osasco",
           "isPartOf": {
             "@type": "WebSite",
@@ -34,18 +34,18 @@ export const Route = createFileRoute("/betoneira-400l-eletrica")({
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Betoneira 400L Elétrica", item: "https://betoneiraosasco.com.br/betoneira-400l-eletrica" },
+              { "@type": "ListItem", position: 2, name: "Betoneira 400L Elétrica", item: "https://betoneiraosasco.com.br/betoneira-400l-eletrica/" },
             ],
           },
           "mainEntity": {
             "@type": "Service",
-            "@id": "https://betoneiraosasco.com.br/betoneira-400l-eletrica#service",
+            "@id": "https://betoneiraosasco.com.br/betoneira-400l-eletrica/#service",
             "name": "Aluguel de Betoneira 400L Elétrica em Osasco",
             "serviceType": "Construction Equipment Rental",
             "description": "Locação de betoneira 400 litros elétrica em Osasco SP. Motor 2 cv, 220V monofásico. Para obras de médio porte, muros e calçadas longas.",
             "provider": { "@id": "https://betoneiraosasco.com.br/#business" },
             "areaServed": { "@type": "City", name: "Osasco" },
-            "url": "https://betoneiraosasco.com.br/betoneira-400l-eletrica",
+            "url": "https://betoneiraosasco.com.br/betoneira-400l-eletrica/",
             "potentialAction": {
               "@type": "RentAction",
               "target": {

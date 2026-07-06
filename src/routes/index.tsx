@@ -262,7 +262,7 @@ const FAQ = [
   },
   {
     q: "Qual betoneira usar para laje: 250 ou 400 litros?",
-    a: <>A betoneira de 250 litros é o modelo mais indicado e alugado para a maioria das obras residenciais em Osasco. Ela possui capacidade útil para misturar de 150 a 180 litros de concreto ou argamassa por ciclo de trabalho e funciona perfeitamente em tomadas elétricas comuns de 110V ou 220V monofásicas disponíveis no canteiro de obras. Para misturas pesadas de lajes, muros de arrimo ou calçadas de grande extensão que necessitem de maior rendimento contínuo de concreto, a locação da betoneira de 400 litros (elétrica ou com motor a gasolina) torna-se a opção mais produtiva e ágil. Oferecemos orçamentos personalizados sob consulta via WhatsApp. Para mais dicas de obras, confira o nosso <Link to="/blog" className="font-bold underline text-[var(--brand-navy)]">blog</Link>.</>,
+    a: "A betoneira de 250 litros é o modelo mais indicado e alugado para a maioria das obras residenciais em Osasco. Ela possui capacidade útil para misturar de 150 a 180 litros de concreto ou argamassa por ciclo de trabalho e funciona perfeitamente em tomadas elétricas comuns de 110V ou 220V monofásicas disponíveis no canteiro de obras. Para misturas pesadas de lajes, muros de arrimo ou calçadas de grande extensão que necessitem de maior rendimento contínuo de concreto, a locação da betoneira de 400 litros (elétrica ou com motor a gasolina) torna-se a opção mais produtiva e ágil. Oferecemos orçamentos personalizados sob consulta via WhatsApp. Para mais dicas de obras, confira o nosso blog.",
   },
   {
     q: "Quanto custa alugar uma betoneira em Osasco?",
@@ -319,7 +319,7 @@ function HomePage() {
               </h1>
 
               <p className="reveal mt-6 max-w-md text-white/80 leading-relaxed" style={{ ["--i" as never]: 2 }}>
-                O melhor aluguel de betoneiras em Osasco SP por diária, semana ou mês. Oferecemos betoneiras de 120L, 150L, 250L e 400L, elétricas 110V/220V ou a gasolina. Se você procura uma <strong>betoneira perto de mim</strong> com entrega no mesmo dia sem burocracia, entre em contato com a gente.
+                O melhor aluguel de betoneiras em Osasco SP por diária, semana ou mês. Oferecemos betoneiras de 120L, 150L, 250L e 400L, elétricas 110V/220V ou a gasolina. Se você procura uma <Link to="/" className="font-bold underline hover:text-[var(--brand-yellow)]">betoneira perto de mim</Link> com entrega no mesmo dia sem burocracia, entre em contato com a gente.
               </p>
 
               <div className="reveal mt-8 flex flex-wrap gap-4" style={{ ["--i" as never]: 3 }}>
@@ -548,7 +548,7 @@ function HomePage() {
                 <h3>Betoneira perto de mim</h3>
               </div>
               <p className="reveal mt-5 max-w-md text-muted-foreground leading-relaxed">
-                O aluguel de betoneiras em Osasco cobre toda a cidade (Centro, Zona Norte, Zona Sul, Bussocaba, Quitaúna e Presidente Altino), além de cidades vizinhas como Carapicuíba, Cotia, Barueri, Jandira e a zona oeste de São Paulo. Se você precisa de uma betoneira perto de mim em Osasco, garantimos entrega e retirada rápida no mesmo dia.
+                O aluguel de betoneiras em Osasco cobre toda a cidade (Centro, Zona Norte, Zona Sul, Bussocaba, Quitaúna e Presidente Altino), além de cidades vizinhas como Carapicuíba, Cotia, Barueri, Jandira e a zona oeste de São Paulo. Garantimos entrega e retirada rápida no mesmo dia em qualquer localização.
               </p>
               <ul className="reveal mt-6 flex flex-wrap gap-2">
                 {DESTAQUES.map((b) => (

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CTAFinal } from "@/components/CTAFinal";
@@ -12,17 +12,17 @@ export const Route = createFileRoute("/locacao-de-betoneiras")({
     meta: [
       { title: "Locação de Betoneiras em Osasco | Aluguel Rápido e Barato" },
       { name: "description", content: "Locação de betoneiras em Osasco com entrega rápida. Modelos de 120L, 150L, 250L e 400L. Diária, semanal e mensal. Solicite orçamento!" },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/locacao-de-betoneiras" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/locacao-de-betoneiras/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/locacao-de-betoneiras" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/locacao-de-betoneiras/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": "https://betoneiraosasco.com.br/locacao-de-betoneiras#webpage",
-          "url": "https://betoneiraosasco.com.br/locacao-de-betoneiras",
+          "@id": "https://betoneiraosasco.com.br/locacao-de-betoneiras/#webpage",
+          "url": "https://betoneiraosasco.com.br/locacao-de-betoneiras/",
           "name": "Locação de Betoneiras em Osasco | Aluguel Rápido e Barato",
           "isPartOf": {
             "@type": "WebSite",
@@ -34,12 +34,12 @@ export const Route = createFileRoute("/locacao-de-betoneiras")({
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Locação de Betoneiras", item: "https://betoneiraosasco.com.br/locacao-de-betoneiras" },
+              { "@type": "ListItem", position: 2, name: "Locação de Betoneiras", item: "https://betoneiraosasco.com.br/locacao-de-betoneiras/" },
             ],
           },
           "mainEntity": {
             "@type": "Service",
-            "@id": "https://betoneiraosasco.com.br/locacao-de-betoneiras#service",
+            "@id": "https://betoneiraosasco.com.br/locacao-de-betoneiras/#service",
             "name": "Locação de Betoneiras em Osasco",
             "serviceType": "Construction equipment rental",
             "provider": { "@id": "https://betoneiraosasco.com.br/#business" },
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/locacao-de-betoneiras")({
               { "@type": "City", name: "Osasco" },
             ],
             "description": "Locação de betoneiras em Osasco com entrega rápida. Modelos de 120L, 150L, 250L e 400L.",
-            "url": "https://betoneiraosasco.com.br/locacao-de-betoneiras",
+            "url": "https://betoneiraosasco.com.br/locacao-de-betoneiras/",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "itemListElement": [

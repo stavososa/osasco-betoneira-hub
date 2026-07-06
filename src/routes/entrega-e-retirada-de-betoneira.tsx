@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CTAFinal } from "@/components/CTAFinal";
@@ -11,17 +11,17 @@ export const Route = createFileRoute("/entrega-e-retirada-de-betoneira")({
     meta: [
       { title: "Entrega e Retirada de Betoneira em Osasco | Frete Rápido" },
       { name: "description", content: "Logística especializada de betoneiras em Osasco. Entrega no mesmo dia e retirada agendada direto na sua obra. Não deixe sua equipe parada!" },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira#webpage",
-          "url": "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira",
+          "@id": "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira/#webpage",
+          "url": "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira/",
           "name": "Entrega e Retirada de Betoneira em Osasco | Frete Rápido",
           "isPartOf": {
             "@type": "WebSite",
@@ -33,12 +33,12 @@ export const Route = createFileRoute("/entrega-e-retirada-de-betoneira")({
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Entrega e Retirada", item: "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira" },
+              { "@type": "ListItem", position: 2, name: "Entrega e Retirada", item: "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira/" },
             ],
           },
           "mainEntity": {
             "@type": "Service",
-            "@id": "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira#service",
+            "@id": "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira/#service",
             "name": "Logística e Frete de Betoneiras",
             "serviceType": "Equipment delivery and pickup",
             "provider": { "@id": "https://betoneiraosasco.com.br/#business" },
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/entrega-e-retirada-de-betoneira")({
               { "@type": "City", name: "Osasco" },
             ],
             "description": "Entrega e retirada expressa de betoneiras em todas as regiões de Osasco.",
-            "url": "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira",
+            "url": "https://betoneiraosasco.com.br/entrega-e-retirada-de-betoneira/",
           }
         }),
       },

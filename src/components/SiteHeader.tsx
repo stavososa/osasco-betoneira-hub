@@ -103,15 +103,17 @@ export function SiteHeader() {
           <Link to="/sobre" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 border-b border-[var(--brand-ink)]/10 hover:text-[var(--brand-navy)] transition-colors">Sobre</Link>
           <Link to="/contato" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 border-b border-[var(--brand-ink)]/10 hover:text-[var(--brand-navy)] transition-colors">Contato</Link>
           <Link to="/blog" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 border-b border-[var(--brand-ink)]/10 hover:text-[var(--brand-navy)] transition-colors">Blog</Link>
-          <a
-            href="https://wa.me/5511975465766?text=Vim%20do%20site%20gostaria%20de%20fazer%20or%C3%A7amento"
-            target="_blank"
-            rel="noopener"
-            className="flex justify-center items-center gap-2 border-2 border-[var(--brand-ink)] bg-[#25D366] text-white hover:bg-[#128C7E] py-3 text-sm font-bold uppercase tracking-wider hard-shadow mt-2 transition-all"
-          >
-            <WhatsappIcon size={16} />
-            WhatsApp
-          </a>
+          <div className="mt-2 pt-2 border-t border-[var(--brand-ink)]/10">
+            <a
+              href="https://wa.me/5511975465766?text=Vim%20do%20site%20gostaria%20de%20fazer%20or%C3%A7amento"
+              target="_blank"
+              rel="noopener"
+              className="flex border-2 border-[var(--brand-ink)] bg-[#25D366] text-white hover:bg-[#128C7E] px-4 py-3 text-sm font-bold uppercase tracking-wider shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:translate-y-[1px] hover:translate-x-[1px] hover:shadow-[1px_1px_0_0_rgba(0,0,0,1)] items-center justify-center gap-2 transition-all"
+            >
+              <WhatsappIcon size={20} />
+              <span>Falar no WhatsApp</span>
+            </a>
+          </div>
         </nav>
       )}
     </header>

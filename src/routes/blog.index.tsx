@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useReveal } from "@/lib/useReveal";
@@ -12,17 +12,17 @@ export const Route = createFileRoute("/blog/")({
       { name: "description", content: "Dicas, guias e novidades sobre locação e venda de betoneiras em Osasco. Aprenda a escolher, operar e economizar na sua obra." },
       { property: "og:title", content: "Blog | Betoneira Osasco" },
       { property: "og:description", content: "Dicas e guias sobre betoneiras para sua obra em Osasco." },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/blog" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/blog/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/blog" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/blog/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          "@id": "https://betoneiraosasco.com.br/blog#webpage",
-          "url": "https://betoneiraosasco.com.br/blog",
+          "@id": "https://betoneiraosasco.com.br/blog/#webpage",
+          "url": "https://betoneiraosasco.com.br/blog/",
           "name": "Blog | Betoneira Osasco",
           "isPartOf": {
             "@type": "WebSite",
@@ -34,13 +34,13 @@ export const Route = createFileRoute("/blog/")({
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Blog", item: "https://betoneiraosasco.com.br/blog" },
+              { "@type": "ListItem", position: 2, name: "Blog", item: "https://betoneiraosasco.com.br/blog/" },
             ],
           },
           "mainEntity": {
             "@type": "Blog",
-            "@id": "https://betoneiraosasco.com.br/blog#blog",
-            "url": "https://betoneiraosasco.com.br/blog",
+            "@id": "https://betoneiraosasco.com.br/blog/#blog",
+            "url": "https://betoneiraosasco.com.br/blog/",
             "name": "Blog Betoneira Osasco",
             "description": "Dicas, guias e novidades sobre locação e venda de betoneiras em Osasco. Aprenda a escolher, operar e economizar na sua obra.",
             "publisher": {

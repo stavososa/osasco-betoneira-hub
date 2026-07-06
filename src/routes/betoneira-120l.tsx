@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CTAFinal } from "@/components/CTAFinal";
@@ -13,17 +13,17 @@ export const Route = createFileRoute("/betoneira-120l")({
       { title: "Betoneira 120L em Osasco | Aluguel e Venda | Betoneiras Osasco" },
       { name: "description", content: "Aluguel de betoneira 120L em Osasco SP. Modelo compacto elétrico 110/220V bivolt, ideal para reparos, reboco e acabamentos. Entrega no mesmo dia." },
       { property: "og:title", content: "Betoneira 120L em Osasco | Aluguel e Venda" },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/betoneira-120l" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/betoneira-120l/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/betoneira-120l" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/betoneira-120l/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": "https://betoneiraosasco.com.br/betoneira-120l#webpage",
-          "url": "https://betoneiraosasco.com.br/betoneira-120l",
+          "@id": "https://betoneiraosasco.com.br/betoneira-120l/#webpage",
+          "url": "https://betoneiraosasco.com.br/betoneira-120l/",
           "name": "Betoneira 120L em Osasco | Aluguel e Venda | Betoneiras Osasco",
           "isPartOf": {
             "@type": "WebSite",
@@ -35,18 +35,18 @@ export const Route = createFileRoute("/betoneira-120l")({
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Betoneira 120L", item: "https://betoneiraosasco.com.br/betoneira-120l" },
+              { "@type": "ListItem", position: 2, name: "Betoneira 120L", item: "https://betoneiraosasco.com.br/betoneira-120l/" },
             ],
           },
           "mainEntity": {
             "@type": "Service",
-            "@id": "https://betoneiraosasco.com.br/betoneira-120l#service",
+            "@id": "https://betoneiraosasco.com.br/betoneira-120l/#service",
             "name": "Aluguel de Betoneira 120L em Osasco",
             "serviceType": "Construction Equipment Rental",
             "description": "Locação de betoneira 120 litros elétrica bivolt em Osasco SP. Motor 1/3 cv, ideal para reparos e acabamentos.",
             "provider": { "@id": "https://betoneiraosasco.com.br/#business" },
             "areaServed": { "@type": "City", name: "Osasco" },
-            "url": "https://betoneiraosasco.com.br/betoneira-120l",
+            "url": "https://betoneiraosasco.com.br/betoneira-120l/",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "itemListElement": [{ "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 120L Elétrica", description: "Betoneira compacta de 120 litros, elétrica bivolt 110V/220V, motor 1/3 cv.", aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", reviewCount: "56" } } }],

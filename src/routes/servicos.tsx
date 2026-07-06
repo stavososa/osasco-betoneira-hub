@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HazardStripe } from "@/components/HazardStripe";
@@ -13,17 +13,17 @@ export const Route = createFileRoute("/servicos")({
       { name: "description", content: "Locação diária, semanal e mensal de betoneiras de 120L a 400L e venda de equipamentos com assistência técnica especializada e entrega rápida em Osasco." },
       { property: "og:title", content: "Serviços de Locação e Venda de Betoneiras | Betoneira Osasco" },
       { property: "og:description", content: "Locação de betoneiras elétricas e a gasolina com frete rápido e manutenção preventiva completa em Osasco SP." },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/servicos" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/servicos/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/servicos" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/servicos/" }],
     scripts: [
         {
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "@id": "https://betoneiraosasco.com.br/servicos#webpage",
-            "url": "https://betoneiraosasco.com.br/servicos",
+            "@id": "https://betoneiraosasco.com.br/servicos/#webpage",
+            "url": "https://betoneiraosasco.com.br/servicos/",
             "name": "Serviços de Locação, Venda e Assistência de Betoneiras em Osasco",
             "isPartOf": {
               "@type": "WebSite",
@@ -35,13 +35,13 @@ export const Route = createFileRoute("/servicos")({
               "@type": "BreadcrumbList",
               "itemListElement": [
                 { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-                { "@type": "ListItem", position: 2, name: "Serviços", item: "https://betoneiraosasco.com.br/servicos" }
+                { "@type": "ListItem", position: 2, name: "Serviços", item: "https://betoneiraosasco.com.br/servicos/" }
               ]
             },
             "mainEntity": {
               "@type": "Service",
-              "@id": "https://betoneiraosasco.com.br/servicos#service",
-              "url": "https://betoneiraosasco.com.br/servicos",
+              "@id": "https://betoneiraosasco.com.br/servicos/#service",
+              "url": "https://betoneiraosasco.com.br/servicos/",
               "name": "Serviços de Locação, Venda e Assistência de Betoneiras em Osasco",
               "serviceType": "Construction Equipment Rental and Sales",
               "description": "Locação diária/semanal/mensal, venda de betoneiras 120L–400L e entrega/retirada em Osasco. Solicite um orçamento.",

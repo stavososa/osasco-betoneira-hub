@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HazardStripe } from "@/components/HazardStripe";
@@ -12,24 +12,24 @@ export const Route = createFileRoute("/sobre")({
       { name: "description", content: "Empresa local de Osasco especializada em locação e venda de betoneiras. Conheça nossa história, missão e valores baseados na segurança." },
       { property: "og:title", content: "Quem Somos, Missão e História | Betoneira Osasco" },
       { property: "og:description", content: "Locação e venda de betoneiras em Osasco com frota 100% revisada e atendimento ágil." },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/sobre" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/sobre/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/sobre" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/sobre/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "AboutPage",
-          "@id": "https://betoneiraosasco.com.br/sobre#webpage",
-          "url": "https://betoneiraosasco.com.br/sobre",
+          "@id": "https://betoneiraosasco.com.br/sobre/#webpage",
+          "url": "https://betoneiraosasco.com.br/sobre/",
           "name": "Quem Somos, Missão e Nossa História | Betoneira Osasco",
           "description": "Empresa local de Osasco especializada em locação e venda de betoneiras. Atendimento ágil, equipamentos revisados e preço justo.",
           "breadcrumb": {
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Sobre", item: "https://betoneiraosasco.com.br/sobre" }
+              { "@type": "ListItem", position: 2, name: "Sobre", item: "https://betoneiraosasco.com.br/sobre/" }
             ]
           },
           "mainEntity": {

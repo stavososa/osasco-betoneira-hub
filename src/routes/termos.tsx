@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HazardStripe } from "@/components/HazardStripe";
@@ -11,9 +11,9 @@ export const Route = createFileRoute("/termos")({
       { name: "description", content: "Termos de serviço e condições de uso para o portal Betoneira Osasco. Leia nossas políticas de uso e isenção de responsabilidade." },
       { property: "og:title", content: "Termos de Serviço | Betoneira Osasco" },
       { property: "og:description", content: "Regras de uso, isenção de responsabilidade e termos contratuais do site Betoneira Osasco." },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/termos" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/termos/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/termos" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/termos/" }],
   }),
   component: TermosPage,
 });

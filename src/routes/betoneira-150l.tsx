@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CTAFinal } from "@/components/CTAFinal";
@@ -12,17 +12,17 @@ export const Route = createFileRoute("/betoneira-150l")({
     meta: [
       { title: "Betoneira 150L em Osasco | Aluguel e Venda | Betoneiras Osasco" },
       { name: "description", content: "Aluguel de betoneira 150L em Osasco SP. Elétrica bivolt 110/220V, motor 1/2 cv, ideal para reformas pequenas, reboco e argamassa. Entrega no mesmo dia." },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/betoneira-150l" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/betoneira-150l/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/betoneira-150l" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/betoneira-150l/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": "https://betoneiraosasco.com.br/betoneira-150l#webpage",
-          "url": "https://betoneiraosasco.com.br/betoneira-150l",
+          "@id": "https://betoneiraosasco.com.br/betoneira-150l/#webpage",
+          "url": "https://betoneiraosasco.com.br/betoneira-150l/",
           "name": "Betoneira 150L em Osasco | Aluguel e Venda | Betoneiras Osasco",
           "isPartOf": {
             "@type": "WebSite",
@@ -34,18 +34,18 @@ export const Route = createFileRoute("/betoneira-150l")({
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Betoneira 150L", item: "https://betoneiraosasco.com.br/betoneira-150l" },
+              { "@type": "ListItem", position: 2, name: "Betoneira 150L", item: "https://betoneiraosasco.com.br/betoneira-150l/" },
             ],
           },
           "mainEntity": {
             "@type": "Service",
-            "@id": "https://betoneiraosasco.com.br/betoneira-150l#service",
+            "@id": "https://betoneiraosasco.com.br/betoneira-150l/#service",
             "name": "Aluguel de Betoneira 150L em Osasco",
             "serviceType": "Construction Equipment Rental",
             "description": "Locação de betoneira 150 litros elétrica bivolt em Osasco SP. Motor 1/2 cv, ideal para reformas pequenas e reboco.",
             "provider": { "@id": "https://betoneiraosasco.com.br/#business" },
             "areaServed": { "@type": "City", name: "Osasco" },
-            "url": "https://betoneiraosasco.com.br/betoneira-150l",
+            "url": "https://betoneiraosasco.com.br/betoneira-150l/",
             "potentialAction": {
               "@type": "RentAction",
               "target": {

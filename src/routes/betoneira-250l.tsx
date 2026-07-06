@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CTAFinal } from "@/components/CTAFinal";
@@ -12,17 +12,17 @@ export const Route = createFileRoute("/betoneira-250l")({
     meta: [
       { title: "Betoneira 250L em Osasco | Mais Alugada | Betoneiras Osasco" },
       { name: "description", content: "Aluguel de betoneira 250L em Osasco SP. A mais pedida para laje, contrapiso e obras residenciais. Elétrica 220V mono, entrega no mesmo dia." },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/betoneira-250l" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/betoneira-250l/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/betoneira-250l" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/betoneira-250l/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": "https://betoneiraosasco.com.br/betoneira-250l#webpage",
-          "url": "https://betoneiraosasco.com.br/betoneira-250l",
+          "@id": "https://betoneiraosasco.com.br/betoneira-250l/#webpage",
+          "url": "https://betoneiraosasco.com.br/betoneira-250l/",
           "name": "Betoneira 250L em Osasco | Mais Alugada | Betoneiras Osasco",
           "isPartOf": {
             "@type": "WebSite",
@@ -34,18 +34,18 @@ export const Route = createFileRoute("/betoneira-250l")({
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Betoneira 250L", item: "https://betoneiraosasco.com.br/betoneira-250l" },
+              { "@type": "ListItem", position: 2, name: "Betoneira 250L", item: "https://betoneiraosasco.com.br/betoneira-250l/" },
             ],
           },
           "mainEntity": {
             "@type": "Service",
-            "@id": "https://betoneiraosasco.com.br/betoneira-250l#service",
+            "@id": "https://betoneiraosasco.com.br/betoneira-250l/#service",
             "name": "Aluguel de Betoneira 250L em Osasco",
             "serviceType": "Construction Equipment Rental",
             "description": "Locação da betoneira mais alugada em Osasco: 250 litros, elétrica monofásica 220V, motor 1-2 cv. Ideal para laje, contrapiso e concretagem residencial.",
             "provider": { "@id": "https://betoneiraosasco.com.br/#business" },
             "areaServed": { "@type": "City", name: "Osasco" },
-            "url": "https://betoneiraosasco.com.br/betoneira-250l",
+            "url": "https://betoneiraosasco.com.br/betoneira-250l/",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "itemListElement": [{ "@type": "Offer", itemOffered: { "@type": "Product", name: "Betoneira 250L Elétrica Monofásica", description: "A betoneira mais alugada em Osasco. 250 litros, elétrica 220V monofásica, motor 2 cv.", aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "128" } } }],

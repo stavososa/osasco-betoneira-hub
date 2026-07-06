@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CTAFinal } from "@/components/CTAFinal";
@@ -12,17 +12,17 @@ export const Route = createFileRoute("/locacao-caminhao-betoneira")({
     meta: [
       { title: "Locação de Caminhão Betoneira em Osasco | Betoneiras Osasco" },
       { name: "description", content: "Locação de caminhão betoneira (mixer truck) em Osasco SP para obras de grande porte. Concretagem pesada de 8m³ com operador incluso. Orçamento no WhatsApp." },
-      { property: "og:url", content: "https://betoneiraosasco.com.br/locacao-caminhao-betoneira" },
+      { property: "og:url", content: "https://betoneiraosasco.com.br/locacao-caminhao-betoneira/" },
     ],
-    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/locacao-caminhao-betoneira" }],
+    links: [{ rel: "canonical", href: "https://betoneiraosasco.com.br/locacao-caminhao-betoneira/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": "https://betoneiraosasco.com.br/locacao-caminhao-betoneira#webpage",
-          "url": "https://betoneiraosasco.com.br/locacao-caminhao-betoneira",
+          "@id": "https://betoneiraosasco.com.br/locacao-caminhao-betoneira/#webpage",
+          "url": "https://betoneiraosasco.com.br/locacao-caminhao-betoneira/",
           "name": "Locação de Caminhão Betoneira em Osasco | Betoneiras Osasco",
           "isPartOf": {
             "@type": "WebSite",
@@ -34,12 +34,12 @@ export const Route = createFileRoute("/locacao-caminhao-betoneira")({
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Locação de Caminhão Betoneira", item: "https://betoneiraosasco.com.br/locacao-caminhao-betoneira" },
+              { "@type": "ListItem", position: 2, name: "Locação de Caminhão Betoneira", item: "https://betoneiraosasco.com.br/locacao-caminhao-betoneira/" },
             ],
           },
           "mainEntity": {
             "@type": "Service",
-            "@id": "https://betoneiraosasco.com.br/locacao-caminhao-betoneira#service",
+            "@id": "https://betoneiraosasco.com.br/locacao-caminhao-betoneira/#service",
             "name": "Locação de Caminhão Betoneira (Mixer Truck) em Osasco",
             "serviceType": "Concrete Mixer Truck Rental",
             "description": "Locação de caminhão betoneira para concretagem pesada em Osasco e Grande São Paulo. Capacidade 8m³, operador incluso.",
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/locacao-caminhao-betoneira")({
             "areaServed": [
               { "@type": "City", name: "Osasco" },
             ],
-            "url": "https://betoneiraosasco.com.br/locacao-caminhao-betoneira",
+            "url": "https://betoneiraosasco.com.br/locacao-caminhao-betoneira/",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "itemListElement": [{ "@type": "Offer", itemOffered: { "@type": "Product", name: "Caminhão Betoneira", description: "Locação de caminhão betoneira 8m³ com operador.", aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "31" } } }],

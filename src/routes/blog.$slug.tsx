@@ -24,7 +24,7 @@ export const Route = createFileRoute("/blog/$slug")({
     if (params.slug === "melhores-marcas-de-betoneira") {
       const title = "Quais as melhores marcas de betoneiras?";
       const desc = "Descubra quais são as melhores marcas de betoneira do mercado brasileiro em 2026. Compare Menegotti, CSM, Maqtron e Possamai. Saiba qual escolher!";
-      const url = `https://betoneiraosasco.com.br/blog/${params.slug}`;
+      const url = `https://betoneiraosasco.com.br/blog/${params.slug}/`;
       const image = "https://betoneiraosasco.com.br/assets/quais-as-melhores-marcas-de-betoneiras.webp";
       const publishDate = "2026-05-19T08:00:00Z";
       const updateDate = "2026-05-19T08:00:00Z";
@@ -61,7 +61,7 @@ export const Route = createFileRoute("/blog/$slug")({
                 "@type": "BreadcrumbList",
                 "itemListElement": [
                   { "@type": "ListItem", position: 1, name: "Início", item: "https://betoneiraosasco.com.br/" },
-                  { "@type": "ListItem", position: 2, name: "Blog", item: "https://betoneiraosasco.com.br/blog" },
+                  { "@type": "ListItem", position: 2, name: "Blog", item: "https://betoneiraosasco.com.br/blog/" },
                   { "@type": "ListItem", position: 3, name: "Melhores Marcas de Betoneira", item: url },
                 ],
               },
@@ -78,7 +78,7 @@ export const Route = createFileRoute("/blog/$slug")({
                   "name": "Beto Vieira",
                   "jobTitle": "Especialista em Equipamentos de Obra e Concretagem",
                   "image": "https://betoneiraosasco.com.br/assets/beto-vieira.webp",
-                  "url": "https://betoneiraosasco.com.br/blog/melhores-marcas-de-betoneira#autor"
+                  "url": "https://betoneiraosasco.com.br/blog/melhores-marcas-de-betoneira/#autor"
                 },
                 "publisher": {
                   "@id": "https://betoneiraosasco.com.br/#business",
